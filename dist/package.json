@@ -1,0 +1,11 @@
+{
+  "name": "fast-dataview-ui",
+  "version": "1.0.15",
+  "description": "",
+  "main": "fast-dataview-ui.umd.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "module": "fast-dataview-ui.mjs"
+}

@@ -1,0 +1,4 @@
+package:
+  - 'play' # 存放组件测试的代码
+  - 'docs' # 存放组件文档
+  - 'packages/**' # packages 目录下都是组件包

@@ -1,0 +1,11 @@
+{
+  "name": "@fast-dataview-ui/components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
