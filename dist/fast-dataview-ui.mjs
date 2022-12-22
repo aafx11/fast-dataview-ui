@@ -1,50 +1,78 @@
-import { defineComponent as n, computed as s, createVNode as c, renderSlot as l } from "vue";
-const i = {
+import { defineComponent as s, computed as c, createVNode as l, renderSlot as r, onMounted as i } from "vue";
+const a = {
   size: {
     type: Number
   },
   color: {
     type: String
   }
-}, o = /* @__PURE__ */ n({
+}, t = /* @__PURE__ */ s({
   name: "FIcon",
-  props: i,
-  setup(e, {
-    slots: t
+  props: a,
+  setup(o, {
+    slots: e
   }) {
-    return s(() => !e.size && !e.color ? {} : {
-      ...e.size ? {
-        "font-size": e.size + "px"
+    return c(() => !o.size && !o.color ? {} : {
+      ...o.size ? {
+        "font-size": o.size + "px"
       } : {},
-      ...e.color ? {
-        color: e.color
+      ...o.color ? {
+        color: o.color
       } : {}
-    }), () => c("div", {
+    }), () => l("div", {
+      class: "f-icon",
       style: {
         border: "1px solid black"
       }
-    }, [l(t, "default")]);
+    }, [r(e, "default")]);
   }
 });
-o.install = function(e) {
-  e.component(o.name, o);
+t.install = function(o) {
+  o.component(t.name, t);
 };
-const r = {
+const u = {
   title: "Icon 图标",
   category: "装饰",
   status: "20%",
-  install(e) {
-    e.use(o);
+  install(o) {
+    o.use(t);
   }
-}, a = [
-  r
-], d = {
+}, n = /* @__PURE__ */ s({
+  name: "FBorderBox1",
+  setup(o, {
+    slots: e
+  }) {
+    return i(() => {
+      console.log("onMounted");
+    }), () => l("div", {
+      class: "f-border",
+      style: {
+        height: "100px"
+      }
+    }, [r(e, "default")]);
+  }
+});
+n.install = function(o) {
+  o.component(n.name, n);
+};
+const d = {
+  title: "border 边框",
+  category: "边框",
+  status: "20%",
+  install(o) {
+    o.use(n);
+  }
+}, f = [
+  u,
+  d
+], p = {
   version: "1.0.12",
-  install(e) {
-    a.forEach((t) => e.use(t));
+  install(o) {
+    f.forEach((e) => o.use(e));
   }
 };
 export {
-  o as Icon,
-  d as default
+  n as BorderBox1,
+  t as Icon,
+  p as default
 };

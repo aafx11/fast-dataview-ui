@@ -3,9 +3,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "gulp -f build/gulpfile.ts",
-    "build:components":"node ./build/build.js",
-    "build:lib":"pnpm build:components"
+    "clean": "rimraf dist",
+    "build": "pnpm build:lib && pnpm build:css",
+    "build:components": "node ./build/build.js",
+    "build:lib": "pnpm build:components",
+    "build:css": "node ./build/cssBuild.js && node ./build/themeBuild.js"
   },
   "keywords": [],
   "author": "",

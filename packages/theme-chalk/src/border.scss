@@ -1,0 +1,5 @@
+@use '../mixins/mixins.scss' as *;
+
+.#{$namespace}-border{
+  border: 1px solid gold;
+}

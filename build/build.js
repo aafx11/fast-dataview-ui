@@ -65,6 +65,7 @@ const baseConfig = defineConfig({
 const rollupOptions = {
   external: ["vue", "vue-router"],
   output: {
+    extend: true,
     globals: {
       vue: "Vue",
     },
@@ -82,7 +83,7 @@ const buildAll = async () => {
           entry: path.resolve(entryDir, "index.ts"),
           name: "fast-dataview-ui",
           fileName: "fast-dataview-ui",
-          formats: ["es", "umd"],
+          formats: ["es", "umd", "iife"],
         },
         outDir: outputDir,
       },
@@ -104,6 +105,7 @@ const buildLib = async () => {
 
   // 循环一个一个组件构建
   for (const name of components) {
+    console.log('name', name);
     // 构建单组件
     await buildSingle(name);
 

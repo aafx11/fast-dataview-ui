@@ -1,12 +1,14 @@
 import type { App } from 'vue';
 import IconInstall, { Icon } from './icon';
-
+import BorderBox1Install, { BorderBox1 } from "./borderBox1";
 const installs = [
-  IconInstall
+  IconInstall,
+  BorderBox1Install
 ]
 
 export {
-  Icon
+  Icon,
+  BorderBox1
 }
 
 // 实现一个vue3插件，需要实现一个install方法

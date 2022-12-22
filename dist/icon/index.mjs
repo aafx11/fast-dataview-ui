@@ -1,5 +1,5 @@
-import { defineComponent as n, computed as c, createVNode as r, renderSlot as i } from "vue";
-const l = {
+import { defineComponent as n, computed as c, createVNode as i, renderSlot as r } from "vue";
+const s = {
   size: {
     type: Number
   },
@@ -8,7 +8,7 @@ const l = {
   }
 }, o = /* @__PURE__ */ n({
   name: "FIcon",
-  props: l,
+  props: s,
   setup(e, {
     slots: t
   }) {
@@ -19,11 +19,12 @@ const l = {
       ...e.color ? {
         color: e.color
       } : {}
-    }), () => r("div", {
+    }), () => i("div", {
+      class: "f-icon",
       style: {
         border: "1px solid black"
       }
-    }, [i(t, "default")]);
+    }, [r(t, "default")]);
   }
 });
 o.install = function(e) {

@@ -23,7 +23,7 @@ export default defineComponent({
       }
     })
     return () => (
-      <div style={{ border: '1px solid black' }}>
+      <div class={'f-icon'} style={{ border: '1px solid black' }}>
         {renderSlot(slots, 'default')}
       </div>
     )

@@ -1,2 +1,6 @@
-@use './mixins/mixins.scss' as *
+@use '../mixins/mixins.scss' as *;
 
+.#{$namespace}-icon{
+  text-align: center;
+  color:blueviolet;
+}
