@@ -3,6 +3,7 @@
 ```vue
 <template>
   <FBorderBox1></FBorderBox1>
+  <div>123</div>
 </template>
 ```
 
