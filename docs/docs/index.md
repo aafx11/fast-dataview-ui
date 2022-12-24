@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Fighting Design
+title: fast-dataview-ui
 ---
 
 <vp-home />

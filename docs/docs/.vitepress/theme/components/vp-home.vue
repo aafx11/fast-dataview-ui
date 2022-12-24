@@ -6,7 +6,7 @@
         <f-avatar
           class="vp-home__logo"
           src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-          alt="Fighting Design logo"
+          alt="fast-dataview-ui logo"
           :draggable="false"
           :size="500"
         />
@@ -22,19 +22,19 @@
           class="vp-home__logo"
           draggable="false"
           src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
-          alt="Fighting Design logo"
+          alt="logo"
           :size="120"
         />
 
         <!-- 标题 -->
         <h1 class="vp-home__title">
-          Fighting Design
+          fast-dataview-ui
 
           <!-- start 标签 -->
           <f-link href="https://github.com/FightingDesign/fighting-design" target="_blank">
             <f-image
               src="https://img.shields.io/github/stars/FightingDesign/fighting-design?style=social"
-              alt="Fighting Design"
+              alt="logo"
             />
           </f-link>
         </h1>
@@ -44,7 +44,7 @@
 
         <!-- 介绍 -->
         <p class="vp-home__introduce">
-          <strong>🌈 Fighting Design</strong>
+          <strong>🌈 fast-dataview-ui</strong>
           是一款灵活、优质的组件库，为开发者准备。希望开发者可以借用其中的设计，在不久的将来，孕育出更高阶的组件库。
         </p>
 
