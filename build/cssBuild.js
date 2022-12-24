@@ -29,23 +29,23 @@ const singleCssBuild = async () => {
   await build(defineConfig(singleCssBuildConfig))
 }
 
-// // 全部css文件打包
-// const allCssBuildConfig = {
-//   build: {
-//     outDir: path.resolve(__dirname, "../dist/theme"),
-//     emptyOutDir: false,
-//     rollupOptions: {
-//       input: path.resolve(__dirname, '../packages/theme-chalk/index.scss'),
-//       output: {
-//         assetFileNames: '[name].[ext]' // 取消文件名 hash 值 https://rollupjs.org/guide/en/#outputassetfilenames
-//       }
-//     }
-//   }
-// }
-// const allCssBuild = async () => {
-//   console.log('allCssBuild', allCssBuildConfig);
-//   await build(defineConfig(allCssBuildConfig))
-// }
+// 全部css文件打包
+const allCssBuildConfig = {
+  build: {
+    outDir: path.resolve(__dirname, "../dist/theme"),
+    emptyOutDir: false,
+    rollupOptions: {
+      input: path.resolve(__dirname, '../packages/theme-chalk/index.scss'),
+      output: {
+        assetFileNames: '[name].[ext]' // 取消文件名 hash 值 https://rollupjs.org/guide/en/#outputassetfilenames
+      }
+    }
+  }
+}
+const allCssBuild = async () => {
+  console.log('allCssBuild', allCssBuildConfig);
+  await build(defineConfig(allCssBuildConfig))
+}
 
-// allCssBuild()
+allCssBuild()
 singleCssBuild() 

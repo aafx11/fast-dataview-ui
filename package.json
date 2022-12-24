@@ -2,12 +2,14 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm -C play dev",
+    "dev:play": "pnpm -C play dev",
+    "dev:docs": "pnpm -C docs docs:dev",
     "clean": "rimraf dist",
     "build": "pnpm build:lib && pnpm build:css",
     "build:components": "node ./build/build.js",
     "build:lib": "pnpm build:components",
-    "build:css": "node ./build/cssBuild.js && node ./build/themeBuild.js"
+    "build:css": "node ./build/cssBuild.js",
+    "build:docs":"pnpm -C docs docs:build"
   },
   "keywords": [],
   "author": "",
