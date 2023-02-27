@@ -3,6 +3,7 @@ const fs = require("fs");
 const { defineConfig, build } = require("vite");
 const vue = require("@vitejs/plugin-vue");
 const vueJsx = require("@vitejs/plugin-vue-jsx");
+const libCss = require("vite-plugin-libcss")
 const fsExtra = require("fs-extra");
 
 const entryDir = path.resolve(__dirname, "../packages/components");
@@ -59,7 +60,7 @@ const createMainPackageJson = () => {
 const baseConfig = defineConfig({
   configFile: false,
   publicDir: false,
-  plugins: [vue(), vueJsx()],
+  plugins: [vue(), vueJsx(), libCss()],
 });
 
 const rollupOptions = {

@@ -9,7 +9,7 @@
     "build:components": "node ./build/build.js",
     "build:lib": "pnpm build:components",
     "build:css": "node ./build/cssBuild.js",
-    "build:docs":"pnpm -C docs docs:build"
+    "build:docs": "pnpm -C docs docs:build"
   },
   "keywords": [],
   "author": "",
@@ -30,11 +30,14 @@
     "sass": "^1.57.1",
     "sucrase": "^3.29.0",
     "typescript": "^4.9.4",
+    "vite-plugin-libcss": "^1.0.5",
     "vue": "^3.2.36"
   },
   "dependencies": {
     "@fast-dataview-ui/components": "workspace:^1.0.0",
+    "@fast-dataview-ui/hooks": "workspace:^1.0.0",
     "@fast-dataview-ui/theme-chalk": "workspace:^1.0.0",
-    "@fast-dataview-ui/utils": "workspace:^1.0.0"
+    "@fast-dataview-ui/utils": "workspace:^1.0.0",
+    "@vueuse/core": "^9.12.0"
   }
 }

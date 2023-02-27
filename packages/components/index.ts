@@ -1,14 +1,20 @@
 import type { App } from 'vue';
 import IconInstall, { Icon } from './icon';
 import BorderBox1Install, { BorderBox1 } from "./borderBox1";
+import ScreenContainerInstall, { ScreenContainer } from './screenContainer';
+import DynamicParticleInstall, { DynamicParticle } from './dynamicParticle';
 const installs = [
   IconInstall,
-  BorderBox1Install
+  BorderBox1Install,
+  ScreenContainerInstall,
+  DynamicParticleInstall
 ]
 
 export {
   Icon,
-  BorderBox1
+  BorderBox1,
+  ScreenContainer,
+  DynamicParticle
 }
 
 // 实现一个vue3插件，需要实现一个install方法

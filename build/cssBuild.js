@@ -1,16 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const { defineConfig, build } = require("vite");
-
-// import { resolve } from 'path'
-// import { readdirSync } from 'fs'
-// import { defineConfig, build } from 'vite';
 const entryDir = path.resolve(__dirname, "../packages/theme-chalk/src")
 const outDir = path.resolve(__dirname, "../dist/theme")
+
 // 单独css文件打包
 const singleCssBuildConfig = {
   build: {
-    // asserts: 'theme',
     outDir: path.resolve(__dirname, "../dist/theme"),
     rollupOptions: {
       input: fs.readdirSync(entryDir).map((name) => {
@@ -25,7 +21,6 @@ const singleCssBuildConfig = {
   }
 }
 const singleCssBuild = async () => {
-  console.log('singleCssBuild', singleCssBuildConfig);
   await build(defineConfig(singleCssBuildConfig))
 }
 
@@ -43,7 +38,6 @@ const allCssBuildConfig = {
   }
 }
 const allCssBuild = async () => {
-  console.log('allCssBuild', allCssBuildConfig);
   await build(defineConfig(allCssBuildConfig))
 }
 
