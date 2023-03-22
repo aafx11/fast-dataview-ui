@@ -1,0 +1,56 @@
+@use '../mixins/mixins.scss' as *;
+
+.f-scroll-text {
+  width: 100%;
+  height: 100%;
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: white;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .text-content {
+    height: fit-content;
+    width: fit-content;
+
+    @keyframes up-scroll {
+      0% {
+        transform: translateY(var(--text-scroll-height));
+      }
+
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    @keyframes left-scroll {
+      0% {
+        transform: translateX(var(--text-scroll-width));
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &.f-scroll-text--success {
+    background-color: rgba(93, 194, 100, 0.2);
+    border: 1px solid rgb(93, 194, 100);
+  }
+
+  &.f-scroll-text--warning {
+    background-color: rgba(255, 174, 67, 0.2);
+    border: 1px solid rgb(255, 174, 67,);
+  }
+
+  &.f-scroll-text--info {
+    background-color: rgba(84, 169, 255, 0.2);
+    border: 1px solid rgb(84, 169, 255);
+  }
+
+  &.f-scroll-text--danger {
+    background-color: rgba(252, 114, 90, 0.2);
+    border: 1px solid rgb(252, 114, 90);
+  }
+}

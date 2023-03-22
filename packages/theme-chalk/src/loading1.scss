@@ -1,0 +1,198 @@
+@use '../mixins/mixins.scss' as *;
+
+.f-loading-1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 50px;
+
+  .f-circle-outer,
+  .f-circle-middle,
+  .f-circle-inner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .f-back {
+    stroke: var(--back-color);
+  }
+
+  .f-front {
+    stroke: var(--front-color);
+  }
+
+  .f-circle-outer {
+    height: 86px;
+    width: 86px;
+
+    circle {
+      stroke-dasharray: 62.75 188.25; // 虚线长度 虚线间隔 第一个圆的周长大概是240
+    }
+
+    .f-back {
+      animation: circle-outer var(--duration) ease infinite 0.3s;
+    }
+
+    .f-front {
+      animation: circle-outer var(--duration) ease infinite 0.15s;
+    }
+  }
+
+  .f-circle-middle {
+    height: 60px;
+    width: 60px;
+
+    circle {
+      stroke-dasharray: 42.5 127.5;
+    }
+
+    .f-back {
+      animation: circle-middle var(--duration) ease infinite 0.25s;
+    }
+
+    .f-front {
+      animation: circle-middle var(--duration) ease infinite 0.1s;
+    }
+  }
+
+  .f-circle-inner {
+    height: 34px;
+    width: 34px;
+
+    circle {
+      stroke-dasharray: 22 66;
+    }
+
+    .f-back {
+      animation: circle-inner var(--duration) ease infinite 0.2s;
+    }
+
+    .f-front {
+      animation: circle-inner var(--duration) ease infinite 0.05s;
+    }
+  }
+
+  circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-100deg);
+    transform-origin: center;
+  }
+
+  .f-loading-text {
+    position: absolute;
+    bottom: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: lowercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      font-size: 20px;
+    }
+
+    &::before {
+      color: var(--text-color);
+    }
+
+    &::after {
+      color: var(--front-color);
+      animation: text-animation 3.6s ease infinite;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  @keyframes circle-outer {
+    0% {
+      stroke-dashoffset: 25; // 偏移量
+    }
+
+    25% {
+      stroke-dashoffset: 0;
+    }
+
+    65% {
+      stroke-dashoffset: 301;
+    }
+
+    80% {
+      stroke-dashoffset: 276;
+    }
+
+    100% {
+      stroke-dashoffset: 276;
+    }
+  }
+
+  @keyframes circle-middle {
+    0% {
+      stroke-dashoffset: 17;
+    }
+
+    25% {
+      stroke-dashoffset: 0;
+    }
+
+    65% {
+      stroke-dashoffset: 204;
+    }
+
+    80% {
+      stroke-dashoffset: 187;
+    }
+
+    100% {
+      stroke-dashoffset: 187;
+    }
+  }
+
+  @keyframes circle-inner {
+    0% {
+      stroke-dashoffset: 9;
+    }
+
+    25% {
+      stroke-dashoffset: 0;
+    }
+
+    65% {
+      stroke-dashoffset: 106;
+    }
+
+    80% {
+      stroke-dashoffset: 97;
+    }
+
+    100% {
+      stroke-dashoffset: 97;
+    }
+  }
+
+  @keyframes text-animation {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    50% {
+      clip-path: inset(0);
+    }
+
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+}

@@ -1,95 +1,95 @@
 import './style.css';
-import { getCurrentScope as E, onScopeDispose as H, unref as T, watch as A, ref as h, onMounted as S, onUnmounted as z, nextTick as F, defineComponent as N, reactive as Q, provide as I, openBlock as $, createElementBlock as B, createElementVNode as k, renderSlot as D } from "vue";
-const L = {
+import { getCurrentScope as E, onScopeDispose as H, unref as T, watch as A, ref as h, onMounted as S, onUnmounted as N, nextTick as z, defineComponent as F, reactive as Q, provide as C, openBlock as $, createElementBlock as k, createElementVNode as B, renderSlot as L, createCommentVNode as D } from "vue";
+const j = {
   width: { type: Number, default: 1920 },
   height: { type: Number, default: 1080 },
   onAfterResize: { type: Function, default: () => {
   } }
 };
-function j(e, i) {
-  const t = new MutationObserver(i);
-  return t.observe(e, {
+function M(e, i) {
+  const t = window.MutationObserver, n = new t(i);
+  return n.observe(e, {
     attributes: !0,
     attributeFilter: ["style"],
     attributeOldValue: !0
-  }), t;
+  }), n;
 }
-var C;
-const P = typeof window < "u", U = (e) => typeof e == "string", w = () => {
+var I;
+const P = typeof window < "u", U = (e) => typeof e == "string", y = () => {
 };
-P && ((C = window == null ? void 0 : window.navigator) != null && C.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function y(e) {
+P && ((I = window == null ? void 0 : window.navigator) != null && I.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+function m(e) {
   return typeof e == "function" ? e() : T(e);
 }
-function X(e, i) {
+function V(e, i) {
   function t(...n) {
-    return new Promise((r, s) => {
-      Promise.resolve(e(() => i.apply(this, n), { fn: i, thisArg: this, args: n })).then(r).catch(s);
+    return new Promise((s, o) => {
+      Promise.resolve(e(() => i.apply(this, n), { fn: i, thisArg: this, args: n })).then(s).catch(o);
     });
   }
   return t;
 }
-function Y(e, i = {}) {
-  let t, n, r = w;
-  const s = (u) => {
-    clearTimeout(u), r(), r = w;
+function X(e, i = {}) {
+  let t, n, s = y;
+  const o = (l) => {
+    clearTimeout(l), s(), s = y;
   };
-  return (u) => {
-    const c = y(e), a = y(i.maxWait);
-    return t && s(t), c <= 0 || a !== void 0 && a <= 0 ? (n && (s(n), n = null), Promise.resolve(u())) : new Promise((o, l) => {
-      r = i.rejectOnCancel ? l : o, a && !n && (n = setTimeout(() => {
-        t && s(t), n = null, o(u());
-      }, a)), t = setTimeout(() => {
-        n && s(n), n = null, o(u());
+  return (l) => {
+    const c = m(e), u = m(i.maxWait);
+    return t && o(t), c <= 0 || u !== void 0 && u <= 0 ? (n && (o(n), n = null), Promise.resolve(l())) : new Promise((r, a) => {
+      s = i.rejectOnCancel ? a : r, u && !n && (n = setTimeout(() => {
+        t && o(t), n = null, r(l());
+      }, u)), t = setTimeout(() => {
+        n && o(n), n = null, r(l());
       }, c);
     });
   };
 }
-function M(e) {
+function Y(e) {
   return e;
 }
-function V(e) {
+function G(e) {
   return E() ? (H(e), !0) : !1;
 }
-function G(e, i = 200, t = {}) {
-  return X(Y(i, t), e);
+function K(e, i = 200, t = {}) {
+  return V(X(i, t), e);
 }
-function K(e) {
+function q(e) {
   var i;
-  const t = y(e);
+  const t = m(e);
   return (i = t == null ? void 0 : t.$el) != null ? i : t;
 }
-const q = P ? window : void 0;
-function J(...e) {
-  let i, t, n, r;
-  if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, r] = e, i = q) : [i, t, n, r] = e, !i)
-    return w;
+const J = P ? window : void 0;
+function Z(...e) {
+  let i, t, n, s;
+  if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, s] = e, i = J) : [i, t, n, s] = e, !i)
+    return y;
   Array.isArray(t) || (t = [t]), Array.isArray(n) || (n = [n]);
-  const s = [], f = () => {
-    s.forEach((o) => o()), s.length = 0;
-  }, u = (o, l, d) => (o.addEventListener(l, d, r), () => o.removeEventListener(l, d, r)), c = A(() => K(i), (o) => {
-    f(), o && s.push(...t.flatMap((l) => n.map((d) => u(o, l, d))));
-  }, { immediate: !0, flush: "post" }), a = () => {
+  const o = [], f = () => {
+    o.forEach((r) => r()), o.length = 0;
+  }, l = (r, a, d) => (r.addEventListener(a, d, s), () => r.removeEventListener(a, d, s)), c = A(() => q(i), (r) => {
+    f(), r && o.push(...t.flatMap((a) => n.map((d) => l(r, a, d))));
+  }, { immediate: !0, flush: "post" }), u = () => {
     c(), f();
   };
-  return V(a), a;
+  return G(u), u;
 }
-const m = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, _ = "__vueuse_ssr_handlers__";
-m[_] = m[_] || {};
-m[_];
+const _ = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, O = "__vueuse_ssr_handlers__";
+_[O] = _[O] || {};
+_[O];
 var R;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
 })(R || (R = {}));
-var Z = Object.defineProperty, W = Object.getOwnPropertySymbols, ee = Object.prototype.hasOwnProperty, te = Object.prototype.propertyIsEnumerable, x = (e, i, t) => i in e ? Z(e, i, { enumerable: !0, configurable: !0, writable: !0, value: t }) : e[i] = t, ne = (e, i) => {
+var ee = Object.defineProperty, W = Object.getOwnPropertySymbols, te = Object.prototype.hasOwnProperty, ne = Object.prototype.propertyIsEnumerable, x = (e, i, t) => i in e ? ee(e, i, { enumerable: !0, configurable: !0, writable: !0, value: t }) : e[i] = t, ie = (e, i) => {
   for (var t in i || (i = {}))
-    ee.call(i, t) && x(e, t, i[t]);
+    te.call(i, t) && x(e, t, i[t]);
   if (W)
     for (var t of W(i))
-      te.call(i, t) && x(e, t, i[t]);
+      ne.call(i, t) && x(e, t, i[t]);
   return e;
 };
-const ie = {
+const re = {
   easeInSine: [0.12, 0, 0.39, 0],
   easeOutSine: [0.61, 1, 0.88, 1],
   easeInOutSine: [0.37, 0, 0.63, 1],
@@ -115,37 +115,37 @@ const ie = {
   easeOutBack: [0.34, 1.56, 0.64, 1],
   easeInOutBack: [0.68, -0.6, 0.32, 1.6]
 };
-ne({
-  linear: M
-}, ie);
-const re = (e, i, t) => {
-  const n = h(0), r = h(0), s = h(0), f = h(0);
-  let u, c = null, a = null;
-  const o = (g = !0) => new Promise((p) => {
-    F(() => {
-      a = e.value, n.value = e.value ? e.value.clientWidth : 0, r.value = e.value ? e.value.clientHeight : 0, s.value = a ? a.getBoundingClientRect().width : 0, f.value = a ? a.getBoundingClientRect().height : 0, e.value ? (!n.value || !r.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof i == "function" && g && i(), p(!0);
+ie({
+  linear: Y
+}, re);
+const se = (e, i, t, n) => {
+  const s = h(0), o = h(0), f = h(0), l = h(0);
+  let c, u = null, r = null;
+  const a = (p = !0) => new Promise((v) => {
+    z(() => {
+      r = e.value, s.value = e.value ? e.value.clientWidth : 0, o.value = e.value ? e.value.clientHeight : 0, f.value = r ? r.getBoundingClientRect().width : 0, l.value = r ? r.getBoundingClientRect().height : 0, e.value ? (!s.value || !o.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof i == "function" && p && i(), v(!0);
     });
-  }), l = () => {
-    c = j(a, u), J(window, "resize", u);
-  }, d = () => {
-    c && (c.disconnect(), c.takeRecords(), c = null);
-  }, v = async () => {
-    await o(!1), u = G(o, 200), l(), typeof t == "function" && t();
+  }), d = () => {
+    u = M(r, c), Z(window, "resize", c);
+  }, g = () => {
+    u && (u.disconnect(), u.takeRecords(), u = null);
+  }, w = async () => {
+    await a(!1), c = K(a, 200), d(), typeof t == "function" && t();
   };
   return S(() => {
-    v();
-  }), z(() => {
-    d();
+    w();
+  }), N(() => {
+    g();
   }), {
-    width: n,
-    height: r,
-    afterWidth: s,
-    afterHeight: f,
-    initWH: o
+    width: s,
+    height: o,
+    afterWidth: f,
+    afterHeight: l,
+    initWH: a
   };
-}, se = { class: "f-screen-container" }, O = /* @__PURE__ */ N({
+}, oe = { class: "f-screen-container" }, b = /* @__PURE__ */ F({
   name: "index",
-  props: L,
+  props: j,
   setup(e) {
     const i = e, t = h(null), n = Q({
       width: 0,
@@ -156,45 +156,45 @@ const re = (e, i, t) => {
       scaleY: 1,
       isReady: !1
     });
-    let r = h(1), s = h(1);
-    I("scaleX", r), I("scaleY", s);
+    let s = h(1), o = h(1);
+    C("scaleX", s), C("scaleY", o);
     const f = () => {
       i.width && i.height ? (n.width = i.width, n.height = i.height) : (n.width = t.value.clientWidth, n.height = t.value.clientHeight);
-      const { width: l, height: d } = window.screen;
-      n.screenWidth = l, n.screenHeight = d;
-    }, u = () => {
+      const { width: a, height: d } = window.screen;
+      n.screenWidth = a, n.screenHeight = d;
+    }, l = () => {
       n.width && n.height ? (t.value.style.width = `${n.width}px`, t.value.style.height = `${n.height}px`) : (t.value.style.width = `${n.screenWidth}px`, t.value.style.height = `${n.screenHeight}px`);
     }, c = () => {
-      const l = document.body.clientWidth, d = document.body.clientHeight, v = n.width || n.screenWidth, g = n.height || n.screenHeight, p = l / +v, b = d / +g;
-      r.value = p, s.value = b, t.value.style.transform = `scale(${p}, ${b})`;
+      const a = document.body.clientWidth, d = document.body.clientHeight, g = n.width || n.screenWidth, w = n.height || n.screenHeight, p = a / +g, v = d / +w;
+      s.value = p, o.value = v, t.value.style.transform = `scale(${p}, ${v})`;
     };
-    return re(t, () => {
-      f(), u(), c();
+    return se(t, () => {
+      c();
     }, () => {
-      u(), c(), i.onAfterResize(), n.isReady = !0;
-    }), (l, d) => ($(), B("div", se, [
-      k("div", {
+      f(), l(), c(), i.onAfterResize(), n.isReady = !0;
+    }), (a, d) => ($(), k("div", oe, [
+      B("div", {
         class: "f-screen-inner",
         ref_key: "screenContainer",
         ref: t
       }, [
-        D(l.$slots, "default")
+        n.isReady ? L(a.$slots, "default", { key: 0 }) : D("", !0)
       ], 512)
     ]));
   }
 });
-O.install = function(e) {
-  e.component("FScreenContainer", O);
+b.install = function(e) {
+  e.component("FScreenContainer", b);
 };
-const ae = {
+const ue = {
   title: "container 容器",
   category: "容器",
   status: "20%",
   install(e) {
-    e.use(O);
+    e.use(b);
   }
 };
 export {
-  O as ScreenContainer,
-  ae as default
+  b as ScreenContainer,
+  ue as default
 };

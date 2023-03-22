@@ -37,6 +37,7 @@
     "@fast-dataview-ui/components": "workspace:^1.0.0",
     "@fast-dataview-ui/hooks": "workspace:^1.0.0",
     "@fast-dataview-ui/theme-chalk": "workspace:^1.0.0",
+    "@fast-dataview-ui/types": "workspace:^1.0.0",
     "@fast-dataview-ui/utils": "workspace:^1.0.0",
     "@vueuse/core": "^9.12.0"
   }

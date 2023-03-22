@@ -2,7 +2,7 @@ import type { Ref } from 'vue';
 import { nextTick, onMounted, onUnmounted, ref } from 'vue';
 import { useDomObserver } from '@fast-dataview-ui/hooks/useObserver';
 import { useDebounceFn, useThrottleFn, useEventListener } from '@vueuse/core';
-const useResizeListener = (dom: Ref<HTMLElement | null>, onResize?: () => void, onAfterResize?: () => void) => {
+const useResizeListener = (dom: Ref<HTMLElement | null>, onResize?: () => void, onAfterResize?: () => void, isShowLog?: Boolean) => {
   const width = ref(0);
   const height = ref(0);
   const afterWidth = ref(0);
@@ -16,11 +16,12 @@ const useResizeListener = (dom: Ref<HTMLElement | null>, onResize?: () => void, 
     return new Promise((resolve) => {
       nextTick(() => {
         domHtml = dom.value;
-        
+
         width.value = dom.value ? dom.value.clientWidth : 0;
         height.value = dom.value ? dom.value.clientHeight : 0;
         afterWidth.value = domHtml ? domHtml!.getBoundingClientRect().width : 0;
         afterHeight.value = domHtml ? domHtml!.getBoundingClientRect().height : 0;
+       
 
         if (!dom.value)
           console.warn('Failed to get dom node');

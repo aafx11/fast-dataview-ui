@@ -1,0 +1,86 @@
+@use '../mixins/mixins.scss' as *;
+
+.f-scroll-table {
+  box-sizing: border-box;
+
+  // 表头
+  .f-scroll-table_header-wrapper {
+    .f-scroll-table_header {
+      table-layout: fixed; // fixed列宽固定，内容可能换行或溢出，auto列宽由内容决定
+      // width: 100%;
+      color: white;
+      border-collapse: separate;
+    }
+  }
+
+  // 表体
+  .f-scroll-table_body-wrapper {
+    .f-scroll-table_body {
+      overflow: hidden;
+
+      .f-scroll-table_body-inner {
+        position: relative;
+        // overflow: hidden;
+        width: 100%;
+        // transition: all 1s;
+
+        .f-scroll-table_row {
+          width: 100%;
+          // transition: all 1s;
+          // color: blue;
+          // clear: both;
+        }
+      }
+    }
+  }
+
+  // 单元格
+  .f-scroll-table_cell {
+    padding: 8px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+    .cell {
+      display: inline-block;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 10px;
+      // white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    // 不换行
+    .cell--nowrap {
+      white-space: nowrap;
+    }
+  }
+
+  // 边框
+  &.f-scroll-table--border {
+    .f-scroll-table_cell {
+      border: 1px solid #ebeef5;
+    }
+
+    :not(.f-scroll-table_cell:last-child) {
+      border-right-width: 0px;
+    }
+  }
+
+  // 斑马纹
+  & .f-scroll-table_row.f-scroll-table_row--striped {
+    background: #f6f8fa;
+  }
+
+  // 隐藏滚动条
+  .is-hidden-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .is-hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

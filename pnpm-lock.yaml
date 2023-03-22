@@ -7,6 +7,7 @@ importers:
       '@fast-dataview-ui/components': workspace:^1.0.0
       '@fast-dataview-ui/hooks': workspace:^1.0.0
       '@fast-dataview-ui/theme-chalk': workspace:^1.0.0
+      '@fast-dataview-ui/types': workspace:^1.0.0
       '@fast-dataview-ui/utils': workspace:^1.0.0
       '@types/gulp': ^4.0.10
       '@types/gulp-autoprefixer': ^0.0.33
@@ -30,6 +31,7 @@ importers:
       '@fast-dataview-ui/components': link:packages/components
       '@fast-dataview-ui/hooks': link:packages/hooks
       '@fast-dataview-ui/theme-chalk': link:packages/theme-chalk
+      '@fast-dataview-ui/types': link:packages/types
       '@fast-dataview-ui/utils': link:packages/utils
       '@vueuse/core': 9.12.0_vue@3.2.36
     devDependencies:
