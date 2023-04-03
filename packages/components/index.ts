@@ -9,6 +9,7 @@ import DynamicParticleInstall, { DynamicParticle } from './dynamicParticle';
 import ScrollTableInstall, { ScrollTable } from './scrollTable';
 import ScrollTextInstall, { ScrollText } from './scrollText';
 import ProgressInstall, { Progress } from './progress';
+import ScrollTable2Install, { ScrollTable2 } from './scrollTable2';
 
 const installs = [
   IconInstall,
@@ -19,6 +20,7 @@ const installs = [
   ScreenContainerInstall,
   DynamicParticleInstall,
   ScrollTableInstall,
+  ScrollTable2Install,
   ScrollTextInstall,
   ProgressInstall
 ];
@@ -32,6 +34,7 @@ export {
   ScreenContainer,
   DynamicParticle,
   ScrollTable,
+  ScrollTable2,
   ScrollText,
   Progress
 };

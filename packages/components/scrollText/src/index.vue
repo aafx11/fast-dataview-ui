@@ -1,5 +1,5 @@
 <template>
-  <div ref="scrollText" :class="['f-scroll-text',`f-scroll-text--${props.type}`]">
+  <div ref="scrollText" :class="['f-scroll-text', `f-scroll-text--${props.type}`]">
     <div ref="textContent" class="text-content" :style="getTextContentStyle">
       <slot></slot>
     </div>
@@ -10,13 +10,15 @@ import type { StyleValue } from 'vue';
 import { ref, reactive, computed, getCurrentInstance } from 'vue';
 
 const props = withDefaults(defineProps<{
-  type:'default' | 'success' | 'warning'| 'info' | 'danger';
-  direction: string;
+  type: 'default' | 'success' | 'warning' | 'info' | 'danger';
+  direction: 'up' | 'down' | 'left' | 'right';
   speed: number;
+  mode: 'infinite' | 'overflow';
 }>(), {
-  type:'default',
+  type: 'default',
   direction: 'up',
-  speed: 60
+  speed: 60,
+  mode: 'infinite'
 });
 
 const scrollText = ref();
@@ -28,6 +30,25 @@ const getTextContentStyle = computed((): StyleValue => {
 
   let contentWidth = textContent.value?.offsetWidth || 0;
   let contentHeight = textContent.value?.offsetHeight || 0;
+
+  if (props.mode === 'overflow') {
+    if (
+      (
+        ['up', 'down'].includes(props.direction)
+        && contentHeight < height
+      ) || (
+        ['left', 'right'].includes(props.direction)
+        && contentWidth < width
+      )
+    ) {
+
+      return {
+        '--text-scroll-width': `${width}px`,
+        '--text-scroll-height': `${height}px`,
+        animation: ''
+      };
+    }
+  }
 
   let scrollLength, time, animation; // 滚动长度，滚动时间
 

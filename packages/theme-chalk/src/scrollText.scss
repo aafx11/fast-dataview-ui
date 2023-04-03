@@ -12,6 +12,7 @@
   .text-content {
     height: fit-content;
     width: fit-content;
+    white-space: nowrap;
 
     @keyframes up-scroll {
       0% {
