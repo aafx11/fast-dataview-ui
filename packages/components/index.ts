@@ -9,7 +9,9 @@ import DynamicParticleInstall, { DynamicParticle } from './dynamicParticle';
 import ScrollTableInstall, { ScrollTable } from './scrollTable';
 import ScrollTextInstall, { ScrollText } from './scrollText';
 import ProgressInstall, { Progress } from './progress';
-import ScrollTable2Install, { ScrollTable2 } from './scrollTable2';
+import DigitalScrollInstall, { DigitalScroll } from './digitalScroll';
+import ScrollRankInstall, { ScrollRank } from './scrollRank';
+
 
 const installs = [
   IconInstall,
@@ -20,9 +22,10 @@ const installs = [
   ScreenContainerInstall,
   DynamicParticleInstall,
   ScrollTableInstall,
-  ScrollTable2Install,
   ScrollTextInstall,
-  ProgressInstall
+  ProgressInstall,
+  DigitalScrollInstall,
+  ScrollRankInstall
 ];
 
 export {
@@ -34,9 +37,10 @@ export {
   ScreenContainer,
   DynamicParticle,
   ScrollTable,
-  ScrollTable2,
   ScrollText,
-  Progress
+  Progress,
+  DigitalScroll,
+  ScrollRank
 };
 
 // 实现一个vue3插件，需要实现一个install方法

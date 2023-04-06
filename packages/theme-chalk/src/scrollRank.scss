@@ -1,0 +1,72 @@
+.f-scroll-rank {
+  color: white;
+
+  .f-scroll-rank__list {
+    width: 400px;
+    height: 100%;
+
+    .f-scroll-rank__item {
+      display: grid;
+      grid-template-rows: 1fr;
+      margin-bottom: 15px;
+      transition: all 500ms;
+
+      .f-scroll-rank__item-wrap {
+        height: 100%;
+        min-height: 0;
+        box-sizing: border-box;
+
+        .f-scroll-rank__item-info {
+          display: flex;
+          box-sizing: border-box;
+
+          .f-scroll-rank__item-rank {
+            width: 20%;
+          }
+
+          .f-scroll-rank__item-name {
+            width: 35%;
+          }
+
+          .f-scroll-rank__item-info-right {
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+            padding-left: 30px;
+            box-sizing: border-box;
+
+            .f-scroll-rank__item-percent {
+          
+            }
+
+            .f-scroll-rank__item-ratio {
+              color: #9ca0a8;
+            }
+
+            .f-scroll-rank__item-format {
+          
+            }
+          }
+        }
+
+        .f-scroll-rank__item-progress {
+          .f-progress {
+            height: 11px;
+            padding: 0px;
+            border-radius: 0px;
+
+            .progress-inner {
+              border-radius: 0px;
+
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}

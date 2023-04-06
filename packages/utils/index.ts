@@ -5,6 +5,22 @@ export const getArray = (val: unknown) => (Array.isArray(val) && val) || [];
 
 export const toZero = (val: number) => val >= 0 ? val : 0;
 
+export const sort = (arr: Array<any>, attr: string, order: 'normal' | 'reverse' = 'reverse') => {
+  return arr.sort(compare(attr, order));
+};
+
+export const compare = (attr: string, order: 'normal' | 'reverse' = 'reverse') => {
+  return function (value1: any, value2: any) {
+    if (value1[attr] < value2[attr]) {
+      return order === 'normal' ? -1 : 1;
+    }
+    if (value1[attr] > value2[attr]) {
+      return order === 'normal' ? 1 : -1;
+    }
+    return 0;
+  };
+}; 
+
 export const deepClone = (obj: any, hash = new WeakMap()) => {
   if (obj === null) return obj; // 如果是null或者undefined我就不进行拷贝操作
   if (obj instanceof Date) return new Date(obj);
@@ -24,3 +40,4 @@ export const deepClone = (obj: any, hash = new WeakMap()) => {
   }
   return cloneObj;
 };
+

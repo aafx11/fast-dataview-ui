@@ -6,10 +6,12 @@
   background-color: var(--bgc);
   border-radius: 9999px;
   box-sizing: border-box;
+  overflow: hidden;
   .progress-inner {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
     height: 100%;
     background-color: var(--progress-color);
     color:var(--progress-text-color);

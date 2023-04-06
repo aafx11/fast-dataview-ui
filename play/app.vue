@@ -1,98 +1,60 @@
 <template>
   <div>
     <fScreenContainer class="screen">
-      <div style="margin: 50px;">
-        <FScrollTable2 ref="scTable" v-bind="tableOption" max-height="500px" mode="page" :togglePage="2" :pageSize="3"
-          name="scrollTable" :cellStyle="cellStyle" :pageAnimateDur="500" @handleToggle="onHandleToggle"
-          @cellClick="onCellClick">
-          <template #index="{ params }">
-            <div>{{ params.row.index }}</div>
-          </template>
-        </FScrollTable2>
-      </div>
-      <button @click="swith">切换</button>
+      <!-- :valueFormatter="valueFormatter" -->
+      <FScrollRank v-bind="state" :data="data" :valueFormatter="valueFormatter"></FScrollRank>
     </fScreenContainer>
   </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
 
+let data = ref([
+  { name: 'As', value: 300 },
+  { name: 'B', value: 50 },
+  { name: 'C', value: 20 },
+  { name: 'D', value: 40 },
+  { name: 'E', value: 100 },
+  { name: 'F', value: 123 },
+  { name: 'A', value: 3300 },
+  { name: 'B', value: 450 },
+  { name: 'C', value: 250 },
+  { name: 'D', value: 420 },
+  { name: 'E', value: 12300 },
+  { name: 'F', value: 0 },
+]);
 
-let scTable = ref();
-
-let data = [
-  { msg: 'Bruce Lee', name: 1, index: '9' },
-  { msg: 'Jackie Chan', name: 2, index: '9' },
-  { msg: 'Chuck Norris', name: 3, index: '9' },
-  { msg: 'Jet Li', name: 4, index: '9' },
-  { msg: 'Kung Fury', name: 5, index: '9' },
-  { msg: 'test', name: 6, index: '9' },
-  { msg: 'test2', name: 7, index: '9' },
-  { msg: 'test3', name: 8, index: '9' },
-  { msg: 'test5', name: 9, index: '9999' },
-  { msg: '7k7k', name: 9789, index: '10' }
-];
-
-let tableOption = reactive({
-  // border:false,
-  toggleDur: 10 * 1000,
-  wrap: false,
-  border: true,
-  stripe: true,
-  align: 'end',
-  data: [
-    // { msg: 'Bruce Lee', name: 1, index: '9' },
-    // { msg: 'Jackie Chan', name: 2, index: '9' },
-    // { msg: 'Chuck Norris', name: 3, index: '9' },
-    // { msg: 'Jet Li', name: 4, index: '9' },
-    // { msg: 'Kung Fury', name: 5, index: '9' },
-    // { msg: 'test', name: 6, index: '9' },
-    // { msg: 'test2', name: 7, index: '9' },
-    // { msg: 'test3', name: 8, index: '9' },
-    // { msg: 'test5', name: 9, index: '9999' }
-  ],
-  columns: [
-    { prop: 'msg', label: '序号', width: 100, align: 'start', type: 'index' },
-    { prop: 'msg', label: '信息', width: 100, align: 'start', type: 'scroll', scrollOption: { type: 'default', speed: 30, direction: 'right', mode: 'overflow' } },
-    { prop: 'name', label: '名称', width: 200, align: 'start' },
-    { prop: 'msg', label: 'index', width: 100 }
-  ]
+let state = reactive({
+  toggleDur: 5 * 1000,
+  togglePage: 5,
+  pageSize: 5,
+  maxValue: 700,
+  order: 'default', // reverse normal default
+  showRank: true,
+  showPercent: true,
+  showRatio: true
 });
-const swith = () => {
-  console.log('表格', scTable.value);
 
-  scTable.value.setPage(2);
-  // tableOption.wrap = !tableOption.wrap;
-  // tableOption.border = !tableOption.border
-  // tableOption.stripe = !tableOption.stripe
-};
+const valueFormatter = ({ name, value, maxValue, index }) => {
+  console.log('value', name, '/', value, '/', maxValue, '/', index);
+  const reverseNumber = (value + '').split('').reverse();
+  let valueStr = '';
 
-const cellStyle = ({ row, column, rowIndex, columnIndex, }) => {
-  // console.log(row, column, rowIndex, columnIndex,);
-  if (row.msg == 'Bruce Lee' || row.msg == 'Jackie Chan') {
-    return {
-      background: 'blue'
-    };
+  while (reverseNumber.length) {
+    const seg = reverseNumber.splice(0, 3).join('');
+    valueStr += seg;
+    if (seg.length === 3 && (value + '').length > 3) valueStr += ',';
   }
-};
-const onCellClick = (a, b, c, d, e) => {
-  console.log(a);
-  console.log(b);
-  console.log(c);
-  console.log(d);
-  console.log(e);
-};
-const onHandleToggle = (name: string) => {
-  console.log('name', name);
 
+
+  return valueStr.split('').reverse().join('') + '单位';
 };
 
-setTimeout(() => {
-  // tableOption.wrap = true
-  // let grid = document.getElementById('grid')
-  // grid!.style.gridTemplateRows = '0fr'
-  tableOption.data = data as any;
-}, 4000);
+if (!![]) {
+  console.log('123123');
+
+}
+
 </script>
 <style lang="scss">
 html,

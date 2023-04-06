@@ -10,7 +10,7 @@ ScrollTable.install = function (app: App): void {
 export { ScrollTable };
 // 单独引入，后续做按需引用
 export default {
-  title: 'scrollTable 滚动表格',
+  title: 'ScrollTable 滚动表格',
   category: '数据展示',
   status: '20%',
   install(app: App): void {

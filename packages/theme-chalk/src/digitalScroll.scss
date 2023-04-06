@@ -1,0 +1,88 @@
+// .f-digital-scroll {
+//   position: relative;
+//   display: inline-block;
+//   width: 54px;
+//   height: 82px;
+//   font-size: 62px;
+//   line-height: 82px;
+//   text-align: center;
+
+//   .f-digital-scroll__list {
+//     float: left;
+//     .number-item {
+//       width: 50px;
+
+//       &>span {
+//         position: relative;
+//         display: inline-block;
+//         margin-right: 10px;
+//         width: 100%;
+//         height: 100%;
+//         writing-mode: vertical-rl;
+//         text-orientation: upright;
+//         overflow: hidden;
+
+//         &>i {
+//           position: absolute;
+//           top: 0;
+//           left: 50%;
+//           transform: translate(-50%, 0);
+//           transition: transform 0.5s ease-in-out;
+//           letter-spacing: 10px;
+//         }
+//       }
+//     }
+//   }
+
+// }
+.f-digital-scroll {
+  .f-digital-scroll__list {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .f-digital-scroll__item {
+      position: relative;
+      width: 15px;
+      height: 30px;
+      color: #4088ff;
+      font-size: 30px;
+      font-weight: 700;
+      overflow: hidden;
+      box-sizing: border-box;
+
+      &.is-small {
+        width: 9px;
+      }
+
+      .f-digital-scroll__digital-list {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        transition: all 0.5s ease-in-out;
+
+        .f-digital-scroll__digital-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: inherit;
+          min-height: inherit;
+          box-sizing: border-box;
+        }
+      }
+
+      .f-digital-scroll__point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
