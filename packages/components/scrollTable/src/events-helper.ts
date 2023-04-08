@@ -6,7 +6,7 @@ function useEvents(table: ComponentInternalInstance) {
     table.emit('handle-toggle', name);
   };
 
-  const handleCellClick = (event: Event, row: any, column: any, rowIndex: number, columnIndex: number) => {
+  const handleCellClick = (event: MouseEvent, row: any, column: any, rowIndex: number, columnIndex: number) => {
     table.emit('cell-click', row, column, rowIndex, columnIndex, event);
   };
   return {

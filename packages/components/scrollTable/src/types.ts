@@ -27,8 +27,8 @@ export type State = {
   intervalId: ReturnType<typeof setInterval> | null;
   setTimeoutId: ReturnType<typeof setTimeout> | null;
   toggleCount: number;
-  isStopToggle: Boolean;
-  isEmpty: Boolean;
+  isStopToggle: boolean;
+  isEmpty: boolean;
 };
 
 

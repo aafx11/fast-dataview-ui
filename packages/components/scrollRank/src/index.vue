@@ -28,7 +28,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
+<script lang="ts" setup name="FScrollRank">
 import type { PropType } from 'vue';
 import { getArray, deepClone, sort } from '@fast-dataview-ui/utils/index';
 import { ref, reactive, computed, getCurrentInstance, onMounted, watch } from 'vue';

@@ -1,5 +1,4 @@
 import type { App } from 'vue';
-import IconInstall, { Icon } from './icon';
 import BorderBox1Install, { BorderBox1 } from "./borderBox1";
 import BorderBox2Install, { BorderBox2 } from "./borderBox2";
 import Loading1Install, { Loading1 } from "./loading1";
@@ -11,10 +10,10 @@ import ScrollTextInstall, { ScrollText } from './scrollText';
 import ProgressInstall, { Progress } from './progress';
 import DigitalScrollInstall, { DigitalScroll } from './digitalScroll';
 import ScrollRankInstall, { ScrollRank } from './scrollRank';
+import FlightChartInstall, { FlightChart } from './flightChart';
 
 
 const installs = [
-  IconInstall,
   BorderBox1Install,
   BorderBox2Install,
   Loading1Install,
@@ -25,11 +24,11 @@ const installs = [
   ScrollTextInstall,
   ProgressInstall,
   DigitalScrollInstall,
-  ScrollRankInstall
+  ScrollRankInstall,
+  FlightChartInstall
 ];
 
 export {
-  Icon,
   BorderBox1,
   BorderBox2,
   Loading1,
@@ -40,7 +39,8 @@ export {
   ScrollText,
   Progress,
   DigitalScroll,
-  ScrollRank
+  ScrollRank,
+  FlightChart
 };
 
 // 实现一个vue3插件，需要实现一个install方法

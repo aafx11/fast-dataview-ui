@@ -3,8 +3,9 @@ const fs = require("fs");
 const { defineConfig, build } = require("vite");
 const vue = require("@vitejs/plugin-vue");
 const vueJsx = require("@vitejs/plugin-vue-jsx");
-const libCss = require("vite-plugin-libcss")
+const libCss = require("vite-plugin-libcss");
 const fsExtra = require("fs-extra");
+const setupName = require('./utils/setupName.js');
 
 const entryDir = path.resolve(__dirname, "../packages/components");
 const outputDir = path.resolve(__dirname, "../dist");
@@ -45,21 +46,22 @@ const createPackageJson = (name) => {
 
 // 生成全量包的package.json
 const createMainPackageJson = () => {
-  const packageJson = require('../packages/components/package.json')
-  packageJson.name = 'fast-dataview-ui'
-  packageJson.main = 'fast-dataview-ui.umd.js'
-  packageJson.module = 'fast-dataview-ui.mjs'
-  packageJson.license = 'MIT'
+  const packageJson = require('../packages/components/package.json');
+  packageJson.name = 'fast-dataview-ui';
+  packageJson.main = 'fast-dataview-ui.umd.js';
+  packageJson.module = 'fast-dataview-ui.mjs';
+  packageJson.license = 'MIT';
   fsExtra.outputFile(
     path.resolve(outputDir, `package.json`),
     JSON.stringify(packageJson, null, 2)
-  )
-}
+  );
+};
 
 // 打包配置
 const baseConfig = defineConfig({
   configFile: false,
   publicDir: false,
+  // setupName(),
   plugins: [vue(), vueJsx(), libCss()],
 });
 
@@ -95,7 +97,7 @@ const buildAll = async () => {
 const buildLib = async () => {
   // 全量打包
   await buildAll();
-  createMainPackageJson()
+  createMainPackageJson();
   // 打包单个组件
   // 获取组件名称组成的数组
   const components = fs.readdirSync(entryDir).filter((name) => {
