@@ -19,7 +19,7 @@ export const compare = (attr: string, order: 'normal' | 'reverse' = 'reverse') =
     }
     return 0;
   };
-}; 
+};
 
 export const deepClone = (obj: any, hash = new WeakMap()) => {
   if (obj === null) return obj; // 如果是null或者undefined我就不进行拷贝操作
@@ -40,4 +40,19 @@ export const deepClone = (obj: any, hash = new WeakMap()) => {
   }
   return cloneObj;
 };
+// 获取两点之间的距离
+export const getPointsDistance = (pointOne: number[], pointTwo: number[]) => {
+  const minusX = Math.abs(pointOne[0] - pointTwo[0])
 
+  const minusY = Math.abs(pointOne[1] - pointTwo[1])
+
+  return Math.sqrt(minusX * minusX + minusY * minusY)
+}
+
+export function randomExtend(minNum: number, maxNum?: number) {
+  if (arguments.length === 1)
+    return parseInt((Math.random() * minNum + 1).toString(), 10)
+
+  else
+    return parseInt((Math.random() * (maxNum! - minNum + 1) + minNum).toString(), 10)
+}

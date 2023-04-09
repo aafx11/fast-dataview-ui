@@ -7,9 +7,9 @@ export type Point = {
   icon: Icon;
 };
 
-export type path = {
+export type Path = {
   source: string | number,
-  route: number[],
+  route: number[][],
   target: string | number,
   line: Line;
 };
@@ -21,7 +21,9 @@ export type Line = {
   color: string,
   orbitColor: string,
   duration: number,
-  radius: number;
+  radius: number,
+  k: number;
+  curvature: number
 };
 
 export type Halo = {
