@@ -8,14 +8,35 @@
               stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd">
               <animateMotion :path="path" dur="3s" rotate="auto" repeatCount="indefinite" />
             </path>
-            <path d="M 0 -5 L 10 0 L 0 5 L 3 0 z" transform="translate(0,0)" fill="red" stroke="black" stroke-width="0"
-              stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd"
-              style="transform: translate(-50px,0);"
-              >
+            <!-- :path="`M${path.x1},${path.y1} Q${path.x2},${path.y2} ${path.x3},${path.y3}`" -->
+            <path d="M 0 -5 L 10 0 L 0 5 L 3 0 z" transform="translate(-10,0)" fill="red" stroke="black" stroke-width="0"
+              stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd">
               <animateMotion :path="path" dur="3s" rotate="auto" repeatCount="indefinite" />
+              <!-- <animateMotion :path="path" dur="3s" rotate="auto" repeatCount="indefinite" /> -->
+            </path>
+            <!-- style="transform: translate(-20px,0);" -->
+            <path d="M 0 -5 L 10 0 L 0 5 L 3 0 z" transform="translate(-20,0)" fill="red" stroke="black" stroke-width="0"
+              stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd">
+              <animateMotion :path="path" dur="3s" rotate="auto" repeatCount="indefinite" />
+              <!-- <animateMotion :path="path" dur="3s" rotate="auto" repeatCount="indefinite" /> -->
             </path>
           </template>
         </FFlightChart>
+        <svg width="200" height="200">
+          <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="green" />
+            <stop offset="100%" stop-color="red" />
+          </linearGradient>
+          <polyline points="0,10 100,10 100,80 190,80 190,200" style="
+                  fill: white;
+                  stroke-dasharray: 0, 20;
+                  stroke: url(#linear);
+                  stroke-linecap: square;
+                  stroke-width: 10;
+                " />
+
+
+        </svg>
       </div>
     </fScreenContainer>
   </div>
@@ -109,5 +130,15 @@ body {
   // background-color: #e8e8e8;
   // background-color: #212121;
   // background-color: gray;
+}
+
+polyline {
+  animation: dash 5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -200000;
+  }
 }
 </style>

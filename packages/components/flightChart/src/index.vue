@@ -45,29 +45,31 @@
 
         <template v-for="(path, index) in state.paths">
           <g v-for="(route, k) in path.routeList">
-              <defs>
-                <path :id="route.key" :ref="route.key" :d="getD(route.path)" fill="transparent"
-                  style="overflow: hidden;" />
-                <mask :id="`mask${route.key}`">
-                  <circle cx="0" cy="0" :r="path.line.radius" fill="url(#lineGradient)">
-                    <animateMotion :dur="`${path.line.duration}ms`" :path="getD(route.path)" rotate="auto"
-                      repeatCount="indefinite" />
-                  </circle>
-                </mask>
-              </defs>
+            <defs>
+              <path :id="route.key" :ref="route.key" :d="getD(route.path)" fill="transparent" style="overflow: hidden;" />
+              <mask :id="`mask${route.key}`">
+                <circle cx="0" cy="0" :r="path.line.radius" fill="url(#lineGradient)">
+                  <animateMotion :dur="`${path.line.duration}ms`" :path="getD(route.path)" rotate="auto"
+                    repeatCount="indefinite" />
+                </circle>
+              </mask>
+            </defs>
 
-              <use v-if="path.line.show" :xlink:href="`#${route.key}`" :stroke-width="path.line.width"
-                :stroke="path.line.orbitColor" />
+            <use v-if="path.line.show" :xlink:href="`#${route.key}`" :stroke-width="path.line.width"
+              :stroke="path.line.orbitColor" />
 
-              <use v-if="path.line.show && !path.line.slot" :xlink:href="`#${route.key}`" :stroke-width="path.line.width"
-                :stroke="path.line.color" :mask="`url(#mask${route.key})`">
-                <animate attributeName="stroke-dasharray" :from="`0, ${getTotalLength(route.key)}`"
-                  :to="`${getTotalLength(route.key)}, 0`" :dur="`${path.line.duration}ms`" repeatCount="indefinite" />
-              </use>
+            <use v-if="path.line.show && !path.line.slot" :xlink:href="`#${route.key}`" :stroke-width="path.line.width"
+              :stroke="path.line.color" :mask="`url(#mask${route.key})`">
+              <animate attributeName="stroke-dasharray" :from="`0, ${getTotalLength(route.key)}`"
+                :to="`${getTotalLength(route.key)}, 0`" :dur="`${path.line.duration}ms`" repeatCount="indefinite" />
+            </use>
 
-              <g v-if="path.line.show && path.line.slot">
-                <slot :name="path.line.slot" :path="getD(route.path)"></slot>
-              </g>
+            <!-- <g v-if="path.line.show && path.line.slot">
+              <slot :name="path.line.slot" :path="getPathArr(route.path)"></slot>
+            </g> -->
+
+            <slot :name="path.line.slot" :path="getPathArr(route.path)"></slot>
+
           </g>
         </template>
       </svg>
@@ -289,6 +291,22 @@ let getD = computed(() => {
     ${paths[2][0] * width.value},${paths[2][1] * height.value}`;
   };
 });
+
+let getPathArr = computed(() => {
+  return function (paths: number[][]) {
+    // return {
+    //   x1: paths[0][0] * width.value,
+    //   y1: paths[0][1] * height.value,
+    //   x2: paths[1][0] * width.value,
+    //   y2: paths[1][1] * height.value,
+    //   x3: paths[2][0] * width.value,
+    //   y3: paths[2][1] * height.value
+    // }
+    return `M${paths[0][0] * width.value},${paths[0][1] * height.value} 
+    Q${paths[1][0] * width.value},${paths[1][1] * height.value} 
+    ${paths[2][0] * width.value},${paths[2][1] * height.value}`;
+  };
+})
 
 let getOffestPath = computed(() => {
   return function (paths: number[][]): string {
