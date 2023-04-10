@@ -11,8 +11,20 @@
       text-anchor: middle;
     }
 
-    .point__icon {
+    .point__icon {}
 
+    .line__inner {
+      animation: followpath 4s linear infinite;
+
+      @keyframes followpath {
+        from {
+          offset-distance: 0%;
+        }
+
+        to {
+          offset-distance: 100%;
+        }
+      }
     }
   }
 }

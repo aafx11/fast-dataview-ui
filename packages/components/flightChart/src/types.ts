@@ -17,6 +17,7 @@ export type Path = {
 export type Line = {
   show: boolean,
   type: 'line' | 'pipe';
+  slot?:string,
   width: number,
   color: string,
   orbitColor: string,
