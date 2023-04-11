@@ -8,9 +8,10 @@ Loading2.install = function (app: App): void {
 export { Loading2 }
 // 单独引入，后续做按需引用
 export default {
-  title: 'loading 加载',
+  title: 'loading-02 加载',
+  name:'loading02',
   category: '加载',
-  status: '20%',
+  status: '100%',
   install(app: App): void {
     app.use(Loading2 as any)
   }

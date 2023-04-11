@@ -7,8 +7,9 @@ ScreenContainer.install = function (app: App): void {
 export { ScreenContainer }
 export default {
   title: 'container 容器',
+  name:'container',
   category: '容器',
-  status: '20%',
+  status: '100%',
   install(app: App): void {
     app.use(ScreenContainer as any)
   }

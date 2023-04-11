@@ -13,7 +13,7 @@ import ScrollRankInstall, { ScrollRank } from './scrollRank';
 import FlightChartInstall, { FlightChart } from './flightChart';
 
 
-const installs = [
+export const installs = [
   BorderBox1Install,
   BorderBox2Install,
   Loading1Install,

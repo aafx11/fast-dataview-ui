@@ -64,12 +64,9 @@
                 :to="`${getTotalLength(route.key)}, 0`" :dur="`${path.line.duration}ms`" repeatCount="indefinite" />
             </use>
 
-            <!-- <g v-if="path.line.show && path.line.slot">
-              <slot :name="path.line.slot" :path="getPathArr(route.path)"></slot>
-            </g> -->
-
-            <slot :name="path.line.slot" :path="getPathArr(route.path)"></slot>
-
+            <g v-if="path.line.show && path.line.slot">
+              <slot :name="path.line.slot" :path="getPathArr(route.path)" :totalLength="getTotalLength(route.key)"></slot>
+            </g>
           </g>
         </template>
       </svg>
@@ -100,9 +97,9 @@ const props = defineProps({
       show: true,
       type: 'line',
       width: 2,
-      color: '#ffde93',
+      color: '#0080ff',
       orbitColor: 'rgba(103, 224, 227, .2)',
-      duration: 700,
+      duration: 2000,
       radius: 100,
       k: -0.5,
       curvature: 5
@@ -149,7 +146,6 @@ const defaultOption = reactive<{
   title: Title;
   icon: Icon;
   line: Line;
-  pipe: Line;
 }>({
   halo: {
     show: true,
@@ -171,7 +167,6 @@ const defaultOption = reactive<{
   },
   line: {
     show: true,
-    type: 'line',
     width: 3,
     color: '#ffde93',
     orbitColor: 'rgba(103, 224, 227, .2)',
@@ -180,17 +175,6 @@ const defaultOption = reactive<{
     k: -0.5,
     curvature: 5
   },
-  pipe: {
-    show: true,
-    type: 'line',
-    width: 3,
-    color: '#ffde93',
-    orbitColor: 'rgba(103, 224, 227, .2)',
-    duration: 700,
-    radius: 100,
-    k: -0.5,
-    curvature: 5
-  }
 });
 type RouteList = {
 
@@ -233,7 +217,7 @@ const getPoints = () => {
       key: `${item.coordinate.toString()}${index}`
     };
   });
-  console.log('points', state.points);
+  // console.log('points', state.points);
 };
 
 const getPaths = () => {
@@ -259,7 +243,7 @@ const getPaths = () => {
       routeList
     };
   });
-  console.log('state.paths', state.paths);
+  // console.log('state.paths', state.paths);
 };
 
 const getRoute = (start: number[], end: number[], k: number, curvature: number): number[][] => {

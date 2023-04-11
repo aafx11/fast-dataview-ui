@@ -30,7 +30,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { $slots, width: fullWidth, height: fullHeight, backgroundColor, strokeWidth: stWidth, realColor, title} = this;
+    const { $slots, width: fullWidth, height: fullHeight, backgroundColor, strokeWidth: stWidth, realColor, title } = this;
 
     const ANGLE = 20;
     let strokeWidth = stWidth || 2;
@@ -81,9 +81,7 @@ export default defineComponent({
           {title ? <text x="30" y="25" font-size="16" font-weight="bold" fill="#279fc7">{title}</text> : null}
         </svg>
         <div class="f-border-box-content">
-          <div>
-            {renderSlot($slots, 'default')}
-          </div>
+          {renderSlot($slots, 'default')}
         </div>
       </div >
     );

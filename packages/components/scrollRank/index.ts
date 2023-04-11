@@ -9,9 +9,10 @@ ScrollRank.install = function (app: App): void {
 export { ScrollRank };
 // 单独引入，后续做按需引用
 export default {
-  title: 'ScrollRank 滚动排名',
-  category: '滚动排名',
-  status: '20%',
+  title: 'scrollRank 轮播排名表格',
+  name:'scrollRank',
+  category: '数据展示',
+  status: '100%',
   install(app: App): void {
     app.use(ScrollRank as any);
   }

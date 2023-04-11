@@ -15,10 +15,10 @@ function M(e, i) {
   }), n;
 }
 var I;
-const P = typeof window < "u", U = (e) => typeof e == "string", y = () => {
+const P = typeof window < "u", U = (e) => typeof e == "string", m = () => {
 };
 P && ((I = window == null ? void 0 : window.navigator) != null && I.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function m(e) {
+function y(e) {
   return typeof e == "function" ? e() : T(e);
 }
 function V(e, i) {
@@ -30,12 +30,12 @@ function V(e, i) {
   return t;
 }
 function X(e, i = {}) {
-  let t, n, s = y;
+  let t, n, s = m;
   const o = (l) => {
-    clearTimeout(l), s(), s = y;
+    clearTimeout(l), s(), s = m;
   };
   return (l) => {
-    const c = m(e), u = m(i.maxWait);
+    const c = y(e), u = y(i.maxWait);
     return t && o(t), c <= 0 || u !== void 0 && u <= 0 ? (n && (o(n), n = null), Promise.resolve(l())) : new Promise((r, a) => {
       s = i.rejectOnCancel ? a : r, u && !n && (n = setTimeout(() => {
         t && o(t), n = null, r(l());
@@ -56,14 +56,14 @@ function K(e, i = 200, t = {}) {
 }
 function q(e) {
   var i;
-  const t = m(e);
+  const t = y(e);
   return (i = t == null ? void 0 : t.$el) != null ? i : t;
 }
 const J = P ? window : void 0;
 function Z(...e) {
   let i, t, n, s;
   if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, s] = e, i = J) : [i, t, n, s] = e, !i)
-    return y;
+    return m;
   Array.isArray(t) || (t = [t]), Array.isArray(n) || (n = [n]);
   const o = [], f = () => {
     o.forEach((r) => r()), o.length = 0;
@@ -188,8 +188,9 @@ b.install = function(e) {
 };
 const ue = {
   title: "container 容器",
+  name: "container",
   category: "容器",
-  status: "20%",
+  status: "100%",
   install(e) {
     e.use(b);
   }

@@ -8,9 +8,10 @@ FlightChart.install = function (app: App): void {
 export { FlightChart }
 // 单独引入，后续做按需引用
 export default {
-  title: 'FFlightChart 飞线图',
-  category: '飞线图',
-  status: '20%',
+  title: 'flightChart 飞线图',
+  name:'flightChart',
+  category: '图表',
+  status: '100%',
   install(app: App): void {
     app.use(FlightChart as any)
   }

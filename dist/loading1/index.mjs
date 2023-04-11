@@ -1,4 +1,4 @@
-import { getCurrentScope as A, onScopeDispose as W, unref as N, watch as S, ref as v, onMounted as F, onUnmounted as L, nextTick as Q, defineComponent as B, computed as H, createVNode as u } from "vue";
+import { getCurrentScope as A, onScopeDispose as W, unref as N, watch as S, ref as g, onMounted as F, onUnmounted as L, nextTick as Q, defineComponent as B, computed as H, createVNode as u } from "vue";
 function R(e, n) {
   const t = window.MutationObserver, r = new t(n);
   return r.observe(e, {
@@ -11,29 +11,29 @@ var O;
 const I = typeof window < "u", k = (e) => typeof e == "string", y = () => {
 };
 I && ((O = window == null ? void 0 : window.navigator) != null && O.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function h(e) {
+function m(e) {
   return typeof e == "function" ? e() : N(e);
 }
 function D(e, n) {
   function t(...r) {
-    return new Promise((i, s) => {
-      Promise.resolve(e(() => n.apply(this, r), { fn: n, thisArg: this, args: r })).then(i).catch(s);
+    return new Promise((i, a) => {
+      Promise.resolve(e(() => n.apply(this, r), { fn: n, thisArg: this, args: r })).then(i).catch(a);
     });
   }
   return t;
 }
 function j(e, n = {}) {
   let t, r, i = y;
-  const s = (l) => {
+  const a = (l) => {
     clearTimeout(l), i(), i = y;
   };
   return (l) => {
-    const d = h(e), a = h(n.maxWait);
-    return t && s(t), d <= 0 || a !== void 0 && a <= 0 ? (r && (s(r), r = null), Promise.resolve(l())) : new Promise((o, c) => {
-      i = n.rejectOnCancel ? c : o, a && !r && (r = setTimeout(() => {
-        t && s(t), r = null, o(l());
-      }, a)), t = setTimeout(() => {
-        r && s(r), r = null, o(l());
+    const d = m(e), s = m(n.maxWait);
+    return t && a(t), d <= 0 || s !== void 0 && s <= 0 ? (r && (a(r), r = null), Promise.resolve(l())) : new Promise((o, c) => {
+      i = n.rejectOnCancel ? c : o, s && !r && (r = setTimeout(() => {
+        t && a(t), r = null, o(l());
+      }, s)), t = setTimeout(() => {
+        r && a(r), r = null, o(l());
       }, d);
     });
   };
@@ -49,7 +49,7 @@ function z(e, n = 200, t = {}) {
 }
 function V(e) {
   var n;
-  const t = h(e);
+  const t = m(e);
   return (n = t == null ? void 0 : t.$el) != null ? n : t;
 }
 const $ = I ? window : void 0;
@@ -58,18 +58,18 @@ function G(...e) {
   if (k(e[0]) || Array.isArray(e[0]) ? ([t, r, i] = e, n = $) : [n, t, r, i] = e, !n)
     return y;
   Array.isArray(t) || (t = [t]), Array.isArray(r) || (r = [r]);
-  const s = [], f = () => {
-    s.forEach((o) => o()), s.length = 0;
+  const a = [], f = () => {
+    a.forEach((o) => o()), a.length = 0;
   }, l = (o, c, p) => (o.addEventListener(c, p, i), () => o.removeEventListener(c, p, i)), d = S(() => V(n), (o) => {
-    f(), o && s.push(...t.flatMap((c) => r.map((p) => l(o, c, p))));
-  }, { immediate: !0, flush: "post" }), a = () => {
+    f(), o && a.push(...t.flatMap((c) => r.map((p) => l(o, c, p))));
+  }, { immediate: !0, flush: "post" }), s = () => {
     d(), f();
   };
-  return U(a), a;
+  return U(s), s;
 }
-const m = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, w = "__vueuse_ssr_handlers__";
-m[w] = m[w] || {};
-m[w];
+const h = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, w = "__vueuse_ssr_handlers__";
+h[w] = h[w] || {};
+h[w];
 var b;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
@@ -112,16 +112,16 @@ X({
   linear: M
 }, Y);
 const Z = (e, n, t, r) => {
-  const i = v(0), s = v(0), f = v(0), l = v(0);
-  let d, a = null, o = null;
+  const i = g(0), a = g(0), f = g(0), l = g(0);
+  let d, s = null, o = null;
   const c = (E = !0) => new Promise((T) => {
     Q(() => {
-      o = e.value, i.value = e.value ? e.value.clientWidth : 0, s.value = e.value ? e.value.clientHeight : 0, f.value = o ? o.getBoundingClientRect().width : 0, l.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!i.value || !s.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && E && n(), T(!0);
+      o = e.value, i.value = e.value ? e.value.clientWidth : 0, a.value = e.value ? e.value.clientHeight : 0, f.value = o ? o.getBoundingClientRect().width : 0, l.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!i.value || !a.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && E && n(), T(!0);
     });
   }), p = () => {
-    a = R(o, d), G(window, "resize", d);
+    s = R(o, d), G(window, "resize", d);
   }, C = () => {
-    a && (a.disconnect(), a.takeRecords(), a = null);
+    s && (s.disconnect(), s.takeRecords(), s = null);
   }, P = async () => {
     await c(!1), d = z(c, 200), p(), typeof t == "function" && t();
   };
@@ -131,12 +131,12 @@ const Z = (e, n, t, r) => {
     C();
   }), {
     width: i,
-    height: s,
+    height: a,
     afterWidth: f,
     afterHeight: l,
     initWH: c
   };
-}, ee = Object.assign, te = (e) => Array.isArray(e) && e.length, g = /* @__PURE__ */ B({
+}, ee = Object.assign, te = (e) => Array.isArray(e) && e.length, v = /* @__PURE__ */ B({
   name: "FLoading1",
   props: {
     width: {
@@ -163,15 +163,15 @@ const Z = (e, n, t, r) => {
   setup(e, {
     slots: n
   }) {
-    const t = v(null), r = ["#4f29f0", "#c3c8de", "#414856"];
+    const t = g(null), r = ["#4f29f0", "#c3c8de", "#414856"];
     let i = H(() => te(e.color) ? ee(r, e.color) : r);
     const {
-      width: s,
+      width: a,
       height: f,
       initWH: l
     } = Z(t);
     return {
-      width: s,
+      width: a,
       height: f,
       initWH: l,
       loading1: t,
@@ -240,18 +240,19 @@ const Z = (e, n, t, r) => {
     }, null) : null]);
   }
 });
-g.install = function(e) {
-  e.component(g.name, g);
+v.install = function(e) {
+  e.component(v.name, v);
 };
 const re = {
-  title: "loading 加载",
+  title: "loading-01 加载",
+  name: "loading01",
   category: "加载",
-  status: "20%",
+  status: "100%",
   install(e) {
-    e.use(g);
+    e.use(v);
   }
 };
 export {
-  g as Loading1,
+  v as Loading1,
   re as default
 };

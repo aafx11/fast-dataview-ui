@@ -8,9 +8,10 @@ BorderBox1.install = function (app: App): void {
 export { BorderBox1 }
 // 单独引入，后续做按需引用
 export default {
-  title: 'border 边框',
+  title: 'border-01 边框',
+  name:'border01',
   category: '边框',
-  status: '20%',
+  status: '100%',
   install(app: App): void {
     app.use(BorderBox1 as any)
   }

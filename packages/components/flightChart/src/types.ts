@@ -1,6 +1,5 @@
 export type Point = {
   name: string | number,
-  value: any,
   coordinate: number[];
   halo: Halo;
   title: Title;
@@ -16,7 +15,6 @@ export type Path = {
 
 export type Line = {
   show: boolean,
-  type: 'line' | 'pipe';
   slot?:string,
   width: number,
   color: string,

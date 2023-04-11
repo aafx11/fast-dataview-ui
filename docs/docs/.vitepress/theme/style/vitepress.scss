@@ -13,6 +13,7 @@
 }
 
 .vp-doc {
+
   // 代码片段下拉菜单
   details {
     padding: 10px !important;
@@ -62,14 +63,14 @@
   table {
     margin: 0;
 
-    th,
-    tr,
-    td {
-      border: none;
-      background: none;
+    th {
+      background: rgb(240, 248, 255);
     }
-    tr:nth-child(2n) {
-      background: none;
+    th,
+    td {
+      min-width: 100px;
+      padding: 10px;
+      font-size: 14px;
     }
   }
 

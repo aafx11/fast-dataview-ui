@@ -20,6 +20,10 @@ export const borderBoxProps = {
     type: Number,
     default: 2
   },
+  strokeDasharray:{
+    type: String,
+    default: '300 300'
+  }
 };
 
 export type BorderBoxProps = ExtractPropTypes<typeof borderBoxProps>;

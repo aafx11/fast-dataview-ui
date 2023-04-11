@@ -1,5 +1,5 @@
 import './style.css';
-import { computed as S, defineComponent as F, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as P, normalizeStyle as E, unref as v, renderSlot as O, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as b, createVNode as H, TransitionGroup as ee, withCtx as W, normalizeProps as te, guardReactiveProps as le } from "vue";
+import { computed as S, defineComponent as F, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as P, normalizeStyle as E, unref as v, renderSlot as O, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as $, createVNode as H, TransitionGroup as ee, withCtx as W, normalizeProps as te, guardReactiveProps as le } from "vue";
 function M(e) {
   return {
     handleToggle: (n) => {
@@ -35,7 +35,7 @@ function re(e, t, i) {
     e.toggleCount += 1, e.toggleCount >= t.emitCondition && n(t.name);
   }, u = async (a, l, d) => {
     let y = d;
-    l.map((C) => C._index_ = ++y), e.currData.length ? a === t.pageSize ? e.currData = [...l] : (e.currData.push(...l), e.currData.splice(0, a)) : e.currData.push(...l);
+    l.map((T) => T._index_ = ++y), e.currData.length ? a === t.pageSize ? e.currData = [...l] : (e.currData.push(...l), e.currData.splice(0, a)) : e.currData.push(...l);
   }, f = async () => {
     if (e.tableData.length) {
       o(!1, !0), e.isEmpty = !1;
@@ -68,8 +68,8 @@ function re(e, t, i) {
       o(), e.currPage = a;
       let l;
       t.mode === "single" ? l = t.togglePage : l = t.pageSize;
-      let d = l * (e.currPage - 1), y = l * (e.currPage - 1) + t.pageSize, C = e.tableData.slice(d, y);
-      C.length ? (u(t.pageSize, C, d), w()) : f(), e.tableData.length || r();
+      let d = l * (e.currPage - 1), y = l * (e.currPage - 1) + t.pageSize, T = e.tableData.slice(d, y);
+      T.length ? (u(t.pageSize, T, d), w()) : f(), e.tableData.length || r();
     }
   };
 }
@@ -248,22 +248,22 @@ const ie = {
       getRowClass: l,
       getCellClass: d,
       getTableStyle: y,
-      getBodyStyle: C,
+      getBodyStyle: T,
       getRowStyle: ue,
       getExtraCellStyle: L,
       getCellStyle: U
     } = ae(n, i), V = (c) => {
       c.style.opacity = "0", c.style.gridTemplateRows = "0fr";
-    }, G = (c, $) => {
-      c.offsetWidth, c.style.opacity = "1", c.style.gridTemplateRows = "1fr", $();
+    }, G = (c, b) => {
+      c.offsetWidth, c.style.opacity = "1", c.style.gridTemplateRows = "1fr", b();
     }, q = async (c) => {
       c.style.opacity = "1";
-    }, J = async (c, $) => {
+    }, J = async (c, b) => {
       c.style.opacity = "0", c.style.gridTemplateRows = "0fr", await new Promise((g) => {
         setTimeout(() => {
           c.remove(), g(!0);
         }, i.pageAnimateDur);
-      }), $();
+      }), b();
     };
     return Y(() => i.data, (c) => {
       n.tableData = u(c), f();
@@ -280,21 +280,21 @@ const ie = {
       o();
     }), t({
       setPage: m
-    }), (c, $) => (h(), _("div", {
+    }), (c, b) => (h(), _("div", {
       ref: "scrollTable",
       class: D(["f-scroll-table", {
         "is-border": i.border
       }]),
       style: E(v(y)(i.columns))
-    }, [P("div", ie, [(h(!0), _(I, null, z(i.columns, (g, T) => (h(), _("div", {
+    }, [P("div", ie, [(h(!0), _(I, null, z(i.columns, (g, C) => (h(), _("div", {
       class: "f-scroll-table__cell",
       style: E(v(L)(g)),
-      key: T
-    }, b(g.label), 5))), 128))]), P("div", {
+      key: C
+    }, $(g.label), 5))), 128))]), P("div", {
       ref_key: "scrollTable__body",
       ref: s,
       class: "f-scroll-table__content is-hidden-scrollbar",
-      style: E(v(C))
+      style: E(v(T))
     }, [H(ee, {
       tag: "div",
       css: !1,
@@ -303,21 +303,21 @@ const ie = {
       onBeforeLeave: q,
       onLeave: J
     }, {
-      default: W(() => [(h(!0), _(I, null, z(n.currData, (g, T) => (h(), _("div", {
+      default: W(() => [(h(!0), _(I, null, z(n.currData, (g, C) => (h(), _("div", {
         class: "f-scroll-table__row-wrap",
         key: g
       }, [P("div", {
-        class: D(v(l)(g, T))
+        class: D(v(l)(g, C))
       }, [(h(!0), _(I, null, z(i.columns, (p, k) => (h(), _("div", {
         class: "f-scroll-table__cell",
-        style: E([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, T, k)]),
+        style: E([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, C, k)]),
         key: `${g[p.prop]}${k}`,
-        onClick: (K) => v(a)(K, g, g[p.prop], T, k)
+        onClick: (K) => v(a)(K, g, g[p.prop], C, k)
       }, [p.type === "index" ? (h(), _("div", {
         key: 0,
         class: D(v(d))
-      }, b(g._index_ || ""), 3)) : p.type === "scroll" ? (h(), _("div", se, [H(v(R), te(le(p.scrollOption)), {
-        default: W(() => [P("div", null, b(g[p.prop]), 1)]),
+      }, $(g._index_ || ""), 3)) : p.type === "scroll" ? (h(), _("div", se, [H(v(R), te(le(p.scrollOption)), {
+        default: W(() => [P("div", null, $(g[p.prop]), 1)]),
         _: 2
       }, 1040)])) : p.slot ? (h(), _("div", {
         key: 2,
@@ -326,12 +326,12 @@ const ie = {
         params: {
           row: g,
           column: p.prop,
-          $index: T
+          $index: C
         }
       })], 2)) : (h(), _("div", {
         key: 3,
         class: D(v(d))
-      }, b(g[p.prop]), 3))], 12, oe))), 128))], 2)]))), 128))]),
+      }, $(g[p.prop]), 3))], 12, oe))), 128))], 2)]))), 128))]),
       _: 3
     })], 4)], 6));
   }
@@ -340,9 +340,10 @@ A.install = function(e) {
   e.component("FScrollTable", A);
 };
 const de = {
-  title: "ScrollTable 滚动表格",
+  title: "scrollTable 轮播表格",
+  name: "scrollTable",
   category: "数据展示",
-  status: "20%",
+  status: "100%",
   install(e) {
     e.use(A);
   }

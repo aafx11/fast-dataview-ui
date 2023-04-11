@@ -1,5 +1,5 @@
 import { defineComponent as i, computed as d, openBlock as s, createElementBlock as c, normalizeStyle as u, createElementVNode as a, renderSlot as g, toDisplayString as f } from "vue";
-const y = Object.assign, p = (t) => Array.isArray(t) && t.length, h = i({
+const y = Object.assign, p = (t) => Array.isArray(t) && t.length, m = i({
   name: "FLoading2",
   props: {
     width: { type: String, default: "100px" },
@@ -22,7 +22,7 @@ const y = Object.assign, p = (t) => Array.isArray(t) && t.length, h = i({
       }))
     };
   }
-}), m = (t, r) => {
+}), h = (t, r) => {
   const e = t.__vccOpts || t;
   for (const [o, l] of r)
     e[o] = l;
@@ -41,14 +41,15 @@ function v(t, r, e, o, l, b) {
     ])
   ], 4);
 }
-const n = /* @__PURE__ */ m(h, [["render", v]]);
+const n = /* @__PURE__ */ h(m, [["render", v]]);
 n.install = function(t) {
   t.component(n.name, n);
 };
 const $ = {
-  title: "loading 加载",
+  title: "loading-02 加载",
+  name: "loading02",
   category: "加载",
-  status: "20%",
+  status: "100%",
   install(t) {
     t.use(n);
   }

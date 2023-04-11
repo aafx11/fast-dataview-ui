@@ -120,8 +120,9 @@ f.install = function(u) {
   u.component("FDynamicParticle", f);
 };
 const q = {
-  title: "particle 粒子",
-  category: "粒子",
+  title: "particle 粒子动效",
+  name: "particle",
+  category: "canvas动效",
   status: "20%",
   install(u) {
     u.use(f);

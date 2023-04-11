@@ -8,9 +8,10 @@ ScrollText.install = function (app: App): void {
 export { ScrollText }
 // 单独引入，后续做按需引用
 export default {
-  title: 'border 边框',
-  category: '边框',
-  status: '20%',
+  title: 'scrollText 轮播文本',
+  name:'scrollText',
+  category: '数据展示',
+  status: '100%',
   install(app: App): void {
     app.use(ScrollText as any)
   }

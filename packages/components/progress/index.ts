@@ -9,8 +9,9 @@ export { Progress }
 // 单独引入，后续做按需引用
 export default {
   title: 'progress 进度条',
-  category: '进度条',
-  status: '20%',
+  name:'progress',
+  category: '数据展示',
+  status: '100%',
   install(app: App): void {
     app.use(Progress as any)
   }

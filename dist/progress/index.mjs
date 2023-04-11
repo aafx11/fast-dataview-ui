@@ -7,24 +7,24 @@ const f = Object.assign, y = (e) => Array.isArray(e) && e.length, m = p({
     duration: { type: Number, default: 0.5 }
   },
   setup(e, { slots: s }) {
-    const t = ["#d1d5db", "#3b82f6", "white"];
-    let r = l(() => y(e.color) ? f(t, e.color) : t);
+    const r = ["#d1d5db", "#3b82f6", "white"];
+    let t = l(() => y(e.color) ? f(r, e.color) : r);
     return {
       getProgressStyle: l(() => ({
-        "--bgc": r.value[0],
-        "--progress-color": r.value[1],
-        "--progress-text-color": r.value[2],
+        "--bgc": t.value[0],
+        "--progress-color": t.value[1],
+        "--progress-text-color": t.value[2],
         "--duration": `${e.duration}s`
       }))
     };
   }
 }), $ = (e, s) => {
-  const t = e.__vccOpts || e;
-  for (const [r, n] of s)
-    t[r] = n;
-  return t;
+  const r = e.__vccOpts || e;
+  for (const [t, n] of s)
+    r[t] = n;
+  return r;
 };
-function b(e, s, t, r, n, v) {
+function b(e, s, r, t, n, v) {
   return u(), i("div", {
     class: "f-progress",
     style: a(e.getProgressStyle)
@@ -45,8 +45,9 @@ o.install = function(e) {
 };
 const P = {
   title: "progress 进度条",
-  category: "进度条",
-  status: "20%",
+  name: "progress",
+  category: "数据展示",
+  status: "100%",
   install(e) {
     e.use(o);
   }

@@ -15,14 +15,14 @@
     filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 1));
 
     .f-container-path {
-      stroke-dasharray: 300 300;
+      stroke-dasharray: var(--border-stroke-dasharray,300 300);
       stroke-dashoffset: 600;
       animation: dash var(--duration,'2s') linear infinite;
     }
 
     @keyframes dash {
       from {
-        stroke-dashoffset: 600;
+        stroke-dashoffset:600;
       }
 
       to {

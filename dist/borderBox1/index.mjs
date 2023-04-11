@@ -1,39 +1,39 @@
-import { getCurrentScope as W, onScopeDispose as A, unref as T, watch as B, ref as $, onMounted as N, onUnmounted as S, nextTick as F, defineComponent as H, computed as Q, createVNode as c, renderSlot as L } from "vue";
-function R(e, r) {
-  const o = window.MutationObserver, s = new o(r);
-  return s.observe(e, {
+import { getCurrentScope as W, onScopeDispose as A, unref as T, watch as B, ref as $, onMounted as N, onUnmounted as S, nextTick as F, defineComponent as H, computed as Q, createVNode as d, renderSlot as L } from "vue";
+function R(e, o) {
+  const r = window.MutationObserver, l = new r(o);
+  return l.observe(e, {
     attributes: !0,
     attributeFilter: ["style"],
     attributeOldValue: !0
-  }), s;
+  }), l;
 }
 var v;
-const I = typeof window < "u", D = (e) => typeof e == "string", g = () => {
+const I = typeof window < "u", D = (e) => typeof e == "string", y = () => {
 };
 I && ((v = window == null ? void 0 : window.navigator) != null && v.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function y(e) {
+function g(e) {
   return typeof e == "function" ? e() : T(e);
 }
-function j(e, r) {
-  function o(...s) {
+function j(e, o) {
+  function r(...l) {
     return new Promise((a, u) => {
-      Promise.resolve(e(() => r.apply(this, s), { fn: r, thisArg: this, args: s })).then(a).catch(u);
+      Promise.resolve(e(() => o.apply(this, l), { fn: o, thisArg: this, args: l })).then(a).catch(u);
     });
   }
-  return o;
+  return r;
 }
-function z(e, r = {}) {
-  let o, s, a = g;
+function z(e, o = {}) {
+  let r, l, a = y;
   const u = (t) => {
-    clearTimeout(t), a(), a = g;
+    clearTimeout(t), a(), a = y;
   };
   return (t) => {
-    const n = y(e), l = y(r.maxWait);
-    return o && u(o), n <= 0 || l !== void 0 && l <= 0 ? (s && (u(s), s = null), Promise.resolve(t())) : new Promise((i, f) => {
-      a = r.rejectOnCancel ? f : i, l && !s && (s = setTimeout(() => {
-        o && u(o), s = null, i(t());
-      }, l)), o = setTimeout(() => {
-        s && u(s), s = null, i(t());
+    const n = g(e), s = g(o.maxWait);
+    return r && u(r), n <= 0 || s !== void 0 && s <= 0 ? (l && (u(l), l = null), Promise.resolve(t())) : new Promise((i, f) => {
+      a = o.rejectOnCancel ? f : i, s && !l && (l = setTimeout(() => {
+        r && u(r), l = null, i(t());
+      }, s)), r = setTimeout(() => {
+        l && u(l), l = null, i(t());
       }, n);
     });
   };
@@ -44,28 +44,28 @@ function M(e) {
 function U(e) {
   return W() ? (A(e), !0) : !1;
 }
-function G(e, r = 200, o = {}) {
-  return j(z(r, o), e);
+function G(e, o = 200, r = {}) {
+  return j(z(o, r), e);
 }
 function V(e) {
-  var r;
-  const o = y(e);
-  return (r = o == null ? void 0 : o.$el) != null ? r : o;
+  var o;
+  const r = g(e);
+  return (o = r == null ? void 0 : r.$el) != null ? o : r;
 }
 const K = I ? window : void 0;
 function Z(...e) {
-  let r, o, s, a;
-  if (D(e[0]) || Array.isArray(e[0]) ? ([o, s, a] = e, r = K) : [r, o, s, a] = e, !r)
-    return g;
-  Array.isArray(o) || (o = [o]), Array.isArray(s) || (s = [s]);
-  const u = [], d = () => {
+  let o, r, l, a;
+  if (D(e[0]) || Array.isArray(e[0]) ? ([r, l, a] = e, o = K) : [o, r, l, a] = e, !o)
+    return y;
+  Array.isArray(r) || (r = [r]), Array.isArray(l) || (l = [l]);
+  const u = [], c = () => {
     u.forEach((i) => i()), u.length = 0;
-  }, t = (i, f, p) => (i.addEventListener(f, p, a), () => i.removeEventListener(f, p, a)), n = B(() => V(r), (i) => {
-    d(), i && u.push(...o.flatMap((f) => s.map((p) => t(i, f, p))));
-  }, { immediate: !0, flush: "post" }), l = () => {
-    n(), d();
+  }, t = (i, f, p) => (i.addEventListener(f, p, a), () => i.removeEventListener(f, p, a)), n = B(() => V(o), (i) => {
+    c(), i && u.push(...r.flatMap((f) => l.map((p) => t(i, f, p))));
+  }, { immediate: !0, flush: "post" }), s = () => {
+    n(), c();
   };
-  return U(l), l;
+  return U(s), s;
 }
 const w = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, b = "__vueuse_ssr_handlers__";
 w[b] = w[b] || {};
@@ -74,12 +74,12 @@ var m;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
 })(m || (m = {}));
-var q = Object.defineProperty, O = Object.getOwnPropertySymbols, J = Object.prototype.hasOwnProperty, X = Object.prototype.propertyIsEnumerable, _ = (e, r, o) => r in e ? q(e, r, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[r] = o, Y = (e, r) => {
-  for (var o in r || (r = {}))
-    J.call(r, o) && _(e, o, r[o]);
+var q = Object.defineProperty, O = Object.getOwnPropertySymbols, J = Object.prototype.hasOwnProperty, X = Object.prototype.propertyIsEnumerable, k = (e, o, r) => o in e ? q(e, o, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[o] = r, Y = (e, o) => {
+  for (var r in o || (o = {}))
+    J.call(o, r) && k(e, r, o[r]);
   if (O)
-    for (var o of O(r))
-      X.call(r, o) && _(e, o, r[o]);
+    for (var r of O(o))
+      X.call(o, r) && k(e, r, o[r]);
   return e;
 };
 const ee = {
@@ -111,19 +111,19 @@ const ee = {
 Y({
   linear: M
 }, ee);
-const te = (e, r, o, s) => {
-  const a = $(0), u = $(0), d = $(0), t = $(0);
-  let n, l = null, i = null;
+const te = (e, o, r, l) => {
+  const a = $(0), u = $(0), c = $(0), t = $(0);
+  let n, s = null, i = null;
   const f = (P = !0) => new Promise((E) => {
     F(() => {
-      i = e.value, a.value = e.value ? e.value.clientWidth : 0, u.value = e.value ? e.value.clientHeight : 0, d.value = i ? i.getBoundingClientRect().width : 0, t.value = i ? i.getBoundingClientRect().height : 0, e.value ? (!a.value || !u.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof r == "function" && P && r(), E(!0);
+      i = e.value, a.value = e.value ? e.value.clientWidth : 0, u.value = e.value ? e.value.clientHeight : 0, c.value = i ? i.getBoundingClientRect().width : 0, t.value = i ? i.getBoundingClientRect().height : 0, e.value ? (!a.value || !u.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof o == "function" && P && o(), E(!0);
     });
   }), p = () => {
-    l = R(i, n), Z(window, "resize", n);
+    s = R(i, n), Z(window, "resize", n);
   }, x = () => {
-    l && (l.disconnect(), l.takeRecords(), l = null);
+    s && (s.disconnect(), s.takeRecords(), s = null);
   }, C = async () => {
-    await f(!1), n = G(f, 200), p(), typeof o == "function" && o();
+    await f(!1), n = G(f, 200), p(), typeof r == "function" && r();
   };
   return N(() => {
     C();
@@ -132,7 +132,7 @@ const te = (e, r, o, s) => {
   }), {
     width: a,
     height: u,
-    afterWidth: d,
+    afterWidth: c,
     afterHeight: t,
     initWH: f
   };
@@ -155,124 +155,129 @@ const te = (e, r, o, s) => {
   duration: {
     type: Number,
     default: 2
+  },
+  strokeDasharray: {
+    type: String,
+    default: "300 300"
   }
-}, oe = Object.assign, re = (e) => Array.isArray(e) && e.length, k = (e) => e >= 0 ? e : 0, h = /* @__PURE__ */ H({
+}, re = Object.assign, oe = (e) => Array.isArray(e) && e.length, _ = (e) => e >= 0 ? e : 0, h = /* @__PURE__ */ H({
   name: "FBorderBox1",
   props: ne,
   setup(e, {
-    slots: r
+    slots: o
   }) {
-    const o = $(null), s = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
-    let a = Q(() => re(e.color) ? oe(s, e.color) : s);
+    const r = $(null), l = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
+    let a = Q(() => oe(e.color) ? re(l, e.color) : l);
     const {
       width: u,
-      height: d,
+      height: c,
       initWH: t
-    } = te(o);
+    } = te(r);
     return {
       width: u,
-      height: d,
+      height: c,
       initWH: t,
-      borderBox1: o,
-      defaultColor: s,
+      borderBox1: r,
+      defaultColor: l,
       realColor: a
     };
   },
   render() {
     const {
       $slots: e,
-      width: r,
-      height: o,
-      backgroundColor: s,
+      width: o,
+      height: r,
+      backgroundColor: l,
       strokeWidth: a,
       realColor: u,
-      title: d
+      title: c
     } = this, t = 20;
-    let n = a || 2, l = k(r - n - 2), i = k(o - n - 2);
-    return c("div", {
+    let n = a || 2, s = _(o - n - 2), i = _(r - n - 2);
+    return d("div", {
       ref: "borderBox1",
       class: "f-border-box-1"
-    }, [c("svg", {
+    }, [d("svg", {
       class: "f-svg-container",
-      width: l,
+      width: s,
       height: i
-    }, [c("polygon", {
-      fill: s,
+    }, [d("polygon", {
+      fill: l,
       stroke: u[0],
       "stroke-width": n,
       points: `
-            ${t} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${i - t}, ${l - t} ${i},
+            ${t} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${i - t}, ${s - t} ${i},
             ${t} ${i}, ${n} ${i - t}, ${n} ${t}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       stroke: u[1],
       "stroke-width": n + 1,
       points: `
             ${t - 8} 0,0 ${t - 8}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       stroke: u[1],
       "stroke-width": n + 1,
       points: `
-            ${l} ${i - t + 8}, ${l - t + 8 + n} ${i}
+            ${s} ${i - t + 8}, ${s - t + 8 + n} ${i}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       fill: "none",
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
             ${n} ${t + 15}, ${n} ${t}, ${t} ${n} , ${t + 15} ${n}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       fill: "none",
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
            ${t + 15} ${i}, ${t}  ${i}, ${n} ${i - t}, ${n} ${i - t - 15}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       fill: "none",
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
-           ${l - t - 15} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${t + 15}
+           ${s - t - 15} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${t + 15}
           `
-    }, null), c("polyline", {
+    }, null), d("polyline", {
       fill: "none",
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
-          ${l - t - 15} ${i}, ${l - t} ${i}, ${l - n} ${i - t}, ${l - n} ${i - t - 15}
+          ${s - t - 15} ${i}, ${s - t} ${i}, ${s - n} ${i - t}, ${s - n} ${i - t - 15}
           `
-    }, null), d ? c("polygon", {
+    }, null), c ? d("polygon", {
       fill: "rgba(33, 173, 238,0.1)",
       points: `
-            ${t} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${t + 15}, ${n} ${t + 15},
+            ${t} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${t + 15}, ${n} ${t + 15},
             ${n} ${t}
           `
-    }, null) : null, d ? c("text", {
+    }, null) : null, c ? d("text", {
       x: "30",
       y: "25",
       "font-size": "16",
       "font-weight": "bold",
       fill: "#279fc7"
-    }, [d]) : null]), c("div", {
+    }, [c]) : null]), d("div", {
       class: "f-border-box-content"
-    }, [c("div", null, [L(e, "default")])])]);
+    }, [L(e, "default")])]);
   }
 });
 h.install = function(e) {
   e.component(h.name, h);
 };
-const le = {
-  title: "border 边框",
+const se = {
+  title: "border-01 边框",
+  name: "border01",
   category: "边框",
-  status: "20%",
+  status: "100%",
   install(e) {
     e.use(h);
   }
 };
 export {
   h as BorderBox1,
-  le as default
+  se as default
 };

@@ -1,4 +1,4 @@
-import { defineComponent as y, reactive as b, computed as L, onMounted as x, watch as D, openBlock as r, createElementBlock as o, createElementVNode as a, Fragment as _, renderList as p, unref as f, normalizeClass as N, withDirectives as h, vShow as S, normalizeStyle as k, toDisplayString as w } from "vue";
+import { defineComponent as y, reactive as b, computed as L, onMounted as x, watch as D, openBlock as r, createElementBlock as o, createElementVNode as a, Fragment as _, renderList as p, unref as f, normalizeClass as N, withDirectives as S, vShow as h, normalizeStyle as k, toDisplayString as w } from "vue";
 const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }, B = { class: "f-digital-scroll__point" }, d = /* @__PURE__ */ y({
   name: "index",
   props: {
@@ -11,17 +11,17 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
       default: 2
     }
   },
-  setup(l) {
-    const s = l;
+  setup(e) {
+    const s = e;
     let c = b({
       stringList: []
     });
     const u = (i) => {
       let g = RegExp(`^\\d+(?:\\.\\d{0,${s.digit}})?`);
       console.log("reg", g);
-      let e = Number(i.toString().match(g));
-      console.log("digitalToStringList", e);
-      let t = e.toString(), n = t.indexOf(".");
+      let l = Number(i.toString().match(g));
+      console.log("digitalToStringList", l);
+      let t = l.toString(), n = t.indexOf(".");
       for (n < 0 && (n = t.length, t += "."); t.length <= n + s.digit; )
         t += "0";
       return t.split("");
@@ -39,38 +39,39 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
       }
     ), (i, g) => (r(), o("div", E, [
       a("div", z, [
-        (r(!0), o(_, null, p(f(c).stringList, (e, t) => (r(), o("div", {
-          class: N(["f-digital-scroll__item", { "is-small": e === "." }]),
+        (r(!0), o(_, null, p(f(c).stringList, (l, t) => (r(), o("div", {
+          class: N(["f-digital-scroll__item", { "is-small": l === "." }]),
           key: t
         }, [
-          h(a("div", B, ".", 512), [
-            [S, e === "."]
+          S(a("div", B, ".", 512), [
+            [h, l === "."]
           ]),
-          h(a("div", {
+          S(a("div", {
             class: "f-digital-scroll__digital-list",
-            style: k(f(v)(e))
+            style: k(f(v)(l))
           }, [
             (r(), o(_, null, p(10, (n, m) => a("div", {
               class: "f-digital-scroll__digital-item",
               key: m
             }, w(m), 1)), 64))
           ], 4), [
-            [S, e !== "."]
+            [h, l !== "."]
           ])
         ], 2))), 128))
       ])
     ]));
   }
 });
-d.install = function(l) {
-  l.component("FDigitalScroll", d);
+d.install = function(e) {
+  e.component("FDigitalScroll", d);
 };
 const F = {
-  title: "digitalScroll 数字滚动",
-  category: "数字滚动",
-  status: "20%",
-  install(l) {
-    l.use(d);
+  title: "digitalScroll 滚动数字",
+  name: "digitalScroll",
+  category: "数据展示",
+  status: "100%",
+  install(e) {
+    e.use(d);
   }
 };
 export {

@@ -1,4 +1,4 @@
-import { defineComponent as $, ref as m, computed as v, openBlock as y, createElementBlock as w, normalizeClass as C, createElementVNode as S, normalizeStyle as T, unref as _, renderSlot as k } from "vue";
+import { defineComponent as $, ref as m, computed as v, openBlock as y, createElementBlock as w, normalizeClass as T, createElementVNode as C, normalizeStyle as S, unref as _, renderSlot as k } from "vue";
 const d = /* @__PURE__ */ $({
   name: "index",
   props: {
@@ -17,8 +17,8 @@ const d = /* @__PURE__ */ $({
           "--text-scroll-height": `${n}px`,
           animation: ""
         };
-      let i, o, c;
-      return ["up", "down"].includes(e.direction) && (i = n + a, o = i / e.speed || 0, c = `up-scroll linear ${o}s infinite ${e.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(e.direction) && (i = t + f, o = i / e.speed || 0, c = `left-scroll linear ${o}s infinite ${e.direction === "right" ? "reverse" : ""}`), {
+      let o, i, c;
+      return ["up", "down"].includes(e.direction) && (o = n + a, i = o / e.speed || 0, c = `up-scroll linear ${i}s infinite ${e.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(e.direction) && (o = t + f, i = o / e.speed || 0, c = `left-scroll linear ${i}s infinite ${e.direction === "right" ? "reverse" : ""}`), {
         "--text-scroll-width": `${t}px`,
         "--text-scroll-height": `${n}px`,
         animation: c
@@ -27,13 +27,13 @@ const d = /* @__PURE__ */ $({
     return (t, n) => (y(), w("div", {
       ref_key: "scrollText",
       ref: r,
-      class: C(["f-scroll-text", `f-scroll-text--${e.type}`])
+      class: T(["f-scroll-text", `f-scroll-text--${e.type}`])
     }, [
-      S("div", {
+      C("div", {
         ref_key: "textContent",
         ref: s,
         class: "text-content",
-        style: T(_(g))
+        style: S(_(g))
       }, [
         k(t.$slots, "default")
       ], 4)
@@ -44,9 +44,10 @@ d.install = function(l) {
   l.component("FScrollText", d);
 };
 const W = {
-  title: "border 边框",
-  category: "边框",
-  status: "20%",
+  title: "scrollText 轮播文本",
+  name: "scrollText",
+  category: "数据展示",
+  status: "100%",
   install(l) {
     l.use(d);
   }
