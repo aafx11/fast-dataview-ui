@@ -1,10 +1,10 @@
-import { nav } from './utils/nav'
-import { sidebar } from './utils/sidebar'
-import { description } from './utils/description'
-import { head } from './utils/head'
-import { defineConfig } from 'vitepress'
+import { nav } from './utils/nav';
+import { sidebar } from './utils/sidebar';
+import { description } from './utils/description';
+import { head } from './utils/head';
+import { defineConfig } from 'vitepress';
 // import { demoBlockPlugin } from 'vitepress-theme-demoblock'
-import { demoBlockPlugin } from '../../node_modules/vitepress-theme-demoblock'
+import { demoBlockPlugin } from '../utils/vitepress-theme-demoblock';
 export default defineConfig({
   title: 'fast-dataview-ui',
   head,
@@ -25,7 +25,7 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      md.use(demoBlockPlugin)
+      md.use(demoBlockPlugin);
     }
   }
-})
+});

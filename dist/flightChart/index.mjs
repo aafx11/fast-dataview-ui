@@ -1,5 +1,5 @@
 import './style.css';
-import { getCurrentScope as ce, onScopeDispose as de, unref as g, watch as oe, ref as A, onMounted as ie, onUnmounted as fe, nextTick as he, defineComponent as ye, getCurrentInstance as ge, reactive as q, computed as Q, openBlock as f, createElementBlock as h, createElementVNode as p, normalizeStyle as J, Fragment as R, renderList as H, createCommentVNode as O, toDisplayString as _e, renderSlot as me, createStaticVNode as pe } from "vue";
+import { getCurrentScope as ce, onScopeDispose as de, unref as _, watch as oe, ref as F, onMounted as ie, onUnmounted as fe, nextTick as he, defineComponent as ye, getCurrentInstance as ge, reactive as q, computed as Q, openBlock as f, createElementBlock as h, createElementVNode as m, normalizeStyle as J, Fragment as R, renderList as H, createCommentVNode as O, toDisplayString as _e, renderSlot as ve, createStaticVNode as me } from "vue";
 const D = Object.assign, Z = (e) => Array.isArray(e) && e || [], b = (e, n = /* @__PURE__ */ new WeakMap()) => {
   if (e === null)
     return e;
@@ -20,7 +20,7 @@ const D = Object.assign, Z = (e) => Array.isArray(e) && e || [], b = (e, n = /* 
   const r = Math.abs(e[0] - n[0]), i = Math.abs(e[1] - n[1]);
   return Math.sqrt(r * r + i * i);
 };
-function ve(e, n) {
+function we(e, n) {
   const r = window.MutationObserver, i = new r(n);
   return i.observe(e, {
     attributes: !0,
@@ -29,11 +29,11 @@ function ve(e, n) {
   }), i;
 }
 var ee;
-const le = typeof window < "u", we = (e) => typeof e == "string", U = () => {
+const le = typeof window < "u", pe = (e) => typeof e == "string", U = () => {
 };
 le && ((ee = window == null ? void 0 : window.navigator) != null && ee.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
 function V(e) {
-  return typeof e == "function" ? e() : g(e);
+  return typeof e == "function" ? e() : _(e);
 }
 function ke(e, n) {
   function r(...i) {
@@ -45,17 +45,17 @@ function ke(e, n) {
 }
 function xe(e, n = {}) {
   let r, i, c = U;
-  const u = (_) => {
-    clearTimeout(_), c(), c = U;
+  const u = (v) => {
+    clearTimeout(v), c(), c = U;
   };
-  return (_) => {
-    const v = V(e), s = V(n.maxWait);
-    return r && u(r), v <= 0 || s !== void 0 && s <= 0 ? (i && (u(i), i = null), Promise.resolve(_())) : new Promise((l, y) => {
+  return (v) => {
+    const w = V(e), s = V(n.maxWait);
+    return r && u(r), w <= 0 || s !== void 0 && s <= 0 ? (i && (u(i), i = null), Promise.resolve(v())) : new Promise((l, y) => {
       c = n.rejectOnCancel ? y : l, s && !i && (i = setTimeout(() => {
-        r && u(r), i = null, l(_());
+        r && u(r), i = null, l(v());
       }, s)), r = setTimeout(() => {
-        i && u(i), i = null, l(_());
-      }, v);
+        i && u(i), i = null, l(v());
+      }, w);
     });
   };
 }
@@ -76,15 +76,15 @@ function Ce(e) {
 const Pe = le ? window : void 0;
 function Ie(...e) {
   let n, r, i, c;
-  if (we(e[0]) || Array.isArray(e[0]) ? ([r, i, c] = e, n = Pe) : [n, r, i, c] = e, !n)
+  if (pe(e[0]) || Array.isArray(e[0]) ? ([r, i, c] = e, n = Pe) : [n, r, i, c] = e, !n)
     return U;
   Array.isArray(r) || (r = [r]), Array.isArray(i) || (i = [i]);
   const u = [], x = () => {
     u.forEach((l) => l()), u.length = 0;
-  }, _ = (l, y, w) => (l.addEventListener(y, w, c), () => l.removeEventListener(y, w, c)), v = oe(() => Ce(n), (l) => {
-    x(), l && u.push(...r.flatMap((y) => i.map((w) => _(l, y, w))));
+  }, v = (l, y, p) => (l.addEventListener(y, p, c), () => l.removeEventListener(y, p, c)), w = oe(() => Ce(n), (l) => {
+    x(), l && u.push(...r.flatMap((y) => i.map((p) => v(l, y, p))));
   }, { immediate: !0, flush: "post" }), s = () => {
-    v(), x();
+    w(), x();
   };
   return Oe(s), s;
 }
@@ -133,18 +133,18 @@ Ae({
   linear: $e
 }, Fe);
 const Me = (e, n, r, i) => {
-  const c = A(0), u = A(0), x = A(0), _ = A(0);
-  let v, s = null, l = null;
-  const y = (F = !0) => new Promise((G) => {
+  const c = F(0), u = F(0), x = F(0), v = F(0);
+  let w, s = null, l = null;
+  const y = (M = !0) => new Promise((G) => {
     he(() => {
-      l = e.value, c.value = e.value ? e.value.clientWidth : 0, u.value = e.value ? e.value.clientHeight : 0, x.value = l ? l.getBoundingClientRect().width : 0, _.value = l ? l.getBoundingClientRect().height : 0, e.value ? (!c.value || !u.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && F && n(), G(!0);
+      l = e.value, c.value = e.value ? e.value.clientWidth : 0, u.value = e.value ? e.value.clientHeight : 0, x.value = l ? l.getBoundingClientRect().width : 0, v.value = l ? l.getBoundingClientRect().height : 0, e.value ? (!c.value || !u.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && M && n(), G(!0);
     });
-  }), w = () => {
-    s = ve(l, v), Ie(window, "resize", v);
+  }), p = () => {
+    s = we(l, w), Ie(window, "resize", w);
   }, W = () => {
     s && (s.disconnect(), s.takeRecords(), s = null);
   }, z = async () => {
-    await y(!1), v = be(y, 200), w(), typeof r == "function" && r();
+    await y(!1), w = be(y, 200), p(), typeof r == "function" && r();
   };
   return ie(() => {
     z();
@@ -154,13 +154,13 @@ const Me = (e, n, r, i) => {
     width: c,
     height: u,
     afterWidth: x,
-    afterHeight: _,
+    afterHeight: v,
     initWH: y
   };
 }, Te = {
   width: "100%",
   height: "100%"
-}, Ne = /* @__PURE__ */ pe('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), Qe = ["id", "cx", "cy"], Re = ["values", "dur"], De = ["dur"], We = ["id"], ze = ["xlink:href"], Ge = ["xlink:href", "fill", "mask"], Be = ["fill", "x", "y"], He = ["href", "width", "height", "x", "y"], Ue = ["id", "d"], Ve = ["id"], Ke = ["r"], Xe = ["dur", "path"], Ye = ["xlink:href", "stroke-width", "stroke"], qe = ["xlink:href", "stroke-width", "stroke", "mask"], Je = ["from", "to", "dur"], Ze = { key: 2 }, Y = /* @__PURE__ */ ye({
+}, Ne = /* @__PURE__ */ me('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), Qe = ["id", "cx", "cy"], Re = ["values", "dur"], De = ["dur"], We = ["id"], ze = ["xlink:href"], Ge = ["xlink:href", "fill", "mask"], Be = ["fill", "x", "y"], He = ["href", "width", "height", "x", "y"], Ue = ["id", "d"], Ve = ["id"], Ke = ["r"], Xe = ["dur", "path"], Ye = ["xlink:href", "stroke-width", "stroke"], qe = ["xlink:href", "stroke-width", "stroke", "mask"], Je = ["from", "to", "dur"], Ze = { key: 2 }, Y = /* @__PURE__ */ ye({
   name: "index",
   props: {
     bgUrl: { type: String },
@@ -214,9 +214,9 @@ const Me = (e, n, r, i) => {
       })
     }
   },
-  emits: ["map-click"],
+  emits: ["chart-click"],
   setup(e) {
-    const n = e, r = A();
+    const n = e, r = F();
     let i;
     ie(() => {
       i = ge();
@@ -256,12 +256,12 @@ const Me = (e, n, r, i) => {
     }), x = (o) => {
       let { offsetX: d, offsetY: t } = o;
       const k = (d / s.value).toFixed(2), a = (t / l.value).toFixed(2);
-      i == null || i.emit("map-click", k, a, o);
-    }, _ = () => {
-      y(), w();
+      i == null || i.emit("chart-click", k, a, o);
     }, v = () => {
-      y(), w();
-    }, { width: s, height: l } = Me(r, _, v), y = () => {
+      y(), p();
+    }, w = () => {
+      y(), p();
+    }, { width: s, height: l } = Me(r, v, w), y = () => {
       let o = b(Z(n.points));
       u.points = o.map((d, t) => ({
         ...d,
@@ -270,35 +270,37 @@ const Me = (e, n, r, i) => {
         icon: D({}, c.icon, b(n.icon), d.icon),
         key: `${d.coordinate.toString()}${t}`
       }));
-    }, w = () => {
+    }, p = () => {
       let o = b(Z(n.paths));
       u.paths = o.map((d, t) => {
         var N, $;
-        let { source: k, route: a, target: S, line: M } = d, C = D({}, c.line, b(n.line), M), P = (N = u.points.find(({ name: m }) => m === k)) == null ? void 0 : N.coordinate, I = ($ = u.points.find(({ name: m }) => m === S)) == null ? void 0 : $.coordinate, T = a ? [P, ...a, I] : [P, I], E = [];
-        for (let m = 0; m < T.length - 1; m++) {
-          let se = T[m], L = W(se, T[m + 1], C.k, C.curvature), ae = `M${L[0].toString()} Q${L[1].toString()} ${L[2].toString()}`, ue = `${L.toString()}`;
-          E.push({ path: L, d: ae, key: ue });
+        let { source: k, route: a, target: E, line: T } = d, C = D({}, c.line, b(n.line), T), P = (N = u.points.find(({ name: g }) => g === k)) == null ? void 0 : N.coordinate, I = ($ = u.points.find(({ name: g }) => g === E)) == null ? void 0 : $.coordinate, S = a ? [P, ...a, I] : [P, I];
+        S = S.filter((g) => g !== void 0);
+        let L = [];
+        for (let g = 0; g < S.length - 1; g++) {
+          let se = S[g], A = W(se, S[g + 1], C.k, C.curvature), ae = `M${A[0].toString()} Q${A[1].toString()} ${A[2].toString()}`, ue = `${A.toString()}`;
+          L.push({ path: A, d: ae, key: ue });
         }
         return {
           ...d,
           line: C,
-          routeList: E
+          routeList: L
         };
       });
     }, W = (o, d, t, k) => {
-      let [a, S] = o, [M, C] = d;
-      const [P, I] = [(a + M) / 2, (S + C) / 2];
-      let E = j([a, S], [M, C]) / k, N = E / 2, [$, m] = [P, I];
+      let [a, E] = o, [T, C] = d;
+      const [P, I] = [(a + T) / 2, (E + C) / 2];
+      let L = j([a, E], [T, C]) / k, N = L / 2, [$, g] = [P, I];
       do
-        $ += N, m = z(t, [P, I], $)[1];
-      while (j([P, I], [$, m]) < E);
-      return [o, [$, m], d];
+        $ += N, g = z(t, [P, I], $)[1];
+      while (j([P, I], [$, g]) < L);
+      return [o, [$, g], d];
     };
     function z(o, [d, t], k) {
       const a = t - o * d + o * k;
       return [k, a];
     }
-    let F = Q(() => function(o) {
+    let M = Q(() => function(o) {
       return `M${o[0][0] * s.value},${o[0][1] * l.value} 
     Q${o[1][0] * s.value},${o[1][1] * l.value} 
     ${o[2][0] * s.value},${o[2][1] * l.value}`;
@@ -314,7 +316,7 @@ const Me = (e, n, r, i) => {
       return i ? i.proxy.$refs[o][0].getTotalLength() : 0;
     });
     return oe(() => n, (o) => {
-      y(), w();
+      y(), p();
     }, {
       deep: !0,
       immediate: !0
@@ -323,7 +325,7 @@ const Me = (e, n, r, i) => {
       ref: r,
       class: "f-flight-chart"
     }, [
-      p("div", {
+      m("div", {
         class: "f-flight-chart__wrap",
         style: J(`background-image: url(${n.bgUrl})`),
         onClick: x
@@ -333,30 +335,30 @@ const Me = (e, n, r, i) => {
           (f(!0), h(R, null, H(u.points, (t, k) => (f(), h("g", {
             key: t.key
           }, [
-            p("defs", null, [
+            m("defs", null, [
               t.halo.show ? (f(), h("circle", {
                 key: 0,
                 id: `halo${t.key}`,
-                cx: t.coordinate[0] * g(s),
-                cy: t.coordinate[1] * g(l)
+                cx: t.coordinate[0] * _(s),
+                cy: t.coordinate[1] * _(l)
               }, [
-                p("animate", {
+                m("animate", {
                   attributeName: "r",
                   values: `1;${t.halo.radius}`,
                   dur: `${t.halo.duration}ms`,
                   repeatCount: "indefinite"
                 }, null, 8, Re),
-                p("animate", {
+                m("animate", {
                   attributeName: "opacity",
                   values: "1;0",
                   dur: `${t.halo.duration}ms`,
                   repeatCount: "indefinite"
                 }, null, 8, De)
               ], 8, Qe)) : O("", !0),
-              p("mask", {
+              m("mask", {
                 id: `mask${t.key}`
               }, [
-                p("use", {
+                m("use", {
                   "xlink:href": `#halo${t.key}`,
                   fill: "url(#haloGradient)"
                 }, null, 8, ze)
@@ -373,8 +375,8 @@ const Me = (e, n, r, i) => {
               class: "point__title",
               style: J({ fontSize: `${t.title.fontSize}px` }),
               fill: t.title.color,
-              x: t.coordinate[0] * g(s) + t.title.offest[0],
-              y: t.coordinate[1] * g(l) + t.title.offest[1]
+              x: t.coordinate[0] * _(s) + t.title.offest[0],
+              y: t.coordinate[1] * _(l) + t.title.offest[1]
             }, _e(t.name), 13, Be)) : O("", !0),
             t.icon.show ? (f(), h("image", {
               key: 2,
@@ -382,33 +384,33 @@ const Me = (e, n, r, i) => {
               href: t.icon.url,
               width: t.icon.width,
               height: t.icon.height,
-              x: t.coordinate[0] * g(s) - t.icon.width / 2,
-              y: t.coordinate[1] * g(l) - t.icon.height / 2
+              x: t.coordinate[0] * _(s) - t.icon.width / 2,
+              y: t.coordinate[1] * _(l) - t.icon.height / 2
             }, null, 8, He)) : O("", !0)
           ]))), 128)),
           (f(!0), h(R, null, H(u.paths, (t, k) => (f(), h(R, null, [
-            (f(!0), h(R, null, H(t.routeList, (a, S) => (f(), h("g", null, [
-              p("defs", null, [
-                p("path", {
+            (f(!0), h(R, null, H(t.routeList, (a, E) => (f(), h("g", null, [
+              m("defs", null, [
+                m("path", {
                   id: a.key,
                   ref_for: !0,
                   ref: a.key,
-                  d: g(F)(a.path),
+                  d: _(M)(a.path),
                   fill: "transparent",
                   style: { overflow: "hidden" }
                 }, null, 8, Ue),
-                p("mask", {
+                m("mask", {
                   id: `mask${a.key}`
                 }, [
-                  p("circle", {
+                  m("circle", {
                     cx: "0",
                     cy: "0",
                     r: t.line.radius,
                     fill: "url(#lineGradient)"
                   }, [
-                    p("animateMotion", {
+                    m("animateMotion", {
                       dur: `${t.line.duration}ms`,
-                      path: g(F)(a.path),
+                      path: _(M)(a.path),
                       rotate: "auto",
                       repeatCount: "indefinite"
                     }, null, 8, Xe)
@@ -428,18 +430,18 @@ const Me = (e, n, r, i) => {
                 stroke: t.line.color,
                 mask: `url(#mask${a.key})`
               }, [
-                p("animate", {
+                m("animate", {
                   attributeName: "stroke-dasharray",
-                  from: `0, ${g(B)(a.key)}`,
-                  to: `${g(B)(a.key)}, 0`,
+                  from: `0, ${_(B)(a.key)}`,
+                  to: `${_(B)(a.key)}, 0`,
                   dur: `${t.line.duration}ms`,
                   repeatCount: "indefinite"
                 }, null, 8, Je)
               ], 8, qe)) : O("", !0),
               t.line.show && t.line.slot ? (f(), h("g", Ze, [
-                me(o.$slots, t.line.slot, {
-                  path: g(G)(a.path),
-                  totalLength: g(B)(a.key)
+                ve(o.$slots, t.line.slot, {
+                  path: _(G)(a.path),
+                  totalLength: _(B)(a.key)
                 })
               ])) : O("", !0)
             ]))), 256))

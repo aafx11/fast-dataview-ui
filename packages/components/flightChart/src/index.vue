@@ -109,7 +109,7 @@ const props = defineProps({
     type: Object as PropType<Halo>,
     default: () => ({
       show: true,
-      duration: 700,
+      duration: 2000,
       color: '#3891c2',
       radius: 100
     })
@@ -133,7 +133,7 @@ const props = defineProps({
     })
   },
 });
-defineEmits(['map-click']);
+defineEmits(['chart-click']);
 
 const flightChart = ref();
 let instance: any;
@@ -149,7 +149,7 @@ const defaultOption = reactive<{
 }>({
   halo: {
     show: true,
-    duration: 700,
+    duration: 2000,
     color: '#3891c2',
     radius: 100
   },
@@ -194,7 +194,7 @@ const clickMap = (event: MouseEvent) => {
   let { offsetX, offsetY } = event;
   const x = (offsetX / width.value).toFixed(2);
   const y = (offsetY / height.value).toFixed(2);
-  instance?.emit('map-click', x, y, event);
+  instance?.emit('chart-click', x, y, event);
 };
 const onResize = () => {
   getPoints();
@@ -228,7 +228,10 @@ const getPaths = () => {
 
     let sourcePoint = state.points.find(({ name }) => name === source)?.coordinate;
     let targetPoint = state.points.find(({ name }) => name === target)?.coordinate;
+
     let realPaths = route ? [sourcePoint, ...route, targetPoint] : [sourcePoint, targetPoint];
+    realPaths = realPaths.filter(ele => ele !== undefined);
+
     let routeList = [];
     for (let i = 0; i < realPaths.length - 1; i++) {
       let ele = realPaths[i];
@@ -290,7 +293,7 @@ let getPathArr = computed(() => {
     Q${paths[1][0] * width.value},${paths[1][1] * height.value} 
     ${paths[2][0] * width.value},${paths[2][1] * height.value}`;
   };
-})
+});
 
 let getOffestPath = computed(() => {
   return function (paths: number[][]): string {

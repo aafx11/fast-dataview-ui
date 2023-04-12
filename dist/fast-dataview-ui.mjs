@@ -1,5 +1,5 @@
 import './style.css';
-import { getCurrentScope as Me, onScopeDispose as Xe, unref as x, watch as ee, ref as L, onMounted as te, onUnmounted as Ye, nextTick as Ve, defineComponent as N, computed as P, createVNode as k, renderSlot as Q, openBlock as _, createElementBlock as $, normalizeStyle as z, createElementVNode as w, toDisplayString as E, reactive as Z, provide as xe, createCommentVNode as B, inject as ke, normalizeClass as q, getCurrentInstance as Ee, onBeforeUnmount as Qe, Fragment as H, renderList as V, TransitionGroup as Ae, withCtx as ue, normalizeProps as Ge, guardReactiveProps as Ue, withDirectives as be, vShow as Se, createStaticVNode as qe } from "vue";
+import { getCurrentScope as Me, onScopeDispose as Xe, unref as x, watch as ee, ref as T, onMounted as te, onUnmounted as Ye, nextTick as Ve, defineComponent as N, computed as P, createVNode as k, renderSlot as Q, openBlock as _, createElementBlock as $, normalizeStyle as z, createElementVNode as w, toDisplayString as A, reactive as Z, provide as xe, createCommentVNode as B, inject as ke, normalizeClass as q, getCurrentInstance as Ee, onBeforeUnmount as Qe, Fragment as H, renderList as V, TransitionGroup as Ae, withCtx as ue, normalizeProps as Ge, guardReactiveProps as Ue, withDirectives as be, vShow as Se, createStaticVNode as qe } from "vue";
 function Ke(e, t) {
   const l = window.MutationObserver, r = new l(t);
   return r.observe(e, {
@@ -113,7 +113,7 @@ ct({
   linear: et
 }, ut);
 const le = (e, t, l, r) => {
-  const c = L(0), a = L(0), u = L(0), i = L(0);
+  const c = T(0), a = T(0), u = T(0), i = T(0);
   let n, s = null, o = null;
   const y = (f = !0) => new Promise((v) => {
     Ve(() => {
@@ -188,7 +188,7 @@ const le = (e, t, l, r) => {
   setup(e, {
     slots: t
   }) {
-    const l = L(null), r = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
+    const l = T(null), r = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
     let c = P(() => re(e.color) ? Y(r, e.color) : r);
     const {
       width: a,
@@ -304,7 +304,7 @@ const ft = {
   setup(e, {
     slots: t
   }) {
-    const l = L(null), r = ["white"];
+    const l = T(null), r = ["white"];
     let c = P(() => re(e.color) ? Y(r, e.color) : r);
     const {
       width: a,
@@ -392,7 +392,7 @@ const gt = {
   setup(e, {
     slots: t
   }) {
-    const l = L(null), r = ["#4f29f0", "#c3c8de", "#414856"];
+    const l = T(null), r = ["#4f29f0", "#c3c8de", "#414856"];
     let c = P(() => re(e.color) ? Y(r, e.color) : r);
     const {
       width: a,
@@ -517,7 +517,7 @@ function _t(e, t, l, r, c, a) {
     mt,
     w("div", vt, [
       Q(e.$slots, "default", {}, () => [
-        w("div", null, E(e.text), 1)
+        w("div", null, A(e.text), 1)
       ])
     ])
   ], 4);
@@ -543,7 +543,7 @@ const $t = {
   name: "index",
   props: wt,
   setup(e) {
-    const t = e, l = L(null), r = Z({
+    const t = e, l = T(null), r = Z({
       width: 0,
       height: 0,
       screenWidth: 0,
@@ -552,7 +552,7 @@ const $t = {
       scaleY: 1,
       isReady: !1
     });
-    let c = L(1), a = L(1);
+    let c = T(1), a = T(1);
     xe("scaleX", c), xe("scaleY", a);
     const u = () => {
       t.width && t.height ? (r.width = t.width, r.height = t.height) : (r.width = l.value.clientWidth, r.height = l.value.clientHeight);
@@ -682,9 +682,9 @@ const Lt = ["width", "height"], me = /* @__PURE__ */ N({
   props: bt,
   setup(e, { expose: t }) {
     const l = e;
-    let r = ke("scaleX", L(1)), c = ke("scaleY", L(1));
-    const a = L(null), u = L(null);
-    let i = L(), n = L();
+    let r = ke("scaleX", T(1)), c = ke("scaleY", T(1));
+    const a = T(null), u = T(null);
+    let i = T(), n = T();
     const s = async (y) => {
       n.value = new Re(y, l.width, l.height, l.radius), await n.value.createParticleData(), i.value.changeImg(n.value);
     }, o = async () => {
@@ -827,7 +827,7 @@ const ce = /* @__PURE__ */ N({
     mode: { default: "infinite" }
   },
   setup(e) {
-    const t = e, l = L(), r = L(), c = P(() => {
+    const t = e, l = T(), r = T(), c = P(() => {
       var g, m, d, f;
       let a = ((g = l.value) == null ? void 0 : g.offsetWidth) || 0, u = ((m = l.value) == null ? void 0 : m.offsetHeight) || 0, i = ((d = r.value) == null ? void 0 : d.offsetWidth) || 0, n = ((f = r.value) == null ? void 0 : f.offsetHeight) || 0;
       if (t.mode === "overflow" && (["up", "down"].includes(t.direction) && n < u || ["left", "right"].includes(t.direction) && i < a))
@@ -945,7 +945,7 @@ const Et = {
       setTimeoutId: null,
       isStopToggle: !1,
       isEmpty: !1
-    }), c = Ee(), a = L(), {
+    }), c = Ee(), a = T(), {
       deepCloneArr: u,
       setCurrData: i,
       setPageInterval: n,
@@ -959,12 +959,12 @@ const Et = {
       getCellClass: d,
       getTableStyle: f,
       getBodyStyle: v,
-      getRowStyle: T,
+      getRowStyle: D,
       getExtraCellStyle: p,
       getCellStyle: b
     } = Rt(r, l), h = (I) => {
       I.style.opacity = "0", I.style.gridTemplateRows = "0fr";
-    }, A = (I, F) => {
+    }, O = (I, F) => {
       I.offsetWidth, I.style.opacity = "1", I.style.gridTemplateRows = "1fr", F();
     }, S = async (I) => {
       I.style.opacity = "1";
@@ -996,11 +996,11 @@ const Et = {
         "is-border": l.border
       }]),
       style: z(x(f)(l.columns))
-    }, [w("div", At, [(_(!0), $(H, null, V(l.columns, (C, R) => (_(), $("div", {
+    }, [w("div", At, [(_(!0), $(H, null, V(l.columns, (C, E) => (_(), $("div", {
       class: "f-scroll-table__cell",
       style: z(x(p)(C)),
-      key: R
-    }, E(C.label), 5))), 128))]), w("div", {
+      key: E
+    }, A(C.label), 5))), 128))]), w("div", {
       ref_key: "scrollTable__body",
       ref: a,
       class: "f-scroll-table__content is-hidden-scrollbar",
@@ -1009,39 +1009,39 @@ const Et = {
       tag: "div",
       css: !1,
       onBeforeEnter: h,
-      onEnter: A,
+      onEnter: O,
       onBeforeLeave: S,
       onLeave: G
     }, {
-      default: ue(() => [(_(!0), $(H, null, V(r.currData, (C, R) => (_(), $("div", {
+      default: ue(() => [(_(!0), $(H, null, V(r.currData, (C, E) => (_(), $("div", {
         class: "f-scroll-table__row-wrap",
         key: C
       }, [w("div", {
-        class: q(x(m)(C, R))
-      }, [(_(!0), $(H, null, V(l.columns, (D, M) => (_(), $("div", {
+        class: q(x(m)(C, E))
+      }, [(_(!0), $(H, null, V(l.columns, (L, M) => (_(), $("div", {
         class: "f-scroll-table__cell",
-        style: z([x(p)(D), x(b)(C, D.type === "index" ? "_index_" : D.prop, R, M)]),
-        key: `${C[D.prop]}${M}`,
-        onClick: (K) => x(g)(K, C, C[D.prop], R, M)
-      }, [D.type === "index" ? (_(), $("div", {
+        style: z([x(p)(L), x(b)(C, L.type === "index" ? "_index_" : L.prop, E, M)]),
+        key: `${C[L.prop]}${M}`,
+        onClick: (K) => x(g)(K, C, C[L.prop], E, M)
+      }, [L.type === "index" ? (_(), $("div", {
         key: 0,
         class: q(x(d))
-      }, E(C._index_ || ""), 3)) : D.type === "scroll" ? (_(), $("div", Bt, [k(x(ce), Ge(Ue(D.scrollOption)), {
-        default: ue(() => [w("div", null, E(C[D.prop]), 1)]),
+      }, A(C._index_ || ""), 3)) : L.type === "scroll" ? (_(), $("div", Bt, [k(x(ce), Ge(Ue(L.scrollOption)), {
+        default: ue(() => [w("div", null, A(C[L.prop]), 1)]),
         _: 2
-      }, 1040)])) : D.slot ? (_(), $("div", {
+      }, 1040)])) : L.slot ? (_(), $("div", {
         key: 2,
         class: q(x(d))
-      }, [Q(I.$slots, D.slot, {
+      }, [Q(I.$slots, L.slot, {
         params: {
           row: C,
-          column: D.prop,
-          $index: R
+          column: L.prop,
+          $index: E
         }
       })], 2)) : (_(), $("div", {
         key: 3,
         class: q(x(d))
-      }, E(C[D.prop]), 3))], 12, Ot))), 128))], 2)]))), 128))]),
+      }, A(C[L.prop]), 3))], 12, Ot))), 128))], 2)]))), 128))]),
       _: 3
     })], 4)], 6));
   }
@@ -1087,7 +1087,7 @@ function Ft(e, t, l, r, c, a) {
       style: z({ width: `${e.percent}%` })
     }, [
       Q(e.$slots, "default", { percent: e.percent }, () => [
-        w("span", null, E(e.percent ? `${e.percent}%` : ""), 1)
+        w("span", null, A(e.percent ? `${e.percent}%` : ""), 1)
       ])
     ], 4)
   ], 4);
@@ -1158,7 +1158,7 @@ const Wt = {
             (_(), $(H, null, V(10, (s, o) => w("div", {
               class: "f-digital-scroll__digital-item",
               key: o
-            }, E(o), 1)), 64))
+            }, A(o), 1)), 64))
           ], 4), [
             [Se, i !== "."]
           ])
@@ -1255,18 +1255,18 @@ const Yt = {
     });
     const r = (d) => {
       let f = X(ae(d)), v = [];
-      t.order === "default" ? v = f : v = dt(f, "value", t.order), typeof t.valueFormatter == "function" && (v = v.map((T, p) => {
+      t.order === "default" ? v = f : v = dt(f, "value", t.order), typeof t.valueFormatter == "function" && (v = v.map((D, p) => {
         var b;
-        return T.formattedValue = (b = t.valueFormatter) == null ? void 0 : b.call(null, {
-          name: T.name,
-          value: T.value,
+        return D.formattedValue = (b = t.valueFormatter) == null ? void 0 : b.call(null, {
+          name: D.name,
+          value: D.value,
           maxValue: n.value,
           index: p
-        }), T;
+        }), D;
       })), l.dataList = v;
     }, c = async (d, f, v) => {
-      let T = v;
-      f.map((p) => p._index_ = ++T), l.currList.length ? d === t.pageSize ? l.currList = [...f] : (l.currList.push(...f), l.currList.splice(0, d)) : l.currList.push(...f);
+      let D = v;
+      f.map((p) => p._index_ = ++D), l.currList.length ? d === t.pageSize ? l.currList = [...f] : (l.currList.push(...f), l.currList.splice(0, d)) : l.currList.push(...f);
     }, a = async () => {
       if (l.dataList.length) {
         l.isEmpty = !1;
@@ -1274,8 +1274,8 @@ const Yt = {
         t.togglePage >= t.pageSize ? d = t.pageSize : d = t.togglePage;
         let f, v;
         l.currPage === 1 ? (f = 0, v = t.pageSize) : (f = d * (l.currPage - 2) + t.pageSize, v = d * (l.currPage - 1) + t.pageSize);
-        let T = l.dataList.slice(f, v);
-        T.length ? l.currPage === 1 ? await c(t.pageSize, T, f) : await c(d, T, f) : (l.currPage = 1, a()), u();
+        let D = l.dataList.slice(f, v);
+        D.length ? l.currPage === 1 ? await c(t.pageSize, D, f) : await c(d, D, f) : (l.currPage = 1, a()), u();
       } else
         i(), l.isEmpty = !0, l.currPage = 1, l.currList = [];
     }, u = () => {
@@ -1290,8 +1290,8 @@ const Yt = {
     }), s = P(() => function(d) {
       let f, v = n.value;
       f = d / v;
-      const T = (p, b) => Math.round(p * Math.pow(10, b)) / Math.pow(10, b);
-      return typeof f == "number" ? T(f * 100, 1) : 0;
+      const D = (p, b) => Math.round(p * Math.pow(10, b)) / Math.pow(10, b);
+      return typeof f == "number" ? D(f * 100, 1) : 0;
     }), o = (d) => {
       d.style.opacity = "0", d.style.gridTemplateRows = "0fr";
     }, y = (d, f) => {
@@ -1328,18 +1328,18 @@ const Yt = {
           onLeave: m
         }, {
           default: ue(() => [
-            (_(!0), $(H, null, V(x(l).currList, (v, T) => (_(), $("div", {
+            (_(!0), $(H, null, V(x(l).currList, (v, D) => (_(), $("div", {
               class: "f-scroll-rank__item",
               key: v
             }, [
               w("div", Qt, [
                 w("div", Gt, [
-                  t.showRank ? (_(), $("span", Ut, E(`NO.${v._index_}`), 1)) : B("", !0),
-                  w("span", qt, E(v.name || ""), 1),
+                  t.showRank ? (_(), $("span", Ut, A(`NO.${v._index_}`), 1)) : B("", !0),
+                  w("span", qt, A(v.name || ""), 1),
                   w("div", Kt, [
-                    t.showPercent ? (_(), $("span", Zt, E(`${x(s)(v.value)}%`), 1)) : B("", !0),
-                    t.showRatio && typeof t.valueFormatter != "function" ? (_(), $("span", Jt, E(`${v.value} / ${x(n)}`), 1)) : B("", !0),
-                    typeof t.valueFormatter == "function" ? (_(), $("span", jt, E(`${v.formattedValue}`), 1)) : B("", !0)
+                    t.showPercent ? (_(), $("span", Zt, A(`${x(s)(v.value)}%`), 1)) : B("", !0),
+                    t.showRatio && typeof t.valueFormatter != "function" ? (_(), $("span", Jt, A(`${v.value} / ${x(n)}`), 1)) : B("", !0),
+                    typeof t.valueFormatter == "function" ? (_(), $("span", jt, A(`${v.formattedValue}`), 1)) : B("", !0)
                   ])
                 ]),
                 w("div", el, [
@@ -1426,9 +1426,9 @@ const tl = {
       })
     }
   },
-  emits: ["map-click"],
+  emits: ["chart-click"],
   setup(e) {
-    const t = e, l = L();
+    const t = e, l = T();
     let r;
     te(() => {
       r = Ee();
@@ -1467,8 +1467,8 @@ const tl = {
       paths: []
     }), u = (p) => {
       let { offsetX: b, offsetY: h } = p;
-      const A = (b / s.value).toFixed(2), S = (h / o.value).toFixed(2);
-      r == null || r.emit("map-click", A, S, p);
+      const O = (b / s.value).toFixed(2), S = (h / o.value).toFixed(2);
+      r == null || r.emit("chart-click", O, S, p);
     }, i = () => {
       y(), g();
     }, n = () => {
@@ -1486,9 +1486,11 @@ const tl = {
       let p = X(ae(t.paths));
       a.paths = p.map((b, h) => {
         var K, U;
-        let { source: A, route: S, target: G, line: I } = b, F = Y({}, c.line, X(t.line), I), C = (K = a.points.find(({ name: O }) => O === A)) == null ? void 0 : K.coordinate, R = (U = a.points.find(({ name: O }) => O === G)) == null ? void 0 : U.coordinate, D = S ? [C, ...S, R] : [C, R], M = [];
-        for (let O = 0; O < D.length - 1; O++) {
-          let Fe = D[O], J = m(Fe, D[O + 1], F.k, F.curvature), We = `M${J[0].toString()} Q${J[1].toString()} ${J[2].toString()}`, He = `${J.toString()}`;
+        let { source: O, route: S, target: G, line: I } = b, F = Y({}, c.line, X(t.line), I), C = (K = a.points.find(({ name: R }) => R === O)) == null ? void 0 : K.coordinate, E = (U = a.points.find(({ name: R }) => R === G)) == null ? void 0 : U.coordinate, L = S ? [C, ...S, E] : [C, E];
+        L = L.filter((R) => R !== void 0);
+        let M = [];
+        for (let R = 0; R < L.length - 1; R++) {
+          let Fe = L[R], J = m(Fe, L[R + 1], F.k, F.curvature), We = `M${J[0].toString()} Q${J[1].toString()} ${J[2].toString()}`, He = `${J.toString()}`;
           M.push({ path: J, d: We, key: He });
         }
         return {
@@ -1497,18 +1499,18 @@ const tl = {
           routeList: M
         };
       });
-    }, m = (p, b, h, A) => {
+    }, m = (p, b, h, O) => {
       let [S, G] = p, [I, F] = b;
-      const [C, R] = [(S + I) / 2, (G + F) / 2];
-      let M = Te([S, G], [I, F]) / A, K = M / 2, [U, O] = [C, R];
+      const [C, E] = [(S + I) / 2, (G + F) / 2];
+      let M = Te([S, G], [I, F]) / O, K = M / 2, [U, R] = [C, E];
       do
-        U += K, O = d(h, [C, R], U)[1];
-      while (Te([C, R], [U, O]) < M);
-      return [p, [U, O], b];
+        U += K, R = d(h, [C, E], U)[1];
+      while (Te([C, E], [U, R]) < M);
+      return [p, [U, R], b];
     };
-    function d(p, [b, h], A) {
-      const S = h - p * b + p * A;
-      return [A, S];
+    function d(p, [b, h], O) {
+      const S = h - p * b + p * O;
+      return [O, S];
     }
     let f = P(() => function(p) {
       return `M${p[0][0] * s.value},${p[0][1] * o.value} 
@@ -1522,7 +1524,7 @@ const tl = {
     P(() => function(p) {
       return `"M${p[0][0] * s.value},${p[0][1] * o.value} Q${p[1][0] * s.value},${p[1][1] * o.value} ${p[2][0] * s.value},${p[2][1] * o.value}"`;
     });
-    let T = P(() => function(p) {
+    let D = P(() => function(p) {
       return r ? r.proxy.$refs[p][0].getTotalLength() : 0;
     });
     return ee(() => t, (p) => {
@@ -1542,7 +1544,7 @@ const tl = {
       }, [
         (_(), $("svg", ll, [
           rl,
-          (_(!0), $(H, null, V(a.points, (h, A) => (_(), $("g", {
+          (_(!0), $(H, null, V(a.points, (h, O) => (_(), $("g", {
             key: h.key
           }, [
             w("defs", null, [
@@ -1587,7 +1589,7 @@ const tl = {
               fill: h.title.color,
               x: h.coordinate[0] * x(s) + h.title.offest[0],
               y: h.coordinate[1] * x(o) + h.title.offest[1]
-            }, E(h.name), 13, ul)) : B("", !0),
+            }, A(h.name), 13, ul)) : B("", !0),
             h.icon.show ? (_(), $("image", {
               key: 2,
               class: "point__icon",
@@ -1598,7 +1600,7 @@ const tl = {
               y: h.coordinate[1] * x(o) - h.icon.height / 2
             }, null, 8, dl)) : B("", !0)
           ]))), 128)),
-          (_(!0), $(H, null, V(a.paths, (h, A) => (_(), $(H, null, [
+          (_(!0), $(H, null, V(a.paths, (h, O) => (_(), $(H, null, [
             (_(!0), $(H, null, V(h.routeList, (S, G) => (_(), $("g", null, [
               w("defs", null, [
                 w("path", {
@@ -1642,8 +1644,8 @@ const tl = {
               }, [
                 w("animate", {
                   attributeName: "stroke-dasharray",
-                  from: `0, ${x(T)(S.key)}`,
-                  to: `${x(T)(S.key)}, 0`,
+                  from: `0, ${x(D)(S.key)}`,
+                  to: `${x(D)(S.key)}, 0`,
                   dur: `${h.line.duration}ms`,
                   repeatCount: "indefinite"
                 }, null, 8, vl)
@@ -1651,7 +1653,7 @@ const tl = {
               h.line.show && h.line.slot ? (_(), $("g", _l, [
                 Q(p.$slots, h.line.slot, {
                   path: x(v)(S.path),
-                  totalLength: x(T)(S.key)
+                  totalLength: x(D)(S.key)
                 })
               ])) : B("", !0)
             ]))), 256))
