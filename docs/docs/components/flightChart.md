@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  // bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -72,7 +72,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  // bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -133,7 +133,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  // bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -197,7 +197,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  // bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -257,7 +257,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  // bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
