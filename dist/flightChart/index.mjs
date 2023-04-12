@@ -190,7 +190,7 @@ const Me = (e, n, r, i) => {
       type: Object,
       default: () => ({
         show: !0,
-        duration: 700,
+        duration: 2e3,
         color: "#3891c2",
         radius: 100
       })
@@ -224,7 +224,7 @@ const Me = (e, n, r, i) => {
     const c = q({
       halo: {
         show: !0,
-        duration: 700,
+        duration: 2e3,
         color: "#3891c2",
         radius: 100
       },

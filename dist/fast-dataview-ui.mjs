@@ -1402,7 +1402,7 @@ const tl = {
       type: Object,
       default: () => ({
         show: !0,
-        duration: 700,
+        duration: 2e3,
         color: "#3891c2",
         radius: 100
       })
@@ -1436,7 +1436,7 @@ const tl = {
     const c = Z({
       halo: {
         show: !0,
-        duration: 700,
+        duration: 2e3,
         color: "#3891c2",
         radius: 100
       },
