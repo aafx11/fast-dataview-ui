@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '../assets/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -48,7 +48,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:false
   },
   icon:{
-    url:'../assets/point.png'
+    url:'/point.png'
   },
 });
 
@@ -72,7 +72,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '../assets/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -110,7 +110,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     radius: 100
   },
   icon:{
-    url:'../assets/point.png'
+    url:'/point.png'
   },
 });
 
@@ -133,7 +133,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '../assets/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -174,7 +174,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:true,
   },
   icon:{
-    url:'../assets/point.png'
+    url:'/point.png'
   },
 });
 
@@ -197,7 +197,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '../assets/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -205,12 +205,12 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     { name: '湛江', coordinate: [0.12, 0.78] },
     { name: '茂名', coordinate: [0.21, 0.64] },
     { name: '阳江', coordinate: [0.31, 0.64] },
-    { name: '云浮', coordinate: [0.30, 0.50] ,icon:{url:'../assets/point-01.png',width:25,height:25}},
-    { name: '佛山', coordinate: [0.45, 0.48] ,icon:{url:'../assets/point-02.png',width:25,height:25}},
-    { name: '韶关', coordinate: [0.53, 0.18] ,icon:{url:'../assets/point-03.png',width:25,height:25}},
-    { name: '江门', coordinate: [0.41, 0.60] ,icon:{url:'../assets/point-01.png',width:25,height:25}},
-    { name: '清远', coordinate: [0.44, 0.29] ,icon:{url:'../assets/point-02.png',width:25,height:25}},
-    { name: '肇庆', coordinate: [0.37, 0.40] ,icon:{url:'../assets/point-03.png',width:25,height:25}},
+    { name: '云浮', coordinate: [0.30, 0.50] ,icon:{url:'/point-01.png',width:25,height:25}},
+    { name: '佛山', coordinate: [0.45, 0.48] ,icon:{url:'/point-02.png',width:25,height:25}},
+    { name: '韶关', coordinate: [0.53, 0.18] ,icon:{url:'/point-03.png',width:25,height:25}},
+    { name: '江门', coordinate: [0.41, 0.60] ,icon:{url:'/point-01.png',width:25,height:25}},
+    { name: '清远', coordinate: [0.44, 0.29] ,icon:{url:'/point-02.png',width:25,height:25}},
+    { name: '肇庆', coordinate: [0.37, 0.40] ,icon:{url:'/point-03.png',width:25,height:25}},
     { name: '河源', coordinate: [0.65, 0.31], icon:{show:false} },
     { name: '梅州', coordinate: [0.78, 0.28], icon:{show:false} },
     { name: '潮州', coordinate: [0.84, 0.35], icon:{show:false} },
@@ -232,7 +232,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:false
   },
   icon:{
-    url:'../assets/point.png',
+    url:'/point.png',
     width:15,
     height:20
   },
@@ -257,7 +257,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '../assets/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -303,7 +303,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:true,
   },
   icon:{
-    url:'../assets/point.png'
+    url:'/point.png'
   },
 });
 
