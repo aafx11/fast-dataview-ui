@@ -25,19 +25,37 @@ const f = Object.assign, y = (e) => Array.isArray(e) && e.length, m = p({
   return r;
 };
 function b(e, s, r, t, n, v) {
-  return u(), i("div", {
-    class: "f-progress",
-    style: a(e.getProgressStyle)
-  }, [
-    c("div", {
-      class: "progress-inner",
-      style: a({ width: `${e.percent}%` })
-    }, [
-      d(e.$slots, "default", { percent: e.percent }, () => [
-        c("span", null, g(e.percent ? `${e.percent}%` : ""), 1)
-      ])
-    ], 4)
-  ], 4);
+  return u(), i(
+    "div",
+    {
+      class: "f-progress",
+      style: a(e.getProgressStyle)
+    },
+    [
+      c(
+        "div",
+        {
+          class: "progress-inner",
+          style: a({ width: `${e.percent}%` })
+        },
+        [
+          d(e.$slots, "default", { percent: e.percent }, () => [
+            c(
+              "span",
+              null,
+              g(e.percent ? `${e.percent}%` : ""),
+              1
+              /* TEXT */
+            )
+          ])
+        ],
+        4
+        /* STYLE */
+      )
+    ],
+    4
+    /* STYLE */
+  );
 }
 const o = /* @__PURE__ */ $(m, [["render", b]]);
 o.install = function(e) {

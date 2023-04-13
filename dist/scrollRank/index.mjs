@@ -43,19 +43,37 @@ const O = Object.assign, b = (e) => Array.isArray(e) && e.length, W = (e) => Arr
   return t;
 };
 function K(e, r, t, o, f, y) {
-  return i(), u("div", {
-    class: "f-progress",
-    style: w(e.getProgressStyle)
-  }, [
-    c("div", {
-      class: "progress-inner",
-      style: w({ width: `${e.percent}%` })
-    }, [
-      F(e.$slots, "default", { percent: e.percent }, () => [
-        c("span", null, p(e.percent ? `${e.percent}%` : ""), 1)
-      ])
-    ], 4)
-  ], 4);
+  return i(), u(
+    "div",
+    {
+      class: "f-progress",
+      style: w(e.getProgressStyle)
+    },
+    [
+      c(
+        "div",
+        {
+          class: "progress-inner",
+          style: w({ width: `${e.percent}%` })
+        },
+        [
+          F(e.$slots, "default", { percent: e.percent }, () => [
+            c(
+              "span",
+              null,
+              p(e.percent ? `${e.percent}%` : ""),
+              1
+              /* TEXT */
+            )
+          ])
+        ],
+        4
+        /* STYLE */
+      )
+    ],
+    4
+    /* STYLE */
+  );
 }
 const v = /* @__PURE__ */ J(H, [["render", K]]);
 v.install = function(e) {
@@ -198,46 +216,89 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
         immediate: !0
       }
     ), (a, n) => (i(), u("div", Q, [
-      c("div", {
-        class: "f-scroll-rank__list",
-        style: w({ "--page-animate-dur": `${r.toggleDuration}ms` })
-      }, [
-        S(B, {
-          tag: "div",
-          css: !1,
-          onBeforeEnter: A,
-          onEnter: V,
-          onBeforeLeave: D,
-          onLeave: E
-        }, {
-          default: C(() => [
-            (i(!0), u(T, null, M(m(t).currList, (s, l) => (i(), u("div", {
-              class: "f-scroll-rank__item",
-              key: s
-            }, [
-              c("div", U, [
-                c("div", X, [
-                  r.showRank ? (i(), u("span", Y, p(`NO.${s._index_}`), 1)) : _("v-if", !0),
-                  c("span", Z, p(s.name || ""), 1),
-                  c("div", j, [
-                    r.showPercent ? (i(), u("span", ee, p(`${m(L)(s.value)}%`), 1)) : _("v-if", !0),
-                    r.showRatio && typeof r.valueFormatter != "function" ? (i(), u("span", te, p(`${s.value} / ${m(h)}`), 1)) : _("v-if", !0),
-                    typeof r.valueFormatter == "function" ? (i(), u("span", re, p(`${s.formattedValue}`), 1)) : _("v-if", !0)
+      c(
+        "div",
+        {
+          class: "f-scroll-rank__list",
+          style: w({ "--page-animate-dur": `${r.toggleDuration}ms` })
+        },
+        [
+          S(B, {
+            tag: "div",
+            css: !1,
+            onBeforeEnter: A,
+            onEnter: V,
+            onBeforeLeave: D,
+            onLeave: E
+          }, {
+            default: C(() => [
+              (i(!0), u(
+                T,
+                null,
+                M(m(t).currList, (s, l) => (i(), u("div", {
+                  class: "f-scroll-rank__item",
+                  key: s
+                }, [
+                  c("div", U, [
+                    c("div", X, [
+                      r.showRank ? (i(), u(
+                        "span",
+                        Y,
+                        p(`NO.${s._index_}`),
+                        1
+                        /* TEXT */
+                      )) : _("v-if", !0),
+                      c(
+                        "span",
+                        Z,
+                        p(s.name || ""),
+                        1
+                        /* TEXT */
+                      ),
+                      c("div", j, [
+                        r.showPercent ? (i(), u(
+                          "span",
+                          ee,
+                          p(`${m(L)(s.value)}%`),
+                          1
+                          /* TEXT */
+                        )) : _("v-if", !0),
+                        r.showRatio && typeof r.valueFormatter != "function" ? (i(), u(
+                          "span",
+                          te,
+                          p(`${s.value} / ${m(h)}`),
+                          1
+                          /* TEXT */
+                        )) : _("v-if", !0),
+                        typeof r.valueFormatter == "function" ? (i(), u(
+                          "span",
+                          re,
+                          p(`${s.formattedValue}`),
+                          1
+                          /* TEXT */
+                        )) : _("v-if", !0)
+                      ])
+                    ]),
+                    c("div", ae, [
+                      S(m(v), {
+                        percent: m(L)(s.value),
+                        color: r.color,
+                        duration: r.progressDuration
+                      }, null, 8, ["percent", "color", "duration"])
+                    ])
                   ])
-                ]),
-                c("div", ae, [
-                  S(m(v), {
-                    percent: m(L)(s.value),
-                    color: r.color,
-                    duration: r.progressDuration
-                  }, null, 8, ["percent", "color", "duration"])
-                ])
-              ])
-            ]))), 128))
-          ]),
-          _: 1
-        })
-      ], 4)
+                ]))),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ]),
+            _: 1
+            /* STABLE */
+          })
+        ],
+        4
+        /* STYLE */
+      )
     ]));
   }
 });

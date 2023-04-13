@@ -39,25 +39,61 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
       }
     ), (i, g) => (r(), o("div", E, [
       a("div", z, [
-        (r(!0), o(_, null, p(f(c).stringList, (l, t) => (r(), o("div", {
-          class: N(["f-digital-scroll__item", { "is-small": l === "." }]),
-          key: t
-        }, [
-          S(a("div", B, ".", 512), [
-            [h, l === "."]
-          ]),
-          S(a("div", {
-            class: "f-digital-scroll__digital-list",
-            style: k(f(v)(l))
-          }, [
-            (r(), o(_, null, p(10, (n, m) => a("div", {
-              class: "f-digital-scroll__digital-item",
-              key: m
-            }, w(m), 1)), 64))
-          ], 4), [
-            [h, l !== "."]
-          ])
-        ], 2))), 128))
+        (r(!0), o(
+          _,
+          null,
+          p(f(c).stringList, (l, t) => (r(), o(
+            "div",
+            {
+              class: N(["f-digital-scroll__item", { "is-small": l === "." }]),
+              key: t
+            },
+            [
+              S(a(
+                "div",
+                B,
+                ".",
+                512
+                /* NEED_PATCH */
+              ), [
+                [h, l === "."]
+              ]),
+              S(a(
+                "div",
+                {
+                  class: "f-digital-scroll__digital-list",
+                  style: k(f(v)(l))
+                },
+                [
+                  (r(), o(
+                    _,
+                    null,
+                    p(10, (n, m) => a(
+                      "div",
+                      {
+                        class: "f-digital-scroll__digital-item",
+                        key: m
+                      },
+                      w(m),
+                      1
+                      /* TEXT */
+                    )),
+                    64
+                    /* STABLE_FRAGMENT */
+                  ))
+                ],
+                4
+                /* STYLE */
+              ), [
+                [h, l !== "."]
+              ])
+            ],
+            2
+            /* CLASS */
+          ))),
+          128
+          /* KEYED_FRAGMENT */
+        ))
       ])
     ]));
   }

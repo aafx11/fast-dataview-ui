@@ -91,7 +91,10 @@ function ae(e, t) {
     "max-height": t.maxHeight || "auto",
     "--page-animate-dur": `${t.pageAnimateDur}ms`
   })), u = S(() => function(r) {
-    return {};
+    return {
+      // 'height': state.rowsHeight[i] || 'auto',
+      // 'max-height': state.rowsHeight[i] || 'auto',
+    };
   }), f = S(() => function(r) {
     return {
       width: `${r.width}px`,
@@ -141,20 +144,32 @@ const R = /* @__PURE__ */ F({
         animation: m
       };
     });
-    return (s, u) => (h(), _("div", {
-      ref_key: "scrollText",
-      ref: i,
-      class: D(["f-scroll-text", `f-scroll-text--${t.type}`])
-    }, [
-      P("div", {
-        ref_key: "textContent",
-        ref: n,
-        class: "text-content",
-        style: E(v(x))
-      }, [
-        O(s.$slots, "default")
-      ], 4)
-    ], 2));
+    return (s, u) => (h(), _(
+      "div",
+      {
+        ref_key: "scrollText",
+        ref: i,
+        class: D(["f-scroll-text", `f-scroll-text--${t.type}`])
+      },
+      [
+        P(
+          "div",
+          {
+            ref_key: "textContent",
+            ref: n,
+            class: "text-content",
+            style: E(v(x))
+          },
+          [
+            O(s.$slots, "default")
+          ],
+          4
+          /* STYLE */
+        )
+      ],
+      2
+      /* CLASS */
+    ));
   }
 });
 R.install = function(e) {
@@ -227,14 +242,23 @@ const ie = {
   }) {
     const i = e, n = Q({
       tableData: [],
+      // 所有表格数据
       currData: [],
+      // 当前展示的数据
       pageData: [],
+      // 分页数据
       currPage: 1,
+      // 当前页
       toggleCount: 0,
+      // 切换完成的次数
       intervalId: null,
+      // 切换页面定时器
       setTimeoutId: null,
+      // 没有数据时,发送事件的定时器
       isStopToggle: !1,
+      // 是否停止切换页面(当鼠标移动到表格时，停止切换)
       isEmpty: !1
+      // 当前没有数据
     }), x = X(), s = B(), {
       deepCloneArr: u,
       setCurrData: f,
@@ -280,60 +304,134 @@ const ie = {
       o();
     }), t({
       setPage: m
-    }), (c, $) => (h(), _("div", {
-      ref: "scrollTable",
-      class: D(["f-scroll-table2", {
-        "is-border": i.border
-      }]),
-      style: E(v(y)(i.columns))
-    }, [P("div", ie, [(h(!0), _(I, null, z(i.columns, (g, T) => (h(), _("div", {
-      class: "f-scroll-table__cell",
-      style: E(v(L)(g)),
-      key: T
-    }, b(g.label), 5))), 128))]), P("div", {
-      ref_key: "scrollTable__body",
-      ref: s,
-      class: "f-scroll-table__content is-hidden-scrollbar",
-      style: E(v(C))
-    }, [H(ee, {
-      tag: "div",
-      css: !1,
-      onBeforeEnter: V,
-      onEnter: G,
-      onBeforeLeave: q,
-      onLeave: J
-    }, {
-      default: W(() => [(h(!0), _(I, null, z(n.currData, (g, T) => (h(), _("div", {
-        class: "f-scroll-table__row-wrap",
-        key: g
-      }, [P("div", {
-        class: D(v(l)(g, T))
-      }, [(h(!0), _(I, null, z(i.columns, (p, k) => (h(), _("div", {
-        class: "f-scroll-table__cell",
-        style: E([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, T, k)]),
-        key: `${g[p.prop]}${k}`,
-        onClick: (K) => v(a)(K, g, g[p.prop], T, k)
-      }, [p.type === "index" ? (h(), _("div", {
-        key: 0,
-        class: D(v(d))
-      }, b(g._index_ || ""), 3)) : p.type === "scroll" ? (h(), _("div", se, [H(v(R), te(le(p.scrollOption)), {
-        default: W(() => [P("div", null, b(g[p.prop]), 1)]),
-        _: 2
-      }, 1040)])) : p.slot ? (h(), _("div", {
-        key: 2,
-        class: D(v(d))
-      }, [O(c.$slots, p.slot, {
-        params: {
-          row: g,
-          column: p.prop,
-          $index: T
-        }
-      })], 2)) : (h(), _("div", {
-        key: 3,
-        class: D(v(d))
-      }, b(g[p.prop]), 3))], 12, oe))), 128))], 2)]))), 128))]),
-      _: 3
-    })], 4)], 6));
+    }), (c, $) => (h(), _(
+      "div",
+      {
+        ref: "scrollTable",
+        class: D(["f-scroll-table2", {
+          "is-border": i.border
+        }]),
+        style: E(v(y)(i.columns))
+      },
+      [P("div", ie, [(h(!0), _(
+        I,
+        null,
+        z(i.columns, (g, T) => (h(), _(
+          "div",
+          {
+            class: "f-scroll-table__cell",
+            style: E(v(L)(g)),
+            key: T
+          },
+          b(g.label),
+          5
+          /* TEXT, STYLE */
+        ))),
+        128
+        /* KEYED_FRAGMENT */
+      ))]), P(
+        "div",
+        {
+          ref_key: "scrollTable__body",
+          ref: s,
+          class: "f-scroll-table__content is-hidden-scrollbar",
+          style: E(v(C))
+        },
+        [H(ee, {
+          tag: "div",
+          css: !1,
+          onBeforeEnter: V,
+          onEnter: G,
+          onBeforeLeave: q,
+          onLeave: J
+        }, {
+          default: W(() => [(h(!0), _(
+            I,
+            null,
+            z(n.currData, (g, T) => (h(), _("div", {
+              class: "f-scroll-table__row-wrap",
+              key: g
+            }, [P(
+              "div",
+              {
+                class: D(v(l)(g, T))
+              },
+              [(h(!0), _(
+                I,
+                null,
+                z(i.columns, (p, k) => (h(), _("div", {
+                  class: "f-scroll-table__cell",
+                  style: E([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, T, k)]),
+                  key: `${g[p.prop]}${k}`,
+                  onClick: (K) => v(a)(K, g, g[p.prop], T, k)
+                }, [p.type === "index" ? (h(), _(
+                  "div",
+                  {
+                    key: 0,
+                    class: D(v(d))
+                  },
+                  b(g._index_ || ""),
+                  3
+                  /* TEXT, CLASS */
+                )) : p.type === "scroll" ? (h(), _("div", se, [H(
+                  v(R),
+                  te(le(p.scrollOption)),
+                  {
+                    default: W(() => [P(
+                      "div",
+                      null,
+                      b(g[p.prop]),
+                      1
+                      /* TEXT */
+                    )]),
+                    _: 2
+                    /* DYNAMIC */
+                  },
+                  1040
+                  /* FULL_PROPS, DYNAMIC_SLOTS */
+                )])) : p.slot ? (h(), _(
+                  "div",
+                  {
+                    key: 2,
+                    class: D(v(d))
+                  },
+                  [O(c.$slots, p.slot, {
+                    params: {
+                      row: g,
+                      column: p.prop,
+                      $index: T
+                    }
+                  })],
+                  2
+                  /* CLASS */
+                )) : (h(), _(
+                  "div",
+                  {
+                    key: 3,
+                    class: D(v(d))
+                  },
+                  b(g[p.prop]),
+                  3
+                  /* TEXT, CLASS */
+                ))], 12, oe))),
+                128
+                /* KEYED_FRAGMENT */
+              ))],
+              2
+              /* CLASS */
+            )]))),
+            128
+            /* KEYED_FRAGMENT */
+          ))]),
+          _: 3
+          /* FORWARDED */
+        })],
+        4
+        /* STYLE */
+      )],
+      6
+      /* CLASS, STYLE */
+    ));
   }
 });
 A.install = function(e) {

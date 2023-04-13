@@ -34,6 +34,7 @@ importers:
       '@fast-dataview-ui/types': link:packages/types
       '@fast-dataview-ui/utils': link:packages/utils
       '@vueuse/core': 9.13.0_vue@3.2.44
+      vue: 3.2.44
     devDependencies:
       '@types/gulp': 4.0.10
       '@types/gulp-autoprefixer': 0.0.33
@@ -51,7 +52,6 @@ importers:
       sucrase: 3.32.0
       typescript: 4.9.5
       vite-plugin-libcss: 1.0.6
-      vue: 3.2.44
 
   dist:
     specifiers: {}
@@ -97,11 +97,15 @@ importers:
 
   docs:
     specifiers:
+      vite: ^4.0.2
       vitepress: 1.0.0-alpha.30
       vitepress-theme-demoblock: ^2.0.2
+      vue: 3.2.44
     devDependencies:
+      vite: 4.2.1
       vitepress: 1.0.0-alpha.30
       vitepress-theme-demoblock: link:docs/utils/vitepress-theme-demoblock
+      vue: 3.2.44
 
   docs/docs/utils/vitepress-theme-demoblock:
     specifiers:

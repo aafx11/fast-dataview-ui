@@ -24,20 +24,32 @@ const d = /* @__PURE__ */ $({
         animation: c
       };
     });
-    return (t, n) => (y(), w("div", {
-      ref_key: "scrollText",
-      ref: r,
-      class: T(["f-scroll-text", `f-scroll-text--${e.type}`])
-    }, [
-      _("div", {
-        ref_key: "textContent",
-        ref: s,
-        class: "text-content",
-        style: C(S(g))
-      }, [
-        k(t.$slots, "default")
-      ], 4)
-    ], 2));
+    return (t, n) => (y(), w(
+      "div",
+      {
+        ref_key: "scrollText",
+        ref: r,
+        class: T(["f-scroll-text", `f-scroll-text--${e.type}`])
+      },
+      [
+        _(
+          "div",
+          {
+            ref_key: "textContent",
+            ref: s,
+            class: "text-content",
+            style: C(S(g))
+          },
+          [
+            k(t.$slots, "default")
+          ],
+          4
+          /* STYLE */
+        )
+      ],
+      2
+      /* CLASS */
+    ));
   }
 });
 d.install = function(l) {

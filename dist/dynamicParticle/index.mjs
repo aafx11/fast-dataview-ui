@@ -1,18 +1,33 @@
 import { defineComponent as D, inject as X, ref as m, onMounted as I, openBlock as A, createElementBlock as C, createElementVNode as M } from "vue";
 const R = {
   width: { type: Number, default: 400 },
+  // 画布宽度
   height: { type: Number, default: 400 },
+  // 画布高度
   radius: { type: Number, default: 1.2 },
+  // 粒子半径
   strength: { type: Number, default: 2 },
+  // 吸引和排斥的力度
+  // particleColors: { type: String, default: 'rgba(255, 255, 255, 1)' }, // 粒子颜色
   src: { type: String }
+  // 图片url
 }, E = 30, $ = 1 / E;
 class w {
+  // 粒子的透明度
   constructor(i, t, r, e, l, a, s) {
     this.x = Math.random() * i >> 0, this.y = Math.random() * t >> 0, this.targetX = r, this.targetY = e, this.time = l, this.radius = a, this.colors = s, this.opacity = 0;
   }
+  // 绘制粒子
   draw(i) {
     i.fillStyle = `${this.colors}`, i.fillRect(this.x, this.y, this.radius * 2, this.radius * 2), i.fill();
   }
+  /**
+   * 根据鼠标与粒子的位置，更新粒子
+   * @param {number} radius 鼠标影响的半径范围
+   * @param {number} strength 吸引和排斥的力度
+   * @param {number} mouseX 鼠标在X轴的位置
+   * @param {number} mouseY 鼠标在Y轴的位置
+   */
   update(i, t, r, e) {
     if (this.distanceX = this.targetX - this.x, this.distanceY = this.targetY - this.y, this.velocityX = this.distanceX / this.time, this.velocityY = this.distanceY / this.time, r && e) {
       let l = r - this.x, a = e - this.y, s = Math.sqrt(l ** 2 + a ** 2), h = i / s;
@@ -22,17 +37,20 @@ class w {
     }
     this.x += this.velocityX, this.y += this.velocityY, this.opacity < 1 && (this.opacity += $);
   }
+  // 切换粒子
   change(i, t, r) {
     this.targetX = i, this.targetY = t, this.colors = r;
   }
 }
 const Y = 30;
 class b {
+  // 动画的id，用于停止动画
   constructor(i, t, r) {
     this.radius = t, this.strength = r, this.canvasEle = i, this.ctx = i.getContext("2d"), this.width = i.width, this.height = i.height, this.particleArr = [], this.canvasEle.onmouseleave = () => {
       this.mouseX = 0, this.mouseY = 0;
     };
   }
+  // 修改图片，复用粒子
   changeImg(i) {
     if (this.particleArr.length) {
       let t = i.particleData, r = t.length, e = this.particleArr, l = e.length;
@@ -57,6 +75,8 @@ class b {
 }
 const _ = 30;
 class x {
+  // 粒子的半径
+  // particleColors: string; // 粒子的颜色
   constructor(i, t, r, e) {
     this.src = i, this.width = t, this.height = r, this.particleData = [], this.radius = e;
   }

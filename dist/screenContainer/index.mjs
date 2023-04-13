@@ -1,5 +1,5 @@
 import './style.css';
-import { getCurrentScope as H, onScopeDispose as T, unref as A, watch as S, ref as h, onMounted as N, onUnmounted as z, nextTick as F, defineComponent as Q, reactive as $, provide as C, openBlock as k, createElementBlock as B, createElementVNode as L, renderSlot as D, createCommentVNode as I } from "vue";
+import { unref as H, getCurrentScope as T, onScopeDispose as A, watch as S, ref as p, onMounted as N, onUnmounted as z, nextTick as F, defineComponent as Q, reactive as $, provide as O, openBlock as k, createElementBlock as B, createElementVNode as L, renderSlot as D, createCommentVNode as b } from "vue";
 const j = {
   width: { type: Number, default: 1920 },
   height: { type: Number, default: 1080 },
@@ -10,37 +10,40 @@ function M(e, i) {
   const t = window.MutationObserver, n = new t(i);
   return n.observe(e, {
     attributes: !0,
+    // 观察所有监听的节点属性值的变化
     attributeFilter: ["style"],
+    // 监听的属性
     attributeOldValue: !0
+    // 记录上一次被监听的节点的属性变化 
   }), n;
 }
-var R;
-const E = typeof window < "u", U = (e) => typeof e == "string", m = () => {
+var C;
+const E = typeof window < "u", U = (e) => typeof e == "string", y = () => {
 };
-E && ((R = window == null ? void 0 : window.navigator) != null && R.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function y(e) {
-  return typeof e == "function" ? e() : A(e);
+E && ((C = window == null ? void 0 : window.navigator) != null && C.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+function w(e) {
+  return typeof e == "function" ? e() : H(e);
 }
 function V(e, i) {
   function t(...n) {
-    return new Promise((s, o) => {
-      Promise.resolve(e(() => i.apply(this, n), { fn: i, thisArg: this, args: n })).then(s).catch(o);
+    return new Promise((o, s) => {
+      Promise.resolve(e(() => i.apply(this, n), { fn: i, thisArg: this, args: n })).then(o).catch(s);
     });
   }
   return t;
 }
 function X(e, i = {}) {
-  let t, n, s = m;
-  const o = (l) => {
-    clearTimeout(l), s(), s = m;
+  let t, n, o = y;
+  const s = (l) => {
+    clearTimeout(l), o(), o = y;
   };
   return (l) => {
-    const c = y(e), u = y(i.maxWait);
-    return t && o(t), c <= 0 || u !== void 0 && u <= 0 ? (n && (o(n), n = null), Promise.resolve(l())) : new Promise((r, a) => {
-      s = i.rejectOnCancel ? a : r, u && !n && (n = setTimeout(() => {
-        t && o(t), n = null, r(l());
+    const c = w(e), u = w(i.maxWait);
+    return t && s(t), c <= 0 || u !== void 0 && u <= 0 ? (n && (s(n), n = null), Promise.resolve(l())) : new Promise((r, a) => {
+      o = i.rejectOnCancel ? a : r, u && !n && (n = setTimeout(() => {
+        t && s(t), n = null, r(l());
       }, u)), t = setTimeout(() => {
-        n && o(n), n = null, r(l());
+        n && s(n), n = null, r(l());
       }, c);
     });
   };
@@ -49,34 +52,33 @@ function Y(e) {
   return e;
 }
 function G(e) {
-  return H() ? (T(e), !0) : !1;
+  return T() ? (A(e), !0) : !1;
 }
 function K(e, i = 200, t = {}) {
   return V(X(i, t), e);
 }
 function q(e) {
   var i;
-  const t = y(e);
+  const t = w(e);
   return (i = t == null ? void 0 : t.$el) != null ? i : t;
 }
 const J = E ? window : void 0;
 function Z(...e) {
-  let i, t, n, s;
-  if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, s] = e, i = J) : [i, t, n, s] = e, !i)
-    return m;
+  let i, t, n, o;
+  if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, o] = e, i = J) : [i, t, n, o] = e, !i)
+    return y;
   Array.isArray(t) || (t = [t]), Array.isArray(n) || (n = [n]);
-  const o = [], f = () => {
-    o.forEach((r) => r()), o.length = 0;
-  }, l = (r, a, d) => (r.addEventListener(a, d, s), () => r.removeEventListener(a, d, s)), c = S(() => q(i), (r) => {
-    f(), r && o.push(...t.flatMap((a) => n.map((d) => l(r, a, d))));
+  const s = [], f = () => {
+    s.forEach((r) => r()), s.length = 0;
+  }, l = (r, a, d, h) => (r.addEventListener(a, d, h), () => r.removeEventListener(a, d, h)), c = S(() => [q(i), w(o)], ([r, a]) => {
+    f(), r && s.push(...t.flatMap((d) => n.map((h) => l(r, d, h, a))));
   }, { immediate: !0, flush: "post" }), u = () => {
     c(), f();
   };
   return G(u), u;
 }
-const _ = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, O = "__vueuse_ssr_handlers__";
-_[O] = _[O] || {};
-_[O];
+const I = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, R = "__vueuse_ssr_handlers__";
+I[R] = I[R] || {};
 var W;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
@@ -119,35 +121,35 @@ ie({
   linear: Y
 }, re);
 const se = (e, i, t, n) => {
-  const s = h(0), o = h(0), f = h(0), l = h(0);
+  const o = p(0), s = p(0), f = p(0), l = p(0);
   let c, u = null, r = null;
-  const a = (p = !0) => new Promise((v) => {
+  const a = (v = !0) => new Promise((g) => {
     F(() => {
-      r = e.value, s.value = e.value ? e.value.clientWidth : 0, o.value = e.value ? e.value.clientHeight : 0, f.value = r ? r.getBoundingClientRect().width : 0, l.value = r ? r.getBoundingClientRect().height : 0, e.value ? (!s.value || !o.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof i == "function" && p && i(), v(!0);
+      r = e.value, o.value = e.value ? e.value.clientWidth : 0, s.value = e.value ? e.value.clientHeight : 0, f.value = r ? r.getBoundingClientRect().width : 0, l.value = r ? r.getBoundingClientRect().height : 0, e.value ? (!o.value || !s.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof i == "function" && v && i(), g(!0);
     });
   }), d = () => {
     u = M(r, c), Z(window, "resize", c);
-  }, g = () => {
+  }, h = () => {
     u && (u.disconnect(), u.takeRecords(), u = null);
-  }, w = async () => {
+  }, m = async () => {
     await a(!1), c = K(a, 200), d(), typeof t == "function" && t();
   };
   return N(() => {
-    w();
+    m();
   }), z(() => {
-    g();
+    h();
   }), {
-    width: s,
-    height: o,
+    width: o,
+    height: s,
     afterWidth: f,
     afterHeight: l,
     initWH: a
   };
-}, oe = { class: "f-screen-container" }, b = /* @__PURE__ */ Q({
+}, oe = { class: "f-screen-container" }, _ = /* @__PURE__ */ Q({
   __name: "index",
   props: j,
   setup(e) {
-    const i = e, t = h(null), n = $({
+    const i = e, t = p(null), n = $({
       width: 0,
       height: 0,
       screenWidth: 0,
@@ -156,8 +158,8 @@ const se = (e, i, t, n) => {
       scaleY: 1,
       isReady: !1
     });
-    let s = h(1), o = h(1);
-    C("scaleX", s), C("scaleY", o);
+    let o = p(1), s = p(1);
+    O("scaleX", o), O("scaleY", s);
     const f = () => {
       i.width && i.height ? (n.width = i.width, n.height = i.height) : (n.width = t.value.clientWidth, n.height = t.value.clientHeight);
       const { width: a, height: d } = window.screen;
@@ -165,27 +167,33 @@ const se = (e, i, t, n) => {
     }, l = () => {
       n.width && n.height ? (t.value.style.width = `${n.width}px`, t.value.style.height = `${n.height}px`) : (t.value.style.width = `${n.screenWidth}px`, t.value.style.height = `${n.screenHeight}px`);
     }, c = () => {
-      const a = document.body.clientWidth, d = document.body.clientHeight, g = n.width || n.screenWidth, w = n.height || n.screenHeight, p = a / +g, v = d / +w;
-      s.value = p, o.value = v, t.value.style.transform = `scale(${p}, ${v})`;
+      const a = document.body.clientWidth, d = document.body.clientHeight, h = n.width || n.screenWidth, m = n.height || n.screenHeight, v = a / +h, g = d / +m;
+      o.value = v, s.value = g, t.value.style.transform = `scale(${v}, ${g})`;
     };
     return se(t, () => {
       c();
     }, () => {
       f(), l(), c(), i.onAfterResize(), n.isReady = !0;
     }), (a, d) => (k(), B("div", oe, [
-      L("div", {
-        class: "f-screen-inner",
-        ref_key: "screenContainer",
-        ref: t
-      }, [
-        n.isReady ? D(a.$slots, "default", { key: 0 }) : I("v-if", !0),
-        I(" <slot></slot> ")
-      ], 512)
+      L(
+        "div",
+        {
+          class: "f-screen-inner",
+          ref_key: "screenContainer",
+          ref: t
+        },
+        [
+          n.isReady ? D(a.$slots, "default", { key: 0 }) : b("v-if", !0),
+          b(" <slot></slot> ")
+        ],
+        512
+        /* NEED_PATCH */
+      )
     ]));
   }
 });
-b.install = function(e) {
-  e.component("FScreenContainer", b);
+_.install = function(e) {
+  e.component("FScreenContainer", _);
 };
 const ue = {
   title: "container 容器",
@@ -193,10 +201,10 @@ const ue = {
   category: "容器",
   status: "100%",
   install(e) {
-    e.use(b);
+    e.use(_);
   }
 };
 export {
-  b as ScreenContainer,
+  _ as ScreenContainer,
   ue as default
 };

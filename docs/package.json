@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "vue": "3.2.44",
+    "vite": "^4.0.2",
     "vitepress": "1.0.0-alpha.30",
     "vitepress-theme-demoblock": "^2.0.2"
   }

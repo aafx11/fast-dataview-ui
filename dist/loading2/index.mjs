@@ -27,19 +27,37 @@ const y = Object.assign, p = (t) => Array.isArray(t) && t.length, m = i({
   for (const [o, l] of r)
     e[o] = l;
   return e;
-}, _ = /* @__PURE__ */ a("div", { class: "f-loading-round" }, null, -1), S = { class: "loading-text" };
+}, _ = /* @__PURE__ */ a(
+  "div",
+  { class: "f-loading-round" },
+  null,
+  -1
+  /* HOISTED */
+), S = { class: "loading-text" };
 function v(t, r, e, o, l, b) {
-  return s(), c("div", {
-    class: "f-loading-2",
-    style: u(t.getLoadingStyle)
-  }, [
-    _,
-    a("div", S, [
-      g(t.$slots, "default", {}, () => [
-        a("div", null, f(t.text), 1)
+  return s(), c(
+    "div",
+    {
+      class: "f-loading-2",
+      style: u(t.getLoadingStyle)
+    },
+    [
+      _,
+      a("div", S, [
+        g(t.$slots, "default", {}, () => [
+          a(
+            "div",
+            null,
+            f(t.text),
+            1
+            /* TEXT */
+          )
+        ])
       ])
-    ])
-  ], 4);
+    ],
+    4
+    /* STYLE */
+  );
 }
 const n = /* @__PURE__ */ h(m, [["render", v]]);
 n.install = function(t) {

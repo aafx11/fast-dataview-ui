@@ -1,40 +1,43 @@
-import { getCurrentScope as k, onScopeDispose as A, unref as B, watch as N, ref as h, onMounted as S, onUnmounted as $, nextTick as L, defineComponent as F, computed as Q, createVNode as y, renderSlot as D } from "vue";
+import { unref as k, getCurrentScope as A, onScopeDispose as B, watch as N, ref as y, onMounted as S, onUnmounted as $, nextTick as L, defineComponent as F, computed as Q, createVNode as b, renderSlot as D } from "vue";
 function H(e, n) {
   const t = window.MutationObserver, r = new t(n);
   return r.observe(e, {
     attributes: !0,
+    // 观察所有监听的节点属性值的变化
     attributeFilter: ["style"],
+    // 监听的属性
     attributeOldValue: !0
+    // 记录上一次被监听的节点的属性变化 
   }), r;
 }
-var C;
-const T = typeof window < "u", R = (e) => typeof e == "string", O = () => {
+var x;
+const T = typeof window < "u", R = (e) => typeof e == "string", _ = () => {
 };
-T && ((C = window == null ? void 0 : window.navigator) != null && C.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function _(e) {
-  return typeof e == "function" ? e() : B(e);
+T && ((x = window == null ? void 0 : window.navigator) != null && x.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+function g(e) {
+  return typeof e == "function" ? e() : k(e);
 }
 function j(e, n) {
   function t(...r) {
-    return new Promise((i, s) => {
-      Promise.resolve(e(() => n.apply(this, r), { fn: n, thisArg: this, args: r })).then(i).catch(s);
+    return new Promise((a, i) => {
+      Promise.resolve(e(() => n.apply(this, r), { fn: n, thisArg: this, args: r })).then(a).catch(i);
     });
   }
   return t;
 }
 function M(e, n = {}) {
-  let t, r, i = O;
-  const s = (l) => {
-    clearTimeout(l), i(), i = O;
+  let t, r, a = _;
+  const i = (l) => {
+    clearTimeout(l), a(), a = _;
   };
   return (l) => {
-    const a = _(e), u = _(n.maxWait);
-    return t && s(t), a <= 0 || u !== void 0 && u <= 0 ? (r && (s(r), r = null), Promise.resolve(l())) : new Promise((o, c) => {
-      i = n.rejectOnCancel ? c : o, u && !r && (r = setTimeout(() => {
-        t && s(t), r = null, o(l());
+    const s = g(e), u = g(n.maxWait);
+    return t && i(t), s <= 0 || u !== void 0 && u <= 0 ? (r && (i(r), r = null), Promise.resolve(l())) : new Promise((o, c) => {
+      a = n.rejectOnCancel ? c : o, u && !r && (r = setTimeout(() => {
+        t && i(t), r = null, o(l());
       }, u)), t = setTimeout(() => {
-        r && s(r), r = null, o(l());
-      }, a);
+        r && i(r), r = null, o(l());
+      }, s);
     });
   };
 }
@@ -42,34 +45,33 @@ function U(e) {
   return e;
 }
 function z(e) {
-  return k() ? (A(e), !0) : !1;
+  return A() ? (B(e), !0) : !1;
 }
 function V(e, n = 200, t = {}) {
   return j(M(n, t), e);
 }
 function G(e) {
   var n;
-  const t = _(e);
+  const t = g(e);
   return (n = t == null ? void 0 : t.$el) != null ? n : t;
 }
 const Z = T ? window : void 0;
 function K(...e) {
-  let n, t, r, i;
-  if (R(e[0]) || Array.isArray(e[0]) ? ([t, r, i] = e, n = Z) : [n, t, r, i] = e, !n)
-    return O;
+  let n, t, r, a;
+  if (R(e[0]) || Array.isArray(e[0]) ? ([t, r, a] = e, n = Z) : [n, t, r, a] = e, !n)
+    return _;
   Array.isArray(t) || (t = [t]), Array.isArray(r) || (r = [r]);
-  const s = [], d = () => {
-    s.forEach((o) => o()), s.length = 0;
-  }, l = (o, c, f) => (o.addEventListener(c, f, i), () => o.removeEventListener(c, f, i)), a = N(() => G(n), (o) => {
-    d(), o && s.push(...t.flatMap((c) => r.map((f) => l(o, c, f))));
+  const i = [], d = () => {
+    i.forEach((o) => o()), i.length = 0;
+  }, l = (o, c, f, p) => (o.addEventListener(c, f, p), () => o.removeEventListener(c, f, p)), s = N(() => [G(n), g(a)], ([o, c]) => {
+    d(), o && i.push(...t.flatMap((f) => r.map((p) => l(o, f, p, c))));
   }, { immediate: !0, flush: "post" }), u = () => {
-    a(), d();
+    s(), d();
   };
   return z(u), u;
 }
-const x = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, I = "__vueuse_ssr_handlers__";
-x[I] = x[I] || {};
-x[I];
+const I = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, C = "__vueuse_ssr_handlers__";
+I[C] = I[C] || {};
 var P;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
@@ -112,26 +114,26 @@ Y({
   linear: U
 }, ee);
 const te = (e, n, t, r) => {
-  const i = h(0), s = h(0), d = h(0), l = h(0);
-  let a, u = null, o = null;
-  const c = (m = !0) => new Promise((w) => {
+  const a = y(0), i = y(0), d = y(0), l = y(0);
+  let s, u = null, o = null;
+  const c = (w = !0) => new Promise((O) => {
     L(() => {
-      o = e.value, i.value = e.value ? e.value.clientWidth : 0, s.value = e.value ? e.value.clientHeight : 0, d.value = o ? o.getBoundingClientRect().width : 0, l.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!i.value || !s.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && m && n(), w(!0);
+      o = e.value, a.value = e.value ? e.value.clientWidth : 0, i.value = e.value ? e.value.clientHeight : 0, d.value = o ? o.getBoundingClientRect().width : 0, l.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!a.value || !i.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && w && n(), O(!0);
     });
   }), f = () => {
-    u = H(o, a), K(window, "resize", a);
-  }, v = () => {
+    u = H(o, s), K(window, "resize", s);
+  }, p = () => {
     u && (u.disconnect(), u.takeRecords(), u = null);
-  }, g = async () => {
-    await c(!1), a = V(c, 200), f(), typeof t == "function" && t();
+  }, m = async () => {
+    await c(!1), s = V(c, 200), f(), typeof t == "function" && t();
   };
   return S(() => {
-    g();
+    m();
   }), $(() => {
-    v();
+    p();
   }), {
-    width: i,
-    height: s,
+    width: a,
+    height: i,
     afterWidth: d,
     afterHeight: l,
     initWH: c
@@ -160,26 +162,26 @@ const te = (e, n, t, r) => {
     type: String,
     default: "300 300"
   }
-}, re = Object.assign, oe = (e) => Array.isArray(e) && e.length, p = (e) => e >= 0 ? e : 0, b = /* @__PURE__ */ F({
+}, re = Object.assign, oe = (e) => Array.isArray(e) && e.length, h = (e) => e >= 0 ? e : 0, v = /* @__PURE__ */ F({
   name: "FBorderBox2",
   props: ne,
   setup(e, {
     slots: n
   }) {
-    const t = h(null), r = ["white"];
-    let i = Q(() => oe(e.color) ? re(r, e.color) : r);
+    const t = y(null), r = ["white"];
+    let a = Q(() => oe(e.color) ? re(r, e.color) : r);
     const {
-      width: s,
+      width: i,
       height: d,
       initWH: l
     } = te(t);
     return {
-      width: s,
+      width: i,
       height: d,
       initWH: l,
       borderBox2: t,
       defaultColor: r,
-      realColor: i
+      realColor: a
     };
   },
   render() {
@@ -188,36 +190,36 @@ const te = (e, n, t, r) => {
       width: n,
       height: t,
       backgroundColor: r,
-      strokeWidth: i,
-      realColor: s,
+      strokeWidth: a,
+      realColor: i,
       duration: d,
       strokeDasharray: l
     } = this;
-    let a = i || 3, u = p(a), o = p(a), c = p(n - a), f = p(a), v = p(n - a), g = p(t - a), m = p(a), w = p(t - a);
-    return y("div", {
+    let s = a || 3, u = h(s), o = h(s), c = h(n - s), f = h(s), p = h(n - s), m = h(t - s), w = h(s), O = h(t - s);
+    return b("div", {
       ref: "borderBox2",
       class: "f-border-box-2"
-    }, [y("svg", {
+    }, [b("svg", {
       class: "f-svg-container",
       width: n,
       height: t
-    }, [y("path", {
+    }, [b("path", {
       class: "f-container-path",
       style: {
         "--duration": `${d}s`,
         "--border-stroke-dasharray": l
       },
-      stroke: s[0],
-      "stroke-width": a,
+      stroke: i[0],
+      "stroke-width": s,
       fill: r,
-      d: `M ${u} ${o}, L ${c} ${f}, L ${v} ${g}, L ${m} ${w}, Z`
-    }, null)]), y("div", {
+      d: `M ${u} ${o}, L ${c} ${f}, L ${p} ${m}, L ${w} ${O}, Z`
+    }, null)]), b("div", {
       class: "f-border-box-content"
     }, [D(e, "default")])]);
   }
 });
-b.install = function(e) {
-  e.component(b.name, b);
+v.install = function(e) {
+  e.component(v.name, v);
 };
 const se = {
   title: "border-02 边框",
@@ -225,10 +227,10 @@ const se = {
   category: "边框",
   status: "100%",
   install(e) {
-    e.use(b);
+    e.use(v);
   }
 };
 export {
-  b as BorderBox2,
+  v as BorderBox2,
   se as default
 };
