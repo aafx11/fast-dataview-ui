@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app.d16b1d22.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"docs/flightChart.md","lastUpdated":1681387654000}'),r={name:"docs/flightChart.md"};function o(s,c,n,d,i,p){return a(),e("div")}const l=t(r,[["render",o]]);export{f as __pageData,l as default};
