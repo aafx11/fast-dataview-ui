@@ -55,7 +55,7 @@ class b {
     }), this.requestID = window.requestAnimationFrame(() => this.drawCanvas());
   }
 }
-const L = 30;
+const _ = 30;
 class x {
   constructor(i, t, r, e) {
     this.src = i, this.width = t, this.height = r, this.particleData = [], this.radius = e;
@@ -75,7 +75,7 @@ class x {
               continue;
             const p = n[d], v = n[d + 1], y = n[d + 2];
             if (p + v + y + g) {
-              const P = new w(this.width, this.height, o, c, L, this.radius, `rgba(${p},${v},${y},${g})`);
+              const P = new w(this.width, this.height, o, c, _, this.radius, `rgba(${p},${v},${y},${g})`);
               this.particleData.push(P);
             }
           }
@@ -86,8 +86,8 @@ class x {
     });
   }
 }
-const N = ["width", "height"], f = /* @__PURE__ */ D({
-  name: "index",
+const L = ["width", "height"], f = /* @__PURE__ */ D({
+  __name: "index",
   props: R,
   setup(u, { expose: i }) {
     const t = u;
@@ -112,7 +112,7 @@ const N = ["width", "height"], f = /* @__PURE__ */ D({
         ref: l,
         width: t.width,
         height: t.height
-      }, null, 8, N)
+      }, null, 8, L)
     ]));
   }
 });

@@ -1,6 +1,6 @@
-import { defineComponent as $, ref as m, computed as v, openBlock as y, createElementBlock as w, normalizeClass as T, createElementVNode as C, normalizeStyle as S, unref as _, renderSlot as k } from "vue";
+import { defineComponent as $, ref as m, computed as v, openBlock as y, createElementBlock as w, normalizeClass as T, createElementVNode as _, normalizeStyle as C, unref as S, renderSlot as k } from "vue";
 const d = /* @__PURE__ */ $({
-  name: "index",
+  __name: "index",
   props: {
     type: { default: "default" },
     direction: { default: "up" },
@@ -29,11 +29,11 @@ const d = /* @__PURE__ */ $({
       ref: r,
       class: T(["f-scroll-text", `f-scroll-text--${e.type}`])
     }, [
-      C("div", {
+      _("div", {
         ref_key: "textContent",
         ref: s,
         class: "text-content",
-        style: S(_(g))
+        style: C(S(g))
       }, [
         k(t.$slots, "default")
       ], 4)

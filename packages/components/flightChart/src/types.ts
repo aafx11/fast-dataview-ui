@@ -22,7 +22,7 @@ export type Line = {
   duration: number,
   radius: number,
   k: number;
-  curvature: number
+  curvature: number;
 };
 
 export type Halo = {

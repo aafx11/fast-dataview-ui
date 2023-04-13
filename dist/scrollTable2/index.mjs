@@ -117,7 +117,7 @@ function ae(e, t) {
   };
 }
 const R = /* @__PURE__ */ F({
-  name: "index",
+  __name: "index",
   props: {
     type: { default: "default" },
     direction: { default: "up" },
@@ -165,7 +165,7 @@ const ie = {
 }, oe = ["onClick"], se = {
   key: 1
 }, A = /* @__PURE__ */ F({
-  name: "index",
+  __name: "index",
   props: {
     name: {
       default: ""

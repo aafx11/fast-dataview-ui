@@ -1,5 +1,5 @@
 import './style.css';
-import { getCurrentScope as E, onScopeDispose as H, unref as T, watch as A, ref as h, onMounted as S, onUnmounted as N, nextTick as z, defineComponent as F, reactive as Q, provide as C, openBlock as $, createElementBlock as k, createElementVNode as B, renderSlot as L, createCommentVNode as D } from "vue";
+import { getCurrentScope as H, onScopeDispose as T, unref as A, watch as S, ref as h, onMounted as N, onUnmounted as z, nextTick as F, defineComponent as Q, reactive as $, provide as C, openBlock as k, createElementBlock as B, createElementVNode as L, renderSlot as D, createCommentVNode as I } from "vue";
 const j = {
   width: { type: Number, default: 1920 },
   height: { type: Number, default: 1080 },
@@ -14,12 +14,12 @@ function M(e, i) {
     attributeOldValue: !0
   }), n;
 }
-var I;
-const P = typeof window < "u", U = (e) => typeof e == "string", m = () => {
+var R;
+const E = typeof window < "u", U = (e) => typeof e == "string", m = () => {
 };
-P && ((I = window == null ? void 0 : window.navigator) != null && I.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+E && ((R = window == null ? void 0 : window.navigator) != null && R.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
 function y(e) {
-  return typeof e == "function" ? e() : T(e);
+  return typeof e == "function" ? e() : A(e);
 }
 function V(e, i) {
   function t(...n) {
@@ -49,7 +49,7 @@ function Y(e) {
   return e;
 }
 function G(e) {
-  return E() ? (H(e), !0) : !1;
+  return H() ? (T(e), !0) : !1;
 }
 function K(e, i = 200, t = {}) {
   return V(X(i, t), e);
@@ -59,7 +59,7 @@ function q(e) {
   const t = y(e);
   return (i = t == null ? void 0 : t.$el) != null ? i : t;
 }
-const J = P ? window : void 0;
+const J = E ? window : void 0;
 function Z(...e) {
   let i, t, n, s;
   if (U(e[0]) || Array.isArray(e[0]) ? ([t, n, s] = e, i = J) : [i, t, n, s] = e, !i)
@@ -67,7 +67,7 @@ function Z(...e) {
   Array.isArray(t) || (t = [t]), Array.isArray(n) || (n = [n]);
   const o = [], f = () => {
     o.forEach((r) => r()), o.length = 0;
-  }, l = (r, a, d) => (r.addEventListener(a, d, s), () => r.removeEventListener(a, d, s)), c = A(() => q(i), (r) => {
+  }, l = (r, a, d) => (r.addEventListener(a, d, s), () => r.removeEventListener(a, d, s)), c = S(() => q(i), (r) => {
     f(), r && o.push(...t.flatMap((a) => n.map((d) => l(r, a, d))));
   }, { immediate: !0, flush: "post" }), u = () => {
     c(), f();
@@ -77,16 +77,16 @@ function Z(...e) {
 const _ = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, O = "__vueuse_ssr_handlers__";
 _[O] = _[O] || {};
 _[O];
-var R;
+var W;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
-})(R || (R = {}));
-var ee = Object.defineProperty, W = Object.getOwnPropertySymbols, te = Object.prototype.hasOwnProperty, ne = Object.prototype.propertyIsEnumerable, x = (e, i, t) => i in e ? ee(e, i, { enumerable: !0, configurable: !0, writable: !0, value: t }) : e[i] = t, ie = (e, i) => {
+})(W || (W = {}));
+var ee = Object.defineProperty, x = Object.getOwnPropertySymbols, te = Object.prototype.hasOwnProperty, ne = Object.prototype.propertyIsEnumerable, P = (e, i, t) => i in e ? ee(e, i, { enumerable: !0, configurable: !0, writable: !0, value: t }) : e[i] = t, ie = (e, i) => {
   for (var t in i || (i = {}))
-    te.call(i, t) && x(e, t, i[t]);
-  if (W)
-    for (var t of W(i))
-      ne.call(i, t) && x(e, t, i[t]);
+    te.call(i, t) && P(e, t, i[t]);
+  if (x)
+    for (var t of x(i))
+      ne.call(i, t) && P(e, t, i[t]);
   return e;
 };
 const re = {
@@ -122,7 +122,7 @@ const se = (e, i, t, n) => {
   const s = h(0), o = h(0), f = h(0), l = h(0);
   let c, u = null, r = null;
   const a = (p = !0) => new Promise((v) => {
-    z(() => {
+    F(() => {
       r = e.value, s.value = e.value ? e.value.clientWidth : 0, o.value = e.value ? e.value.clientHeight : 0, f.value = r ? r.getBoundingClientRect().width : 0, l.value = r ? r.getBoundingClientRect().height : 0, e.value ? (!s.value || !o.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof i == "function" && p && i(), v(!0);
     });
   }), d = () => {
@@ -132,9 +132,9 @@ const se = (e, i, t, n) => {
   }, w = async () => {
     await a(!1), c = K(a, 200), d(), typeof t == "function" && t();
   };
-  return S(() => {
+  return N(() => {
     w();
-  }), N(() => {
+  }), z(() => {
     g();
   }), {
     width: s,
@@ -143,11 +143,11 @@ const se = (e, i, t, n) => {
     afterHeight: l,
     initWH: a
   };
-}, oe = { class: "f-screen-container" }, b = /* @__PURE__ */ F({
-  name: "index",
+}, oe = { class: "f-screen-container" }, b = /* @__PURE__ */ Q({
+  __name: "index",
   props: j,
   setup(e) {
-    const i = e, t = h(null), n = Q({
+    const i = e, t = h(null), n = $({
       width: 0,
       height: 0,
       screenWidth: 0,
@@ -172,13 +172,14 @@ const se = (e, i, t, n) => {
       c();
     }, () => {
       f(), l(), c(), i.onAfterResize(), n.isReady = !0;
-    }), (a, d) => ($(), k("div", oe, [
-      B("div", {
+    }), (a, d) => (k(), B("div", oe, [
+      L("div", {
         class: "f-screen-inner",
         ref_key: "screenContainer",
         ref: t
       }, [
-        n.isReady ? L(a.$slots, "default", { key: 0 }) : D("", !0)
+        n.isReady ? D(a.$slots, "default", { key: 0 }) : I("v-if", !0),
+        I(" <slot></slot> ")
       ], 512)
     ]));
   }

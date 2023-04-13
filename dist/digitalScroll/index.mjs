@@ -1,6 +1,6 @@
 import { defineComponent as y, reactive as b, computed as L, onMounted as x, watch as D, openBlock as r, createElementBlock as o, createElementVNode as a, Fragment as _, renderList as p, unref as f, normalizeClass as N, withDirectives as S, vShow as h, normalizeStyle as k, toDisplayString as w } from "vue";
 const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }, B = { class: "f-digital-scroll__point" }, d = /* @__PURE__ */ y({
-  name: "index",
+  __name: "index",
   props: {
     number: {
       type: Number,

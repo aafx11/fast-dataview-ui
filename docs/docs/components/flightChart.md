@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  // bgUrl: '/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -72,7 +72,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  // bgUrl: '/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -133,7 +133,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  // bgUrl: '/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -197,7 +197,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  // bgUrl: '/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -257,7 +257,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  // bgUrl: '/map.png',
+  bgUrl: '/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -315,9 +315,166 @@ const onChartClick = (x,y,event) =>{
 ```
 :::
 
-## 使用插槽修改飞线
+## 使用插槽修改飞线(实现管道图)
 使用插槽能够替换原有的飞线，用此方法能够完成管道图。
+飞线的插槽的4个属性:<br>
+`path`属性:连接线的路径，`string`类型<br>
+`pathArr`属性:连接线的路径，`object`类型,包含3个点坐标(x1,y1,x2,y2,x3,y3)<br>
+`totalLength`属性:连接线的总长度,`number`类型<br>
+`line`属性:当前路径的line配置，[Line](#line)类型
+:::demo 1.在此例子中，使用`path`标签制作了箭头，配合`animateMotion`标签的path属性绘制了移动轨迹，并且通过不同的`begin`属性实现多个箭头同时在连接线中移动的效果。<br>2.使用`path`标签，配合`animate`标签，通过变动`stroke-dashoffset`属性，制作了水流前进的效果。<br>3.利用`stroke-dasharray`属性制作了有间隔的水流效果。<br>4.通过`totalLength`属性能够计算不同长度的连接线的动画时长。
+```vue
+<template>
+  <div class="chart-box">
+    <FFlightChart :paths="state.paths" :line="state.line" :halo="state.halo" :title="state.title" :icon="state.icon"
+      style="width: 630px;height: 600px;background: gray;" @chart-click="onChartClick">
+      <template #pipe="{ path, totalLength }">
+        <defs>
+          <path :id="`arrow`" d="M 0 -5 L 10 0 L 0 5 L 3 0 z" transform="translate(0,0)" fill="#0080ff" stroke="black"
+            stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd">
+          </path>
+        </defs>
+        <use :xlink:href="`#arrow`">
+          <animateMotion :path="path" :dur="`${totalLength / 50}s`" rotate="auto" repeatCount="indefinite" />
+        </use>
+        <use :xlink:href="`#arrow`">
+          <animateMotion :path="path" :begin="`${10 / 50}s`" :dur="`${totalLength / 50}s`" rotate="auto"
+            repeatCount="indefinite" />
+        </use>
+        <use :xlink:href="`#arrow`">
+          <animateMotion :path="path" :begin="`${20 / 50}s`" :dur="`${totalLength / 50}s`" rotate="auto"
+            repeatCount="indefinite" />
+        </use>
+      </template>
+      <template #water="{ path, pathArr, totalLength, line }">
+        <path :d="path" fill="transparent" :stroke-width="3" :stroke="line.color" :stroke-dasharray="totalLength"
+          :stroke-dashoffset="0" stroke-linejoin="round" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" :values="`${totalLength};0`" :dur="`${totalLength / 50}s`"
+            repeatCount="indefinite">
+          </animate>
+          <animate attributeName="stroke" :values="`${line.color};#4cc9d9;white`" :dur="`0.5s`" repeatCount="indefinite">
+          </animate>
+        </path>
+      </template>
+      <template #slice-water="{ path, pathArr, totalLength, line }">
+        <path :d="path" fill="transparent" :stroke-width="4" :stroke="line.color" stroke-dasharray="3 15"
+          :stroke-dashoffset="0" stroke-linejoin="round" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" :values="`${totalLength};0`" :dur="`${totalLength / 30}s`"
+            repeatCount="indefinite">
+          </animate>
+        </path>
+      </template>
+    </FFlightChart>
+    <img class="chart-box__water-tank" src="/water-tank.png" />
+    <img class="chart-box__room" src="/air-conditioning-room.png" />
+    <img class="chart-box__air-conditioner" src="/air-conditioner.png" />
+    <img class="chart-box__air-conditioner-2" src="/air-conditioner-2.png" />
+    <img class="chart-box__water-pump-1" src="/water-pump-1.png" />
+    <img class="chart-box__water-pump-2" src="/water-pump-2.png" />
+  </div>
+</template>
+<script lang="ts" setup>
+import { onMounted, ref, reactive, nextTick } from 'vue';
+let state = reactive({
+  paths: [
+    { route: [[0.16, 0.50], [0.44, 0.50]], line: { orbitColor: '#389554' } },
+    { route: [[0.135, 0.44], [0.135, 0.12], [0.26, 0.12]], line: { orbitColor: '#87ceeb' } },
+    { route: [[0.135, 0.54], [0.135, 0.90], [0.35, 0.90]], line: { orbitColor: '#eed48f' } },
+    { route: [[0.34, 0.12], [0.755, 0.12]], line: { color: '#569cd6', orbitColor: '#101b36', slot: 'water', } },
+    { route: [[0.46, 0.90], [0.71, 0.90]], line: { color: '#569cd6', orbitColor: '#101b36', slot: 'water', } },
+    { route: [[0.80, 0.17], [0.56, 0.49]], line: { color: 'red', orbitColor: '#783835', slot: 'slice-water', k: 0.5, curvature: 2 } },
+    { route: [[0.75, 0.84], [0.56, 0.49]], line: { color: '#427be5', orbitColor: '#2b506a', slot: 'slice-water', k: 0.5, curvature: 2 } },
+  ],
+  line: {
+    slot: 'pipe',
+    width: 10,
+    curvature: 500
+  },
+  halo: {
+    show: false,
+  },
+  title: {
+    show: false,
+  },
+  icon: {
+    url: '../assets/point.png'
+  },
+});
 
+const onChartClick = (x, y, event) => {
+  console.log(x, y, event);
+};
+</script>
+
+<style>
+.chart-box {
+  position: relative;
+  width: 630px;
+  height: 600px;
+}
+
+.chart-box__water-tank {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+
+.chart-box__room {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+
+.chart-box__air-conditioner {
+  position: absolute;
+  top: 13%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+
+.chart-box__air-conditioner-2 {
+  position: absolute;
+  top: 90%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+
+.chart-box__water-pump-1 {
+  position: absolute;
+  top: 90%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+
+.chart-box__water-pump-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+}
+</style>
+
+```
+:::
+
+::: tip 提示
+由于飞线图的属性非常多,全部属性绑定在模板上，会降低可读性，可以使用 `v-bind="state"` 的方式,
+一次性绑定多个属性。
+:::
 
 <span id="point"></span>
 

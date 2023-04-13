@@ -31,7 +31,7 @@
     "sucrase": "^3.29.0",
     "typescript": "^4.9.4",
     "vite-plugin-libcss": "^1.0.5",
-    "vue": "^3.2.36"
+    "vue": "3.2.44"
   },
   "dependencies": {
     "@fast-dataview-ui/components": "workspace:^1.0.0",

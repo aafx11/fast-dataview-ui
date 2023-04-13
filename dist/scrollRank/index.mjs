@@ -1,4 +1,4 @@
-import { defineComponent as x, computed as k, openBlock as u, createElementBlock as c, normalizeStyle as w, createElementVNode as i, renderSlot as F, toDisplayString as f, reactive as z, watch as I, createVNode as S, TransitionGroup as B, withCtx as C, Fragment as T, renderList as M, unref as m, createCommentVNode as _ } from "vue";
+import { defineComponent as x, computed as k, openBlock as i, createElementBlock as u, normalizeStyle as w, createElementVNode as c, renderSlot as F, toDisplayString as p, reactive as z, watch as I, createVNode as S, TransitionGroup as B, withCtx as C, Fragment as T, renderList as M, unref as m, createCommentVNode as _ } from "vue";
 const O = Object.assign, b = (e) => Array.isArray(e) && e.length, W = (e) => Array.isArray(e) && e || [], G = (e, r, t = "reverse") => e.sort(q(r, t)), q = (e, r = "reverse") => function(t, o) {
   return t[e] < o[e] ? r === "normal" ? -1 : 1 : t[e] > o[e] ? r === "normal" ? 1 : -1 : 0;
 }, $ = (e, r = /* @__PURE__ */ new WeakMap()) => {
@@ -38,21 +38,21 @@ const O = Object.assign, b = (e) => Array.isArray(e) && e.length, W = (e) => Arr
   }
 }), J = (e, r) => {
   const t = e.__vccOpts || e;
-  for (const [o, p] of r)
-    t[o] = p;
+  for (const [o, f] of r)
+    t[o] = f;
   return t;
 };
-function K(e, r, t, o, p, y) {
-  return u(), c("div", {
+function K(e, r, t, o, f, y) {
+  return i(), u("div", {
     class: "f-progress",
     style: w(e.getProgressStyle)
   }, [
-    i("div", {
+    c("div", {
       class: "progress-inner",
       style: w({ width: `${e.percent}%` })
     }, [
       F(e.$slots, "default", { percent: e.percent }, () => [
-        i("span", null, f(e.percent ? `${e.percent}%` : ""), 1)
+        c("span", null, p(e.percent ? `${e.percent}%` : ""), 1)
       ])
     ], 4)
   ], 4);
@@ -74,7 +74,7 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
   key: 2,
   class: "f-scroll-rank__item-format"
 }, ae = { class: "f-scroll-rank__item-progress" }, P = /* @__PURE__ */ x({
-  name: "index",
+  __name: "index",
   props: {
     data: {
       type: Array,
@@ -147,7 +147,7 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
           index: d
         }), l;
       })), t.dataList = s;
-    }, p = async (a, n, s) => {
+    }, f = async (a, n, s) => {
       let l = s;
       n.map((d) => d._index_ = ++l), t.currList.length ? a === r.pageSize ? t.currList = [...n] : (t.currList.push(...n), t.currList.splice(0, a)) : t.currList.push(...n);
     }, y = async () => {
@@ -158,7 +158,7 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
         let n, s;
         t.currPage === 1 ? (n = 0, s = r.pageSize) : (n = a * (t.currPage - 2) + r.pageSize, s = a * (t.currPage - 1) + r.pageSize);
         let l = t.dataList.slice(n, s);
-        l.length ? t.currPage === 1 ? await p(r.pageSize, l, n) : await p(a, l, n) : (t.currPage = 1, y()), N();
+        l.length ? t.currPage === 1 ? await f(r.pageSize, l, n) : await f(a, l, n) : (t.currPage = 1, y()), N();
       } else
         R(), t.isEmpty = !0, t.currPage = 1, t.currList = [];
     }, N = () => {
@@ -197,8 +197,8 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
         deep: !0,
         immediate: !0
       }
-    ), (a, n) => (u(), c("div", Q, [
-      i("div", {
+    ), (a, n) => (i(), u("div", Q, [
+      c("div", {
         class: "f-scroll-rank__list",
         style: w({ "--page-animate-dur": `${r.toggleDuration}ms` })
       }, [
@@ -211,21 +211,21 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
           onLeave: E
         }, {
           default: C(() => [
-            (u(!0), c(T, null, M(m(t).currList, (s, l) => (u(), c("div", {
+            (i(!0), u(T, null, M(m(t).currList, (s, l) => (i(), u("div", {
               class: "f-scroll-rank__item",
               key: s
             }, [
-              i("div", U, [
-                i("div", X, [
-                  r.showRank ? (u(), c("span", Y, f(`NO.${s._index_}`), 1)) : _("", !0),
-                  i("span", Z, f(s.name || ""), 1),
-                  i("div", j, [
-                    r.showPercent ? (u(), c("span", ee, f(`${m(L)(s.value)}%`), 1)) : _("", !0),
-                    r.showRatio && typeof r.valueFormatter != "function" ? (u(), c("span", te, f(`${s.value} / ${m(h)}`), 1)) : _("", !0),
-                    typeof r.valueFormatter == "function" ? (u(), c("span", re, f(`${s.formattedValue}`), 1)) : _("", !0)
+              c("div", U, [
+                c("div", X, [
+                  r.showRank ? (i(), u("span", Y, p(`NO.${s._index_}`), 1)) : _("v-if", !0),
+                  c("span", Z, p(s.name || ""), 1),
+                  c("div", j, [
+                    r.showPercent ? (i(), u("span", ee, p(`${m(L)(s.value)}%`), 1)) : _("v-if", !0),
+                    r.showRatio && typeof r.valueFormatter != "function" ? (i(), u("span", te, p(`${s.value} / ${m(h)}`), 1)) : _("v-if", !0),
+                    typeof r.valueFormatter == "function" ? (i(), u("span", re, p(`${s.formattedValue}`), 1)) : _("v-if", !0)
                   ])
                 ]),
-                i("div", ae, [
+                c("div", ae, [
                   S(m(v), {
                     percent: m(L)(s.value),
                     color: r.color,

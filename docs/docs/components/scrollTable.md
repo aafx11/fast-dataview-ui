@@ -1,5 +1,11 @@
+# ScrollTable 轮播表格
+用于轮播展示表格中的数据。支持单条，多条和整页轮播，能够使用插槽渲染，提供函数修改单元格样式。
+## 基础用法
+`data`属性，原始数据数组，`columns`属性，配置每一列。
+:::demo
+```vue
 <template>
-  <FScrollTable :data="state.data" :columns="state.columns" style="color:black"></FScrollTable>
+  <FScrollTable :data="state.data" :columns="state.columns" style="color:#0080ff"></FScrollTable>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
@@ -19,15 +25,11 @@ let state = reactive({
     { name: '测试名称21', title: '测试标题21', num: 200, },
   ],
   columns: [
-    { prop: 'name', label: '名称', width: 150 },
-    { prop: 'title', label: '标题', width: 100 },
-    { prop: 'num', label: '字数', width: 150 },
+    { prop: 'name', label: '名称', width: 220 },
+    { prop: 'title', label: '标题', width: 220 },
+    { prop: 'num', label: '字数', width: 200 },
   ]
 });
 </script>
-<style lang="scss">
-body {
-  margin: 0;
-  overflow: hidden;
-}
-</style>
+```
+:::

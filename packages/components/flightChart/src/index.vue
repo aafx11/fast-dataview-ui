@@ -47,7 +47,7 @@
           <g v-for="(route, k) in path.routeList">
             <defs>
               <path :id="route.key" :ref="route.key" :d="getD(route.path)" fill="transparent" style="overflow: hidden;" />
-              <mask :id="`mask${route.key}`">
+              <mask v-if="path.line.show && !path.line.slot" :id="`mask${route.key}`">
                 <circle cx="0" cy="0" :r="path.line.radius" fill="url(#lineGradient)">
                   <animateMotion :dur="`${path.line.duration}ms`" :path="getD(route.path)" rotate="auto"
                     repeatCount="indefinite" />
@@ -65,7 +65,9 @@
             </use>
 
             <g v-if="path.line.show && path.line.slot">
-              <slot :name="path.line.slot" :path="getPathArr(route.path)" :totalLength="getTotalLength(route.key)"></slot>
+              <slot :name="path.line.slot" :path="getMotionPath(route.path)" :pathArr="getMotionPathArr(route.path)"
+                :totalLength="getTotalLength(route.key)" :line="path.line">
+              </slot>
             </g>
           </g>
         </template>
@@ -279,21 +281,28 @@ let getD = computed(() => {
   };
 });
 
-let getPathArr = computed(() => {
+let getMotionPath = computed(() => {
   return function (paths: number[][]) {
-    // return {
-    //   x1: paths[0][0] * width.value,
-    //   y1: paths[0][1] * height.value,
-    //   x2: paths[1][0] * width.value,
-    //   y2: paths[1][1] * height.value,
-    //   x3: paths[2][0] * width.value,
-    //   y3: paths[2][1] * height.value
-    // }
     return `M${paths[0][0] * width.value},${paths[0][1] * height.value} 
     Q${paths[1][0] * width.value},${paths[1][1] * height.value} 
     ${paths[2][0] * width.value},${paths[2][1] * height.value}`;
   };
 });
+
+let getMotionPathArr = computed(() => {
+  return function (paths: number[][]) {
+    return {
+      x1: paths[0][0] * width.value,
+      y1: paths[0][1] * height.value,
+      x2: paths[1][0] * width.value,
+      y2: paths[1][1] * height.value,
+      x3: paths[2][0] * width.value,
+      y3: paths[2][1] * height.value
+    }
+  };
+});
+
+
 
 let getOffestPath = computed(() => {
   return function (paths: number[][]): string {
