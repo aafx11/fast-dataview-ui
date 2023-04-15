@@ -1,12 +1,15 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
-// import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
-// import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue'
-// import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue'
-import '../../utils/vitepress-theme-demoblock/dist/theme/styles/index.css';
-import Demo from '../../utils/vitepress-theme-demoblock/dist/client/components/Demo.vue';
-import DemoBlock from '../../utils/vitepress-theme-demoblock/dist/client/components/DemoBlock.vue';
+import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
+import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue'
+import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue'
+// import '../../utils/vitepress-theme-demoblock/dist/theme/styles/index.css';
+// import Demo from '../../utils/vitepress-theme-demoblock/dist/client/components/Demo.vue';
+// import DemoBlock from '../../utils/vitepress-theme-demoblock/dist/client/components/DemoBlock.vue';
+// import '../../utils/dist/theme/styles/index.css';
+// import Demo from '../../utils/dist/client/components/Demo.vue';
+// import DemoBlock from '../../utils/dist/client/components/DemoBlock.vue';
 import '../../../../dist/theme/index.css';
 import fastDataViewUi from '../../../../dist/fast-dataview-ui.mjs';
 import vpSearch from './components/vp-search.vue'

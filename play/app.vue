@@ -20,9 +20,10 @@ let state = reactive({
   ],
   columns: [
     { prop: 'name', label: '名称', width: 150 },
-    { prop: 'title', label: '标题', width: 100 },
+    { prop: 'title', label: '标题', width: 100, type: 'scroll' },
     { prop: 'num', label: '字数', width: 150 },
-  ]
+  ],
+
 });
 </script>
 <style lang="scss">

@@ -1,6 +1,6 @@
 import './style.css';
-import { computed as S, defineComponent as F, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as P, normalizeStyle as E, unref as v, renderSlot as O, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as $, createVNode as H, TransitionGroup as ee, withCtx as W, normalizeProps as te, guardReactiveProps as le } from "vue";
-function M(e) {
+import { computed as S, defineComponent as W, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as b, normalizeStyle as P, unref as v, renderSlot as O, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as $, createVNode as N, TransitionGroup as ee, withCtx as H, normalizeProps as te, guardReactiveProps as le } from "vue";
+function F(e) {
   return {
     handleToggle: (n) => {
       e.emit("handle-toggle", n);
@@ -10,7 +10,7 @@ function M(e) {
     }
   };
 }
-const ne = (e) => Array.isArray(e) && e || [], N = (e, t = /* @__PURE__ */ new WeakMap()) => {
+const ne = (e) => Array.isArray(e) && e || [], M = (e, t = /* @__PURE__ */ new WeakMap()) => {
   if (e === null)
     return e;
   if (e instanceof Date)
@@ -24,18 +24,18 @@ const ne = (e) => Array.isArray(e) && e || [], N = (e, t = /* @__PURE__ */ new W
   let i = new e.constructor();
   t.set(e, i);
   for (let n in e)
-    e.hasOwnProperty(n) && (i[n] = N(e[n], t));
+    e.hasOwnProperty(n) && (i[n] = M(e[n], t));
   return i;
 };
 function re(e, t, i) {
-  const { handleToggle: n } = M(i), x = (a) => {
+  const { handleToggle: n } = F(i), x = (a) => {
     let l = ne(a);
-    return N(l);
+    return M(l);
   }, s = () => {
     e.toggleCount += 1, e.toggleCount >= t.emitCondition && n(t.name);
   }, u = async (a, l, d) => {
-    let y = d;
-    l.map((T) => T._index_ = ++y), e.currData.length ? a === t.pageSize ? e.currData = [...l] : (e.currData.push(...l), e.currData.splice(0, a)) : e.currData.push(...l);
+    let m = d;
+    l.map((T) => T._index_ = ++m), e.currData.length ? a === t.pageSize ? e.currData = [...l] : (e.currData.push(...l), e.currData.splice(0, a)) : e.currData.push(...l);
   }, f = async () => {
     if (e.tableData.length) {
       o(!1, !0), e.isEmpty = !1;
@@ -43,8 +43,8 @@ function re(e, t, i) {
       t.mode === "single" ? a = t.togglePage : a = t.pageSize;
       let l, d;
       e.currPage === 1 ? (l = 0, d = t.pageSize) : (l = a * (e.currPage - 2) + t.pageSize, d = a * (e.currPage - 1) + t.pageSize);
-      let y = e.tableData.slice(l, d);
-      y.length ? e.currPage === 1 && e.toggleCount === 0 ? u(t.pageSize, y, l) : e.currPage === 1 ? await u(t.pageSize, y, l) : await u(a, y, l) : (e.currPage = 1, s(), f()), w();
+      let m = e.tableData.slice(l, d);
+      m.length ? e.currPage === 1 && e.toggleCount === 0 ? u(t.pageSize, m, l) : e.currPage === 1 ? await u(t.pageSize, m, l) : await u(a, m, l) : (e.currPage = 1, s(), f()), w();
     } else
       o(), e.currPage = 1, e.currData = [], e.isEmpty = !0, r();
   }, w = () => {
@@ -68,20 +68,20 @@ function re(e, t, i) {
       o(), e.currPage = a;
       let l;
       t.mode === "single" ? l = t.togglePage : l = t.pageSize;
-      let d = l * (e.currPage - 1), y = l * (e.currPage - 1) + t.pageSize, T = e.tableData.slice(d, y);
+      let d = l * (e.currPage - 1), m = l * (e.currPage - 1) + t.pageSize, T = e.tableData.slice(d, m);
       T.length ? (u(t.pageSize, T, d), w()) : f(), e.tableData.length || r();
     }
   };
 }
 function ae(e, t) {
   const i = S(() => function(r, o) {
-    const m = ["f-scroll-table__row"];
-    return t.stripe && o % 2 === 1 && m.push("f-scroll-table_row--striped"), m;
+    const y = ["f-scroll-table__row"];
+    return t.stripe && o % 2 === 1 && y.push("f-scroll-table_row--striped"), y;
   }), n = S(() => {
     const r = ["cell"];
     return t.wrap ? r.push("cell--wrap") : r.push("cell--nowrap"), r;
   }), x = S(() => function(r) {
-    let o = r.reduce((m, a) => m += a.width, 0);
+    let o = r.reduce((y, a) => y += a.width, 0);
     return {
       width: `${o}px`,
       "max-width": `${o}px`
@@ -101,9 +101,9 @@ function ae(e, t) {
       "max-width": `${r.width}px`,
       "text-align": r.align || t.align || "start"
     };
-  }), w = S(() => function(r, o, m, a) {
+  }), w = S(() => function(r, o, y, a) {
     return typeof t.cellStyle == "function" ? t.cellStyle.call(null, {
-      rowIndex: m,
+      rowIndex: y,
       columnIndex: a,
       row: r,
       column: o
@@ -119,7 +119,7 @@ function ae(e, t) {
     getCellStyle: w
   };
 }
-const R = /* @__PURE__ */ F({
+const A = /* @__PURE__ */ W({
   __name: "index",
   props: {
     type: { default: "default" },
@@ -129,19 +129,19 @@ const R = /* @__PURE__ */ F({
   },
   setup(e) {
     const t = e, i = B(), n = B(), x = S(() => {
-      var a, l, d, y;
-      let s = ((a = i.value) == null ? void 0 : a.offsetWidth) || 0, u = ((l = i.value) == null ? void 0 : l.offsetHeight) || 0, f = ((d = n.value) == null ? void 0 : d.offsetWidth) || 0, w = ((y = n.value) == null ? void 0 : y.offsetHeight) || 0;
+      var a, l, d, m;
+      let s = ((a = i.value) == null ? void 0 : a.offsetWidth) || 0, u = ((l = i.value) == null ? void 0 : l.offsetHeight) || 0, f = ((d = n.value) == null ? void 0 : d.offsetWidth) || 0, w = ((m = n.value) == null ? void 0 : m.offsetHeight) || 0;
       if (t.mode === "overflow" && (["up", "down"].includes(t.direction) && w < u || ["left", "right"].includes(t.direction) && f < s))
         return {
           "--text-scroll-width": `${s}px`,
           "--text-scroll-height": `${u}px`,
           animation: ""
         };
-      let r, o, m;
-      return ["up", "down"].includes(t.direction) && (r = u + w, o = r / t.speed || 0, m = `up-scroll linear ${o}s infinite ${t.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(t.direction) && (r = s + f, o = r / t.speed || 0, m = `left-scroll linear ${o}s infinite ${t.direction === "right" ? "reverse" : ""}`), {
+      let r, o, y;
+      return ["up", "down"].includes(t.direction) && (r = u + w, o = r / t.speed || 0, y = `up-scroll linear ${o}s infinite ${t.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(t.direction) && (r = s + f, o = r / t.speed || 0, y = `left-scroll linear ${o}s infinite ${t.direction === "right" ? "reverse" : ""}`), {
         "--text-scroll-width": `${s}px`,
         "--text-scroll-height": `${u}px`,
-        animation: m
+        animation: y
       };
     });
     return (s, u) => (h(), _(
@@ -152,13 +152,13 @@ const R = /* @__PURE__ */ F({
         class: D(["f-scroll-text", `f-scroll-text--${t.type}`])
       },
       [
-        P(
+        b(
           "div",
           {
             ref_key: "textContent",
             ref: n,
             class: "text-content",
-            style: E(v(x))
+            style: P(v(x))
           },
           [
             O(s.$slots, "default")
@@ -172,23 +172,26 @@ const R = /* @__PURE__ */ F({
     ));
   }
 });
-R.install = function(e) {
-  e.component("FScrollText", R);
+A.install = function(e) {
+  e.component("FScrollText", A);
 };
 const ie = {
   class: "f-scroll-table__head"
 }, oe = ["onClick"], se = {
   key: 1
-}, A = /* @__PURE__ */ F({
+}, R = /* @__PURE__ */ W({
   __name: "index",
   props: {
     name: {
+      type: String,
       default: ""
     },
     data: {
+      type: Array,
       default: () => []
     },
     columns: {
+      type: Array,
       default: () => []
     },
     border: {
@@ -204,31 +207,44 @@ const ie = {
       default: !0
     },
     align: {
+      type: String,
       default: "center"
     },
-    cellStyle: null,
+    cellStyle: {
+      type: Object,
+      default: () => {
+      }
+    },
     maxHeight: {
+      type: String,
       default: "auto"
     },
     mode: {
+      type: String,
       default: "single"
     },
     pageSize: {
+      type: Number,
       default: 5
     },
     togglePage: {
+      type: Number,
       default: 1
     },
     toggleDur: {
+      type: Number,
       default: 5 * 1e3
     },
     emptyEmitDur: {
+      type: Number,
       default: 10 * 1e3
     },
     emitCondition: {
+      type: Number,
       default: 2
     },
     pageAnimateDur: {
+      type: Number,
       default: 300
     },
     mouseEvent: {
@@ -265,29 +281,29 @@ const ie = {
       setPageInterval: w,
       setEmptyTimeout: r,
       clearTimer: o,
-      setPage: m
+      setPage: y
     } = re(n, i, x), {
       handleCellClick: a
-    } = M(x), {
+    } = F(x), {
       getRowClass: l,
       getCellClass: d,
-      getTableStyle: y,
+      getTableStyle: m,
       getBodyStyle: T,
       getRowStyle: ue,
       getExtraCellStyle: L,
       getCellStyle: U
     } = ae(n, i), V = (c) => {
       c.style.opacity = "0", c.style.gridTemplateRows = "0fr";
-    }, G = (c, b) => {
-      c.offsetWidth, c.style.opacity = "1", c.style.gridTemplateRows = "1fr", b();
+    }, G = (c, E) => {
+      c.offsetWidth, c.style.opacity = "1", c.style.gridTemplateRows = "1fr", E();
     }, q = async (c) => {
       c.style.opacity = "1";
-    }, J = async (c, b) => {
+    }, J = async (c, E) => {
       c.style.opacity = "0", c.style.gridTemplateRows = "0fr", await new Promise((g) => {
         setTimeout(() => {
           c.remove(), g(!0);
         }, i.pageAnimateDur);
-      }), b();
+      }), E();
     };
     return Y(() => i.data, (c) => {
       n.tableData = u(c), f();
@@ -303,24 +319,24 @@ const ie = {
     }), j(() => {
       o();
     }), t({
-      setPage: m
-    }), (c, b) => (h(), _(
+      setPage: y
+    }), (c, E) => (h(), _(
       "div",
       {
         ref: "scrollTable",
         class: D(["f-scroll-table", {
           "is-border": i.border
         }]),
-        style: E(v(y)(i.columns))
+        style: P(v(m)(i.columns))
       },
-      [P("div", ie, [(h(!0), _(
+      [b("div", ie, [(h(!0), _(
         I,
         null,
         z(i.columns, (g, C) => (h(), _(
           "div",
           {
             class: "f-scroll-table__cell",
-            style: E(v(L)(g)),
+            style: P(v(L)(g)),
             key: C
           },
           $(g.label),
@@ -329,15 +345,15 @@ const ie = {
         ))),
         128
         /* KEYED_FRAGMENT */
-      ))]), P(
+      ))]), b(
         "div",
         {
           ref_key: "scrollTable__body",
           ref: s,
           class: "f-scroll-table__content is-hidden-scrollbar",
-          style: E(v(T))
+          style: P(v(T))
         },
-        [H(ee, {
+        [N(ee, {
           tag: "div",
           css: !1,
           onBeforeEnter: V,
@@ -345,13 +361,13 @@ const ie = {
           onBeforeLeave: q,
           onLeave: J
         }, {
-          default: W(() => [(h(!0), _(
+          default: H(() => [(h(!0), _(
             I,
             null,
             z(n.currData, (g, C) => (h(), _("div", {
               class: "f-scroll-table__row-wrap",
               key: g
-            }, [P(
+            }, [b(
               "div",
               {
                 class: D(v(l)(g, C))
@@ -361,7 +377,7 @@ const ie = {
                 null,
                 z(i.columns, (p, k) => (h(), _("div", {
                   class: "f-scroll-table__cell",
-                  style: E([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, C, k)]),
+                  style: P([v(L)(p), v(U)(g, p.type === "index" ? "_index_" : p.prop, C, k)]),
                   key: `${g[p.prop]}${k}`,
                   onClick: (K) => v(a)(K, g, g[p.prop], C, k)
                 }, [p.type === "index" ? (h(), _(
@@ -373,11 +389,11 @@ const ie = {
                   $(g._index_ || ""),
                   3
                   /* TEXT, CLASS */
-                )) : p.type === "scroll" ? (h(), _("div", se, [H(
-                  v(R),
+                )) : p.type === "scroll" ? (h(), _("div", se, [N(
+                  v(A),
                   te(le(p.scrollOption)),
                   {
-                    default: W(() => [P(
+                    default: H(() => [b(
                       "div",
                       null,
                       $(g[p.prop]),
@@ -434,8 +450,8 @@ const ie = {
     ));
   }
 });
-A.install = function(e) {
-  e.component("FScrollTable", A);
+R.install = function(e) {
+  e.component("FScrollTable", R);
 };
 const de = {
   title: "scrollTable 轮播表格",
@@ -443,10 +459,10 @@ const de = {
   category: "数据展示",
   status: "100%",
   install(e) {
-    e.use(A);
+    e.use(R);
   }
 };
 export {
-  A as ScrollTable,
+  R as ScrollTable,
   de as default
 };

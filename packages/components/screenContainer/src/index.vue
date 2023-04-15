@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref, defineProps, provide, nextTick } from 'vue'
+import { reactive, ref, provide, nextTick } from 'vue'
 import { containerProps } from './props'
 import useResizeListener from '@fast-dataview-ui/hooks/useResizeListener'
 

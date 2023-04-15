@@ -40,7 +40,7 @@ import {
   reactive,
   getCurrentInstance,
   watch,
-  nextTick,
+  PropType,
   onBeforeUnmount,
   onMounted
 } from 'vue';
@@ -70,24 +70,45 @@ export type TableProps = {
   mouseEvent: boolean; // 是否添加鼠标事件
 };
 
-const props = withDefaults(defineProps<TableProps>(), {
-  name: '',
-  data: () => [],
-  columns: () => [],
-  border: true,
-  stripe: true,
-  wrap: true,
-  align: 'center',
-  maxHeight: 'auto',
-  mode: 'single',
-  pageSize: 5,
-  togglePage: 1,
-  toggleDur: 5 * 1000,
-  emptyEmitDur: 10 * 1000,
-  emitCondition: 2,
-  pageAnimateDur: 300,
-  mouseEvent: true,
+const props = defineProps({
+  name: { type: String, default: '' },
+  data: { type: Array, default: () => [] },
+  columns: { type: Array as PropType<Column[]>, default: () => [] },
+  border: { type: Boolean, default: true },
+  stripe: { type: Boolean, default: true },
+  wrap: { type: Boolean, default: true },
+  align: { type: String, default: 'center' },
+  cellStyle: { type: Object as PropType<CellStyle>, default: () => { } },
+  maxHeight: { type: String, default: 'auto' },
+  mode: { type: String, default: 'single' },
+  pageSize: { type: Number, default: 5 },
+  togglePage: { type: Number, default: 1 },
+  toggleDur: { type: Number, default: 5 * 1000 },
+  emptyEmitDur: { type: Number, default: 10 * 1000 },
+  emitCondition: { type: Number, default: 2 },
+  pageAnimateDur: { type: Number, default: 300 },
+  mouseEvent: { type: Boolean, default: true },
 });
+
+// const props = withDefaults(defineProps<TableProps>(), {
+//   name: '',
+//   data: () => [],
+//   columns: () => [],
+//   border: true,
+//   stripe: true,
+//   wrap: true,
+//   align: 'center',
+//   maxHeight: 'auto',
+//   mode: 'single',
+//   pageSize: 5,
+//   togglePage: 1,
+//   toggleDur: 5 * 1000,
+//   emptyEmitDur: 10 * 1000,
+//   emitCondition: 2,
+//   pageAnimateDur: 300,
+//   mouseEvent: true,
+// });
+
 
 const state = reactive<State>({
   tableData: [], // 所有表格数据
@@ -101,7 +122,11 @@ const state = reactive<State>({
   isEmpty: false, // 当前没有数据
 });
 
-const table = getCurrentInstance();
+// let table: any;
+// onMounted(() => {
+  //   table = getCurrentInstance();
+  // });
+  const table = getCurrentInstance();
 const scrollTable__body = ref();
 
 const {
@@ -114,6 +139,7 @@ const {
 } = useUtils(state, props, table!);
 
 defineEmits(['handle-toggle', 'cell-click']);
+
 const {
   handleCellClick
 } = useEvents(table!);

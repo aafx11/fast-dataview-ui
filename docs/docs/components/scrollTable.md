@@ -2,8 +2,10 @@
 用于轮播展示表格中的数据。支持单条，多条和整页轮播，能够使用插槽渲染，提供函数修改单元格样式。
 ## 基础用法
 `data`属性，原始数据数组，`columns`属性，配置每一列。
+
 :::demo
 ```vue
+
 <template>
   <FScrollTable :data="state.data" :columns="state.columns" style="color:#0080ff"></FScrollTable>
 </template>
@@ -31,5 +33,6 @@ let state = reactive({
   ]
 });
 </script>
+
 ```
 :::

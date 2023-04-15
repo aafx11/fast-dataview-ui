@@ -3,8 +3,9 @@ import { sidebar } from './utils/sidebar';
 import { description } from './utils/description';
 import { head } from './utils/head';
 import { defineConfig } from 'vitepress';
-// import { demoBlockPlugin } from 'vitepress-theme-demoblock'
-import { demoBlockPlugin } from '../utils/vitepress-theme-demoblock';
+import { demoBlockPlugin } from 'vitepress-theme-demoblock'
+// import { demoBlockPlugin } from '../utils/vitepress-theme-demoblock';
+// import { demoBlockPlugin } from '../utils/dist/node/index.mjs';
 export default defineConfig({
   title: 'fast-dataview-ui',
   head,

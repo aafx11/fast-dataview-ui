@@ -6,7 +6,7 @@ import useEvents from './events-helper';
 import { getArray, deepClone } from '@fast-dataview-ui/utils/index';
 
 function useUtils(state: State, props: TableProps, table: ComponentInternalInstance) {
-  const { handleToggle } = useEvents(table);
+  const { handleToggle } = useEvents(table!);
 
   // 克隆数组
   const deepCloneArr = (val: unknown) => {
@@ -18,6 +18,7 @@ function useUtils(state: State, props: TableProps, table: ComponentInternalInsta
     state.toggleCount += 1;
     if (state.toggleCount >= props.emitCondition) {
       handleToggle(props.name);
+      // table.emit('handle-toggle', props.name);
     }
   };
 

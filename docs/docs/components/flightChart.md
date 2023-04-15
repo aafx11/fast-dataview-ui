@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  bgUrl: '/fast-dataview-ui/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },

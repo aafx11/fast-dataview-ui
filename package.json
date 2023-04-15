@@ -15,7 +15,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "vue": "3.2.44",
     "@types/gulp": "^4.0.10",
     "@types/gulp-autoprefixer": "^0.0.33",
     "@types/gulp-clean-css": "^4.3.0",
@@ -31,10 +30,10 @@
     "sass": "^1.57.1",
     "sucrase": "^3.29.0",
     "typescript": "^4.9.4",
-    "vite-plugin-libcss": "^1.0.5"
+    "vite-plugin-libcss": "^1.0.5",
+    "vue": "3.2.44"
   },
   "dependencies": {
-    "vue": "3.2.44",
     "@fast-dataview-ui/components": "workspace:^1.0.0",
     "@fast-dataview-ui/hooks": "workspace:^1.0.0",
     "@fast-dataview-ui/theme-chalk": "workspace:^1.0.0",

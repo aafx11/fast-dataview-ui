@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, defineProps, onMounted, inject } from 'vue';
+import { ref, onMounted, inject } from 'vue';
 import { dynamicParticleProps } from './props';
 import { ParticleCanvas } from './particleCanvas';
 import { Img } from './img';
