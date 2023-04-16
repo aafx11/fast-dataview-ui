@@ -78,13 +78,13 @@ const props = defineProps({
   stripe: { type: Boolean, default: true },
   wrap: { type: Boolean, default: true },
   align: { type: String, default: 'center' },
-  cellStyle: { type: Object as PropType<CellStyle>, default: () => { } },
+  cellStyle: { type: [Object, Function] as PropType<CellStyle>, default: () => { } },
   maxHeight: { type: String, default: 'auto' },
   mode: { type: String, default: 'single' },
   pageSize: { type: Number, default: 5 },
   togglePage: { type: Number, default: 1 },
   toggleDur: { type: Number, default: 5 * 1000 },
-  emptyEmitDur: { type: Number, default: 10 * 1000 },
+  emptyEmitDur: { type: Number, default: 5 * 1000 },
   emitCondition: { type: Number, default: 2 },
   pageAnimateDur: { type: Number, default: 300 },
   mouseEvent: { type: Boolean, default: true },
@@ -124,9 +124,9 @@ const state = reactive<State>({
 
 // let table: any;
 // onMounted(() => {
-  //   table = getCurrentInstance();
-  // });
-  const table = getCurrentInstance();
+//   table = getCurrentInstance();
+// });
+const table = getCurrentInstance();
 const scrollTable__body = ref();
 
 const {

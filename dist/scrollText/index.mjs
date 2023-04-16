@@ -3,7 +3,7 @@ const d = /* @__PURE__ */ $({
   __name: "index",
   props: {
     type: { default: "default" },
-    direction: { default: "up" },
+    direction: { default: "left" },
     speed: { default: 60 },
     mode: { default: "infinite" }
   },

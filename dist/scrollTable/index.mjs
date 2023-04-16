@@ -1,6 +1,6 @@
 import './style.css';
-import { computed as S, defineComponent as W, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as b, normalizeStyle as P, unref as v, renderSlot as O, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as $, createVNode as N, TransitionGroup as ee, withCtx as H, normalizeProps as te, guardReactiveProps as le } from "vue";
-function F(e) {
+import { computed as S, defineComponent as W, ref as B, openBlock as h, createElementBlock as _, normalizeClass as D, createElementVNode as b, normalizeStyle as P, unref as v, renderSlot as F, reactive as Q, getCurrentInstance as X, watch as Y, onMounted as Z, onBeforeUnmount as j, Fragment as I, renderList as z, toDisplayString as $, createVNode as N, TransitionGroup as ee, withCtx as H, normalizeProps as te, guardReactiveProps as le } from "vue";
+function O(e) {
   return {
     handleToggle: (n) => {
       e.emit("handle-toggle", n);
@@ -28,7 +28,7 @@ const ne = (e) => Array.isArray(e) && e || [], M = (e, t = /* @__PURE__ */ new W
   return i;
 };
 function re(e, t, i) {
-  const { handleToggle: n } = F(i), x = (a) => {
+  const { handleToggle: n } = O(i), x = (a) => {
     let l = ne(a);
     return M(l);
   }, s = () => {
@@ -123,7 +123,7 @@ const A = /* @__PURE__ */ W({
   __name: "index",
   props: {
     type: { default: "default" },
-    direction: { default: "up" },
+    direction: { default: "left" },
     speed: { default: 60 },
     mode: { default: "infinite" }
   },
@@ -161,7 +161,7 @@ const A = /* @__PURE__ */ W({
             style: P(v(x))
           },
           [
-            O(s.$slots, "default")
+            F(s.$slots, "default")
           ],
           4
           /* STYLE */
@@ -211,7 +211,7 @@ const ie = {
       default: "center"
     },
     cellStyle: {
-      type: Object,
+      type: [Object, Function],
       default: () => {
       }
     },
@@ -237,7 +237,7 @@ const ie = {
     },
     emptyEmitDur: {
       type: Number,
-      default: 10 * 1e3
+      default: 5 * 1e3
     },
     emitCondition: {
       type: Number,
@@ -284,7 +284,7 @@ const ie = {
       setPage: y
     } = re(n, i, x), {
       handleCellClick: a
-    } = F(x), {
+    } = O(x), {
       getRowClass: l,
       getCellClass: d,
       getTableStyle: m,
@@ -411,7 +411,7 @@ const ie = {
                     key: 2,
                     class: D(v(d))
                   },
-                  [O(c.$slots, p.slot, {
+                  [F(c.$slots, p.slot, {
                     params: {
                       row: g,
                       column: p.prop,

@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<{
   mode: 'infinite' | 'overflow';
 }>(), {
   type: 'default',
-  direction: 'up',
+  direction: 'left',
   speed: 60,
   mode: 'infinite'
 });

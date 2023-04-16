@@ -872,7 +872,7 @@ const de = /* @__PURE__ */ F({
   __name: "index",
   props: {
     type: { default: "default" },
-    direction: { default: "up" },
+    direction: { default: "left" },
     speed: { default: 60 },
     mode: { default: "infinite" }
   },
@@ -968,7 +968,7 @@ const Et = {
       default: "center"
     },
     cellStyle: {
-      type: Object,
+      type: [Object, Function],
       default: () => {
       }
     },
@@ -994,7 +994,7 @@ const Et = {
     },
     emptyEmitDur: {
       type: Number,
-      default: 10 * 1e3
+      default: 5 * 1e3
     },
     emitCondition: {
       type: Number,

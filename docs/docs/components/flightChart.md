@@ -477,6 +477,16 @@ const onChartClick = (x, y, event) => {
 一次性绑定多个属性。
 :::
 
+## 参数
+| 参数名 | 说明           | 类型            | 可选值 | 默认值 |
+| ------ | -------------- | --------------- | ------ | ------ |
+| points | 点坐标数组     | [Point](#point) | -      | []     |
+| paths  | 连接线坐标数组 | [Path](#path)   | -      | []     |
+| halo   | 全局光晕配置   | [Halo](#halo)   | -      |        |
+| title  | 全局标题配置   | [Title](#title) | -      |        |
+| icon   | 全局图标配置   | [Icon](#icon)   | -      |        |
+
+
 <span id="point"></span>
 
 ## Point属性
