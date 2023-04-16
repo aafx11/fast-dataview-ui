@@ -77,12 +77,12 @@ var Ie;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
 })(Ie || (Ie = {}));
-var ot = Object.defineProperty, Le = Object.getOwnPropertySymbols, at = Object.prototype.hasOwnProperty, ct = Object.prototype.propertyIsEnumerable, Te = (e, t, r) => t in e ? ot(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r, ut = (e, t) => {
+var ot = Object.defineProperty, Le = Object.getOwnPropertySymbols, at = Object.prototype.hasOwnProperty, ct = Object.prototype.propertyIsEnumerable, De = (e, t, r) => t in e ? ot(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r, ut = (e, t) => {
   for (var r in t || (t = {}))
-    at.call(t, r) && Te(e, r, t[r]);
+    at.call(t, r) && De(e, r, t[r]);
   if (Le)
     for (var r of Le(t))
-      ct.call(t, r) && Te(e, r, t[r]);
+      ct.call(t, r) && De(e, r, t[r]);
   return e;
 };
 const dt = {
@@ -181,7 +181,7 @@ const re = (e, t, r, l) => {
   for (let l in e)
     e.hasOwnProperty(l) && (r[l] = Y(e[l], t));
   return r;
-}, De = (e, t) => {
+}, Te = (e, t) => {
   const r = Math.abs(e[0] - t[0]), l = Math.abs(e[1] - t[1]);
   return Math.sqrt(r * r + l * l);
 }, ie = /* @__PURE__ */ F({
@@ -724,7 +724,7 @@ class Ae {
     });
   }
 }
-const Tt = ["width", "height"], pe = /* @__PURE__ */ F({
+const Dt = ["width", "height"], pe = /* @__PURE__ */ F({
   __name: "index",
   props: St,
   setup(e, { expose: t }) {
@@ -750,14 +750,14 @@ const Tt = ["width", "height"], pe = /* @__PURE__ */ F({
         ref: a,
         width: r.width,
         height: r.height
-      }, null, 8, Tt)
+      }, null, 8, Dt)
     ]));
   }
 });
 pe.install = function(e) {
   e.component("FDynamicParticle", pe);
 };
-const Dt = {
+const Tt = {
   title: "particle 粒子动效",
   name: "particle",
   category: "canvas动效",
@@ -1046,10 +1046,10 @@ const Et = {
       getCellClass: d,
       getTableStyle: h,
       getBodyStyle: $,
-      getRowStyle: D,
+      getRowStyle: T,
       getExtraCellStyle: R,
       getCellStyle: y
-    } = At(l, r), T = (C) => {
+    } = At(l, r), D = (C) => {
       C.style.opacity = "0", C.style.gridTemplateRows = "0fr";
     }, f = (C, X) => {
       C.offsetWidth, C.style.opacity = "1", C.style.gridTemplateRows = "1fr", X();
@@ -1113,7 +1113,7 @@ const Et = {
         [b(Oe, {
           tag: "div",
           css: !1,
-          onBeforeEnter: T,
+          onBeforeEnter: D,
           onEnter: f,
           onBeforeLeave: B,
           onLeave: k
@@ -1301,16 +1301,12 @@ const Ht = {
       stringList: []
     });
     const l = (a) => {
-      let u = RegExp(`^\\d+(?:\\.\\d{0,${t.digit}})?`);
-      console.log("reg", u);
-      let i = Number(a.toString().match(u));
-      console.log("digitalToStringList", i);
-      let n = i.toString(), s = n.indexOf(".");
+      let u = RegExp(`^\\d+(?:\\.\\d{0,${t.digit}})?`), n = Number(a.toString().match(u)).toString(), s = n.indexOf(".");
       for (s < 0 && (s = n.length, n += "."); n.length <= s + t.digit; )
         n += "0";
       return n.split("");
     }, c = S(() => function(a) {
-      return console.log("str", a), {
+      return {
         top: `-${Number(a) * 100}%`
       };
     });
@@ -1319,7 +1315,7 @@ const Ht = {
     }), ee(
       () => t.number,
       (a) => {
-        console.log("变化", a), r.stringList = l(t.number);
+        r.stringList = l(t.number);
       }
     ), (a, u) => (v(), _("div", Mt, [
       x("div", Xt, [
@@ -1470,18 +1466,18 @@ const Vt = {
     });
     const l = (d) => {
       let h = Y(ue(d)), $ = [];
-      t.order === "default" ? $ = h : $ = ft(h, "value", t.order), typeof t.valueFormatter == "function" && ($ = $.map((D, R) => {
+      t.order === "default" ? $ = h : $ = ft(h, "value", t.order), typeof t.valueFormatter == "function" && ($ = $.map((T, R) => {
         var y;
-        return D.formattedValue = (y = t.valueFormatter) == null ? void 0 : y.call(null, {
-          name: D.name,
-          value: D.value,
+        return T.formattedValue = (y = t.valueFormatter) == null ? void 0 : y.call(null, {
+          name: T.name,
+          value: T.value,
           maxValue: n.value,
           index: R
-        }), D;
+        }), T;
       })), r.dataList = $;
     }, c = async (d, h, $) => {
-      let D = $;
-      h.map((R) => R._index_ = ++D), r.currList.length ? d === t.pageSize ? r.currList = [...h] : (r.currList.push(...h), r.currList.splice(0, d)) : r.currList.push(...h);
+      let T = $;
+      h.map((R) => R._index_ = ++T), r.currList.length ? d === t.pageSize ? r.currList = [...h] : (r.currList.push(...h), r.currList.splice(0, d)) : r.currList.push(...h);
     }, a = async () => {
       if (r.dataList.length) {
         r.isEmpty = !1;
@@ -1489,8 +1485,8 @@ const Vt = {
         t.togglePage >= t.pageSize ? d = t.pageSize : d = t.togglePage;
         let h, $;
         r.currPage === 1 ? (h = 0, $ = t.pageSize) : (h = d * (r.currPage - 2) + t.pageSize, $ = d * (r.currPage - 1) + t.pageSize);
-        let D = r.dataList.slice(h, $);
-        D.length ? r.currPage === 1 ? await c(t.pageSize, D, h) : await c(d, D, h) : (r.currPage = 1, a()), u();
+        let T = r.dataList.slice(h, $);
+        T.length ? r.currPage === 1 ? await c(t.pageSize, T, h) : await c(d, T, h) : (r.currPage = 1, a()), u();
       } else
         i(), r.isEmpty = !0, r.currPage = 1, r.currList = [];
     }, u = () => {
@@ -1505,8 +1501,8 @@ const Vt = {
     }), s = S(() => function(d) {
       let h, $ = n.value;
       h = d / $;
-      const D = (R, y) => Math.round(R * Math.pow(10, y)) / Math.pow(10, y);
-      return typeof h == "number" ? D(h * 100, 1) : 0;
+      const T = (R, y) => Math.round(R * Math.pow(10, y)) / Math.pow(10, y);
+      return typeof h == "number" ? T(h * 100, 1) : 0;
     }), o = (d) => {
       d.style.opacity = "0", d.style.gridTemplateRows = "0fr";
     }, p = (d, h) => {
@@ -1549,7 +1545,7 @@ const Vt = {
               (v(!0), _(
                 M,
                 null,
-                Q(w(r).currList, ($, D) => (v(), _("div", {
+                Q(w(r).currList, ($, T) => (v(), _("div", {
                   class: "f-scroll-rank__item",
                   key: $
                 }, [
@@ -1724,8 +1720,8 @@ const rr = {
       points: [],
       paths: []
     }), u = (y) => {
-      let { offsetX: T, offsetY: f } = y;
-      const B = (T / s.value).toFixed(2), k = (f / o.value).toFixed(2);
+      let { offsetX: D, offsetY: f } = y;
+      const B = (D / s.value).toFixed(2), k = (f / o.value).toFixed(2);
       l == null || l.emit("chart-click", B, k, y);
     }, i = () => {
       p(), g();
@@ -1733,18 +1729,18 @@ const rr = {
       p(), g();
     }, { width: s, height: o } = re(r, i, n), p = () => {
       let y = Y(ue(t.points));
-      a.points = y.map((T, f) => ({
-        ...T,
-        halo: V({}, c.halo, Y(t.halo), T.halo),
-        title: V({}, c.title, Y(t.title), T.title),
-        icon: V({}, c.icon, Y(t.icon), T.icon),
-        key: `${T.coordinate.toString()}${f}`
+      a.points = y.map((D, f) => ({
+        ...D,
+        halo: V({}, c.halo, Y(t.halo), D.halo),
+        title: V({}, c.title, Y(t.title), D.title),
+        icon: V({}, c.icon, Y(t.icon), D.icon),
+        key: `${D.coordinate.toString()}${f}`
       }));
     }, g = () => {
       let y = Y(ue(t.paths));
-      a.paths = y.map((T, f) => {
+      a.paths = y.map((D, f) => {
         var ne, q;
-        let { source: B, route: k, target: C, line: X } = T, P = V({}, c.line, Y(t.line), X), O = (ne = a.points.find(({ name: A }) => A === B)) == null ? void 0 : ne.coordinate, I = (q = a.points.find(({ name: A }) => A === C)) == null ? void 0 : q.coordinate, W = k ? [O, ...k, I] : [O, I];
+        let { source: B, route: k, target: C, line: X } = D, P = V({}, c.line, Y(t.line), X), O = (ne = a.points.find(({ name: A }) => A === B)) == null ? void 0 : ne.coordinate, I = (q = a.points.find(({ name: A }) => A === C)) == null ? void 0 : q.coordinate, W = k ? [O, ...k, I] : [O, I];
         W = W.filter((A) => A !== void 0);
         let U = [];
         for (let A = 0; A < W.length - 1; A++) {
@@ -1752,22 +1748,22 @@ const rr = {
           U.push({ path: J, d: He, key: Me });
         }
         return {
-          ...T,
+          ...D,
           line: P,
           routeList: U
         };
       });
-    }, m = (y, T, f, B) => {
-      let [k, C] = y, [X, P] = T;
+    }, m = (y, D, f, B) => {
+      let [k, C] = y, [X, P] = D;
       const [O, I] = [(k + X) / 2, (C + P) / 2];
-      let U = De([k, C], [X, P]) / B, ne = U / 2, [q, A] = [O, I];
+      let U = Te([k, C], [X, P]) / B, ne = U / 2, [q, A] = [O, I];
       do
         q += ne, A = d(f, [O, I], q)[1];
-      while (De([O, I], [q, A]) < U);
-      return [y, [q, A], T];
+      while (Te([O, I], [q, A]) < U);
+      return [y, [q, A], D];
     };
-    function d(y, [T, f], B) {
-      const k = f - y * T + y * B;
+    function d(y, [D, f], B) {
+      const k = f - y * D + y * B;
       return [B, k];
     }
     let h = S(() => function(y) {
@@ -1778,7 +1774,7 @@ const rr = {
       return `M${y[0][0] * s.value},${y[0][1] * o.value} 
     Q${y[1][0] * s.value},${y[1][1] * o.value} 
     ${y[2][0] * s.value},${y[2][1] * o.value}`;
-    }), D = S(() => function(y) {
+    }), T = S(() => function(y) {
       return {
         x1: y[0][0] * s.value,
         y1: y[0][1] * o.value,
@@ -1799,7 +1795,7 @@ const rr = {
     }, {
       deep: !0,
       immediate: !0
-    }), (y, T) => (v(), _(
+    }), (y, D) => (v(), _(
       "div",
       {
         ref_key: "flightChart",
@@ -1942,7 +1938,7 @@ const rr = {
                         f.line.show && f.line.slot ? (v(), _("g", $r, [
                           G(y.$slots, f.line.slot, {
                             path: w($)(k.path),
-                            pathArr: w(D)(k.path),
+                            pathArr: w(T)(k.path),
                             totalLength: w(R)(k.key),
                             line: f.line
                           })
@@ -1986,7 +1982,7 @@ const wr = {
   pt,
   wt,
   kt,
-  Dt,
+  Tt,
   zt,
   Et,
   Ht,

@@ -38,14 +38,8 @@ let state = reactive<{
 })
 
 const digitalToStringList = (number: number) => {
-  // let str = number.toString().match(/^\d+(?:\.\d{0,2})?/)
   let reg = RegExp(`^\\d+(?:\\.\\d{0,${props.digit}})?`)
-  console.log('reg', reg)
-
   let str = Number(number.toString().match(reg))
-  // number.toString().match(`/^\d+(?:\.\d{0,${props.digit}})?/`)
-
-  console.log('digitalToStringList', str)
 
   let result = str.toString()
   let rs = result.indexOf('.')
@@ -61,7 +55,6 @@ const digitalToStringList = (number: number) => {
 
 const getDigitalListStyle = computed(() => {
   return function (str: string) {
-    console.log('str', str)
 
     return {
       top: `-${Number(str) * 100}%`
@@ -76,8 +69,6 @@ onMounted(() => {
 watch(
   () => props.number,
   (value) => {
-    console.log('变化', value)
-
     state.stringList = digitalToStringList(props.number)
   }
 )

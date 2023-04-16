@@ -42,6 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    margin-top: 10px;
     cursor: pointer;
   }
 }

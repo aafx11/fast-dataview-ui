@@ -1,4 +1,4 @@
-import { defineComponent as y, reactive as b, computed as L, onMounted as x, watch as D, openBlock as r, createElementBlock as o, createElementVNode as a, Fragment as _, renderList as p, unref as f, normalizeClass as N, withDirectives as S, vShow as h, normalizeStyle as k, toDisplayString as w } from "vue";
+import { defineComponent as y, reactive as b, computed as L, onMounted as x, watch as D, openBlock as n, createElementBlock as o, createElementVNode as a, Fragment as _, renderList as p, unref as f, normalizeClass as N, withDirectives as h, vShow as S, normalizeStyle as k, toDisplayString as w } from "vue";
 const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }, B = { class: "f-digital-scroll__point" }, d = /* @__PURE__ */ y({
   __name: "index",
   props: {
@@ -11,64 +11,60 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
       default: 2
     }
   },
-  setup(e) {
-    const s = e;
+  setup(i) {
+    const e = i;
     let c = b({
       stringList: []
     });
-    const u = (i) => {
-      let g = RegExp(`^\\d+(?:\\.\\d{0,${s.digit}})?`);
-      console.log("reg", g);
-      let l = Number(i.toString().match(g));
-      console.log("digitalToStringList", l);
-      let t = l.toString(), n = t.indexOf(".");
-      for (n < 0 && (n = t.length, t += "."); t.length <= n + s.digit; )
+    const g = (l) => {
+      let u = RegExp(`^\\d+(?:\\.\\d{0,${e.digit}})?`), t = Number(l.toString().match(u)).toString(), r = t.indexOf(".");
+      for (r < 0 && (r = t.length, t += "."); t.length <= r + e.digit; )
         t += "0";
       return t.split("");
-    }, v = L(() => function(i) {
-      return console.log("str", i), {
-        top: `-${Number(i) * 100}%`
+    }, v = L(() => function(l) {
+      return {
+        top: `-${Number(l) * 100}%`
       };
     });
     return x(() => {
-      c.stringList = u(s.number);
+      c.stringList = g(e.number);
     }), D(
-      () => s.number,
-      (i) => {
-        console.log("变化", i), c.stringList = u(s.number);
+      () => e.number,
+      (l) => {
+        c.stringList = g(e.number);
       }
-    ), (i, g) => (r(), o("div", E, [
+    ), (l, u) => (n(), o("div", E, [
       a("div", z, [
-        (r(!0), o(
+        (n(!0), o(
           _,
           null,
-          p(f(c).stringList, (l, t) => (r(), o(
+          p(f(c).stringList, (s, t) => (n(), o(
             "div",
             {
-              class: N(["f-digital-scroll__item", { "is-small": l === "." }]),
+              class: N(["f-digital-scroll__item", { "is-small": s === "." }]),
               key: t
             },
             [
-              S(a(
+              h(a(
                 "div",
                 B,
                 ".",
                 512
                 /* NEED_PATCH */
               ), [
-                [h, l === "."]
+                [S, s === "."]
               ]),
-              S(a(
+              h(a(
                 "div",
                 {
                   class: "f-digital-scroll__digital-list",
-                  style: k(f(v)(l))
+                  style: k(f(v)(s))
                 },
                 [
-                  (r(), o(
+                  (n(), o(
                     _,
                     null,
-                    p(10, (n, m) => a(
+                    p(10, (r, m) => a(
                       "div",
                       {
                         class: "f-digital-scroll__digital-item",
@@ -85,7 +81,7 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
                 4
                 /* STYLE */
               ), [
-                [h, l !== "."]
+                [S, s !== "."]
               ])
             ],
             2
@@ -98,16 +94,16 @@ const E = { class: "f-digital-scroll" }, z = { class: "f-digital-scroll__list" }
     ]));
   }
 });
-d.install = function(e) {
-  e.component("FDigitalScroll", d);
+d.install = function(i) {
+  i.component("FDigitalScroll", d);
 };
 const F = {
   title: "digitalScroll 滚动数字",
   name: "digitalScroll",
   category: "数据展示",
   status: "100%",
-  install(e) {
-    e.use(d);
+  install(i) {
+    i.use(d);
   }
 };
 export {

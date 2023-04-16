@@ -50,12 +50,12 @@
       Composition API:Composition API 是 Vue3 中的主要新功能之一，它提供了一种基于函数的 API，让你可以将组件的逻辑拆分成更小的、可复用的函数。通过 Composition API，你可以更好地组织组件代码，避免出现代码重复和难以维护的情况。
     </div>
   </FScrollText>
-  <FScrollText type="info" :speed="30" direction="up" style="margin-top:10px;">
+  <FScrollText type="info" :speed="30" direction="up" style="max-height:50px;margin-top:10px;">
     <div>Composition API:Composition API 是 Vue3 中的主要新功能之一，</div>
     <div>它提供了一种基于函数的 API，让你可以将组件的逻辑拆分成更小的、可复用的函数。</div>
     <div>通过 Composition API，你可以更好地组织组件代码，避免出现代码重复和难以维护的情况。</div>
   </FScrollText>
-  <FScrollText type="info" :speed="30" direction="down" style="margin-top:10px;">
+  <FScrollText type="info" :speed="30" direction="down" style="max-height:50px;margin-top:10px;">
     <div>Composition API:Composition API 是 Vue3 中的主要新功能之一，</div>
     <div>它提供了一种基于函数的 API，让你可以将组件的逻辑拆分成更小的、可复用的函数。</div>
     <div>通过 Composition API，你可以更好地组织组件代码，避免出现代码重复和难以维护的情况。</div>
