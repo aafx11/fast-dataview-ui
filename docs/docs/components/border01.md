@@ -6,7 +6,7 @@
 ```vue
 <template>
   <FBorderBox1>
-    <div class="flex-center" style="height:300px;">
+    <div class="flex-center">
       BorderBox1 边框
     </div>
   </FBorderBox1>
@@ -22,7 +22,7 @@
 ```vue
 <template>
   <FBorderBox1 :color="['#2196f3','red']" backgroundColor="black" :strokeWidth="4">
-    <div class="flex-center" style="height:300px;">
+    <div class="flex-center">
       自定义颜色和边框宽度
     </div>
   </FBorderBox1>
@@ -31,8 +31,14 @@
 :::
 
 ## 参数
-参数名| 说明 |  类型  | 可选值 | 默认值  
--|-|-|-|-|
-color | 边框颜色 | string[] | - | ['rgba(46, 96, 153,0.85)', 'rgba(71, 196, 245,0.85)']
-backgroundColor | 边框内容的背景颜色 | string | - | transparent
-strokeWidth | 边框宽度 | number | - | 2
+| 参数名          | 说明               | 类型     | 可选值 | 默认值                                                |
+| --------------- | ------------------ | -------- | ------ | ----------------------------------------------------- |
+| color           | 边框颜色           | string[] | -      | ['rgba(46, 96, 153,0.85)', 'rgba(71, 196, 245,0.85)'] |
+| backgroundColor | 边框内容的背景颜色 | string   | -      | transparent                                           |
+| strokeWidth     | 边框宽度           | number   | -      | 2                                                     |
+
+<style lang="scss" scoped>
+.demo-border01 :deep(.source) {
+  background: #212121;
+}
+</style>

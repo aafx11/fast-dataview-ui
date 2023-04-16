@@ -53,3 +53,9 @@
 | strokeWidth      | 边框宽度           | number   | -      | 3           |
 | duration         | 动画时长           | number   | -      | 2           |
 | stroke-dasharray | 边框虚线           | string   | -      | 300 300     |
+
+<style lang="scss" scoped>
+.demo-border02 :deep(.source) {
+  background: #212121;
+}
+</style>

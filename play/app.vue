@@ -30,5 +30,17 @@ let state = reactive({
 body {
   margin: 0;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-border01 :deep(.source) {
+  background: #212121;
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

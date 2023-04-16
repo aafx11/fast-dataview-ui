@@ -48,7 +48,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:false
   },
   icon:{
-    url:'/point.png'
+    url:'/fast-dataview-ui/point.png'
   },
 });
 
@@ -72,7 +72,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  bgUrl: '/fast-dataview-ui/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -110,7 +110,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     radius: 100
   },
   icon:{
-    url:'/point.png'
+    url:'/fast-dataview-ui/point.png'
   },
 });
 
@@ -133,7 +133,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  bgUrl: '/fast-dataview-ui/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -174,7 +174,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:true,
   },
   icon:{
-    url:'/point.png'
+    url:'/fast-dataview-ui/point.png'
   },
 });
 
@@ -197,7 +197,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  bgUrl: '/fast-dataview-ui/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -205,12 +205,12 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     { name: '湛江', coordinate: [0.12, 0.78] },
     { name: '茂名', coordinate: [0.21, 0.64] },
     { name: '阳江', coordinate: [0.31, 0.64] },
-    { name: '云浮', coordinate: [0.30, 0.50] ,icon:{url:'/point-01.png',width:25,height:25}},
-    { name: '佛山', coordinate: [0.45, 0.48] ,icon:{url:'/point-02.png',width:25,height:25}},
-    { name: '韶关', coordinate: [0.53, 0.18] ,icon:{url:'/point-03.png',width:25,height:25}},
-    { name: '江门', coordinate: [0.41, 0.60] ,icon:{url:'/point-01.png',width:25,height:25}},
-    { name: '清远', coordinate: [0.44, 0.29] ,icon:{url:'/point-02.png',width:25,height:25}},
-    { name: '肇庆', coordinate: [0.37, 0.40] ,icon:{url:'/point-03.png',width:25,height:25}},
+    { name: '云浮', coordinate: [0.30, 0.50] ,icon:{url:'/fast-dataview-ui/point-01.png',width:25,height:25}},
+    { name: '佛山', coordinate: [0.45, 0.48] ,icon:{url:'/fast-dataview-ui/point-02.png',width:25,height:25}},
+    { name: '韶关', coordinate: [0.53, 0.18] ,icon:{url:'/fast-dataview-ui/point-03.png',width:25,height:25}},
+    { name: '江门', coordinate: [0.41, 0.60] ,icon:{url:'/fast-dataview-ui/point-01.png',width:25,height:25}},
+    { name: '清远', coordinate: [0.44, 0.29] ,icon:{url:'/fast-dataview-ui/point-02.png',width:25,height:25}},
+    { name: '肇庆', coordinate: [0.37, 0.40] ,icon:{url:'/fast-dataview-ui/point-03.png',width:25,height:25}},
     { name: '河源', coordinate: [0.65, 0.31], icon:{show:false} },
     { name: '梅州', coordinate: [0.78, 0.28], icon:{show:false} },
     { name: '潮州', coordinate: [0.84, 0.35], icon:{show:false} },
@@ -232,7 +232,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:false
   },
   icon:{
-    url:'/point.png',
+    url:'/fast-dataview-ui/point.png',
     width:15,
     height:20
   },
@@ -257,7 +257,7 @@ const onChartClick = (x,y,event) =>{
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
  let state = reactive({
-  bgUrl: '/map.png',
+  bgUrl: '/fast-dataview-ui/map.png',
   points: [
     { name: '广州', coordinate: [0.50, 0.42] },
     { name: '东莞', coordinate: [0.54, 0.48] },
@@ -303,7 +303,7 @@ import { onMounted, ref, reactive, nextTick } from 'vue';
     show:true,
   },
   icon:{
-    url:'/point.png'
+    url:'/fast-dataview-ui/point.png'
   },
 });
 
@@ -327,7 +327,7 @@ const onChartClick = (x,y,event) =>{
 <template>
   <div class="chart-box">
     <FFlightChart :paths="state.paths" :line="state.line" :halo="state.halo" :title="state.title" :icon="state.icon"
-      style="width: 630px;height: 600px;background: gray;" @chart-click="onChartClick">
+      style="width: 630px;height: 600px;" @chart-click="onChartClick">
       <template #pipe="{ path, totalLength }">
         <defs>
           <path :id="`arrow`" d="M 0 -5 L 10 0 L 0 5 L 3 0 z" transform="translate(0,0)" fill="#0080ff" stroke="black"
@@ -365,12 +365,12 @@ const onChartClick = (x,y,event) =>{
         </path>
       </template>
     </FFlightChart>
-    <img class="chart-box__water-tank" src="/water-tank.png" />
-    <img class="chart-box__room" src="/air-conditioning-room.png" />
-    <img class="chart-box__air-conditioner" src="/air-conditioner.png" />
-    <img class="chart-box__air-conditioner-2" src="/air-conditioner-2.png" />
-    <img class="chart-box__water-pump-1" src="/water-pump-1.png" />
-    <img class="chart-box__water-pump-2" src="/water-pump-2.png" />
+    <img class="chart-box__water-tank" src="/fast-dataview-ui/water-tank.png" />
+    <img class="chart-box__room" src="/fast-dataview-ui/air-conditioning-room.png" />
+    <img class="chart-box__air-conditioner" src="/fast-dataview-ui/air-conditioner.png" />
+    <img class="chart-box__air-conditioner-2" src="/fast-dataview-ui/air-conditioner-2.png" />
+    <img class="chart-box__water-pump-1" src="/fast-dataview-ui/water-pump-1.png" />
+    <img class="chart-box__water-pump-2" src="/fast-dataview-ui/water-pump-2.png" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -397,7 +397,7 @@ let state = reactive({
     show: false,
   },
   icon: {
-    url: '../assets/point.png'
+    url: '/fast-dataview-ui/point.png'
   },
 });
 
@@ -411,6 +411,7 @@ const onChartClick = (x, y, event) => {
   position: relative;
   width: 630px;
   height: 600px;
+  background: #e8e8e8;
 }
 
 .chart-box__water-tank {

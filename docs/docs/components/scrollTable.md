@@ -7,7 +7,7 @@
 ```vue
 
 <template>
-  <FScrollTable :data="state.data" :columns="state.columns" style="color:#0080ff"></FScrollTable>
+  <FScrollTable :data="state.data" :columns="state.columns" style=""></FScrollTable>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
@@ -28,7 +28,7 @@ let state = reactive({
   ],
   columns: [
     { prop: 'name', label: '名称', width: 220 },
-    { prop: 'title', label: '标题', width: 220 },
+    { prop: 'title', label: '标题', width: 210 },
     { prop: 'num', label: '字数', width: 200 },
   ]
 });
@@ -36,3 +36,10 @@ let state = reactive({
 
 ```
 :::
+
+
+<style lang="scss" scoped>
+.demo-scrollTable :deep(.source) {
+  background: #212121;
+}
+</style>

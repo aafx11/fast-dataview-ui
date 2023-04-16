@@ -4,6 +4,7 @@
   "scripts": {
     "dev:play": "pnpm -C play dev",
     "dev:docs": "pnpm -C docs docs:dev",
+    "serve:docs": "pnpm -C docs docs:serve",
     "clean": "rimraf dist",
     "build": "pnpm build:lib && pnpm build:css",
     "build:components": "node ./build/build.js",
