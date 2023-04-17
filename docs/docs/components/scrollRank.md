@@ -20,7 +20,12 @@ let state = reactive({
     {name:'名称G', value:1000},
     {name:'名称H', value:500},
     {name:'名称I', value:1500},
-    {name:'名称J', value:2500},
+    {name:'名称J', value:900},
+    {name:'名称K', value:800},
+    {name:'名称L', value:700},
+    {name:'名称M', value:1700},
+    {name:'名称N', value:1800},
+    {name:'名称O', value:1500},
   ]
 })
 </script>
@@ -79,8 +84,8 @@ const valueFormatter = ({name,value,maxValue,index})=>{
 | togglePage     | 每次翻页多少条数据                                           | number                  | -                      | 3        |
 | toggleDur      | 翻页间隔(毫秒)                                               | number                  | -                      | 3 * 1000 |
 | toggleDuration | 翻页动画的时长(毫秒)                                         | number                  | -                      | 500      |
-| maxValue       | 最大值，如果不设置，自动取data里的最大值                     | number                  | -                      | 500      |
-| valueFormatter | 对data中的value数值格式化，参数name,value,<br>maxValue,index | Function                | -                      | 500      |
+| maxValue       | 最大值，如果不设置，自动取data里的最大值                     | number                  | -                      |          |
+| valueFormatter | 对data中的value数值格式化，参数name,value,<br>maxValue,index | Function                | -                      |          |
 | order          | 排列顺序（normal正序，reverse倒序,default不排序）            | string                  | default,reverse,normal | reverse  |
 | showRank       | 是否展示排名                                                 | boolean                 | -                      | true     |
 | showPercent    | 是否展示百分比                                               | boolean                 | -                      | true     |

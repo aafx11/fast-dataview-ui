@@ -143,7 +143,7 @@ const q = {
   title: "particle 粒子动效",
   name: "particle",
   category: "canvas动效",
-  status: "20%",
+  status: "100%",
   install(u) {
     u.use(f);
   }

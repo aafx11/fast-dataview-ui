@@ -1,6 +1,6 @@
 <template>
   <div class="f-scroll-rank">
-    <div class="f-scroll-rank__list" :style="{ '--page-animate-dur': `${props.toggleDuration}ms` }">
+    <div class="f-scroll-rank__list" ref="scrollRank" :style="{ '--page-animate-dur': `${props.toggleDuration}ms` }">
       <TransitionGroup tag="div" :css="false" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="beforeLeave"
         @leave="onLeave">
         <div v-for="(item, index) in state.currList" class="f-scroll-rank__item" :key="item">
@@ -28,10 +28,10 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup name="FScrollRank">
+<script lang="ts" setup>
 import type { PropType } from 'vue';
 import { getArray, deepClone, sort } from '@fast-dataview-ui/utils/index';
-import { ref, reactive, computed, getCurrentInstance, onMounted, watch } from 'vue';
+import { ref, reactive, computed, nextTick, watch, onBeforeUnmount } from 'vue';
 import { Progress } from './../../progress';
 
 type DataItem = {
@@ -64,7 +64,7 @@ const props = defineProps({
   },
   toggleDuration: {
     type: Number,
-    default: 500
+    default: 300
   },
   maxValue: {
     type: Number,
@@ -97,6 +97,8 @@ const props = defineProps({
     default: 0.5
   },
 });
+
+const scrollRank = ref();
 
 let state = reactive<{
   dataList: any[];
@@ -147,6 +149,13 @@ const setData = async (togglePage: number, sliceData: any[], start: number) => {
   } else {
     state.currList.push(...sliceData);
   }
+  nextTick(() => {
+    // console.log('scrollRank', scrollRank.value.getBoundingClientRect());
+    if (scrollRank.value) {
+      scrollRank.value!.style!.maxHeight = `${scrollRank.value!.getBoundingClientRect().height}px`;
+      scrollRank.value!.style!.height = `${scrollRank.value!.getBoundingClientRect().height}px`;
+    }
+  });
 };
 
 const getCurrList = async () => {
@@ -243,6 +252,7 @@ const onEnter = (el: any, done: () => void) => {
 
 const beforeLeave = async (el: any) => {
   el.style.opacity = '1';
+  el.style.margin = '0';
 };
 const onLeave = async (el: any, done: () => void) => {
   el.style.opacity = '0';
@@ -256,6 +266,10 @@ const onLeave = async (el: any, done: () => void) => {
   });
   done();
 };
+
+onBeforeUnmount(() => {
+  clearTimer()
+})
 
 watch(
   () => props.data,

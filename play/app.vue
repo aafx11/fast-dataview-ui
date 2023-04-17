@@ -1,29 +1,26 @@
 <template>
-  <FScrollTable :data="state.data" :columns="state.columns" style="color:black"></FScrollTable>
+  <FScrollRank :data="state.data" :pageSize="5" :togglePage="5" :maxValue="3500" order="reverse"></FScrollRank>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
 let state = reactive({
   data: [
-    { name: '测试名称01', title: '测试标题01', num: 500, },
-    { name: '测试名称02', title: '测试标题02', num: 1500, },
-    { name: '测试名称03', title: '测试标题03', num: 2500, },
-    { name: '测试名称04', title: '测试标题04', num: 100, },
-    { name: '测试名称05', title: '测试标题05', num: 300, },
-    { name: '测试名称06', title: '测试标题06', num: 400, },
-    { name: '测试名称07', title: '测试标题07', num: 400, },
-    { name: '测试名称08', title: '测试标题08', num: 700, },
-    { name: '测试名称09', title: '测试标题09', num: 800, },
-    { name: '测试名称10', title: '测试标题10', num: 900, },
-    { name: '测试名称11', title: '测试标题11', num: 1000, },
-    { name: '测试名称21', title: '测试标题21', num: 200, },
-  ],
-  columns: [
-    { prop: 'name', label: '名称', width: 150 },
-    { prop: 'title', label: '标题', width: 100, type: 'scroll' },
-    { prop: 'num', label: '字数', width: 150 },
-  ],
-
+    { name: '名称A', value: 200 },
+    { name: '名称B', value: 1200 },
+    { name: '名称C', value: 3200 },
+    { name: '名称D', value: 100 },
+    { name: '名称E', value: 400 },
+    { name: '名称F', value: 300 },
+    { name: '名称G', value: 1000 },
+    { name: '名称H', value: 500 },
+    { name: '名称I', value: 1500 },
+    { name: '名称J', value: 900 },
+    { name: '名称K', value: 800 },
+    { name: '名称L', value: 700 },
+    { name: '名称M', value: 1700 },
+    { name: '名称N', value: 1800 },
+    { name: '名称O', value: 1500 },
+  ]
 });
 </script>
 <style lang="scss">
@@ -32,6 +29,12 @@ body {
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.img-list__item:not(:last-child) {
+  border-right-width: 0;
 }
 
 .demo-border01 :deep(.source) {

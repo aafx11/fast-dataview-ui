@@ -1,7 +1,7 @@
-import { defineComponent as x, computed as k, openBlock as i, createElementBlock as u, normalizeStyle as w, createElementVNode as c, renderSlot as F, toDisplayString as p, reactive as z, watch as I, createVNode as S, TransitionGroup as B, withCtx as C, Fragment as T, renderList as M, unref as m, createCommentVNode as _ } from "vue";
-const O = Object.assign, b = (e) => Array.isArray(e) && e.length, W = (e) => Array.isArray(e) && e || [], G = (e, r, t = "reverse") => e.sort(q(r, t)), q = (e, r = "reverse") => function(t, o) {
-  return t[e] < o[e] ? r === "normal" ? -1 : 1 : t[e] > o[e] ? r === "normal" ? 1 : -1 : 0;
-}, $ = (e, r = /* @__PURE__ */ new WeakMap()) => {
+import { defineComponent as $, computed as v, openBlock as i, createElementBlock as u, normalizeStyle as P, createElementVNode as c, renderSlot as F, toDisplayString as f, ref as z, reactive as C, onBeforeUnmount as I, watch as T, createVNode as S, TransitionGroup as M, withCtx as O, Fragment as b, renderList as W, unref as y, createCommentVNode as m, nextTick as G } from "vue";
+const H = Object.assign, U = (e) => Array.isArray(e) && e.length, q = (e) => Array.isArray(e) && e || [], J = (e, t, o = "reverse") => e.sort(K(t, o)), K = (e, t = "reverse") => function(o, r) {
+  return o[e] < r[e] ? t === "normal" ? -1 : 1 : o[e] > r[e] ? t === "normal" ? 1 : -1 : 0;
+}, N = (e, t = /* @__PURE__ */ new WeakMap()) => {
   if (e === null)
     return e;
   if (e instanceof Date)
@@ -10,58 +10,58 @@ const O = Object.assign, b = (e) => Array.isArray(e) && e.length, W = (e) => Arr
     return new RegExp(e);
   if (typeof e != "object")
     return e;
-  if (r.get(e))
-    return r.get(e);
-  let t = new e.constructor();
-  r.set(e, t);
-  for (let o in e)
-    e.hasOwnProperty(o) && (t[o] = $(e[o], r));
-  return t;
-}, H = x({
+  if (t.get(e))
+    return t.get(e);
+  let o = new e.constructor();
+  t.set(e, o);
+  for (let r in e)
+    e.hasOwnProperty(r) && (o[r] = N(e[r], t));
+  return o;
+}, Q = $({
   name: "FProgress",
   props: {
     percent: { type: Number, default: 0 },
     color: { type: Array, default: () => [] },
     duration: { type: Number, default: 0.5 }
   },
-  setup(e, { slots: r }) {
-    const t = ["#d1d5db", "#3b82f6", "white"];
-    let o = k(() => b(e.color) ? O(t, e.color) : t);
+  setup(e, { slots: t }) {
+    const o = ["#d1d5db", "#3b82f6", "white"];
+    let r = v(() => U(e.color) ? H(o, e.color) : o);
     return {
-      getProgressStyle: k(() => ({
-        "--bgc": o.value[0],
-        "--progress-color": o.value[1],
-        "--progress-text-color": o.value[2],
+      getProgressStyle: v(() => ({
+        "--bgc": r.value[0],
+        "--progress-color": r.value[1],
+        "--progress-text-color": r.value[2],
         "--duration": `${e.duration}s`
       }))
     };
   }
-}), J = (e, r) => {
-  const t = e.__vccOpts || e;
-  for (const [o, f] of r)
-    t[o] = f;
-  return t;
+}), X = (e, t) => {
+  const o = e.__vccOpts || e;
+  for (const [r, p] of t)
+    o[r] = p;
+  return o;
 };
-function K(e, r, t, o, f, y) {
+function Y(e, t, o, r, p, h) {
   return i(), u(
     "div",
     {
       class: "f-progress",
-      style: w(e.getProgressStyle)
+      style: P(e.getProgressStyle)
     },
     [
       c(
         "div",
         {
           class: "progress-inner",
-          style: w({ width: `${e.percent}%` })
+          style: P({ width: `${e.percent}%` })
         },
         [
           F(e.$slots, "default", { percent: e.percent }, () => [
             c(
               "span",
               null,
-              p(e.percent ? `${e.percent}%` : ""),
+              f(e.percent ? `${e.percent}%` : ""),
               1
               /* TEXT */
             )
@@ -75,23 +75,23 @@ function K(e, r, t, o, f, y) {
     /* STYLE */
   );
 }
-const v = /* @__PURE__ */ J(H, [["render", K]]);
-v.install = function(e) {
-  e.component(v.name, v);
+const _ = /* @__PURE__ */ X(Q, [["render", Y]]);
+_.install = function(e) {
+  e.component(_.name, _);
 };
-const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" }, X = { class: "f-scroll-rank__item-info" }, Y = {
+const Z = { class: "f-scroll-rank" }, j = { class: "f-scroll-rank__item-wrap" }, ee = { class: "f-scroll-rank__item-info" }, te = {
   key: 0,
   class: "f-scroll-rank__item-rank"
-}, Z = { class: "f-scroll-rank__item-name" }, j = { class: "f-scroll-rank__item-info-right" }, ee = {
+}, re = { class: "f-scroll-rank__item-name" }, ae = { class: "f-scroll-rank__item-info-right" }, ne = {
   key: 0,
   class: "f-scroll-rank__item-percent"
-}, te = {
+}, se = {
   key: 1,
   class: "f-scroll-rank__item-ratio"
-}, re = {
+}, oe = {
   key: 2,
   class: "f-scroll-rank__item-format"
-}, ae = { class: "f-scroll-rank__item-progress" }, P = /* @__PURE__ */ x({
+}, le = { class: "f-scroll-rank__item-progress" }, L = /* @__PURE__ */ $({
   __name: "index",
   props: {
     data: {
@@ -112,7 +112,7 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
     },
     toggleDuration: {
       type: Number,
-      default: 500
+      default: 300
     },
     maxValue: {
       type: Number
@@ -146,144 +146,150 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
     }
   },
   setup(e) {
-    const r = e;
-    let t = z({
+    const t = e, o = z();
+    let r = C({
       dataList: [],
       currList: [],
       currPage: 1,
       isEmpty: !1,
       intervalId: null
     });
-    const o = (a) => {
-      let n = $(W(a)), s = [];
-      r.order === "default" ? s = n : s = G(n, "value", r.order), typeof r.valueFormatter == "function" && (s = s.map((l, d) => {
+    const p = (a) => {
+      let n = N(q(a)), s = [];
+      t.order === "default" ? s = n : s = J(n, "value", t.order), typeof t.valueFormatter == "function" && (s = s.map((l, d) => {
         var g;
-        return l.formattedValue = (g = r.valueFormatter) == null ? void 0 : g.call(null, {
+        return l.formattedValue = (g = t.valueFormatter) == null ? void 0 : g.call(null, {
           name: l.name,
           value: l.value,
-          maxValue: h.value,
+          maxValue: w.value,
           index: d
         }), l;
-      })), t.dataList = s;
-    }, f = async (a, n, s) => {
+      })), r.dataList = s;
+    }, h = async (a, n, s) => {
       let l = s;
-      n.map((d) => d._index_ = ++l), t.currList.length ? a === r.pageSize ? t.currList = [...n] : (t.currList.push(...n), t.currList.splice(0, a)) : t.currList.push(...n);
-    }, y = async () => {
-      if (t.dataList.length) {
-        t.isEmpty = !1;
+      n.map((d) => d._index_ = ++l), r.currList.length ? a === t.pageSize ? r.currList = [...n] : (r.currList.push(...n), r.currList.splice(0, a)) : r.currList.push(...n), G(() => {
+        o.value && (o.value.style.maxHeight = `${o.value.getBoundingClientRect().height}px`, o.value.style.height = `${o.value.getBoundingClientRect().height}px`);
+      });
+    }, k = async () => {
+      if (r.dataList.length) {
+        r.isEmpty = !1;
         let a;
-        r.togglePage >= r.pageSize ? a = r.pageSize : a = r.togglePage;
+        t.togglePage >= t.pageSize ? a = t.pageSize : a = t.togglePage;
         let n, s;
-        t.currPage === 1 ? (n = 0, s = r.pageSize) : (n = a * (t.currPage - 2) + r.pageSize, s = a * (t.currPage - 1) + r.pageSize);
-        let l = t.dataList.slice(n, s);
-        l.length ? t.currPage === 1 ? await f(r.pageSize, l, n) : await f(a, l, n) : (t.currPage = 1, y()), N();
+        r.currPage === 1 ? (n = 0, s = t.pageSize) : (n = a * (r.currPage - 2) + t.pageSize, s = a * (r.currPage - 1) + t.pageSize);
+        let l = r.dataList.slice(n, s);
+        l.length ? r.currPage === 1 ? await h(t.pageSize, l, n) : await h(a, l, n) : (r.currPage = 1, k()), A();
       } else
-        R(), t.isEmpty = !0, t.currPage = 1, t.currList = [];
-    }, N = () => {
-      t.intervalId === null && (t.intervalId = setInterval(() => {
-        t.currPage += 1, y();
-      }, r.toggleDur));
-    }, R = () => {
-      t.intervalId && (clearInterval(t.intervalId), t.intervalId = null);
-    }, h = k(() => {
+        x(), r.isEmpty = !0, r.currPage = 1, r.currList = [];
+    }, A = () => {
+      r.intervalId === null && (r.intervalId = setInterval(() => {
+        r.currPage += 1, k();
+      }, t.toggleDur));
+    }, x = () => {
+      r.intervalId && (clearInterval(r.intervalId), r.intervalId = null);
+    }, w = v(() => {
       var a, n;
-      return r.maxValue ? r.maxValue : r.order === "normal" ? ((a = t.currList.at(-1)) == null ? void 0 : a.value) || 0 : ((n = t.currList[0]) == null ? void 0 : n.value) || 0;
-    }), L = k(() => function(a) {
-      let n, s = h.value;
+      return t.maxValue ? t.maxValue : t.order === "normal" ? ((a = r.currList.at(-1)) == null ? void 0 : a.value) || 0 : ((n = r.currList[0]) == null ? void 0 : n.value) || 0;
+    }), R = v(() => function(a) {
+      let n, s = w.value;
       n = a / s;
       const l = (d, g) => Math.round(d * Math.pow(10, g)) / Math.pow(10, g);
       return typeof n == "number" ? l(n * 100, 1) : 0;
-    }), A = (a) => {
+    }), V = (a) => {
       a.style.opacity = "0", a.style.gridTemplateRows = "0fr";
-    }, V = (a, n) => {
+    }, B = (a, n) => {
       a.offsetWidth, a.style.opacity = "1", a.style.gridTemplateRows = "1fr", n();
     }, D = async (a) => {
-      a.style.opacity = "1";
+      a.style.opacity = "1", a.style.margin = "0";
     }, E = async (a, n) => {
       a.style.opacity = "0", a.style.margin = "0", a.style.gridTemplateRows = "0fr", await new Promise((s) => {
         setTimeout(() => {
           a.remove(), s(!0);
-        }, r.toggleDuration);
+        }, t.toggleDuration);
       }), n();
     };
-    return I(
-      () => r.data,
+    return I(() => {
+      x();
+    }), T(
+      () => t.data,
       (a) => {
-        o(a), y();
+        p(a), k();
       },
       {
         deep: !0,
         immediate: !0
       }
-    ), (a, n) => (i(), u("div", Q, [
+    ), (a, n) => (i(), u("div", Z, [
       c(
         "div",
         {
           class: "f-scroll-rank__list",
-          style: w({ "--page-animate-dur": `${r.toggleDuration}ms` })
+          ref_key: "scrollRank",
+          ref: o,
+          style: P({ "--page-animate-dur": `${t.toggleDuration}ms` })
         },
         [
-          S(B, {
+          S(M, {
             tag: "div",
             css: !1,
-            onBeforeEnter: A,
-            onEnter: V,
+            onBeforeEnter: V,
+            onEnter: B,
             onBeforeLeave: D,
             onLeave: E
           }, {
-            default: C(() => [
+            default: O(() => [
               (i(!0), u(
-                T,
+                b,
                 null,
-                M(m(t).currList, (s, l) => (i(), u("div", {
+                W(y(r).currList, (s, l) => (i(), u("div", {
                   class: "f-scroll-rank__item",
                   key: s
                 }, [
-                  c("div", U, [
-                    c("div", X, [
-                      r.showRank ? (i(), u(
+                  c("div", j, [
+                    c("div", ee, [
+                      t.showRank ? (i(), u(
                         "span",
-                        Y,
-                        p(`NO.${s._index_}`),
+                        te,
+                        f(`NO.${s._index_}`),
                         1
                         /* TEXT */
-                      )) : _("v-if", !0),
+                      )) : m("v-if", !0),
                       c(
                         "span",
-                        Z,
-                        p(s.name || ""),
+                        re,
+                        f(s.name || ""),
                         1
                         /* TEXT */
                       ),
-                      c("div", j, [
-                        r.showPercent ? (i(), u(
+                      c("div", ae, [
+                        t.showPercent ? (i(), u(
                           "span",
-                          ee,
-                          p(`${m(L)(s.value)}%`),
+                          ne,
+                          f(`${y(R)(s.value)}%`),
                           1
                           /* TEXT */
-                        )) : _("v-if", !0),
-                        r.showRatio && typeof r.valueFormatter != "function" ? (i(), u(
+                        )) : m("v-if", !0),
+                        t.showRatio && typeof t.valueFormatter != "function" ? (i(), u(
                           "span",
-                          te,
-                          p(`${s.value} / ${m(h)}`),
+                          se,
+                          f(`${s.value} / ${y(w)}`),
                           1
                           /* TEXT */
-                        )) : _("v-if", !0),
-                        typeof r.valueFormatter == "function" ? (i(), u(
+                        )) : m("v-if", !0),
+                        typeof t.valueFormatter == "function" ? (i(), u(
                           "span",
-                          re,
-                          p(`${s.formattedValue}`),
+                          oe,
+                          f(`${s.formattedValue}`),
                           1
                           /* TEXT */
-                        )) : _("v-if", !0)
+                        )) : m("v-if", !0)
                       ])
                     ]),
-                    c("div", ae, [
-                      S(m(v), {
-                        percent: m(L)(s.value),
-                        color: r.color,
-                        duration: r.progressDuration
+                    c("div", le, [
+                      S(y(_), {
+                        percent: y(R)(s.value),
+                        color: t.color,
+                        duration: t.progressDuration
                       }, null, 8, ["percent", "color", "duration"])
                     ])
                   ])
@@ -302,19 +308,19 @@ const Q = { class: "f-scroll-rank" }, U = { class: "f-scroll-rank__item-wrap" },
     ]));
   }
 });
-P.install = function(e) {
-  e.component("FScrollRank", P);
+L.install = function(e) {
+  e.component("FScrollRank", L);
 };
-const se = {
+const ue = {
   title: "scrollRank 轮播排名表格",
   name: "scrollRank",
   category: "数据展示",
   status: "100%",
   install(e) {
-    e.use(P);
+    e.use(L);
   }
 };
 export {
-  P as ScrollRank,
-  se as default
+  L as ScrollRank,
+  ue as default
 };

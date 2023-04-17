@@ -4,7 +4,7 @@
   .f-scroll-rank__list {
     width: 400px;
     height: 100%;
-
+    overflow: hidden;
     .f-scroll-rank__item {
       display: grid;
       grid-template-rows: 1fr;
