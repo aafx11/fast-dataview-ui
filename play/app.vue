@@ -1,5 +1,5 @@
 <template>
-  <FScrollRank :data="state.data" :pageSize="5" :togglePage="5" :maxValue="3500" order="reverse"></FScrollRank>
+  <FVirtualList :estimatedItemSize="100"></FVirtualList>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
