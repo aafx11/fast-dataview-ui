@@ -1,40 +1,67 @@
 <template>
-  <FVirtualList :estimatedItemSize="100"></FVirtualList>
+  <div>
+    <div>123</div>
+  </div>
+  <div style="height: 400px;">
+    <!-- v-slot="slotProps" -->
+    <FVirtualList ref="ccc" :data="state.data" :scrollInterval="1000" :autoScroll="true" :bufferScale="1"
+      :estimatedItemSize="100">
+      <template #default="{ item }">
+        <div class="list">
+          <div class="list-item">{{ item._index_ }}</div>
+          <div class="list-item">{{ item.name }}</div>
+          <div class="list-item">{{ item.value }}</div>
+        </div>
+      </template>
+    </FVirtualList>
+    <!-- <VirtualList v-if="show" :estimatedItemSize="100" :listData="state.data" v-slot="slotProps">
+      <Item :item="slotProps.item" />
+    </VirtualList> -->
+    <!-- {{ slotProps.item }} -->
+  </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
-let state = reactive({
-  data: [
-    { name: '名称A', value: 200 },
-    { name: '名称B', value: 1200 },
-    { name: '名称C', value: 3200 },
-    { name: '名称D', value: 100 },
-    { name: '名称E', value: 400 },
-    { name: '名称F', value: 300 },
-    { name: '名称G', value: 1000 },
-    { name: '名称H', value: 500 },
-    { name: '名称I', value: 1500 },
-    { name: '名称J', value: 900 },
-    { name: '名称K', value: 800 },
-    { name: '名称L', value: 700 },
-    { name: '名称M', value: 1700 },
-    { name: '名称N', value: 1800 },
-    { name: '名称O', value: 1500 },
-  ]
+import VirtualList from './comp/VirtualList.vue';
+import Item from './comp/Item.vue';
+let show = ref(false);
+let state = reactive<{
+  data: any[];
+}>({
+  data: []
 });
+
+const ccc = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  let tempData = [];
+  for (let i = 0; i < 1000; i++) {
+    tempData.push(...[
+      { id: i, name: 'id animi est alias fugit exercitationem. Et ullam quia nisi sit autem architecto quod perferendis. Rem voluptatum vitae voluptas voluptas aut. Et et molestias tenetur quaerat. Consequuntur nobis aut non et quo molestias fuga. Consequatur eveniet qui provident excepturi reprehenderit dolores unde mollitia.', value: 200 },
+
+    ]);
+
+  }
+  state.data = tempData;
+
+
+  console.log(ccc.value);
+  //   setInterval(() => {
+  //   console.log('virtualList', List.value);
+
+  //   console.log('scrollTop', List.value.scrollTop);
+
+  //   // virtualList.value.scrollTop;
+  // }, 300);
+});
+
+
+
 </script>
 <style lang="scss">
 body {
   margin: 0;
   overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.img-list__item:not(:last-child) {
-  border-right-width: 0;
 }
 
 .demo-border01 :deep(.source) {
@@ -47,6 +74,15 @@ body {
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
+  }
+}
+
+.list {
+  display: flex;
+
+  .list-item {
+    padding: 10px;
+    border: 1px solid black;
   }
 }
 </style>

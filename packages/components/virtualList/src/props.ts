@@ -20,7 +20,25 @@ export const Props = {
   height: {
     type: String,
     default: '100%'
-  }
+  },
+  // 是否开启滚动事件
+  autoScroll: {
+    type: Boolean,
+    default: false
+  },
+  // 每次滚动多少行
+  scrollRow: {
+    type: Number
+  },
+  // 每次滚动的距离
+  scrollDistance: {
+    type: Number
+  },
+  // 滚动间隔
+  scrollInterval: {
+    type: Number,
+    default: 100
+  },
 } as const;
 
 export type VirtualListProps = ExtractPropTypes<typeof Props>;

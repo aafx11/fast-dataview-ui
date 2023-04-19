@@ -1,5 +1,5 @@
 <template>
-  <p><span style="color:red">{{item.id}}</span>{{item.value}}</p>
+  <p><span style="color:red">{{item.id}}</span>{{item.name}}</p>
 </template>
 
 

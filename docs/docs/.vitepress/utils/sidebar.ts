@@ -58,6 +58,14 @@ export const sidebar = {
       link: '/docs/',
       items: [
         { text: '安装', link: '/docs/install' },
+        { text: '快速上手', link: '/docs/import' },
+      ]
+    },
+    {
+      text: '指南',
+      link: '/docs/',
+      items: [
+        { text: '介绍', link: '/docs/introduce' },
       ]
     },
   ],

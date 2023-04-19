@@ -1,91 +1,91 @@
 import './style.css';
-import { unref as w, getCurrentScope as Qe, onScopeDispose as Ge, watch as ee, ref as T, onMounted as te, onUnmounted as Ue, nextTick as Oe, defineComponent as z, computed as P, createVNode as x, renderSlot as G, openBlock as v, createElementBlock as _, normalizeStyle as N, createElementVNode as $, toDisplayString as B, reactive as Z, provide as xe, createCommentVNode as E, inject as be, normalizeClass as K, getCurrentInstance as Be, onBeforeUnmount as Ne, Fragment as M, renderList as Q, TransitionGroup as ze, withCtx as fe, normalizeProps as qe, guardReactiveProps as Ke, withDirectives as ke, vShow as Se, createStaticVNode as Ze, onBeforeMount as Je } from "vue";
-function je(e, t) {
-  const r = window.MutationObserver, l = new r(t);
-  return l.observe(e, {
+import { unref as b, getCurrentScope as Qe, onScopeDispose as Ge, watch as J, ref as A, onMounted as j, onUnmounted as Ue, nextTick as xe, defineComponent as F, computed as L, createVNode as S, renderSlot as G, openBlock as v, createElementBlock as _, normalizeStyle as H, createElementVNode as x, toDisplayString as z, reactive as Z, provide as ke, createCommentVNode as O, inject as Se, normalizeClass as K, getCurrentInstance as Oe, onBeforeUnmount as be, Fragment as M, renderList as Y, TransitionGroup as ze, withCtx as fe, normalizeProps as qe, guardReactiveProps as Ke, withDirectives as Ce, vShow as Pe, createStaticVNode as Ze, onBeforeMount as Je, onUpdated as je } from "vue";
+function et(e, t) {
+  const l = window.MutationObserver, r = new l(t);
+  return r.observe(e, {
     attributes: !0,
     // 观察所有监听的节点属性值的变化
     attributeFilter: ["style"],
     // 监听的属性
     attributeOldValue: !0
     // 记录上一次被监听的节点的属性变化 
-  }), l;
+  }), r;
 }
-var Ce;
-const Fe = typeof window < "u", et = (e) => typeof e == "string", he = () => {
+var Ie;
+const He = typeof window < "u", tt = (e) => typeof e == "string", he = () => {
 };
-Fe && ((Ce = window == null ? void 0 : window.navigator) != null && Ce.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+He && ((Ie = window == null ? void 0 : window.navigator) != null && Ie.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
 function ce(e) {
-  return typeof e == "function" ? e() : w(e);
+  return typeof e == "function" ? e() : b(e);
 }
-function tt(e, t) {
-  function r(...l) {
-    return new Promise((c, a) => {
-      Promise.resolve(e(() => t.apply(this, l), { fn: t, thisArg: this, args: l })).then(c).catch(a);
+function lt(e, t) {
+  function l(...r) {
+    return new Promise((d, c) => {
+      Promise.resolve(e(() => t.apply(this, r), { fn: t, thisArg: this, args: r })).then(d).catch(c);
     });
   }
-  return r;
+  return l;
 }
-function lt(e, t = {}) {
-  let r, l, c = he;
-  const a = (n) => {
-    clearTimeout(n), c(), c = he;
+function rt(e, t = {}) {
+  let l, r, d = he;
+  const c = (s) => {
+    clearTimeout(s), d(), d = he;
   };
-  return (n) => {
-    const i = ce(e), s = ce(t.maxWait);
-    return r && a(r), i <= 0 || s !== void 0 && s <= 0 ? (l && (a(l), l = null), Promise.resolve(n())) : new Promise((o, y) => {
-      c = t.rejectOnCancel ? y : o, s && !l && (l = setTimeout(() => {
-        r && a(r), l = null, o(n());
-      }, s)), r = setTimeout(() => {
-        l && a(l), l = null, o(n());
+  return (s) => {
+    const i = ce(e), o = ce(t.maxWait);
+    return l && c(l), i <= 0 || o !== void 0 && o <= 0 ? (r && (c(r), r = null), Promise.resolve(s())) : new Promise((a, h) => {
+      d = t.rejectOnCancel ? h : a, o && !r && (r = setTimeout(() => {
+        l && c(l), r = null, a(s());
+      }, o)), l = setTimeout(() => {
+        r && c(r), r = null, a(s());
       }, i);
     });
   };
 }
-function rt(e) {
+function nt(e) {
   return e;
 }
-function nt(e) {
+function it(e) {
   return Qe() ? (Ge(e), !0) : !1;
 }
-function it(e, t = 200, r = {}) {
-  return tt(lt(t, r), e);
+function st(e, t = 200, l = {}) {
+  return lt(rt(t, l), e);
 }
-function st(e) {
+function ot(e) {
   var t;
-  const r = ce(e);
-  return (t = r == null ? void 0 : r.$el) != null ? t : r;
+  const l = ce(e);
+  return (t = l == null ? void 0 : l.$el) != null ? t : l;
 }
-const ot = Fe ? window : void 0;
-function at(...e) {
-  let t, r, l, c;
-  if (et(e[0]) || Array.isArray(e[0]) ? ([r, l, c] = e, t = ot) : [t, r, l, c] = e, !t)
+const at = He ? window : void 0;
+function ct(...e) {
+  let t, l, r, d;
+  if (tt(e[0]) || Array.isArray(e[0]) ? ([l, r, d] = e, t = at) : [t, l, r, d] = e, !t)
     return he;
-  Array.isArray(r) || (r = [r]), Array.isArray(l) || (l = [l]);
-  const a = [], u = () => {
-    a.forEach((o) => o()), a.length = 0;
-  }, n = (o, y, h, p) => (o.addEventListener(y, h, p), () => o.removeEventListener(y, h, p)), i = ee(() => [st(t), ce(c)], ([o, y]) => {
-    u(), o && a.push(...r.flatMap((h) => l.map((p) => n(o, h, p, y))));
-  }, { immediate: !0, flush: "post" }), s = () => {
-    i(), u();
+  Array.isArray(l) || (l = [l]), Array.isArray(r) || (r = [r]);
+  const c = [], n = () => {
+    c.forEach((a) => a()), c.length = 0;
+  }, s = (a, h, g, y) => (a.addEventListener(h, g, y), () => a.removeEventListener(h, g, y)), i = J(() => [ot(t), ce(d)], ([a, h]) => {
+    n(), a && c.push(...l.flatMap((g) => r.map((y) => s(a, g, y, h))));
+  }, { immediate: !0, flush: "post" }), o = () => {
+    i(), n();
   };
-  return nt(s), s;
+  return it(o), o;
 }
-const Pe = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, Ie = "__vueuse_ssr_handlers__";
-Pe[Ie] = Pe[Ie] || {};
-var Le;
+const Le = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, De = "__vueuse_ssr_handlers__";
+Le[De] = Le[De] || {};
+var Te;
 (function(e) {
   e.UP = "UP", e.RIGHT = "RIGHT", e.DOWN = "DOWN", e.LEFT = "LEFT", e.NONE = "NONE";
-})(Le || (Le = {}));
-var ct = Object.defineProperty, De = Object.getOwnPropertySymbols, ut = Object.prototype.hasOwnProperty, dt = Object.prototype.propertyIsEnumerable, Te = (e, t, r) => t in e ? ct(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r, ft = (e, t) => {
-  for (var r in t || (t = {}))
-    ut.call(t, r) && Te(e, r, t[r]);
-  if (De)
-    for (var r of De(t))
-      dt.call(t, r) && Te(e, r, t[r]);
+})(Te || (Te = {}));
+var ut = Object.defineProperty, Re = Object.getOwnPropertySymbols, dt = Object.prototype.hasOwnProperty, ft = Object.prototype.propertyIsEnumerable, Ae = (e, t, l) => t in e ? ut(e, t, { enumerable: !0, configurable: !0, writable: !0, value: l }) : e[t] = l, ht = (e, t) => {
+  for (var l in t || (t = {}))
+    dt.call(t, l) && Ae(e, l, t[l]);
+  if (Re)
+    for (var l of Re(t))
+      ft.call(t, l) && Ae(e, l, t[l]);
   return e;
 };
-const ht = {
+const gt = {
   easeInSine: [0.12, 0, 0.39, 0],
   easeOutSine: [0.61, 1, 0.88, 1],
   easeInOutSine: [0.37, 0, 0.63, 1],
@@ -111,35 +111,35 @@ const ht = {
   easeOutBack: [0.34, 1.56, 0.64, 1],
   easeInOutBack: [0.68, -0.6, 0.32, 1.6]
 };
-ft({
-  linear: rt
-}, ht);
-const le = (e, t, r, l) => {
-  const c = T(0), a = T(0), u = T(0), n = T(0);
-  let i, s = null, o = null;
-  const y = (d = !0) => new Promise((m) => {
-    Oe(() => {
-      o = e.value, c.value = e.value ? e.value.clientWidth : 0, a.value = e.value ? e.value.clientHeight : 0, u.value = o ? o.getBoundingClientRect().width : 0, n.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!c.value || !a.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof t == "function" && d && t(), m(!0);
+ht({
+  linear: nt
+}, gt);
+const le = (e, t, l, r) => {
+  const d = A(0), c = A(0), n = A(0), s = A(0);
+  let i, o = null, a = null;
+  const h = (f = !0) => new Promise((m) => {
+    xe(() => {
+      a = e.value, d.value = e.value ? e.value.clientWidth : 0, c.value = e.value ? e.value.clientHeight : 0, n.value = a ? a.getBoundingClientRect().width : 0, s.value = a ? a.getBoundingClientRect().height : 0, e.value ? (!d.value || !c.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof t == "function" && f && t(), m(!0);
     });
-  }), h = () => {
-    s = je(o, i), at(window, "resize", i);
-  }, p = () => {
-    s && (s.disconnect(), s.takeRecords(), s = null);
-  }, b = async () => {
-    await y(!1), i = it(y, 200), h(), typeof r == "function" && r();
+  }), g = () => {
+    o = et(a, i), ct(window, "resize", i);
+  }, y = () => {
+    o && (o.disconnect(), o.takeRecords(), o = null);
+  }, k = async () => {
+    await h(!1), i = st(h, 200), g(), typeof l == "function" && l();
   };
-  return te(() => {
-    b();
+  return j(() => {
+    k();
   }), Ue(() => {
-    p();
+    y();
   }), {
-    width: c,
-    height: a,
-    afterWidth: u,
-    afterHeight: n,
-    initWH: y
+    width: d,
+    height: c,
+    afterWidth: n,
+    afterHeight: s,
+    initWH: h
   };
-}, We = {
+}, Fe = {
   color: {
     type: Array,
     default: () => []
@@ -163,9 +163,9 @@ const le = (e, t, r, l) => {
     type: String,
     default: "300 300"
   }
-}, V = Object.assign, re = (e) => Array.isArray(e) && e.length, ue = (e) => Array.isArray(e) && e || [], H = (e) => e >= 0 ? e : 0, gt = (e, t, r = "reverse") => e.sort(yt(t, r)), yt = (e, t = "reverse") => function(r, l) {
-  return r[e] < l[e] ? t === "normal" ? -1 : 1 : r[e] > l[e] ? t === "normal" ? 1 : -1 : 0;
-}, Y = (e, t = /* @__PURE__ */ new WeakMap()) => {
+}, Q = Object.assign, re = (e) => Array.isArray(e) && e.length, ue = (e) => Array.isArray(e) && e || [], X = (e) => e >= 0 ? e : 0, pt = (e, t, l = "reverse") => e.sort(yt(t, l)), yt = (e, t = "reverse") => function(l, r) {
+  return l[e] < r[e] ? t === "normal" ? -1 : 1 : l[e] > r[e] ? t === "normal" ? 1 : -1 : 0;
+}, V = (e, t = /* @__PURE__ */ new WeakMap()) => {
   if (e === null)
     return e;
   if (e instanceof Date)
@@ -176,115 +176,115 @@ const le = (e, t, r, l) => {
     return e;
   if (t.get(e))
     return t.get(e);
-  let r = new e.constructor();
-  t.set(e, r);
-  for (let l in e)
-    e.hasOwnProperty(l) && (r[l] = Y(e[l], t));
-  return r;
-}, Re = (e, t) => {
-  const r = Math.abs(e[0] - t[0]), l = Math.abs(e[1] - t[1]);
-  return Math.sqrt(r * r + l * l);
-}, ie = /* @__PURE__ */ z({
+  let l = new e.constructor();
+  t.set(e, l);
+  for (let r in e)
+    e.hasOwnProperty(r) && (l[r] = V(e[r], t));
+  return l;
+}, Ee = (e, t) => {
+  const l = Math.abs(e[0] - t[0]), r = Math.abs(e[1] - t[1]);
+  return Math.sqrt(l * l + r * r);
+}, ie = /* @__PURE__ */ F({
   name: "FBorderBox1",
-  props: We,
+  props: Fe,
   setup(e, {
     slots: t
   }) {
-    const r = T(null), l = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
-    let c = P(() => re(e.color) ? V(l, e.color) : l);
+    const l = A(null), r = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
+    let d = L(() => re(e.color) ? Q(r, e.color) : r);
     const {
-      width: a,
-      height: u,
-      initWH: n
-    } = le(r);
+      width: c,
+      height: n,
+      initWH: s
+    } = le(l);
     return {
-      width: a,
-      height: u,
-      initWH: n,
-      borderBox1: r,
-      defaultColor: l,
-      realColor: c
+      width: c,
+      height: n,
+      initWH: s,
+      borderBox1: l,
+      defaultColor: r,
+      realColor: d
     };
   },
   render() {
     const {
       $slots: e,
       width: t,
-      height: r,
-      backgroundColor: l,
-      strokeWidth: c,
-      realColor: a,
-      title: u
-    } = this, n = 20;
-    let i = c || 2, s = H(t - i - 2), o = H(r - i - 2);
-    return x("div", {
+      height: l,
+      backgroundColor: r,
+      strokeWidth: d,
+      realColor: c,
+      title: n
+    } = this, s = 20;
+    let i = d || 2, o = X(t - i - 2), a = X(l - i - 2);
+    return S("div", {
       ref: "borderBox1",
       class: "f-border-box-1"
-    }, [x("svg", {
+    }, [S("svg", {
       class: "f-svg-container",
-      width: s,
-      height: o
-    }, [x("polygon", {
-      fill: l,
-      stroke: a[0],
+      width: o,
+      height: a
+    }, [S("polygon", {
+      fill: r,
+      stroke: c[0],
       "stroke-width": i,
       points: `
-            ${n} ${i}, ${s - n} ${i}, ${s - i} ${n}, ${s - i} ${o - n}, ${s - n} ${o},
-            ${n} ${o}, ${i} ${o - n}, ${i} ${n}
+            ${s} ${i}, ${o - s} ${i}, ${o - i} ${s}, ${o - i} ${a - s}, ${o - s} ${a},
+            ${s} ${a}, ${i} ${a - s}, ${i} ${s}
           `
-    }, null), x("polyline", {
-      stroke: a[1],
+    }, null), S("polyline", {
+      stroke: c[1],
       "stroke-width": i + 1,
       points: `
-            ${n - 8} 0,0 ${n - 8}
+            ${s - 8} 0,0 ${s - 8}
           `
-    }, null), x("polyline", {
-      stroke: a[1],
+    }, null), S("polyline", {
+      stroke: c[1],
       "stroke-width": i + 1,
       points: `
-            ${s} ${o - n + 8}, ${s - n + 8 + i} ${o}
+            ${o} ${a - s + 8}, ${o - s + 8 + i} ${a}
           `
-    }, null), x("polyline", {
+    }, null), S("polyline", {
       fill: "none",
-      stroke: a[1],
+      stroke: c[1],
       "stroke-width": i + 2,
       points: `
-            ${i} ${n + 15}, ${i} ${n}, ${n} ${i} , ${n + 15} ${i}
+            ${i} ${s + 15}, ${i} ${s}, ${s} ${i} , ${s + 15} ${i}
           `
-    }, null), x("polyline", {
+    }, null), S("polyline", {
       fill: "none",
-      stroke: a[1],
+      stroke: c[1],
       "stroke-width": i + 2,
       points: `
-           ${n + 15} ${o}, ${n}  ${o}, ${i} ${o - n}, ${i} ${o - n - 15}
+           ${s + 15} ${a}, ${s}  ${a}, ${i} ${a - s}, ${i} ${a - s - 15}
           `
-    }, null), x("polyline", {
+    }, null), S("polyline", {
       fill: "none",
-      stroke: a[1],
+      stroke: c[1],
       "stroke-width": i + 2,
       points: `
-           ${s - n - 15} ${i}, ${s - n} ${i}, ${s - i} ${n}, ${s - i} ${n + 15}
+           ${o - s - 15} ${i}, ${o - s} ${i}, ${o - i} ${s}, ${o - i} ${s + 15}
           `
-    }, null), x("polyline", {
+    }, null), S("polyline", {
       fill: "none",
-      stroke: a[1],
+      stroke: c[1],
       "stroke-width": i + 2,
       points: `
-          ${s - n - 15} ${o}, ${s - n} ${o}, ${s - i} ${o - n}, ${s - i} ${o - n - 15}
+          ${o - s - 15} ${a}, ${o - s} ${a}, ${o - i} ${a - s}, ${o - i} ${a - s - 15}
           `
-    }, null), u ? x("polygon", {
+    }, null), n ? S("polygon", {
       fill: "rgba(33, 173, 238,0.1)",
       points: `
-            ${n} ${i}, ${s - n} ${i}, ${s - i} ${n}, ${s - i} ${n + 15}, ${i} ${n + 15},
-            ${i} ${n}
+            ${s} ${i}, ${o - s} ${i}, ${o - i} ${s}, ${o - i} ${s + 15}, ${i} ${s + 15},
+            ${i} ${s}
           `
-    }, null) : null, u ? x("text", {
+    }, null) : null, n ? S("text", {
       x: "30",
       y: "25",
       "font-size": "16",
       "font-weight": "bold",
       fill: "#279fc7"
-    }, [u]) : null]), x("div", {
+    }, [n]) : null]), S("div", {
       class: "f-border-box-content"
     }, [G(e, "default")])]);
   }
@@ -292,7 +292,7 @@ const le = (e, t, r, l) => {
 ie.install = function(e) {
   e.component(ie.name, ie);
 };
-const pt = {
+const mt = {
   title: "border-01 边框",
   name: "border01",
   category: "边框",
@@ -300,58 +300,58 @@ const pt = {
   install(e) {
     e.use(ie);
   }
-}, se = /* @__PURE__ */ z({
+}, se = /* @__PURE__ */ F({
   name: "FBorderBox2",
-  props: We,
+  props: Fe,
   setup(e, {
     slots: t
   }) {
-    const r = T(null), l = ["white"];
-    let c = P(() => re(e.color) ? V(l, e.color) : l);
+    const l = A(null), r = ["white"];
+    let d = L(() => re(e.color) ? Q(r, e.color) : r);
     const {
-      width: a,
-      height: u,
-      initWH: n
-    } = le(r);
+      width: c,
+      height: n,
+      initWH: s
+    } = le(l);
     return {
-      width: a,
-      height: u,
-      initWH: n,
-      borderBox2: r,
-      defaultColor: l,
-      realColor: c
+      width: c,
+      height: n,
+      initWH: s,
+      borderBox2: l,
+      defaultColor: r,
+      realColor: d
     };
   },
   render() {
     const {
       $slots: e,
       width: t,
-      height: r,
-      backgroundColor: l,
-      strokeWidth: c,
-      realColor: a,
-      duration: u,
-      strokeDasharray: n
+      height: l,
+      backgroundColor: r,
+      strokeWidth: d,
+      realColor: c,
+      duration: n,
+      strokeDasharray: s
     } = this;
-    let i = c || 3, s = H(i), o = H(i), y = H(t - i), h = H(i), p = H(t - i), b = H(r - i), d = H(i), m = H(r - i);
-    return x("div", {
+    let i = d || 3, o = X(i), a = X(i), h = X(t - i), g = X(i), y = X(t - i), k = X(l - i), f = X(i), m = X(l - i);
+    return S("div", {
       ref: "borderBox2",
       class: "f-border-box-2"
-    }, [x("svg", {
+    }, [S("svg", {
       class: "f-svg-container",
       width: t,
-      height: r
-    }, [x("path", {
+      height: l
+    }, [S("path", {
       class: "f-container-path",
       style: {
-        "--duration": `${u}s`,
-        "--border-stroke-dasharray": n
+        "--duration": `${n}s`,
+        "--border-stroke-dasharray": s
       },
-      stroke: a[0],
+      stroke: c[0],
       "stroke-width": i,
-      fill: l,
-      d: `M ${s} ${o}, L ${y} ${h}, L ${p} ${b}, L ${d} ${m}, Z`
-    }, null)]), x("div", {
+      fill: r,
+      d: `M ${o} ${a}, L ${h} ${g}, L ${y} ${k}, L ${f} ${m}, Z`
+    }, null)]), S("div", {
       class: "f-border-box-content"
     }, [G(e, "default")])]);
   }
@@ -359,7 +359,7 @@ const pt = {
 se.install = function(e) {
   e.component(se.name, se);
 };
-const mt = {
+const vt = {
   title: "border-02 边框",
   name: "border02",
   category: "边框",
@@ -367,7 +367,7 @@ const mt = {
   install(e) {
     e.use(se);
   }
-}, oe = /* @__PURE__ */ z({
+}, oe = /* @__PURE__ */ F({
   name: "FLoading1",
   props: {
     width: {
@@ -394,87 +394,87 @@ const mt = {
   setup(e, {
     slots: t
   }) {
-    const r = T(null), l = ["#4f29f0", "#c3c8de", "#414856"];
-    let c = P(() => re(e.color) ? V(l, e.color) : l);
+    const l = A(null), r = ["#4f29f0", "#c3c8de", "#414856"];
+    let d = L(() => re(e.color) ? Q(r, e.color) : r);
     const {
-      width: a,
-      height: u,
-      initWH: n
-    } = le(r);
+      width: c,
+      height: n,
+      initWH: s
+    } = le(l);
     return {
-      width: a,
-      height: u,
-      initWH: n,
-      loading1: r,
-      defaultColor: l,
-      realColor: c
+      width: c,
+      height: n,
+      initWH: s,
+      loading1: l,
+      defaultColor: r,
+      realColor: d
     };
   },
   render() {
     const {
       $slots: e,
       realColor: t,
-      text: r,
-      duration: l
+      text: l,
+      duration: r
     } = this;
-    return x("div", {
+    return S("div", {
       ref: "loading1",
       class: "f-loading-1",
       style: {
         "--front-color": t[0],
         "--back-color": t[1],
         "--text-color": t[2],
-        "--duration": `${l}s`
+        "--duration": `${r}s`
       }
-    }, [x("svg", {
+    }, [S("svg", {
       class: "f-circle-outer",
       viewBox: "0 0 86 86"
-    }, [x("circle", {
+    }, [S("circle", {
       class: "f-back",
       cx: "43",
       cy: "43",
       r: "40"
-    }, null), x("circle", {
+    }, null), S("circle", {
       class: "f-front",
       cx: "43",
       cy: "43",
       r: "40"
-    }, null)]), x("svg", {
+    }, null)]), S("svg", {
       class: "f-circle-middle",
       viewBox: "0 0 60 60"
-    }, [x("circle", {
+    }, [S("circle", {
       class: "f-back",
       cx: "30",
       cy: "30",
       r: "27"
-    }, null), x("circle", {
+    }, null), S("circle", {
       class: "f-front",
       cx: "30",
       cy: "30",
       r: "27"
-    }, null)]), x("svg", {
+    }, null)]), S("svg", {
       class: "f-circle-inner",
       viewBox: "0 0 34 34"
-    }, [x("circle", {
+    }, [S("circle", {
       class: "f-back",
       cx: "17",
       cy: "17",
       r: "14"
-    }, null), x("circle", {
+    }, null), S("circle", {
       class: "f-front",
       cx: "17",
       cy: "17",
       r: "14"
-    }, null)]), r ? x("div", {
+    }, null)]), l ? S("div", {
       class: "f-loading-text",
-      "data-text": r
+      "data-text": l
     }, null) : null]);
   }
 });
 oe.install = function(e) {
   e.component(oe.name, oe);
 };
-const vt = {
+const _t = {
   title: "loading-01 加载",
   name: "loading01",
   category: "加载",
@@ -482,7 +482,7 @@ const vt = {
   install(e) {
     e.use(oe);
   }
-}, _t = z({
+}, $t = F({
   name: "FLoading2",
   props: {
     width: { type: String, default: "100px" },
@@ -492,46 +492,46 @@ const vt = {
     duration: { type: Number, default: 0.8 }
   },
   setup(e, { slots: t }) {
-    const r = ["#d1d5db", "#3b82f6", "#3b82f6"];
-    let l = P(() => re(e.color) ? V(r, e.color) : r);
+    const l = ["#d1d5db", "#3b82f6", "#3b82f6"];
+    let r = L(() => re(e.color) ? Q(l, e.color) : l);
     return {
-      getLoadingStyle: P(() => ({
+      getLoadingStyle: L(() => ({
         width: e.width,
         height: e.height,
-        color: l.value[2],
-        "--border-color": l.value[0],
-        "--border-top-color": l.value[1],
+        color: r.value[2],
+        "--border-color": r.value[0],
+        "--border-top-color": r.value[1],
         "--duration": `${e.duration}s`
       }))
     };
   }
-}), He = (e, t) => {
-  const r = e.__vccOpts || e;
-  for (const [l, c] of t)
-    r[l] = c;
-  return r;
-}, $t = /* @__PURE__ */ $(
+}), Me = (e, t) => {
+  const l = e.__vccOpts || e;
+  for (const [r, d] of t)
+    l[r] = d;
+  return l;
+}, wt = /* @__PURE__ */ x(
   "div",
   { class: "f-loading-round" },
   null,
   -1
   /* HOISTED */
-), wt = { class: "loading-text" };
-function xt(e, t, r, l, c, a) {
+), xt = { class: "loading-text" };
+function bt(e, t, l, r, d, c) {
   return v(), _(
     "div",
     {
       class: "f-loading-2",
-      style: N(e.getLoadingStyle)
+      style: H(e.getLoadingStyle)
     },
     [
-      $t,
-      $("div", wt, [
+      wt,
+      x("div", xt, [
         G(e.$slots, "default", {}, () => [
-          $(
+          x(
             "div",
             null,
-            B(e.text),
+            z(e.text),
             1
             /* TEXT */
           )
@@ -542,11 +542,11 @@ function xt(e, t, r, l, c, a) {
     /* STYLE */
   );
 }
-const ae = /* @__PURE__ */ He(_t, [["render", xt]]);
+const ae = /* @__PURE__ */ Me($t, [["render", bt]]);
 ae.install = function(e) {
   e.component(ae.name, ae);
 };
-const bt = {
+const kt = {
   title: "loading-02 加载",
   name: "loading02",
   category: "加载",
@@ -554,16 +554,16 @@ const bt = {
   install(e) {
     e.use(ae);
   }
-}, kt = {
+}, St = {
   width: { type: Number, default: 1920 },
   height: { type: Number, default: 1080 },
   onAfterResize: { type: Function, default: () => {
   } }
-}, St = { class: "f-screen-container" }, ge = /* @__PURE__ */ z({
+}, Ct = { class: "f-screen-container" }, ge = /* @__PURE__ */ F({
   __name: "index",
-  props: kt,
+  props: St,
   setup(e) {
-    const t = e, r = T(null), l = Z({
+    const t = e, l = A(null), r = Z({
       width: 0,
       height: 0,
       screenWidth: 0,
@@ -572,33 +572,33 @@ const bt = {
       scaleY: 1,
       isReady: !1
     });
-    let c = T(1), a = T(1);
-    xe("scaleX", c), xe("scaleY", a);
-    const u = () => {
-      t.width && t.height ? (l.width = t.width, l.height = t.height) : (l.width = r.value.clientWidth, l.height = r.value.clientHeight);
-      const { width: y, height: h } = window.screen;
-      l.screenWidth = y, l.screenHeight = h;
-    }, n = () => {
-      l.width && l.height ? (r.value.style.width = `${l.width}px`, r.value.style.height = `${l.height}px`) : (r.value.style.width = `${l.screenWidth}px`, r.value.style.height = `${l.screenHeight}px`);
+    let d = A(1), c = A(1);
+    ke("scaleX", d), ke("scaleY", c);
+    const n = () => {
+      t.width && t.height ? (r.width = t.width, r.height = t.height) : (r.width = l.value.clientWidth, r.height = l.value.clientHeight);
+      const { width: h, height: g } = window.screen;
+      r.screenWidth = h, r.screenHeight = g;
+    }, s = () => {
+      r.width && r.height ? (l.value.style.width = `${r.width}px`, l.value.style.height = `${r.height}px`) : (l.value.style.width = `${r.screenWidth}px`, l.value.style.height = `${r.screenHeight}px`);
     }, i = () => {
-      const y = document.body.clientWidth, h = document.body.clientHeight, p = l.width || l.screenWidth, b = l.height || l.screenHeight, d = y / +p, m = h / +b;
-      c.value = d, a.value = m, r.value.style.transform = `scale(${d}, ${m})`;
+      const h = document.body.clientWidth, g = document.body.clientHeight, y = r.width || r.screenWidth, k = r.height || r.screenHeight, f = h / +y, m = g / +k;
+      d.value = f, c.value = m, l.value.style.transform = `scale(${f}, ${m})`;
     };
-    return le(r, () => {
+    return le(l, () => {
       i();
     }, () => {
-      u(), n(), i(), t.onAfterResize(), l.isReady = !0;
-    }), (y, h) => (v(), _("div", St, [
-      $(
+      n(), s(), i(), t.onAfterResize(), r.isReady = !0;
+    }), (h, g) => (v(), _("div", Ct, [
+      x(
         "div",
         {
           class: "f-screen-inner",
           ref_key: "screenContainer",
-          ref: r
+          ref: l
         },
         [
-          l.isReady ? G(y.$slots, "default", { key: 0 }) : E("v-if", !0),
-          E(" <slot></slot> ")
+          r.isReady ? G(h.$slots, "default", { key: 0 }) : O("v-if", !0),
+          O(" <slot></slot> ")
         ],
         512
         /* NEED_PATCH */
@@ -609,7 +609,7 @@ const bt = {
 ge.install = function(e) {
   e.component("FScreenContainer", ge);
 };
-const Ct = {
+const Pt = {
   title: "container 容器",
   name: "container",
   category: "容器",
@@ -617,7 +617,7 @@ const Ct = {
   install(e) {
     e.use(ge);
   }
-}, Pt = {
+}, It = {
   width: { type: Number, default: 400 },
   // 画布宽度
   height: { type: Number, default: 400 },
@@ -629,11 +629,11 @@ const Ct = {
   // particleColors: { type: String, default: 'rgba(255, 255, 255, 1)' }, // 粒子颜色
   src: { type: String }
   // 图片url
-}, It = 30, Lt = 1 / It;
-class ye {
+}, Lt = 30, Dt = 1 / Lt;
+class pe {
   // 粒子的透明度
-  constructor(t, r, l, c, a, u, n) {
-    this.x = Math.random() * t >> 0, this.y = Math.random() * r >> 0, this.targetX = l, this.targetY = c, this.time = a, this.radius = u, this.colors = n, this.opacity = 0;
+  constructor(t, l, r, d, c, n, s) {
+    this.x = Math.random() * t >> 0, this.y = Math.random() * l >> 0, this.targetX = r, this.targetY = d, this.time = c, this.radius = n, this.colors = s, this.opacity = 0;
   }
   // 绘制粒子
   draw(t) {
@@ -646,44 +646,44 @@ class ye {
    * @param {number} mouseX 鼠标在X轴的位置
    * @param {number} mouseY 鼠标在Y轴的位置
    */
-  update(t, r, l, c) {
-    if (this.distanceX = this.targetX - this.x, this.distanceY = this.targetY - this.y, this.velocityX = this.distanceX / this.time, this.velocityY = this.distanceY / this.time, l && c) {
-      let a = l - this.x, u = c - this.y, n = Math.sqrt(a ** 2 + u ** 2), i = t / n;
+  update(t, l, r, d) {
+    if (this.distanceX = this.targetX - this.x, this.distanceY = this.targetY - this.y, this.velocityX = this.distanceX / this.time, this.velocityY = this.distanceY / this.time, r && d) {
+      let c = r - this.x, n = d - this.y, s = Math.sqrt(c ** 2 + n ** 2), i = t / s;
       i = i > 7 ? 7 : i;
-      let s = Math.atan2(u, a), o = Math.cos(s), y = Math.sin(s), h = o * i * -r, p = y * i * -r;
-      this.velocityX += h, this.velocityY += p;
+      let o = Math.atan2(n, c), a = Math.cos(o), h = Math.sin(o), g = a * i * -l, y = h * i * -l;
+      this.velocityX += g, this.velocityY += y;
     }
-    this.x += this.velocityX, this.y += this.velocityY, this.opacity < 1 && (this.opacity += Lt);
+    this.x += this.velocityX, this.y += this.velocityY, this.opacity < 1 && (this.opacity += Dt);
   }
   // 切换粒子
-  change(t, r, l) {
-    this.targetX = t, this.targetY = r, this.colors = l;
+  change(t, l, r) {
+    this.targetX = t, this.targetY = l, this.colors = r;
   }
 }
-const Ae = 30;
-class Dt {
+const Be = 30;
+class Tt {
   // 动画的id，用于停止动画
-  constructor(t, r, l) {
-    this.radius = r, this.strength = l, this.canvasEle = t, this.ctx = t.getContext("2d"), this.width = t.width, this.height = t.height, this.particleArr = [], this.canvasEle.onmouseleave = () => {
+  constructor(t, l, r) {
+    this.radius = l, this.strength = r, this.canvasEle = t, this.ctx = t.getContext("2d"), this.width = t.width, this.height = t.height, this.particleArr = [], this.canvasEle.onmouseleave = () => {
       this.mouseX = 0, this.mouseY = 0;
     };
   }
   // 修改图片，复用粒子
   changeImg(t) {
     if (this.particleArr.length) {
-      let r = t.particleData, l = r.length, c = this.particleArr, a = c.length;
-      for (let n = 0; n < l; n++) {
-        const { targetX: i, targetY: s, colors: o } = r[n];
-        c[n] ? c[n].change(i, s, o) : c[n] = new ye(this.width, this.height, i, s, Ae, this.radius, o);
+      let l = t.particleData, r = l.length, d = this.particleArr, c = d.length;
+      for (let s = 0; s < r; s++) {
+        const { targetX: i, targetY: o, colors: a } = l[s];
+        d[s] ? d[s].change(i, o, a) : d[s] = new pe(this.width, this.height, i, o, Be, this.radius, a);
       }
-      l < a && (this.particleArr = c.splice(0, l)), c = this.particleArr;
-      let u = c.length;
-      for (; u; ) {
-        let n = ~~(Math.random() * u--), i = c[n], { targetX: s, targetY: o, colors: y } = i;
-        i.targetX = c[u].targetX, i.targetY = c[u].targetY, i.colors = c[u].colors, c[u].targetX = s, c[u].targetY = o, c[u].colors = y;
+      r < c && (this.particleArr = d.splice(0, r)), d = this.particleArr;
+      let n = d.length;
+      for (; n; ) {
+        let s = ~~(Math.random() * n--), i = d[s], { targetX: o, targetY: a, colors: h } = i;
+        i.targetX = d[n].targetX, i.targetY = d[n].targetY, i.colors = d[n].colors, d[n].targetX = o, d[n].targetY = a, d[n].colors = h;
       }
     } else
-      this.particleArr = t.particleData.map((r) => new ye(this.width, this.height, r.targetX, r.targetY, Ae, this.radius, r.colors));
+      this.particleArr = t.particleData.map((l) => new pe(this.width, this.height, l.targetX, l.targetY, Be, this.radius, l.colors));
   }
   drawCanvas() {
     this.ctx.clearRect(0, 0, this.width, this.height), this.particleArr.forEach((t) => {
@@ -691,184 +691,184 @@ class Dt {
     }), this.requestID = window.requestAnimationFrame(() => this.drawCanvas());
   }
 }
-const Tt = 30;
-class Ee {
+const Rt = 30;
+class Ne {
   // 粒子的半径
   // particleColors: string; // 粒子的颜色
-  constructor(t, r, l, c) {
-    this.src = t, this.width = r, this.height = l, this.particleData = [], this.radius = c;
+  constructor(t, l, r, d) {
+    this.src = t, this.width = l, this.height = r, this.particleData = [], this.radius = d;
   }
   createParticleData(t = this.src) {
-    return new Promise((r, l) => {
-      let c = new Image();
-      c.crossOrigin = "", c.src = decodeURI(new URL(t, import.meta.url).href), c.onload = () => {
-        const a = document.createElement("canvas"), u = a.getContext("2d"), n = this.width, i = this.height;
-        a.width = n, a.height = i, u == null || u.drawImage(c, 0, 0, n, i);
-        const s = u == null ? void 0 : u.getImageData(0, 0, n, i).data;
-        u == null || u.clearRect(0, 0, this.width, this.height);
-        for (let o = 0; o < i; o += 5)
-          for (let y = 0; y < n; y += 5) {
-            const h = (y + o * n) * 4, p = s[h + 3];
-            if (p == 0)
+    return new Promise((l, r) => {
+      let d = new Image();
+      d.crossOrigin = "", d.src = decodeURI(new URL(t, import.meta.url).href), d.onload = () => {
+        const c = document.createElement("canvas"), n = c.getContext("2d"), s = this.width, i = this.height;
+        c.width = s, c.height = i, n == null || n.drawImage(d, 0, 0, s, i);
+        const o = n == null ? void 0 : n.getImageData(0, 0, s, i).data;
+        n == null || n.clearRect(0, 0, this.width, this.height);
+        for (let a = 0; a < i; a += 5)
+          for (let h = 0; h < s; h += 5) {
+            const g = (h + a * s) * 4, y = o[g + 3];
+            if (y == 0)
               continue;
-            const b = s[h], d = s[h + 1], m = s[h + 2];
-            if (b + d + m + p) {
-              const I = new ye(this.width, this.height, y, o, Tt, this.radius, `rgba(${b},${d},${m},${p})`);
-              this.particleData.push(I);
+            const k = o[g], f = o[g + 1], m = o[g + 2];
+            if (k + f + m + y) {
+              const R = new pe(this.width, this.height, h, a, Rt, this.radius, `rgba(${k},${f},${m},${y})`);
+              this.particleData.push(R);
             }
           }
-        r(this.particleData);
-      }, c.onerror = () => {
-        l("图片转化成粒子失败");
+        l(this.particleData);
+      }, d.onerror = () => {
+        r("图片转化成粒子失败");
       };
     });
   }
 }
-const Rt = ["width", "height"], pe = /* @__PURE__ */ z({
+const At = ["width", "height"], ye = /* @__PURE__ */ F({
   __name: "index",
-  props: Pt,
+  props: It,
   setup(e, { expose: t }) {
-    const r = e;
-    let l = be("scaleX", T(1)), c = be("scaleY", T(1));
-    const a = T(null), u = T(null);
-    let n = T(), i = T();
-    const s = async (y) => {
-      i.value = new Ee(y, r.width, r.height, r.radius), await i.value.createParticleData(), n.value.changeImg(i.value);
-    }, o = async () => {
-      i.value = new Ee(r.src, r.width, r.height, r.radius), await i.value.createParticleData(), a.value && (u.value = a.value.getContext("2d"), n.value = new Dt(a.value, r.radius, r.strength), a.value.addEventListener("mousemove", (y) => {
-        const { left: h, top: p } = a.value.getBoundingClientRect(), { clientX: b, clientY: d } = y;
-        n.value.mouseX = (b - h) * (1 / l.value), n.value.mouseY = (d - p) * (1 / c.value);
-      }), n.value.drawCanvas(), n.value.changeImg(i.value));
+    const l = e;
+    let r = Se("scaleX", A(1)), d = Se("scaleY", A(1));
+    const c = A(null), n = A(null);
+    let s = A(), i = A();
+    const o = async (h) => {
+      i.value = new Ne(h, l.width, l.height, l.radius), await i.value.createParticleData(), s.value.changeImg(i.value);
+    }, a = async () => {
+      i.value = new Ne(l.src, l.width, l.height, l.radius), await i.value.createParticleData(), c.value && (n.value = c.value.getContext("2d"), s.value = new Tt(c.value, l.radius, l.strength), c.value.addEventListener("mousemove", (h) => {
+        const { left: g, top: y } = c.value.getBoundingClientRect(), { clientX: k, clientY: f } = h;
+        s.value.mouseX = (k - g) * (1 / r.value), s.value.mouseY = (f - y) * (1 / d.value);
+      }), s.value.drawCanvas(), s.value.changeImg(i.value));
     };
-    return te(() => {
-      o();
+    return j(() => {
+      a();
     }), t({
-      toggleImg: s
-    }), (y, h) => (v(), _("div", null, [
-      $("canvas", {
+      toggleImg: o
+    }), (h, g) => (v(), _("div", null, [
+      x("canvas", {
         ref_key: "canvasRef",
-        ref: a,
-        width: r.width,
-        height: r.height
-      }, null, 8, Rt)
+        ref: c,
+        width: l.width,
+        height: l.height
+      }, null, 8, At)
     ]));
   }
 });
-pe.install = function(e) {
-  e.component("FDynamicParticle", pe);
+ye.install = function(e) {
+  e.component("FDynamicParticle", ye);
 };
-const At = {
+const Et = {
   title: "particle 粒子动效",
   name: "particle",
   category: "canvas动效",
   status: "100%",
   install(e) {
-    e.use(pe);
+    e.use(ye);
   }
 };
-function Me(e) {
+function We(e) {
   return {
-    handleToggle: (l) => {
-      e.emit("handle-toggle", l);
+    handleToggle: (r) => {
+      e.emit("handle-toggle", r);
     },
-    handleCellClick: (l, c, a, u, n) => {
-      e.emit("cell-click", c, a, u, n, l);
+    handleCellClick: (r, d, c, n, s) => {
+      e.emit("cell-click", d, c, n, s, r);
     }
   };
 }
-function Et(e, t, r) {
-  const { handleToggle: l } = Me(r), c = (h) => {
-    let p = ue(h);
-    return Y(p);
-  }, a = () => {
-    e.toggleCount += 1, e.toggleCount >= t.emitCondition && l(t.name);
-  }, u = async (h, p, b) => {
-    let d = b;
-    p.map((m) => m._index_ = ++d), e.currData.length ? h === t.pageSize ? e.currData = [...p] : (e.currData.push(...p), e.currData.splice(0, h)) : e.currData.push(...p);
-  }, n = async () => {
+function Bt(e, t, l) {
+  const { handleToggle: r } = We(l), d = (g) => {
+    let y = ue(g);
+    return V(y);
+  }, c = () => {
+    e.toggleCount += 1, e.toggleCount >= t.emitCondition && r(t.name);
+  }, n = async (g, y, k) => {
+    let f = k;
+    y.map((m) => m._index_ = ++f), e.currData.length ? g === t.pageSize ? e.currData = [...y] : (e.currData.push(...y), e.currData.splice(0, g)) : e.currData.push(...y);
+  }, s = async () => {
     if (e.tableData.length) {
-      o(!1, !0), e.isEmpty = !1;
-      let h;
-      t.mode === "single" ? h = t.togglePage : h = t.pageSize;
-      let p, b;
-      e.currPage === 1 ? (p = 0, b = t.pageSize) : (p = h * (e.currPage - 2) + t.pageSize, b = h * (e.currPage - 1) + t.pageSize);
-      let d = e.tableData.slice(p, b);
-      d.length ? e.currPage === 1 && e.toggleCount === 0 ? u(t.pageSize, d, p) : e.currPage === 1 ? await u(t.pageSize, d, p) : await u(h, d, p) : (e.currPage = 1, a(), n()), i();
+      a(!1, !0), e.isEmpty = !1;
+      let g;
+      t.mode === "single" ? g = t.togglePage : g = t.pageSize;
+      let y, k;
+      e.currPage === 1 ? (y = 0, k = t.pageSize) : (y = g * (e.currPage - 2) + t.pageSize, k = g * (e.currPage - 1) + t.pageSize);
+      let f = e.tableData.slice(y, k);
+      f.length ? e.currPage === 1 && e.toggleCount === 0 ? n(t.pageSize, f, y) : e.currPage === 1 ? await n(t.pageSize, f, y) : await n(g, f, y) : (e.currPage = 1, c(), s()), i();
     } else
-      o(), e.currPage = 1, e.currData = [], e.isEmpty = !0, s();
+      a(), e.currPage = 1, e.currData = [], e.isEmpty = !0, o();
   }, i = () => {
     e.intervalId === null && !e.isStopToggle && (e.intervalId = setInterval(() => {
-      e.currPage += 1, n();
+      e.currPage += 1, s();
     }, t.toggleDur));
-  }, s = () => {
+  }, o = () => {
     e.setTimeoutId === null && (e.setTimeoutId = setTimeout(() => {
-      l(t.name);
+      r(t.name);
     }, t.emptyEmitDur));
-  }, o = (h = !0, p = !0) => {
-    e.intervalId && h && (clearInterval(e.intervalId), e.intervalId = null), e.setTimeoutId && p && (clearTimeout(e.setTimeoutId), e.setTimeoutId = null);
+  }, a = (g = !0, y = !0) => {
+    e.intervalId && g && (clearInterval(e.intervalId), e.intervalId = null), e.setTimeoutId && y && (clearTimeout(e.setTimeoutId), e.setTimeoutId = null);
   };
   return {
-    deepCloneArr: c,
-    setCurrData: n,
+    deepCloneArr: d,
+    setCurrData: s,
     setPageInterval: i,
-    setEmptyTimeout: s,
-    clearTimer: o,
-    setPage: (h = 1) => {
-      o(), e.currPage = h;
-      let p;
-      t.mode === "single" ? p = t.togglePage : p = t.pageSize;
-      let b = p * (e.currPage - 1), d = p * (e.currPage - 1) + t.pageSize, m = e.tableData.slice(b, d);
-      m.length ? (u(t.pageSize, m, b), i()) : n(), e.tableData.length || s();
+    setEmptyTimeout: o,
+    clearTimer: a,
+    setPage: (g = 1) => {
+      a(), e.currPage = g;
+      let y;
+      t.mode === "single" ? y = t.togglePage : y = t.pageSize;
+      let k = y * (e.currPage - 1), f = y * (e.currPage - 1) + t.pageSize, m = e.tableData.slice(k, f);
+      m.length ? (n(t.pageSize, m, k), i()) : s(), e.tableData.length || o();
     }
   };
 }
-function Ot(e, t) {
-  const r = P(() => function(s, o) {
-    const y = ["f-scroll-table__row"];
-    return t.stripe && o % 2 === 1 && y.push("f-scroll-table_row--striped"), y;
-  }), l = P(() => {
-    const s = ["cell"];
-    return t.wrap ? s.push("cell--wrap") : s.push("cell--nowrap"), s;
-  }), c = P(() => function(s) {
-    let o = s.reduce((y, h) => y += h.width, 0);
+function Nt(e, t) {
+  const l = L(() => function(o, a) {
+    const h = ["f-scroll-table__row"];
+    return t.stripe && a % 2 === 1 && h.push("f-scroll-table_row--striped"), h;
+  }), r = L(() => {
+    const o = ["cell"];
+    return t.wrap ? o.push("cell--wrap") : o.push("cell--nowrap"), o;
+  }), d = L(() => function(o) {
+    let a = o.reduce((h, g) => h += g.width, 0);
     return {
-      width: `${o}px`,
-      "max-width": `${o}px`
+      width: `${a}px`,
+      "max-width": `${a}px`
     };
-  }), a = P(() => ({
+  }), c = L(() => ({
     height: t.maxHeight || "auto",
     "max-height": t.maxHeight || "auto",
     "--page-animate-dur": `${t.pageAnimateDur}ms`
-  })), u = P(() => function(s) {
+  })), n = L(() => function(o) {
     return {
       // 'height': state.rowsHeight[i] || 'auto',
       // 'max-height': state.rowsHeight[i] || 'auto',
     };
-  }), n = P(() => function(s) {
+  }), s = L(() => function(o) {
     return {
-      width: `${s.width}px`,
-      "max-width": `${s.width}px`,
-      "text-align": s.align || t.align || "start"
+      width: `${o.width}px`,
+      "max-width": `${o.width}px`,
+      "text-align": o.align || t.align || "start"
     };
-  }), i = P(() => function(s, o, y, h) {
+  }), i = L(() => function(o, a, h, g) {
     return typeof t.cellStyle == "function" ? t.cellStyle.call(null, {
-      rowIndex: y,
-      columnIndex: h,
-      row: s,
-      column: o
+      rowIndex: h,
+      columnIndex: g,
+      row: o,
+      column: a
     }) : t.cellStyle || {};
   });
   return {
-    getRowClass: r,
-    getCellClass: l,
-    getTableStyle: c,
-    getBodyStyle: a,
-    getRowStyle: u,
-    getExtraCellStyle: n,
+    getRowClass: l,
+    getCellClass: r,
+    getTableStyle: d,
+    getBodyStyle: c,
+    getRowStyle: n,
+    getExtraCellStyle: s,
     getCellStyle: i
   };
 }
-const de = /* @__PURE__ */ z({
+const de = /* @__PURE__ */ F({
   __name: "index",
   props: {
     type: { default: "default" },
@@ -877,40 +877,40 @@ const de = /* @__PURE__ */ z({
     mode: { default: "infinite" }
   },
   setup(e) {
-    const t = e, r = T(), l = T(), c = P(() => {
-      var h, p, b, d;
-      let a = ((h = r.value) == null ? void 0 : h.offsetWidth) || 0, u = ((p = r.value) == null ? void 0 : p.offsetHeight) || 0, n = ((b = l.value) == null ? void 0 : b.offsetWidth) || 0, i = ((d = l.value) == null ? void 0 : d.offsetHeight) || 0;
-      if (t.mode === "overflow" && (["up", "down"].includes(t.direction) && i < u || ["left", "right"].includes(t.direction) && n < a))
+    const t = e, l = A(), r = A(), d = L(() => {
+      var g, y, k, f;
+      let c = ((g = l.value) == null ? void 0 : g.offsetWidth) || 0, n = ((y = l.value) == null ? void 0 : y.offsetHeight) || 0, s = ((k = r.value) == null ? void 0 : k.offsetWidth) || 0, i = ((f = r.value) == null ? void 0 : f.offsetHeight) || 0;
+      if (t.mode === "overflow" && (["up", "down"].includes(t.direction) && i < n || ["left", "right"].includes(t.direction) && s < c))
         return {
-          "--text-scroll-width": `${a}px`,
-          "--text-scroll-height": `${u}px`,
+          "--text-scroll-width": `${c}px`,
+          "--text-scroll-height": `${n}px`,
           animation: ""
         };
-      let s, o, y;
-      return ["up", "down"].includes(t.direction) && (s = u + i, o = s / t.speed || 0, y = `up-scroll linear ${o}s infinite ${t.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(t.direction) && (s = a + n, o = s / t.speed || 0, y = `left-scroll linear ${o}s infinite ${t.direction === "right" ? "reverse" : ""}`), {
-        "--text-scroll-width": `${a}px`,
-        "--text-scroll-height": `${u}px`,
-        animation: y
+      let o, a, h;
+      return ["up", "down"].includes(t.direction) && (o = n + i, a = o / t.speed || 0, h = `up-scroll linear ${a}s infinite ${t.direction === "down" ? "reverse" : ""}`), ["left", "right"].includes(t.direction) && (o = c + s, a = o / t.speed || 0, h = `left-scroll linear ${a}s infinite ${t.direction === "right" ? "reverse" : ""}`), {
+        "--text-scroll-width": `${c}px`,
+        "--text-scroll-height": `${n}px`,
+        animation: h
       };
     });
-    return (a, u) => (v(), _(
+    return (c, n) => (v(), _(
       "div",
       {
         ref_key: "scrollText",
-        ref: r,
+        ref: l,
         class: K(["f-scroll-text", `f-scroll-text--${t.type}`])
       },
       [
-        $(
+        x(
           "div",
           {
             ref_key: "textContent",
-            ref: l,
+            ref: r,
             class: "text-content",
-            style: N(w(c))
+            style: H(b(d))
           },
           [
-            G(a.$slots, "default")
+            G(c.$slots, "default")
           ],
           4
           /* STYLE */
@@ -924,7 +924,7 @@ const de = /* @__PURE__ */ z({
 de.install = function(e) {
   e.component("FScrollText", de);
 };
-const Bt = {
+const Ot = {
   title: "scrollText 轮播文本",
   name: "scrollText",
   category: "数据展示",
@@ -932,11 +932,11 @@ const Bt = {
   install(e) {
     e.use(de);
   }
-}, Nt = {
+}, zt = {
   class: "f-scroll-table__head"
-}, zt = ["onClick"], Ft = {
+}, Ht = ["onClick"], Ft = {
   key: 1
-}, me = /* @__PURE__ */ z({
+}, me = /* @__PURE__ */ F({
   __name: "index",
   props: {
     name: {
@@ -1013,7 +1013,7 @@ const Bt = {
   setup(e, {
     expose: t
   }) {
-    const r = e, l = Z({
+    const l = e, r = Z({
       tableData: [],
       // 所有表格数据
       currData: [],
@@ -1032,128 +1032,128 @@ const Bt = {
       // 是否停止切换页面(当鼠标移动到表格时，停止切换)
       isEmpty: !1
       // 当前没有数据
-    }), c = Be(), a = T(), {
-      deepCloneArr: u,
-      setCurrData: n,
+    }), d = Oe(), c = A(), {
+      deepCloneArr: n,
+      setCurrData: s,
       setPageInterval: i,
-      setEmptyTimeout: s,
-      clearTimer: o,
-      setPage: y
-    } = Et(l, r, c), {
-      handleCellClick: h
-    } = Me(c), {
-      getRowClass: p,
-      getCellClass: b,
-      getTableStyle: d,
+      setEmptyTimeout: o,
+      clearTimer: a,
+      setPage: h
+    } = Bt(r, l, d), {
+      handleCellClick: g
+    } = We(d), {
+      getRowClass: y,
+      getCellClass: k,
+      getTableStyle: f,
       getBodyStyle: m,
-      getRowStyle: k,
-      getExtraCellStyle: I,
-      getCellStyle: g
-    } = Ot(l, r), C = (L) => {
-      L.style.opacity = "0", L.style.gridTemplateRows = "0fr";
-    }, f = (L, X) => {
-      L.offsetWidth, L.style.opacity = "1", L.style.gridTemplateRows = "1fr", X();
-    }, F = async (L) => {
-      L.style.opacity = "1";
-    }, S = async (L, X) => {
-      L.style.opacity = "0", L.style.gridTemplateRows = "0fr", await new Promise((D) => {
+      getRowStyle: P,
+      getExtraCellStyle: R,
+      getCellStyle: p
+    } = Nt(r, l), T = (C) => {
+      C.style.opacity = "0", C.style.gridTemplateRows = "0fr";
+    }, u = (C, B) => {
+      C.offsetWidth, C.style.opacity = "1", C.style.gridTemplateRows = "1fr", B();
+    }, w = async (C) => {
+      C.style.opacity = "1";
+    }, $ = async (C, B) => {
+      C.style.opacity = "0", C.style.gridTemplateRows = "0fr", await new Promise((I) => {
         setTimeout(() => {
-          L.remove(), D(!0);
-        }, r.pageAnimateDur);
-      }), X();
+          C.remove(), I(!0);
+        }, l.pageAnimateDur);
+      }), B();
     };
-    return ee(() => r.data, (L) => {
-      l.tableData = u(L), n();
+    return J(() => l.data, (C) => {
+      r.tableData = n(C), s();
     }, {
       immediate: !0,
       deep: !0
-    }), te(() => {
-      r.mouseEvent && (a.value.addEventListener("mouseenter", () => {
-        o(!0, !0), l.isStopToggle = !0;
-      }), a.value.addEventListener("mouseleave", () => {
-        l.isStopToggle = !1, l.tableData.length ? i() : s();
+    }), j(() => {
+      l.mouseEvent && (c.value.addEventListener("mouseenter", () => {
+        a(!0, !0), r.isStopToggle = !0;
+      }), c.value.addEventListener("mouseleave", () => {
+        r.isStopToggle = !1, r.tableData.length ? i() : o();
       }));
-    }), Ne(() => {
-      o();
+    }), be(() => {
+      a();
     }), t({
-      setPage: y
-    }), (L, X) => (v(), _(
+      setPage: h
+    }), (C, B) => (v(), _(
       "div",
       {
         ref: "scrollTable",
         class: K(["f-scroll-table", {
-          "is-border": r.border
+          "is-border": l.border
         }]),
-        style: N(w(d)(r.columns))
+        style: H(b(f)(l.columns))
       },
-      [$("div", Nt, [(v(!0), _(
+      [x("div", zt, [(v(!0), _(
         M,
         null,
-        Q(r.columns, (D, O) => (v(), _(
+        Y(l.columns, (I, E) => (v(), _(
           "div",
           {
             class: "f-scroll-table__cell",
-            style: N(w(I)(D)),
-            key: O
+            style: H(b(R)(I)),
+            key: E
           },
-          B(D.label),
+          z(I.label),
           5
           /* TEXT, STYLE */
         ))),
         128
         /* KEYED_FRAGMENT */
-      ))]), $(
+      ))]), x(
         "div",
         {
           ref_key: "scrollTable__body",
-          ref: a,
+          ref: c,
           class: "f-scroll-table__content is-hidden-scrollbar",
-          style: N(w(m))
+          style: H(b(m))
         },
-        [x(ze, {
+        [S(ze, {
           tag: "div",
           css: !1,
-          onBeforeEnter: C,
-          onEnter: f,
-          onBeforeLeave: F,
-          onLeave: S
+          onBeforeEnter: T,
+          onEnter: u,
+          onBeforeLeave: w,
+          onLeave: $
         }, {
           default: fe(() => [(v(!0), _(
             M,
             null,
-            Q(l.currData, (D, O) => (v(), _("div", {
+            Y(r.currData, (I, E) => (v(), _("div", {
               class: "f-scroll-table__row-wrap",
-              key: D
-            }, [$(
+              key: I
+            }, [x(
               "div",
               {
-                class: K(w(p)(D, O))
+                class: K(b(y)(I, E))
               },
               [(v(!0), _(
                 M,
                 null,
-                Q(r.columns, (R, W) => (v(), _("div", {
+                Y(l.columns, (D, W) => (v(), _("div", {
                   class: "f-scroll-table__cell",
-                  style: N([w(I)(R), w(g)(D, R.type === "index" ? "_index_" : R.prop, O, W)]),
-                  key: `${D[R.prop]}${W}`,
-                  onClick: (U) => w(h)(U, D, D[R.prop], O, W)
-                }, [R.type === "index" ? (v(), _(
+                  style: H([b(R)(D), b(p)(I, D.type === "index" ? "_index_" : D.prop, E, W)]),
+                  key: `${I[D.prop]}${W}`,
+                  onClick: (U) => b(g)(U, I, I[D.prop], E, W)
+                }, [D.type === "index" ? (v(), _(
                   "div",
                   {
                     key: 0,
-                    class: K(w(b))
+                    class: K(b(k))
                   },
-                  B(D._index_ || ""),
+                  z(I._index_ || ""),
                   3
                   /* TEXT, CLASS */
-                )) : R.type === "scroll" ? (v(), _("div", Ft, [x(
-                  w(de),
-                  qe(Ke(R.scrollOption)),
+                )) : D.type === "scroll" ? (v(), _("div", Ft, [S(
+                  b(de),
+                  qe(Ke(D.scrollOption)),
                   {
-                    default: fe(() => [$(
+                    default: fe(() => [x(
                       "div",
                       null,
-                      B(D[R.prop]),
+                      z(I[D.prop]),
                       1
                       /* TEXT */
                     )]),
@@ -1162,17 +1162,17 @@ const Bt = {
                   },
                   1040
                   /* FULL_PROPS, DYNAMIC_SLOTS */
-                )])) : R.slot ? (v(), _(
+                )])) : D.slot ? (v(), _(
                   "div",
                   {
                     key: 2,
-                    class: K(w(b))
+                    class: K(b(k))
                   },
-                  [G(L.$slots, R.slot, {
+                  [G(C.$slots, D.slot, {
                     params: {
-                      row: D,
-                      column: R.prop,
-                      $index: O
+                      row: I,
+                      column: D.prop,
+                      $index: E
                     }
                   })],
                   2
@@ -1181,12 +1181,12 @@ const Bt = {
                   "div",
                   {
                     key: 3,
-                    class: K(w(b))
+                    class: K(b(k))
                   },
-                  B(D[R.prop]),
+                  z(I[D.prop]),
                   3
                   /* TEXT, CLASS */
-                ))], 12, zt))),
+                ))], 12, Ht))),
                 128
                 /* KEYED_FRAGMENT */
               ))],
@@ -1210,7 +1210,7 @@ const Bt = {
 me.install = function(e) {
   e.component("FScrollTable", me);
 };
-const Wt = {
+const Mt = {
   title: "scrollTable 轮播表格",
   name: "scrollTable",
   category: "数据展示",
@@ -1218,7 +1218,7 @@ const Wt = {
   install(e) {
     e.use(me);
   }
-}, Ht = z({
+}, Wt = F({
   name: "FProgress",
   props: {
     percent: { type: Number, default: 0 },
@@ -1226,38 +1226,38 @@ const Wt = {
     duration: { type: Number, default: 0.5 }
   },
   setup(e, { slots: t }) {
-    const r = ["#d1d5db", "#3b82f6", "white"];
-    let l = P(() => re(e.color) ? V(r, e.color) : r);
+    const l = ["#d1d5db", "#3b82f6", "white"];
+    let r = L(() => re(e.color) ? Q(l, e.color) : l);
     return {
-      getProgressStyle: P(() => ({
-        "--bgc": l.value[0],
-        "--progress-color": l.value[1],
-        "--progress-text-color": l.value[2],
+      getProgressStyle: L(() => ({
+        "--bgc": r.value[0],
+        "--progress-color": r.value[1],
+        "--progress-text-color": r.value[2],
         "--duration": `${e.duration}s`
       }))
     };
   }
 });
-function Mt(e, t, r, l, c, a) {
+function Xt(e, t, l, r, d, c) {
   return v(), _(
     "div",
     {
       class: "f-progress",
-      style: N(e.getProgressStyle)
+      style: H(e.getProgressStyle)
     },
     [
-      $(
+      x(
         "div",
         {
           class: "progress-inner",
-          style: N({ width: `${e.percent}%` })
+          style: H({ width: `${e.percent}%` })
         },
         [
           G(e.$slots, "default", { percent: e.percent }, () => [
-            $(
+            x(
               "span",
               null,
-              B(e.percent ? `${e.percent}%` : ""),
+              z(e.percent ? `${e.percent}%` : ""),
               1
               /* TEXT */
             )
@@ -1271,19 +1271,19 @@ function Mt(e, t, r, l, c, a) {
     /* STYLE */
   );
 }
-const j = /* @__PURE__ */ He(Ht, [["render", Mt]]);
-j.install = function(e) {
-  e.component(j.name, j);
+const te = /* @__PURE__ */ Me(Wt, [["render", Xt]]);
+te.install = function(e) {
+  e.component(te.name, te);
 };
-const Xt = {
+const Yt = {
   title: "progress 进度条",
   name: "progress",
   category: "数据展示",
   status: "100%",
   install(e) {
-    e.use(j);
+    e.use(te);
   }
-}, Yt = { class: "f-digital-scroll" }, Vt = { class: "f-digital-scroll__list" }, Qt = { class: "f-digital-scroll__point" }, ve = /* @__PURE__ */ z({
+}, Vt = { class: "f-digital-scroll" }, Qt = { class: "f-digital-scroll__list" }, Gt = { class: "f-digital-scroll__point" }, ve = /* @__PURE__ */ F({
   __name: "index",
   props: {
     number: {
@@ -1297,64 +1297,64 @@ const Xt = {
   },
   setup(e) {
     const t = e;
-    let r = Z({
+    let l = Z({
       stringList: []
     });
-    const l = (a) => {
-      let u = RegExp(`^\\d+(?:\\.\\d{0,${t.digit}})?`), i = Number(a.toString().match(u)).toString(), s = i.indexOf(".");
-      for (s < 0 && (s = i.length, i += "."); i.length <= s + t.digit; )
+    const r = (c) => {
+      let n = RegExp(`^\\d+(?:\\.\\d{0,${t.digit}})?`), i = Number(c.toString().match(n)).toString(), o = i.indexOf(".");
+      for (o < 0 && (o = i.length, i += "."); i.length <= o + t.digit; )
         i += "0";
       return i.split("");
-    }, c = P(() => function(a) {
+    }, d = L(() => function(c) {
       return {
-        top: `-${Number(a) * 100}%`
+        top: `-${Number(c) * 100}%`
       };
     });
-    return te(() => {
-      r.stringList = l(t.number);
-    }), ee(
+    return j(() => {
+      l.stringList = r(t.number);
+    }), J(
       () => t.number,
-      (a) => {
-        r.stringList = l(t.number);
+      (c) => {
+        l.stringList = r(t.number);
       }
-    ), (a, u) => (v(), _("div", Yt, [
-      $("div", Vt, [
+    ), (c, n) => (v(), _("div", Vt, [
+      x("div", Qt, [
         (v(!0), _(
           M,
           null,
-          Q(w(r).stringList, (n, i) => (v(), _(
+          Y(b(l).stringList, (s, i) => (v(), _(
             "div",
             {
-              class: K(["f-digital-scroll__item", { "is-small": n === "." }]),
+              class: K(["f-digital-scroll__item", { "is-small": s === "." }]),
               key: i
             },
             [
-              ke($(
+              Ce(x(
                 "div",
-                Qt,
+                Gt,
                 ".",
                 512
                 /* NEED_PATCH */
               ), [
-                [Se, n === "."]
+                [Pe, s === "."]
               ]),
-              ke($(
+              Ce(x(
                 "div",
                 {
                   class: "f-digital-scroll__digital-list",
-                  style: N(w(c)(n))
+                  style: H(b(d)(s))
                 },
                 [
                   (v(), _(
                     M,
                     null,
-                    Q(10, (s, o) => $(
+                    Y(10, (o, a) => x(
                       "div",
                       {
                         class: "f-digital-scroll__digital-item",
-                        key: o
+                        key: a
                       },
-                      B(o),
+                      z(a),
                       1
                       /* TEXT */
                     )),
@@ -1365,7 +1365,7 @@ const Xt = {
                 4
                 /* STYLE */
               ), [
-                [Se, n !== "."]
+                [Pe, s !== "."]
               ])
             ],
             2
@@ -1381,7 +1381,7 @@ const Xt = {
 ve.install = function(e) {
   e.component("FDigitalScroll", ve);
 };
-const Gt = {
+const Ut = {
   title: "digitalScroll 滚动数字",
   name: "digitalScroll",
   category: "数据展示",
@@ -1389,19 +1389,19 @@ const Gt = {
   install(e) {
     e.use(ve);
   }
-}, Ut = { class: "f-scroll-rank" }, qt = { class: "f-scroll-rank__item-wrap" }, Kt = { class: "f-scroll-rank__item-info" }, Zt = {
+}, qt = { class: "f-scroll-rank" }, Kt = { class: "f-scroll-rank__item-wrap" }, Zt = { class: "f-scroll-rank__item-info" }, Jt = {
   key: 0,
   class: "f-scroll-rank__item-rank"
-}, Jt = { class: "f-scroll-rank__item-name" }, jt = { class: "f-scroll-rank__item-info-right" }, el = {
+}, jt = { class: "f-scroll-rank__item-name" }, el = { class: "f-scroll-rank__item-info-right" }, tl = {
   key: 0,
   class: "f-scroll-rank__item-percent"
-}, tl = {
+}, ll = {
   key: 1,
   class: "f-scroll-rank__item-ratio"
-}, ll = {
+}, rl = {
   key: 2,
   class: "f-scroll-rank__item-format"
-}, rl = { class: "f-scroll-rank__item-progress" }, _e = /* @__PURE__ */ z({
+}, nl = { class: "f-scroll-rank__item-progress" }, _e = /* @__PURE__ */ F({
   __name: "index",
   props: {
     data: {
@@ -1456,148 +1456,148 @@ const Gt = {
     }
   },
   setup(e) {
-    const t = e, r = T();
-    let l = Z({
+    const t = e, l = A();
+    let r = Z({
       dataList: [],
       currList: [],
       currPage: 1,
       isEmpty: !1,
       intervalId: null
     });
-    const c = (d) => {
-      let m = Y(ue(d)), k = [];
-      t.order === "default" ? k = m : k = gt(m, "value", t.order), typeof t.valueFormatter == "function" && (k = k.map((I, g) => {
-        var C;
-        return I.formattedValue = (C = t.valueFormatter) == null ? void 0 : C.call(null, {
-          name: I.name,
-          value: I.value,
-          maxValue: s.value,
-          index: g
-        }), I;
-      })), l.dataList = k;
-    }, a = async (d, m, k) => {
-      let I = k;
-      m.map((g) => g._index_ = ++I), l.currList.length ? d === t.pageSize ? l.currList = [...m] : (l.currList.push(...m), l.currList.splice(0, d)) : l.currList.push(...m), Oe(() => {
-        r.value && (r.value.style.maxHeight = `${r.value.getBoundingClientRect().height}px`, r.value.style.height = `${r.value.getBoundingClientRect().height}px`);
+    const d = (f) => {
+      let m = V(ue(f)), P = [];
+      t.order === "default" ? P = m : P = pt(m, "value", t.order), typeof t.valueFormatter == "function" && (P = P.map((R, p) => {
+        var T;
+        return R.formattedValue = (T = t.valueFormatter) == null ? void 0 : T.call(null, {
+          name: R.name,
+          value: R.value,
+          maxValue: o.value,
+          index: p
+        }), R;
+      })), r.dataList = P;
+    }, c = async (f, m, P) => {
+      let R = P;
+      m.map((p) => p._index_ = ++R), r.currList.length ? f === t.pageSize ? r.currList = [...m] : (r.currList.push(...m), r.currList.splice(0, f)) : r.currList.push(...m), xe(() => {
+        l.value && (l.value.style.maxHeight = `${l.value.getBoundingClientRect().height}px`, l.value.style.height = `${l.value.getBoundingClientRect().height}px`);
       });
-    }, u = async () => {
-      if (l.dataList.length) {
-        l.isEmpty = !1;
-        let d;
-        t.togglePage >= t.pageSize ? d = t.pageSize : d = t.togglePage;
-        let m, k;
-        l.currPage === 1 ? (m = 0, k = t.pageSize) : (m = d * (l.currPage - 2) + t.pageSize, k = d * (l.currPage - 1) + t.pageSize);
-        let I = l.dataList.slice(m, k);
-        I.length ? l.currPage === 1 ? await a(t.pageSize, I, m) : await a(d, I, m) : (l.currPage = 1, u()), n();
+    }, n = async () => {
+      if (r.dataList.length) {
+        r.isEmpty = !1;
+        let f;
+        t.togglePage >= t.pageSize ? f = t.pageSize : f = t.togglePage;
+        let m, P;
+        r.currPage === 1 ? (m = 0, P = t.pageSize) : (m = f * (r.currPage - 2) + t.pageSize, P = f * (r.currPage - 1) + t.pageSize);
+        let R = r.dataList.slice(m, P);
+        R.length ? r.currPage === 1 ? await c(t.pageSize, R, m) : await c(f, R, m) : (r.currPage = 1, n()), s();
       } else
-        i(), l.isEmpty = !0, l.currPage = 1, l.currList = [];
-    }, n = () => {
-      l.intervalId === null && (l.intervalId = setInterval(() => {
-        l.currPage += 1, u();
+        i(), r.isEmpty = !0, r.currPage = 1, r.currList = [];
+    }, s = () => {
+      r.intervalId === null && (r.intervalId = setInterval(() => {
+        r.currPage += 1, n();
       }, t.toggleDur));
     }, i = () => {
-      l.intervalId && (clearInterval(l.intervalId), l.intervalId = null);
-    }, s = P(() => {
-      var d, m;
-      return t.maxValue ? t.maxValue : t.order === "normal" ? ((d = l.currList.at(-1)) == null ? void 0 : d.value) || 0 : ((m = l.currList[0]) == null ? void 0 : m.value) || 0;
-    }), o = P(() => function(d) {
-      let m, k = s.value;
-      m = d / k;
-      const I = (g, C) => Math.round(g * Math.pow(10, C)) / Math.pow(10, C);
-      return typeof m == "number" ? I(m * 100, 1) : 0;
-    }), y = (d) => {
-      d.style.opacity = "0", d.style.gridTemplateRows = "0fr";
-    }, h = (d, m) => {
-      d.offsetWidth, d.style.opacity = "1", d.style.gridTemplateRows = "1fr", m();
-    }, p = async (d) => {
-      d.style.opacity = "1", d.style.margin = "0";
-    }, b = async (d, m) => {
-      d.style.opacity = "0", d.style.margin = "0", d.style.gridTemplateRows = "0fr", await new Promise((k) => {
+      r.intervalId && (clearInterval(r.intervalId), r.intervalId = null);
+    }, o = L(() => {
+      var f, m;
+      return t.maxValue ? t.maxValue : t.order === "normal" ? ((f = r.currList.at(-1)) == null ? void 0 : f.value) || 0 : ((m = r.currList[0]) == null ? void 0 : m.value) || 0;
+    }), a = L(() => function(f) {
+      let m, P = o.value;
+      m = f / P;
+      const R = (p, T) => Math.round(p * Math.pow(10, T)) / Math.pow(10, T);
+      return typeof m == "number" ? R(m * 100, 1) : 0;
+    }), h = (f) => {
+      f.style.opacity = "0", f.style.gridTemplateRows = "0fr";
+    }, g = (f, m) => {
+      f.offsetWidth, f.style.opacity = "1", f.style.gridTemplateRows = "1fr", m();
+    }, y = async (f) => {
+      f.style.opacity = "1", f.style.margin = "0";
+    }, k = async (f, m) => {
+      f.style.opacity = "0", f.style.margin = "0", f.style.gridTemplateRows = "0fr", await new Promise((P) => {
         setTimeout(() => {
-          d.remove(), k(!0);
+          f.remove(), P(!0);
         }, t.toggleDuration);
       }), m();
     };
-    return Ne(() => {
+    return be(() => {
       i();
-    }), ee(
+    }), J(
       () => t.data,
-      (d) => {
-        c(d), u();
+      (f) => {
+        d(f), n();
       },
       {
         deep: !0,
         immediate: !0
       }
-    ), (d, m) => (v(), _("div", Ut, [
-      $(
+    ), (f, m) => (v(), _("div", qt, [
+      x(
         "div",
         {
           class: "f-scroll-rank__list",
           ref_key: "scrollRank",
-          ref: r,
-          style: N({ "--page-animate-dur": `${t.toggleDuration}ms` })
+          ref: l,
+          style: H({ "--page-animate-dur": `${t.toggleDuration}ms` })
         },
         [
-          x(ze, {
+          S(ze, {
             tag: "div",
             css: !1,
-            onBeforeEnter: y,
-            onEnter: h,
-            onBeforeLeave: p,
-            onLeave: b
+            onBeforeEnter: h,
+            onEnter: g,
+            onBeforeLeave: y,
+            onLeave: k
           }, {
             default: fe(() => [
               (v(!0), _(
                 M,
                 null,
-                Q(w(l).currList, (k, I) => (v(), _("div", {
+                Y(b(r).currList, (P, R) => (v(), _("div", {
                   class: "f-scroll-rank__item",
-                  key: k
+                  key: P
                 }, [
-                  $("div", qt, [
-                    $("div", Kt, [
+                  x("div", Kt, [
+                    x("div", Zt, [
                       t.showRank ? (v(), _(
                         "span",
-                        Zt,
-                        B(`NO.${k._index_}`),
+                        Jt,
+                        z(`NO.${P._index_}`),
                         1
                         /* TEXT */
-                      )) : E("v-if", !0),
-                      $(
+                      )) : O("v-if", !0),
+                      x(
                         "span",
-                        Jt,
-                        B(k.name || ""),
+                        jt,
+                        z(P.name || ""),
                         1
                         /* TEXT */
                       ),
-                      $("div", jt, [
+                      x("div", el, [
                         t.showPercent ? (v(), _(
                           "span",
-                          el,
-                          B(`${w(o)(k.value)}%`),
+                          tl,
+                          z(`${b(a)(P.value)}%`),
                           1
                           /* TEXT */
-                        )) : E("v-if", !0),
+                        )) : O("v-if", !0),
                         t.showRatio && typeof t.valueFormatter != "function" ? (v(), _(
                           "span",
-                          tl,
-                          B(`${k.value} / ${w(s)}`),
+                          ll,
+                          z(`${P.value} / ${b(o)}`),
                           1
                           /* TEXT */
-                        )) : E("v-if", !0),
+                        )) : O("v-if", !0),
                         typeof t.valueFormatter == "function" ? (v(), _(
                           "span",
-                          ll,
-                          B(`${k.formattedValue}`),
+                          rl,
+                          z(`${P.formattedValue}`),
                           1
                           /* TEXT */
-                        )) : E("v-if", !0)
+                        )) : O("v-if", !0)
                       ])
                     ]),
-                    $("div", rl, [
-                      x(w(j), {
-                        percent: w(o)(k.value),
+                    x("div", nl, [
+                      S(b(te), {
+                        percent: b(a)(P.value),
                         color: t.color,
                         duration: t.progressDuration
                       }, null, 8, ["percent", "color", "duration"])
@@ -1621,7 +1621,7 @@ const Gt = {
 _e.install = function(e) {
   e.component("FScrollRank", _e);
 };
-const nl = {
+const il = {
   title: "scrollRank 轮播排名表格",
   name: "scrollRank",
   category: "数据展示",
@@ -1629,10 +1629,10 @@ const nl = {
   install(e) {
     e.use(_e);
   }
-}, il = {
+}, sl = {
   width: "100%",
   height: "100%"
-}, sl = /* @__PURE__ */ Ze('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), ol = ["id", "cx", "cy"], al = ["values", "dur"], cl = ["dur"], ul = ["id"], dl = ["xlink:href"], fl = ["xlink:href", "fill", "mask"], hl = ["fill", "x", "y"], gl = ["href", "width", "height", "x", "y"], yl = ["id", "d"], pl = ["id"], ml = ["r"], vl = ["dur", "path"], _l = ["xlink:href", "stroke-width", "stroke"], $l = ["xlink:href", "stroke-width", "stroke", "mask"], wl = ["from", "to", "dur"], xl = { key: 2 }, $e = /* @__PURE__ */ z({
+}, ol = /* @__PURE__ */ Ze('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), al = ["id", "cx", "cy"], cl = ["values", "dur"], ul = ["dur"], dl = ["id"], fl = ["xlink:href"], hl = ["xlink:href", "fill", "mask"], gl = ["fill", "x", "y"], pl = ["href", "width", "height", "x", "y"], yl = ["id", "d"], ml = ["id"], vl = ["r"], _l = ["dur", "path"], $l = ["xlink:href", "stroke-width", "stroke"], wl = ["xlink:href", "stroke-width", "stroke", "mask"], xl = ["from", "to", "dur"], bl = { key: 2 }, $e = /* @__PURE__ */ F({
   __name: "index",
   props: {
     bgUrl: { type: String },
@@ -1688,12 +1688,12 @@ const nl = {
   },
   emits: ["chart-click"],
   setup(e) {
-    const t = e, r = T();
-    let l;
-    te(() => {
-      l = Be();
+    const t = e, l = A();
+    let r;
+    j(() => {
+      r = Oe();
     });
-    const c = Z({
+    const d = Z({
       halo: {
         show: !0,
         duration: 2e3,
@@ -1722,161 +1722,161 @@ const nl = {
         k: -0.5,
         curvature: 5
       }
-    }), a = Z({
+    }), c = Z({
       points: [],
       paths: []
-    }), u = (g) => {
-      let { offsetX: C, offsetY: f } = g;
-      const F = (C / s.value).toFixed(2), S = (f / o.value).toFixed(2);
-      l == null || l.emit("chart-click", F, S, g);
-    }, n = () => {
-      y(), h();
+    }), n = (p) => {
+      let { offsetX: T, offsetY: u } = p;
+      const w = (T / o.value).toFixed(2), $ = (u / a.value).toFixed(2);
+      r == null || r.emit("chart-click", w, $, p);
+    }, s = () => {
+      h(), g();
     }, i = () => {
-      y(), h();
-    }, { width: s, height: o } = le(r, n, i), y = () => {
-      let g = Y(ue(t.points));
-      a.points = g.map((C, f) => ({
-        ...C,
-        halo: V({}, c.halo, Y(t.halo), C.halo),
-        title: V({}, c.title, Y(t.title), C.title),
-        icon: V({}, c.icon, Y(t.icon), C.icon),
-        key: `${C.coordinate.toString()}${f}`
+      h(), g();
+    }, { width: o, height: a } = le(l, s, i), h = () => {
+      let p = V(ue(t.points));
+      c.points = p.map((T, u) => ({
+        ...T,
+        halo: Q({}, d.halo, V(t.halo), T.halo),
+        title: Q({}, d.title, V(t.title), T.title),
+        icon: Q({}, d.icon, V(t.icon), T.icon),
+        key: `${T.coordinate.toString()}${u}`
       }));
-    }, h = () => {
-      let g = Y(ue(t.paths));
-      a.paths = g.map((C, f) => {
+    }, g = () => {
+      let p = V(ue(t.paths));
+      c.paths = p.map((T, u) => {
         var ne, q;
-        let { source: F, route: S, target: L, line: X } = C, D = V({}, c.line, Y(t.line), X), O = (ne = a.points.find(({ name: A }) => A === F)) == null ? void 0 : ne.coordinate, R = (q = a.points.find(({ name: A }) => A === L)) == null ? void 0 : q.coordinate, W = S ? [O, ...S, R] : [O, R];
-        W = W.filter((A) => A !== void 0);
+        let { source: w, route: $, target: C, line: B } = T, I = Q({}, d.line, V(t.line), B), E = (ne = c.points.find(({ name: N }) => N === w)) == null ? void 0 : ne.coordinate, D = (q = c.points.find(({ name: N }) => N === C)) == null ? void 0 : q.coordinate, W = $ ? [E, ...$, D] : [E, D];
+        W = W.filter((N) => N !== void 0);
         let U = [];
-        for (let A = 0; A < W.length - 1; A++) {
-          let Xe = W[A], J = p(Xe, W[A + 1], D.k, D.curvature), Ye = `M${J[0].toString()} Q${J[1].toString()} ${J[2].toString()}`, Ve = `${J.toString()}`;
-          U.push({ path: J, d: Ye, key: Ve });
+        for (let N = 0; N < W.length - 1; N++) {
+          let Xe = W[N], ee = y(Xe, W[N + 1], I.k, I.curvature), Ye = `M${ee[0].toString()} Q${ee[1].toString()} ${ee[2].toString()}`, Ve = `${ee.toString()}`;
+          U.push({ path: ee, d: Ye, key: Ve });
         }
         return {
-          ...C,
-          line: D,
+          ...T,
+          line: I,
           routeList: U
         };
       });
-    }, p = (g, C, f, F) => {
-      let [S, L] = g, [X, D] = C;
-      const [O, R] = [(S + X) / 2, (L + D) / 2];
-      let U = Re([S, L], [X, D]) / F, ne = U / 2, [q, A] = [O, R];
+    }, y = (p, T, u, w) => {
+      let [$, C] = p, [B, I] = T;
+      const [E, D] = [($ + B) / 2, (C + I) / 2];
+      let U = Ee([$, C], [B, I]) / w, ne = U / 2, [q, N] = [E, D];
       do
-        q += ne, A = b(f, [O, R], q)[1];
-      while (Re([O, R], [q, A]) < U);
-      return [g, [q, A], C];
+        q += ne, N = k(u, [E, D], q)[1];
+      while (Ee([E, D], [q, N]) < U);
+      return [p, [q, N], T];
     };
-    function b(g, [C, f], F) {
-      const S = f - g * C + g * F;
-      return [F, S];
+    function k(p, [T, u], w) {
+      const $ = u - p * T + p * w;
+      return [w, $];
     }
-    let d = P(() => function(g) {
-      return `M${g[0][0] * s.value},${g[0][1] * o.value} 
-    Q${g[1][0] * s.value},${g[1][1] * o.value} 
-    ${g[2][0] * s.value},${g[2][1] * o.value}`;
-    }), m = P(() => function(g) {
-      return `M${g[0][0] * s.value},${g[0][1] * o.value} 
-    Q${g[1][0] * s.value},${g[1][1] * o.value} 
-    ${g[2][0] * s.value},${g[2][1] * o.value}`;
-    }), k = P(() => function(g) {
+    let f = L(() => function(p) {
+      return `M${p[0][0] * o.value},${p[0][1] * a.value} 
+    Q${p[1][0] * o.value},${p[1][1] * a.value} 
+    ${p[2][0] * o.value},${p[2][1] * a.value}`;
+    }), m = L(() => function(p) {
+      return `M${p[0][0] * o.value},${p[0][1] * a.value} 
+    Q${p[1][0] * o.value},${p[1][1] * a.value} 
+    ${p[2][0] * o.value},${p[2][1] * a.value}`;
+    }), P = L(() => function(p) {
       return {
-        x1: g[0][0] * s.value,
-        y1: g[0][1] * o.value,
-        x2: g[1][0] * s.value,
-        y2: g[1][1] * o.value,
-        x3: g[2][0] * s.value,
-        y3: g[2][1] * o.value
+        x1: p[0][0] * o.value,
+        y1: p[0][1] * a.value,
+        x2: p[1][0] * o.value,
+        y2: p[1][1] * a.value,
+        x3: p[2][0] * o.value,
+        y3: p[2][1] * a.value
       };
     });
-    P(() => function(g) {
-      return `"M${g[0][0] * s.value},${g[0][1] * o.value} Q${g[1][0] * s.value},${g[1][1] * o.value} ${g[2][0] * s.value},${g[2][1] * o.value}"`;
+    L(() => function(p) {
+      return `"M${p[0][0] * o.value},${p[0][1] * a.value} Q${p[1][0] * o.value},${p[1][1] * a.value} ${p[2][0] * o.value},${p[2][1] * a.value}"`;
     });
-    let I = P(() => function(g) {
-      return l ? l.proxy.$refs[g][0].getTotalLength() : 0;
+    let R = L(() => function(p) {
+      return r ? r.proxy.$refs[p][0].getTotalLength() : 0;
     });
-    return ee(() => t, (g) => {
-      y(), h();
+    return J(() => t, (p) => {
+      h(), g();
     }, {
       deep: !0,
       immediate: !0
-    }), (g, C) => (v(), _(
+    }), (p, T) => (v(), _(
       "div",
       {
         ref_key: "flightChart",
-        ref: r,
+        ref: l,
         class: "f-flight-chart"
       },
       [
-        $(
+        x(
           "div",
           {
             class: "f-flight-chart__wrap",
-            style: N(`background-image: url(${t.bgUrl})`),
-            onClick: u
+            style: H(`background-image: url(${t.bgUrl})`),
+            onClick: n
           },
           [
-            (v(), _("svg", il, [
-              sl,
+            (v(), _("svg", sl, [
+              ol,
               (v(!0), _(
                 M,
                 null,
-                Q(a.points, (f, F) => (v(), _("g", {
-                  key: f.key
+                Y(c.points, (u, w) => (v(), _("g", {
+                  key: u.key
                 }, [
-                  $("defs", null, [
-                    f.halo.show ? (v(), _("circle", {
+                  x("defs", null, [
+                    u.halo.show ? (v(), _("circle", {
                       key: 0,
-                      id: `halo${f.key}`,
-                      cx: f.coordinate[0] * w(s),
-                      cy: f.coordinate[1] * w(o)
+                      id: `halo${u.key}`,
+                      cx: u.coordinate[0] * b(o),
+                      cy: u.coordinate[1] * b(a)
                     }, [
-                      $("animate", {
+                      x("animate", {
                         attributeName: "r",
-                        values: `1;${f.halo.radius}`,
-                        dur: `${f.halo.duration}ms`,
+                        values: `1;${u.halo.radius}`,
+                        dur: `${u.halo.duration}ms`,
                         repeatCount: "indefinite"
-                      }, null, 8, al),
-                      $("animate", {
+                      }, null, 8, cl),
+                      x("animate", {
                         attributeName: "opacity",
                         values: "1;0",
-                        dur: `${f.halo.duration}ms`,
+                        dur: `${u.halo.duration}ms`,
                         repeatCount: "indefinite"
-                      }, null, 8, cl)
-                    ], 8, ol)) : E("v-if", !0),
-                    $("mask", {
-                      id: `mask${f.key}`
+                      }, null, 8, ul)
+                    ], 8, al)) : O("v-if", !0),
+                    x("mask", {
+                      id: `mask${u.key}`
                     }, [
-                      $("use", {
-                        "xlink:href": `#halo${f.key}`,
+                      x("use", {
+                        "xlink:href": `#halo${u.key}`,
                         fill: "url(#haloGradient)"
-                      }, null, 8, dl)
-                    ], 8, ul)
+                      }, null, 8, fl)
+                    ], 8, dl)
                   ]),
-                  f.halo.show ? (v(), _("use", {
+                  u.halo.show ? (v(), _("use", {
                     key: 0,
-                    "xlink:href": `#halo${f.key}`,
-                    fill: f.halo.color,
-                    mask: `url(#mask${f.key})`
-                  }, null, 8, fl)) : E("v-if", !0),
-                  f.title.show ? (v(), _("text", {
+                    "xlink:href": `#halo${u.key}`,
+                    fill: u.halo.color,
+                    mask: `url(#mask${u.key})`
+                  }, null, 8, hl)) : O("v-if", !0),
+                  u.title.show ? (v(), _("text", {
                     key: 1,
                     class: "point__title",
-                    style: N({ fontSize: `${f.title.fontSize}px` }),
-                    fill: f.title.color,
-                    x: f.coordinate[0] * w(s) + f.title.offest[0],
-                    y: f.coordinate[1] * w(o) + f.title.offest[1]
-                  }, B(f.name), 13, hl)) : E("v-if", !0),
-                  f.icon.show ? (v(), _("image", {
+                    style: H({ fontSize: `${u.title.fontSize}px` }),
+                    fill: u.title.color,
+                    x: u.coordinate[0] * b(o) + u.title.offest[0],
+                    y: u.coordinate[1] * b(a) + u.title.offest[1]
+                  }, z(u.name), 13, gl)) : O("v-if", !0),
+                  u.icon.show ? (v(), _("image", {
                     key: 2,
                     class: "point__icon",
-                    href: f.icon.url,
-                    width: f.icon.width,
-                    height: f.icon.height,
-                    x: f.coordinate[0] * w(s) - f.icon.width / 2,
-                    y: f.coordinate[1] * w(o) - f.icon.height / 2
-                  }, null, 8, gl)) : E("v-if", !0)
+                    href: u.icon.url,
+                    width: u.icon.width,
+                    height: u.icon.height,
+                    x: u.coordinate[0] * b(o) - u.icon.width / 2,
+                    y: u.coordinate[1] * b(a) - u.icon.height / 2
+                  }, null, 8, pl)) : O("v-if", !0)
                 ]))),
                 128
                 /* KEYED_FRAGMENT */
@@ -1884,71 +1884,71 @@ const nl = {
               (v(!0), _(
                 M,
                 null,
-                Q(a.paths, (f, F) => (v(), _(
+                Y(c.paths, (u, w) => (v(), _(
                   M,
                   null,
                   [
                     (v(!0), _(
                       M,
                       null,
-                      Q(f.routeList, (S, L) => (v(), _("g", null, [
-                        $("defs", null, [
-                          $("path", {
-                            id: S.key,
+                      Y(u.routeList, ($, C) => (v(), _("g", null, [
+                        x("defs", null, [
+                          x("path", {
+                            id: $.key,
                             ref_for: !0,
-                            ref: S.key,
-                            d: w(d)(S.path),
+                            ref: $.key,
+                            d: b(f)($.path),
                             fill: "transparent",
                             style: { overflow: "hidden" }
                           }, null, 8, yl),
-                          f.line.show && !f.line.slot ? (v(), _("mask", {
+                          u.line.show && !u.line.slot ? (v(), _("mask", {
                             key: 0,
-                            id: `mask${S.key}`
+                            id: `mask${$.key}`
                           }, [
-                            $("circle", {
+                            x("circle", {
                               cx: "0",
                               cy: "0",
-                              r: f.line.radius,
+                              r: u.line.radius,
                               fill: "url(#lineGradient)"
                             }, [
-                              $("animateMotion", {
-                                dur: `${f.line.duration}ms`,
-                                path: w(d)(S.path),
+                              x("animateMotion", {
+                                dur: `${u.line.duration}ms`,
+                                path: b(f)($.path),
                                 rotate: "auto",
                                 repeatCount: "indefinite"
-                              }, null, 8, vl)
-                            ], 8, ml)
-                          ], 8, pl)) : E("v-if", !0)
+                              }, null, 8, _l)
+                            ], 8, vl)
+                          ], 8, ml)) : O("v-if", !0)
                         ]),
-                        f.line.show ? (v(), _("use", {
+                        u.line.show ? (v(), _("use", {
                           key: 0,
-                          "xlink:href": `#${S.key}`,
-                          "stroke-width": f.line.width,
-                          stroke: f.line.orbitColor
-                        }, null, 8, _l)) : E("v-if", !0),
-                        f.line.show && !f.line.slot ? (v(), _("use", {
+                          "xlink:href": `#${$.key}`,
+                          "stroke-width": u.line.width,
+                          stroke: u.line.orbitColor
+                        }, null, 8, $l)) : O("v-if", !0),
+                        u.line.show && !u.line.slot ? (v(), _("use", {
                           key: 1,
-                          "xlink:href": `#${S.key}`,
-                          "stroke-width": f.line.width,
-                          stroke: f.line.color,
-                          mask: `url(#mask${S.key})`
+                          "xlink:href": `#${$.key}`,
+                          "stroke-width": u.line.width,
+                          stroke: u.line.color,
+                          mask: `url(#mask${$.key})`
                         }, [
-                          $("animate", {
+                          x("animate", {
                             attributeName: "stroke-dasharray",
-                            from: `0, ${w(I)(S.key)}`,
-                            to: `${w(I)(S.key)}, 0`,
-                            dur: `${f.line.duration}ms`,
+                            from: `0, ${b(R)($.key)}`,
+                            to: `${b(R)($.key)}, 0`,
+                            dur: `${u.line.duration}ms`,
                             repeatCount: "indefinite"
-                          }, null, 8, wl)
-                        ], 8, $l)) : E("v-if", !0),
-                        f.line.show && f.line.slot ? (v(), _("g", xl, [
-                          G(g.$slots, f.line.slot, {
-                            path: w(m)(S.path),
-                            pathArr: w(k)(S.path),
-                            totalLength: w(I)(S.key),
-                            line: f.line
+                          }, null, 8, xl)
+                        ], 8, wl)) : O("v-if", !0),
+                        u.line.show && u.line.slot ? (v(), _("g", bl, [
+                          G(p.$slots, u.line.slot, {
+                            path: b(m)($.path),
+                            pathArr: b(P)($.path),
+                            totalLength: b(R)($.key),
+                            line: u.line
                           })
-                        ])) : E("v-if", !0)
+                        ])) : O("v-if", !0)
                       ]))),
                       256
                       /* UNKEYED_FRAGMENT */
@@ -1974,7 +1974,7 @@ const nl = {
 $e.install = function(e) {
   e.component("FFlightChart", $e);
 };
-const bl = {
+const kl = {
   title: "flightChart 飞线图",
   name: "flightChart",
   category: "图表",
@@ -1982,7 +1982,7 @@ const bl = {
   install(e) {
     e.use($e);
   }
-}, kl = {
+}, Sl = {
   // 列表数据
   data: {
     type: Array,
@@ -2002,68 +2002,177 @@ const bl = {
   height: {
     type: String,
     default: "100%"
+  },
+  // 是否开启滚动事件
+  autoScroll: {
+    type: Boolean,
+    default: !1
+  },
+  // 每次滚动多少行
+  scrollRow: {
+    type: Number
+  },
+  // 每次滚动的距离
+  scrollDistance: {
+    type: Number
+  },
+  // 滚动间隔
+  scrollInterval: {
+    type: Number,
+    default: 100
   }
-}, Sl = {
-  class: "f-virtual-list__space",
-  ref: "virtualList__space"
-}, Cl = {
-  class: "f-virtual-list__content",
-  ref: "virtualList__content"
-}, Pl = /* @__PURE__ */ $(
-  "div",
-  null,
-  null,
-  -1
-  /* HOISTED */
-), Il = [
-  Pl
-], we = /* @__PURE__ */ z({
+}, Cl = ["id"], we = /* @__PURE__ */ F({
   __name: "index",
-  props: kl,
+  props: Sl,
   setup(e) {
-    const t = e, r = T(), l = Z({
+    const t = e, l = A(null), r = A(null), d = A(null), c = A(null), n = Z({
       positions: [],
       // 每行的位置信息
       screenHeight: 0,
       // 可视区域高度
       start: 0,
       // 起始索引
-      end: 0
+      end: 0,
       // 结束索引
+      isMouseHover: !1,
+      // 鼠标是否移入列表
+      intervalID: null
     });
     Je(() => {
-      c();
+      s();
+    }), j(() => {
+      n.screenHeight = l.value.clientHeight, n.start = 0, n.end = n.start + h.value, R(), T();
+    }), je(() => {
+      xe(() => {
+        var w, $;
+        if (!c.value || !((w = c.value) != null && w.length))
+          return;
+        m();
+        let u = ($ = n.positions.at(-1)) == null ? void 0 : $.bottom;
+        r.value.style.height = `${u}px`, f();
+      });
+    }), be(() => {
+      p();
+    }), J(() => t.data, () => {
+      s();
     });
-    const c = () => {
-      l.positions = t.data.map((u, n) => ({
-        index: n,
+    const s = () => {
+      n.positions = t.data.map((u, w) => ({
+        index: w,
         height: t.estimatedItemSize,
-        top: n * t.estimatedItemSize,
-        bottom: (n + 1) * t.estimatedItemSize
+        top: w * t.estimatedItemSize,
+        bottom: (w + 1) * t.estimatedItemSize
       }));
-    }, a = () => {
+    }, i = (u = 0) => o(n.positions, u), o = (u, w) => {
+      let $ = 0, C = u.length - 1, B = null;
+      for (; $ <= C; ) {
+        let I = parseInt(($ + C) / 2 + ""), E = u[I].bottom;
+        if (E === w)
+          return I + 1;
+        E < w ? $ = I + 1 : E > w && ((B === null || B > I) && (B = I), C = C - 1);
+      }
+      return B;
+    }, a = L(() => t.data.map((u, w) => ({
+      _index_: w,
+      ...u
+    }))), h = L(() => Math.ceil(n.screenHeight / t.estimatedItemSize)), g = L(() => Math.min(n.start, t.bufferScale * h.value)), y = L(() => Math.min(t.data.length - n.end, t.bufferScale * h.value)), k = L(() => {
+      let u = n.start - g.value, w = n.end + y.value;
+      return a.value.slice(u, w);
+    }), f = () => {
+      let u = 0;
+      if (n.start >= 1) {
+        let w = n.positions[n.start].top - (n.positions[n.start - g.value] ? n.positions[n.start - g.value].top : 0);
+        u = n.positions[n.start - 1].bottom - w;
+      } else
+        u = 0;
+      d.value.style.transform = `translate3d(0,${u}px,0)`;
+    }, m = () => {
+      if (c.value)
+        for (let u = 0; u < c.value.length; u++) {
+          let w = c.value[u], C = w.getBoundingClientRect().height, B = +w.id, E = n.positions[B].height - C;
+          if (E) {
+            n.positions[B].bottom = n.positions[B].bottom - E, n.positions[B].height = C;
+            for (let D = B + 1; D < n.positions.length; D++)
+              n.positions[D].top = n.positions[D - 1].bottom, n.positions[D].bottom = n.positions[D].bottom - E;
+          }
+        }
+    }, P = () => {
+      let u = l.value.scrollTop;
+      n.start = i(u), n.end = n.start + h.value, f();
+    }, R = () => {
+      n.intervalID === null && t.autoScroll && !n.isMouseHover && (console.log("添加自动滚动"), n.intervalID = setInterval(() => {
+        if (l.value) {
+          let u = t.scrollDistance || n.positions[n.start].height;
+          if (t.scrollDistance && (u = t.scrollDistance), t.scrollRow) {
+            let w = 0;
+            for (let $ = 0; $ < t.scrollRow; $++)
+              ;
+            u = w;
+          }
+          l.value.scrollTo({
+            top: l.value.scrollTop + u,
+            behavior: "smooth"
+          });
+        }
+      }, t.scrollInterval));
+    }, p = () => {
+      n.intervalID && (clearInterval(n.intervalID), n.intervalID = null);
+    }, T = () => {
+      l.value && (l.value.addEventListener("mouseenter", () => {
+        p(), n.isMouseHover = !0;
+      }), l.value.addEventListener("mouseleave", () => {
+        n.isMouseHover = !1, R();
+      }));
     };
-    return (u, n) => (v(), _(
+    return (u, w) => (v(), _(
       "div",
       {
         class: "f-virtual-list",
         ref_key: "virtualList",
-        ref: r,
-        style: N({ height: u.height }),
-        onScroll: n[0] || (n[0] = (i) => a())
+        ref: l,
+        style: H({ height: u.height }),
+        onScroll: w[0] || (w[0] = ($) => P())
       },
       [
-        $(
+        x(
           "div",
-          Sl,
+          {
+            class: "f-virtual-list__space",
+            ref_key: "virtualList__space",
+            ref: r
+          },
           null,
           512
           /* NEED_PATCH */
         ),
-        $(
+        x(
           "div",
-          Cl,
-          Il,
+          {
+            class: "f-virtual-list__content",
+            ref_key: "virtualList__content",
+            ref: d
+          },
+          [
+            (v(!0), _(
+              M,
+              null,
+              Y(b(k), ($) => (v(), _("div", {
+                class: "f-virtual-list__item",
+                ref_for: !0,
+                ref_key: "virtualList__item",
+                ref: c,
+                id: `${$._index_}`
+              }, [
+                G(u.$slots, "default", {
+                  ref_for: !0,
+                  ref: "slot",
+                  item: $
+                })
+              ], 8, Cl))),
+              256
+              /* UNKEYED_FRAGMENT */
+            ))
+          ],
           512
           /* NEED_PATCH */
         )
@@ -2076,48 +2185,48 @@ const bl = {
 we.install = function(e) {
   e.component("FVirtualList", we);
 };
-const Ll = {
-  title: "VirtualList 虚拟列表",
+const Pl = {
+  title: "virtualList 虚拟列表",
   name: "virtualList",
   category: "数据展示",
   status: "100%",
   install(e) {
     e.use(we);
   }
-}, Dl = [
-  pt,
+}, Il = [
   mt,
   vt,
-  bt,
-  Ct,
-  At,
-  Wt,
-  Bt,
-  Xt,
-  Gt,
-  nl,
-  bl,
-  Ll
-], Rl = {
+  _t,
+  kt,
+  Pt,
+  Et,
+  Mt,
+  Ot,
+  Yt,
+  Ut,
+  il,
+  kl,
+  Pl
+], Dl = {
   version: "1.0.12",
   install(e) {
-    Dl.forEach((t) => e.use(t));
+    Il.forEach((t) => e.use(t));
   }
 };
 export {
   ie as BorderBox1,
   se as BorderBox2,
   ve as DigitalScroll,
-  pe as DynamicParticle,
+  ye as DynamicParticle,
   $e as FlightChart,
   oe as Loading1,
   ae as Loading2,
-  j as Progress,
+  te as Progress,
   ge as ScreenContainer,
   _e as ScrollRank,
   me as ScrollTable,
   de as ScrollText,
   we as VirtualList,
-  Rl as default,
-  Dl as installs
+  Dl as default,
+  Il as installs
 };

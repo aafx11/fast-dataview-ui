@@ -9,7 +9,7 @@ VirtualList.install = function (app: App): void {
 export { VirtualList };
 // 单独引入，后续做按需引用
 export default {
-  title: 'VirtualList 虚拟列表',
+  title: 'virtualList 虚拟列表',
   name:'virtualList',
   category: '数据展示',
   status: '100%',
