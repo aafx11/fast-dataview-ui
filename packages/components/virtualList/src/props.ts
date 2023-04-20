@@ -6,7 +6,7 @@ export const Props = {
     type: Array as PropType<TableData>,
     default: () => []
   },
-  // 每行预告高度
+  // 每行预估高度
   estimatedItemSize: {
     type: Number,
     required: true
@@ -28,7 +28,8 @@ export const Props = {
   },
   // 每次滚动多少行
   scrollRow: {
-    type: Number
+    type: Number,
+    default: 1
   },
   // 每次滚动的距离
   scrollDistance: {
@@ -38,6 +39,11 @@ export const Props = {
   scrollInterval: {
     type: Number,
     default: 100
+  },
+  // 滚动到底部的停留时间
+  stopTime: {
+    type: Number,
+    default: 10 * 1000
   },
 } as const;
 

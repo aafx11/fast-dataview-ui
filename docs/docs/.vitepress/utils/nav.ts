@@ -12,7 +12,7 @@ export const nav = [
   {
     text: '基础组件',
     activeMatch: '^/components/',
-    link: '/components/border01'
+    link: '/components/scrollTable'
   },
   {
     text: version,

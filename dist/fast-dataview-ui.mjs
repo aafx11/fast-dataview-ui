@@ -1,5 +1,5 @@
 import './style.css';
-import { unref as b, getCurrentScope as Qe, onScopeDispose as Ge, watch as J, ref as A, onMounted as j, onUnmounted as Ue, nextTick as xe, defineComponent as F, computed as L, createVNode as S, renderSlot as G, openBlock as v, createElementBlock as _, normalizeStyle as H, createElementVNode as x, toDisplayString as z, reactive as Z, provide as ke, createCommentVNode as O, inject as Se, normalizeClass as K, getCurrentInstance as Oe, onBeforeUnmount as be, Fragment as M, renderList as Y, TransitionGroup as ze, withCtx as fe, normalizeProps as qe, guardReactiveProps as Ke, withDirectives as Ce, vShow as Pe, createStaticVNode as Ze, onBeforeMount as Je, onUpdated as je } from "vue";
+import { unref as b, getCurrentScope as Qe, onScopeDispose as Ge, watch as J, ref as A, onMounted as j, onUnmounted as Ue, nextTick as xe, defineComponent as M, computed as L, createVNode as S, renderSlot as G, openBlock as v, createElementBlock as _, normalizeStyle as H, createElementVNode as x, toDisplayString as z, reactive as Z, provide as ke, createCommentVNode as O, inject as Se, normalizeClass as K, getCurrentInstance as Oe, onBeforeUnmount as be, Fragment as F, renderList as Y, TransitionGroup as ze, withCtx as fe, normalizeProps as qe, guardReactiveProps as Ke, withDirectives as Ce, vShow as Pe, createStaticVNode as Ze, onBeforeMount as Je, onUpdated as je } from "vue";
 function et(e, t) {
   const l = window.MutationObserver, r = new l(t);
   return r.observe(e, {
@@ -139,7 +139,7 @@ const le = (e, t, l, r) => {
     afterHeight: s,
     initWH: h
   };
-}, Fe = {
+}, Me = {
   color: {
     type: Array,
     default: () => []
@@ -184,9 +184,9 @@ const le = (e, t, l, r) => {
 }, Ee = (e, t) => {
   const l = Math.abs(e[0] - t[0]), r = Math.abs(e[1] - t[1]);
   return Math.sqrt(l * l + r * r);
-}, ie = /* @__PURE__ */ F({
+}, ie = /* @__PURE__ */ M({
   name: "FBorderBox1",
-  props: Fe,
+  props: Me,
   setup(e, {
     slots: t
   }) {
@@ -300,9 +300,9 @@ const mt = {
   install(e) {
     e.use(ie);
   }
-}, se = /* @__PURE__ */ F({
+}, se = /* @__PURE__ */ M({
   name: "FBorderBox2",
-  props: Fe,
+  props: Me,
   setup(e, {
     slots: t
   }) {
@@ -367,7 +367,7 @@ const vt = {
   install(e) {
     e.use(se);
   }
-}, oe = /* @__PURE__ */ F({
+}, oe = /* @__PURE__ */ M({
   name: "FLoading1",
   props: {
     width: {
@@ -482,7 +482,7 @@ const _t = {
   install(e) {
     e.use(oe);
   }
-}, $t = F({
+}, $t = M({
   name: "FLoading2",
   props: {
     width: { type: String, default: "100px" },
@@ -505,7 +505,7 @@ const _t = {
       }))
     };
   }
-}), Me = (e, t) => {
+}), Fe = (e, t) => {
   const l = e.__vccOpts || e;
   for (const [r, d] of t)
     l[r] = d;
@@ -542,7 +542,7 @@ function bt(e, t, l, r, d, c) {
     /* STYLE */
   );
 }
-const ae = /* @__PURE__ */ Me($t, [["render", bt]]);
+const ae = /* @__PURE__ */ Fe($t, [["render", bt]]);
 ae.install = function(e) {
   e.component(ae.name, ae);
 };
@@ -559,7 +559,7 @@ const kt = {
   height: { type: Number, default: 1080 },
   onAfterResize: { type: Function, default: () => {
   } }
-}, Ct = { class: "f-screen-container" }, ge = /* @__PURE__ */ F({
+}, Ct = { class: "f-screen-container" }, ge = /* @__PURE__ */ M({
   __name: "index",
   props: St,
   setup(e) {
@@ -660,7 +660,7 @@ class pe {
     this.targetX = t, this.targetY = l, this.colors = r;
   }
 }
-const Be = 30;
+const Ne = 30;
 class Tt {
   // 动画的id，用于停止动画
   constructor(t, l, r) {
@@ -674,7 +674,7 @@ class Tt {
       let l = t.particleData, r = l.length, d = this.particleArr, c = d.length;
       for (let s = 0; s < r; s++) {
         const { targetX: i, targetY: o, colors: a } = l[s];
-        d[s] ? d[s].change(i, o, a) : d[s] = new pe(this.width, this.height, i, o, Be, this.radius, a);
+        d[s] ? d[s].change(i, o, a) : d[s] = new pe(this.width, this.height, i, o, Ne, this.radius, a);
       }
       r < c && (this.particleArr = d.splice(0, r)), d = this.particleArr;
       let n = d.length;
@@ -683,7 +683,7 @@ class Tt {
         i.targetX = d[n].targetX, i.targetY = d[n].targetY, i.colors = d[n].colors, d[n].targetX = o, d[n].targetY = a, d[n].colors = h;
       }
     } else
-      this.particleArr = t.particleData.map((l) => new pe(this.width, this.height, l.targetX, l.targetY, Be, this.radius, l.colors));
+      this.particleArr = t.particleData.map((l) => new pe(this.width, this.height, l.targetX, l.targetY, Ne, this.radius, l.colors));
   }
   drawCanvas() {
     this.ctx.clearRect(0, 0, this.width, this.height), this.particleArr.forEach((t) => {
@@ -692,7 +692,7 @@ class Tt {
   }
 }
 const Rt = 30;
-class Ne {
+class Be {
   // 粒子的半径
   // particleColors: string; // 粒子的颜色
   constructor(t, l, r, d) {
@@ -713,8 +713,8 @@ class Ne {
               continue;
             const k = o[g], f = o[g + 1], m = o[g + 2];
             if (k + f + m + y) {
-              const R = new pe(this.width, this.height, h, a, Rt, this.radius, `rgba(${k},${f},${m},${y})`);
-              this.particleData.push(R);
+              const T = new pe(this.width, this.height, h, a, Rt, this.radius, `rgba(${k},${f},${m},${y})`);
+              this.particleData.push(T);
             }
           }
         l(this.particleData);
@@ -724,7 +724,7 @@ class Ne {
     });
   }
 }
-const At = ["width", "height"], ye = /* @__PURE__ */ F({
+const At = ["width", "height"], ye = /* @__PURE__ */ M({
   __name: "index",
   props: It,
   setup(e, { expose: t }) {
@@ -733,9 +733,9 @@ const At = ["width", "height"], ye = /* @__PURE__ */ F({
     const c = A(null), n = A(null);
     let s = A(), i = A();
     const o = async (h) => {
-      i.value = new Ne(h, l.width, l.height, l.radius), await i.value.createParticleData(), s.value.changeImg(i.value);
+      i.value = new Be(h, l.width, l.height, l.radius), await i.value.createParticleData(), s.value.changeImg(i.value);
     }, a = async () => {
-      i.value = new Ne(l.src, l.width, l.height, l.radius), await i.value.createParticleData(), c.value && (n.value = c.value.getContext("2d"), s.value = new Tt(c.value, l.radius, l.strength), c.value.addEventListener("mousemove", (h) => {
+      i.value = new Be(l.src, l.width, l.height, l.radius), await i.value.createParticleData(), c.value && (n.value = c.value.getContext("2d"), s.value = new Tt(c.value, l.radius, l.strength), c.value.addEventListener("mousemove", (h) => {
         const { left: g, top: y } = c.value.getBoundingClientRect(), { clientX: k, clientY: f } = h;
         s.value.mouseX = (k - g) * (1 / r.value), s.value.mouseY = (f - y) * (1 / d.value);
       }), s.value.drawCanvas(), s.value.changeImg(i.value));
@@ -776,7 +776,7 @@ function We(e) {
     }
   };
 }
-function Bt(e, t, l) {
+function Nt(e, t, l) {
   const { handleToggle: r } = We(l), d = (g) => {
     let y = ue(g);
     return V(y);
@@ -822,7 +822,7 @@ function Bt(e, t, l) {
     }
   };
 }
-function Nt(e, t) {
+function Bt(e, t) {
   const l = L(() => function(o, a) {
     const h = ["f-scroll-table__row"];
     return t.stripe && a % 2 === 1 && h.push("f-scroll-table_row--striped"), h;
@@ -868,7 +868,7 @@ function Nt(e, t) {
     getCellStyle: i
   };
 }
-const de = /* @__PURE__ */ F({
+const de = /* @__PURE__ */ M({
   __name: "index",
   props: {
     type: { default: "default" },
@@ -934,9 +934,9 @@ const Ot = {
   }
 }, zt = {
   class: "f-scroll-table__head"
-}, Ht = ["onClick"], Ft = {
+}, Ht = ["onClick"], Mt = {
   key: 1
-}, me = /* @__PURE__ */ F({
+}, me = /* @__PURE__ */ M({
   __name: "index",
   props: {
     name: {
@@ -1039,7 +1039,7 @@ const Ot = {
       setEmptyTimeout: o,
       clearTimer: a,
       setPage: h
-    } = Bt(r, l, d), {
+    } = Nt(r, l, d), {
       handleCellClick: g
     } = We(d), {
       getRowClass: y,
@@ -1047,20 +1047,20 @@ const Ot = {
       getTableStyle: f,
       getBodyStyle: m,
       getRowStyle: P,
-      getExtraCellStyle: R,
+      getExtraCellStyle: T,
       getCellStyle: p
-    } = Nt(r, l), T = (C) => {
+    } = Bt(r, l), R = (C) => {
       C.style.opacity = "0", C.style.gridTemplateRows = "0fr";
-    }, u = (C, B) => {
-      C.offsetWidth, C.style.opacity = "1", C.style.gridTemplateRows = "1fr", B();
+    }, u = (C, N) => {
+      C.offsetWidth, C.style.opacity = "1", C.style.gridTemplateRows = "1fr", N();
     }, w = async (C) => {
       C.style.opacity = "1";
-    }, $ = async (C, B) => {
+    }, $ = async (C, N) => {
       C.style.opacity = "0", C.style.gridTemplateRows = "0fr", await new Promise((I) => {
         setTimeout(() => {
           C.remove(), I(!0);
         }, l.pageAnimateDur);
-      }), B();
+      }), N();
     };
     return J(() => l.data, (C) => {
       r.tableData = n(C), s();
@@ -1077,7 +1077,7 @@ const Ot = {
       a();
     }), t({
       setPage: h
-    }), (C, B) => (v(), _(
+    }), (C, N) => (v(), _(
       "div",
       {
         ref: "scrollTable",
@@ -1087,13 +1087,13 @@ const Ot = {
         style: H(b(f)(l.columns))
       },
       [x("div", zt, [(v(!0), _(
-        M,
+        F,
         null,
         Y(l.columns, (I, E) => (v(), _(
           "div",
           {
             class: "f-scroll-table__cell",
-            style: H(b(R)(I)),
+            style: H(b(T)(I)),
             key: E
           },
           z(I.label),
@@ -1113,13 +1113,13 @@ const Ot = {
         [S(ze, {
           tag: "div",
           css: !1,
-          onBeforeEnter: T,
+          onBeforeEnter: R,
           onEnter: u,
           onBeforeLeave: w,
           onLeave: $
         }, {
           default: fe(() => [(v(!0), _(
-            M,
+            F,
             null,
             Y(r.currData, (I, E) => (v(), _("div", {
               class: "f-scroll-table__row-wrap",
@@ -1130,11 +1130,11 @@ const Ot = {
                 class: K(b(y)(I, E))
               },
               [(v(!0), _(
-                M,
+                F,
                 null,
                 Y(l.columns, (D, W) => (v(), _("div", {
                   class: "f-scroll-table__cell",
-                  style: H([b(R)(D), b(p)(I, D.type === "index" ? "_index_" : D.prop, E, W)]),
+                  style: H([b(T)(D), b(p)(I, D.type === "index" ? "_index_" : D.prop, E, W)]),
                   key: `${I[D.prop]}${W}`,
                   onClick: (U) => b(g)(U, I, I[D.prop], E, W)
                 }, [D.type === "index" ? (v(), _(
@@ -1146,7 +1146,7 @@ const Ot = {
                   z(I._index_ || ""),
                   3
                   /* TEXT, CLASS */
-                )) : D.type === "scroll" ? (v(), _("div", Ft, [S(
+                )) : D.type === "scroll" ? (v(), _("div", Mt, [S(
                   b(de),
                   qe(Ke(D.scrollOption)),
                   {
@@ -1210,7 +1210,7 @@ const Ot = {
 me.install = function(e) {
   e.component("FScrollTable", me);
 };
-const Mt = {
+const Ft = {
   title: "scrollTable 轮播表格",
   name: "scrollTable",
   category: "数据展示",
@@ -1218,7 +1218,7 @@ const Mt = {
   install(e) {
     e.use(me);
   }
-}, Wt = F({
+}, Wt = M({
   name: "FProgress",
   props: {
     percent: { type: Number, default: 0 },
@@ -1271,7 +1271,7 @@ function Xt(e, t, l, r, d, c) {
     /* STYLE */
   );
 }
-const te = /* @__PURE__ */ Me(Wt, [["render", Xt]]);
+const te = /* @__PURE__ */ Fe(Wt, [["render", Xt]]);
 te.install = function(e) {
   e.component(te.name, te);
 };
@@ -1283,7 +1283,7 @@ const Yt = {
   install(e) {
     e.use(te);
   }
-}, Vt = { class: "f-digital-scroll" }, Qt = { class: "f-digital-scroll__list" }, Gt = { class: "f-digital-scroll__point" }, ve = /* @__PURE__ */ F({
+}, Vt = { class: "f-digital-scroll" }, Qt = { class: "f-digital-scroll__list" }, Gt = { class: "f-digital-scroll__point" }, ve = /* @__PURE__ */ M({
   __name: "index",
   props: {
     number: {
@@ -1320,7 +1320,7 @@ const Yt = {
     ), (c, n) => (v(), _("div", Vt, [
       x("div", Qt, [
         (v(!0), _(
-          M,
+          F,
           null,
           Y(b(l).stringList, (s, i) => (v(), _(
             "div",
@@ -1346,7 +1346,7 @@ const Yt = {
                 },
                 [
                   (v(), _(
-                    M,
+                    F,
                     null,
                     Y(10, (o, a) => x(
                       "div",
@@ -1401,7 +1401,7 @@ const Ut = {
 }, rl = {
   key: 2,
   class: "f-scroll-rank__item-format"
-}, nl = { class: "f-scroll-rank__item-progress" }, _e = /* @__PURE__ */ F({
+}, nl = { class: "f-scroll-rank__item-progress" }, _e = /* @__PURE__ */ M({
   __name: "index",
   props: {
     data: {
@@ -1466,18 +1466,18 @@ const Ut = {
     });
     const d = (f) => {
       let m = V(ue(f)), P = [];
-      t.order === "default" ? P = m : P = pt(m, "value", t.order), typeof t.valueFormatter == "function" && (P = P.map((R, p) => {
-        var T;
-        return R.formattedValue = (T = t.valueFormatter) == null ? void 0 : T.call(null, {
-          name: R.name,
-          value: R.value,
+      t.order === "default" ? P = m : P = pt(m, "value", t.order), typeof t.valueFormatter == "function" && (P = P.map((T, p) => {
+        var R;
+        return T.formattedValue = (R = t.valueFormatter) == null ? void 0 : R.call(null, {
+          name: T.name,
+          value: T.value,
           maxValue: o.value,
           index: p
-        }), R;
+        }), T;
       })), r.dataList = P;
     }, c = async (f, m, P) => {
-      let R = P;
-      m.map((p) => p._index_ = ++R), r.currList.length ? f === t.pageSize ? r.currList = [...m] : (r.currList.push(...m), r.currList.splice(0, f)) : r.currList.push(...m), xe(() => {
+      let T = P;
+      m.map((p) => p._index_ = ++T), r.currList.length ? f === t.pageSize ? r.currList = [...m] : (r.currList.push(...m), r.currList.splice(0, f)) : r.currList.push(...m), xe(() => {
         l.value && (l.value.style.maxHeight = `${l.value.getBoundingClientRect().height}px`, l.value.style.height = `${l.value.getBoundingClientRect().height}px`);
       });
     }, n = async () => {
@@ -1487,8 +1487,8 @@ const Ut = {
         t.togglePage >= t.pageSize ? f = t.pageSize : f = t.togglePage;
         let m, P;
         r.currPage === 1 ? (m = 0, P = t.pageSize) : (m = f * (r.currPage - 2) + t.pageSize, P = f * (r.currPage - 1) + t.pageSize);
-        let R = r.dataList.slice(m, P);
-        R.length ? r.currPage === 1 ? await c(t.pageSize, R, m) : await c(f, R, m) : (r.currPage = 1, n()), s();
+        let T = r.dataList.slice(m, P);
+        T.length ? r.currPage === 1 ? await c(t.pageSize, T, m) : await c(f, T, m) : (r.currPage = 1, n()), s();
       } else
         i(), r.isEmpty = !0, r.currPage = 1, r.currList = [];
     }, s = () => {
@@ -1503,8 +1503,8 @@ const Ut = {
     }), a = L(() => function(f) {
       let m, P = o.value;
       m = f / P;
-      const R = (p, T) => Math.round(p * Math.pow(10, T)) / Math.pow(10, T);
-      return typeof m == "number" ? R(m * 100, 1) : 0;
+      const T = (p, R) => Math.round(p * Math.pow(10, R)) / Math.pow(10, R);
+      return typeof m == "number" ? T(m * 100, 1) : 0;
     }), h = (f) => {
       f.style.opacity = "0", f.style.gridTemplateRows = "0fr";
     }, g = (f, m) => {
@@ -1549,9 +1549,9 @@ const Ut = {
           }, {
             default: fe(() => [
               (v(!0), _(
-                M,
+                F,
                 null,
-                Y(b(r).currList, (P, R) => (v(), _("div", {
+                Y(b(r).currList, (P, T) => (v(), _("div", {
                   class: "f-scroll-rank__item",
                   key: P
                 }, [
@@ -1632,7 +1632,7 @@ const il = {
 }, sl = {
   width: "100%",
   height: "100%"
-}, ol = /* @__PURE__ */ Ze('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), al = ["id", "cx", "cy"], cl = ["values", "dur"], ul = ["dur"], dl = ["id"], fl = ["xlink:href"], hl = ["xlink:href", "fill", "mask"], gl = ["fill", "x", "y"], pl = ["href", "width", "height", "x", "y"], yl = ["id", "d"], ml = ["id"], vl = ["r"], _l = ["dur", "path"], $l = ["xlink:href", "stroke-width", "stroke"], wl = ["xlink:href", "stroke-width", "stroke", "mask"], xl = ["from", "to", "dur"], bl = { key: 2 }, $e = /* @__PURE__ */ F({
+}, ol = /* @__PURE__ */ Ze('<defs><radialGradient id="lineGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient><radialGradient id="haloGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity="0"></stop><stop offset="100%" stop-color="#fff" stop-opacity="1"></stop></radialGradient></defs>', 1), al = ["id", "cx", "cy"], cl = ["values", "dur"], ul = ["dur"], dl = ["id"], fl = ["xlink:href"], hl = ["xlink:href", "fill", "mask"], gl = ["fill", "x", "y"], pl = ["href", "width", "height", "x", "y"], yl = ["id", "d"], ml = ["id"], vl = ["r"], _l = ["dur", "path"], $l = ["xlink:href", "stroke-width", "stroke"], wl = ["xlink:href", "stroke-width", "stroke", "mask"], xl = ["from", "to", "dur"], bl = { key: 2 }, $e = /* @__PURE__ */ M({
   __name: "index",
   props: {
     bgUrl: { type: String },
@@ -1726,8 +1726,8 @@ const il = {
       points: [],
       paths: []
     }), n = (p) => {
-      let { offsetX: T, offsetY: u } = p;
-      const w = (T / o.value).toFixed(2), $ = (u / a.value).toFixed(2);
+      let { offsetX: R, offsetY: u } = p;
+      const w = (R / o.value).toFixed(2), $ = (u / a.value).toFixed(2);
       r == null || r.emit("chart-click", w, $, p);
     }, s = () => {
       h(), g();
@@ -1735,41 +1735,41 @@ const il = {
       h(), g();
     }, { width: o, height: a } = le(l, s, i), h = () => {
       let p = V(ue(t.points));
-      c.points = p.map((T, u) => ({
-        ...T,
-        halo: Q({}, d.halo, V(t.halo), T.halo),
-        title: Q({}, d.title, V(t.title), T.title),
-        icon: Q({}, d.icon, V(t.icon), T.icon),
-        key: `${T.coordinate.toString()}${u}`
+      c.points = p.map((R, u) => ({
+        ...R,
+        halo: Q({}, d.halo, V(t.halo), R.halo),
+        title: Q({}, d.title, V(t.title), R.title),
+        icon: Q({}, d.icon, V(t.icon), R.icon),
+        key: `${R.coordinate.toString()}${u}`
       }));
     }, g = () => {
       let p = V(ue(t.paths));
-      c.paths = p.map((T, u) => {
+      c.paths = p.map((R, u) => {
         var ne, q;
-        let { source: w, route: $, target: C, line: B } = T, I = Q({}, d.line, V(t.line), B), E = (ne = c.points.find(({ name: N }) => N === w)) == null ? void 0 : ne.coordinate, D = (q = c.points.find(({ name: N }) => N === C)) == null ? void 0 : q.coordinate, W = $ ? [E, ...$, D] : [E, D];
-        W = W.filter((N) => N !== void 0);
+        let { source: w, route: $, target: C, line: N } = R, I = Q({}, d.line, V(t.line), N), E = (ne = c.points.find(({ name: B }) => B === w)) == null ? void 0 : ne.coordinate, D = (q = c.points.find(({ name: B }) => B === C)) == null ? void 0 : q.coordinate, W = $ ? [E, ...$, D] : [E, D];
+        W = W.filter((B) => B !== void 0);
         let U = [];
-        for (let N = 0; N < W.length - 1; N++) {
-          let Xe = W[N], ee = y(Xe, W[N + 1], I.k, I.curvature), Ye = `M${ee[0].toString()} Q${ee[1].toString()} ${ee[2].toString()}`, Ve = `${ee.toString()}`;
+        for (let B = 0; B < W.length - 1; B++) {
+          let Xe = W[B], ee = y(Xe, W[B + 1], I.k, I.curvature), Ye = `M${ee[0].toString()} Q${ee[1].toString()} ${ee[2].toString()}`, Ve = `${ee.toString()}`;
           U.push({ path: ee, d: Ye, key: Ve });
         }
         return {
-          ...T,
+          ...R,
           line: I,
           routeList: U
         };
       });
-    }, y = (p, T, u, w) => {
-      let [$, C] = p, [B, I] = T;
-      const [E, D] = [($ + B) / 2, (C + I) / 2];
-      let U = Ee([$, C], [B, I]) / w, ne = U / 2, [q, N] = [E, D];
+    }, y = (p, R, u, w) => {
+      let [$, C] = p, [N, I] = R;
+      const [E, D] = [($ + N) / 2, (C + I) / 2];
+      let U = Ee([$, C], [N, I]) / w, ne = U / 2, [q, B] = [E, D];
       do
-        q += ne, N = k(u, [E, D], q)[1];
-      while (Ee([E, D], [q, N]) < U);
-      return [p, [q, N], T];
+        q += ne, B = k(u, [E, D], q)[1];
+      while (Ee([E, D], [q, B]) < U);
+      return [p, [q, B], R];
     };
-    function k(p, [T, u], w) {
-      const $ = u - p * T + p * w;
+    function k(p, [R, u], w) {
+      const $ = u - p * R + p * w;
       return [w, $];
     }
     let f = L(() => function(p) {
@@ -1793,7 +1793,7 @@ const il = {
     L(() => function(p) {
       return `"M${p[0][0] * o.value},${p[0][1] * a.value} Q${p[1][0] * o.value},${p[1][1] * a.value} ${p[2][0] * o.value},${p[2][1] * a.value}"`;
     });
-    let R = L(() => function(p) {
+    let T = L(() => function(p) {
       return r ? r.proxy.$refs[p][0].getTotalLength() : 0;
     });
     return J(() => t, (p) => {
@@ -1801,7 +1801,7 @@ const il = {
     }, {
       deep: !0,
       immediate: !0
-    }), (p, T) => (v(), _(
+    }), (p, R) => (v(), _(
       "div",
       {
         ref_key: "flightChart",
@@ -1820,7 +1820,7 @@ const il = {
             (v(), _("svg", sl, [
               ol,
               (v(!0), _(
-                M,
+                F,
                 null,
                 Y(c.points, (u, w) => (v(), _("g", {
                   key: u.key
@@ -1882,14 +1882,14 @@ const il = {
                 /* KEYED_FRAGMENT */
               )),
               (v(!0), _(
-                M,
+                F,
                 null,
                 Y(c.paths, (u, w) => (v(), _(
-                  M,
+                  F,
                   null,
                   [
                     (v(!0), _(
-                      M,
+                      F,
                       null,
                       Y(u.routeList, ($, C) => (v(), _("g", null, [
                         x("defs", null, [
@@ -1935,8 +1935,8 @@ const il = {
                         }, [
                           x("animate", {
                             attributeName: "stroke-dasharray",
-                            from: `0, ${b(R)($.key)}`,
-                            to: `${b(R)($.key)}, 0`,
+                            from: `0, ${b(T)($.key)}`,
+                            to: `${b(T)($.key)}, 0`,
                             dur: `${u.line.duration}ms`,
                             repeatCount: "indefinite"
                           }, null, 8, xl)
@@ -1945,7 +1945,7 @@ const il = {
                           G(p.$slots, u.line.slot, {
                             path: b(m)($.path),
                             pathArr: b(P)($.path),
-                            totalLength: b(R)($.key),
+                            totalLength: b(T)($.key),
                             line: u.line
                           })
                         ])) : O("v-if", !0)
@@ -1988,7 +1988,7 @@ const kl = {
     type: Array,
     default: () => []
   },
-  // 每行预告高度
+  // 每行预估高度
   estimatedItemSize: {
     type: Number,
     required: !0
@@ -2010,7 +2010,8 @@ const kl = {
   },
   // 每次滚动多少行
   scrollRow: {
-    type: Number
+    type: Number,
+    default: 1
   },
   // 每次滚动的距离
   scrollDistance: {
@@ -2020,8 +2021,13 @@ const kl = {
   scrollInterval: {
     type: Number,
     default: 100
+  },
+  // 滚动到底部的停留时间
+  stopTime: {
+    type: Number,
+    default: 10 * 1e3
   }
-}, Cl = ["id"], we = /* @__PURE__ */ F({
+}, Cl = ["id"], we = /* @__PURE__ */ M({
   __name: "index",
   props: Sl,
   setup(e) {
@@ -2041,7 +2047,7 @@ const kl = {
     Je(() => {
       s();
     }), j(() => {
-      n.screenHeight = l.value.clientHeight, n.start = 0, n.end = n.start + h.value, R(), T();
+      n.screenHeight = l.value.clientHeight, n.start = 0, n.end = n.start + h.value, T(), R();
     }), je(() => {
       xe(() => {
         var w, $;
@@ -2053,9 +2059,12 @@ const kl = {
       });
     }), be(() => {
       p();
-    }), J(() => t.data, () => {
-      s();
-    });
+    }), J(
+      () => t.data,
+      () => {
+        s();
+      }
+    );
     const s = () => {
       n.positions = t.data.map((u, w) => ({
         index: w,
@@ -2064,18 +2073,21 @@ const kl = {
         bottom: (w + 1) * t.estimatedItemSize
       }));
     }, i = (u = 0) => o(n.positions, u), o = (u, w) => {
-      let $ = 0, C = u.length - 1, B = null;
+      let $ = 0, C = u.length - 1, N = null;
       for (; $ <= C; ) {
         let I = parseInt(($ + C) / 2 + ""), E = u[I].bottom;
         if (E === w)
           return I + 1;
-        E < w ? $ = I + 1 : E > w && ((B === null || B > I) && (B = I), C = C - 1);
+        E < w ? $ = I + 1 : E > w && ((N === null || N > I) && (N = I), C = C - 1);
       }
-      return B;
+      return N;
     }, a = L(() => t.data.map((u, w) => ({
       _index_: w,
       ...u
-    }))), h = L(() => Math.ceil(n.screenHeight / t.estimatedItemSize)), g = L(() => Math.min(n.start, t.bufferScale * h.value)), y = L(() => Math.min(t.data.length - n.end, t.bufferScale * h.value)), k = L(() => {
+    }))), h = L(() => Math.ceil(n.screenHeight / t.estimatedItemSize)), g = L(() => Math.min(n.start, t.bufferScale * h.value)), y = L(() => Math.min(
+      t.data.length - n.end,
+      t.bufferScale * h.value
+    )), k = L(() => {
       let u = n.start - g.value, w = n.end + y.value;
       return a.value.slice(u, w);
     }), f = () => {
@@ -2089,39 +2101,44 @@ const kl = {
     }, m = () => {
       if (c.value)
         for (let u = 0; u < c.value.length; u++) {
-          let w = c.value[u], C = w.getBoundingClientRect().height, B = +w.id, E = n.positions[B].height - C;
+          let w = c.value[u], C = w.getBoundingClientRect().height, N = +w.id, E = n.positions[N].height - C;
           if (E) {
-            n.positions[B].bottom = n.positions[B].bottom - E, n.positions[B].height = C;
-            for (let D = B + 1; D < n.positions.length; D++)
+            n.positions[N].bottom = n.positions[N].bottom - E, n.positions[N].height = C;
+            for (let D = N + 1; D < n.positions.length; D++)
               n.positions[D].top = n.positions[D - 1].bottom, n.positions[D].bottom = n.positions[D].bottom - E;
           }
         }
     }, P = () => {
       let u = l.value.scrollTop;
       n.start = i(u), n.end = n.start + h.value, f();
-    }, R = () => {
-      n.intervalID === null && t.autoScroll && !n.isMouseHover && (console.log("添加自动滚动"), n.intervalID = setInterval(() => {
+    }, T = () => {
+      n.intervalID === null && t.autoScroll && !n.isMouseHover && (n.intervalID = setInterval(() => {
         if (l.value) {
-          let u = t.scrollDistance || n.positions[n.start].height;
-          if (t.scrollDistance && (u = t.scrollDistance), t.scrollRow) {
+          let u = 0;
+          if (t.scrollDistance && (u = t.scrollDistance), t.scrollRow && u === 0) {
             let w = 0;
             for (let $ = 0; $ < t.scrollRow; $++)
-              ;
+              w += n.positions[n.start + $].height;
             u = w;
           }
-          l.value.scrollTo({
-            top: l.value.scrollTop + u,
-            behavior: "smooth"
-          });
+          if (Math.abs(l.value.scrollHeight - l.value.clientHeight - l.value.scrollTop) >= 1) {
+            let w = l.value.scrollTop + u;
+            l.value.scrollTo({ top: w, behavior: "smooth" });
+          } else
+            p(), setTimeout(() => {
+              l.value.scrollTo({ top: 0, behavior: "instant" }), setTimeout(() => {
+                T();
+              }, 500);
+            }, t.stopTime);
         }
       }, t.scrollInterval));
     }, p = () => {
       n.intervalID && (clearInterval(n.intervalID), n.intervalID = null);
-    }, T = () => {
+    }, R = () => {
       l.value && (l.value.addEventListener("mouseenter", () => {
         p(), n.isMouseHover = !0;
       }), l.value.addEventListener("mouseleave", () => {
-        n.isMouseHover = !1, R();
+        n.isMouseHover = !1, T();
       }));
     };
     return (u, w) => (v(), _(
@@ -2154,7 +2171,7 @@ const kl = {
           },
           [
             (v(!0), _(
-              M,
+              F,
               null,
               Y(b(k), ($) => (v(), _("div", {
                 class: "f-virtual-list__item",
@@ -2166,7 +2183,7 @@ const kl = {
                 G(u.$slots, "default", {
                   ref_for: !0,
                   ref: "slot",
-                  item: $
+                  params: { row: $, $index: $._index_ }
                 })
               ], 8, Cl))),
               256
@@ -2200,7 +2217,7 @@ const Pl = {
   kt,
   Pt,
   Et,
-  Mt,
+  Ft,
   Ot,
   Yt,
   Ut,

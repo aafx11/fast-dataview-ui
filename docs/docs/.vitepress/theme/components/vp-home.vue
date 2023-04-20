@@ -54,14 +54,11 @@
 
       <!-- 贡献者 -->
       <div class="vp-home__contributors">
-        <f-text block center bold size="26px">Contributors</f-text>
         <div class="vp-home__contributors-box">
           <f-link v-for="(item, i) in contributors" :href="item.homePage" :key="i" target="_blank">
             <f-avatar round :src="item.avatar" />
           </f-link>
         </div>
-
-        <f-button simple type="primary" href="/docs/contributing.html" round> 加入其中 </f-button>
       </div>
 
       <!-- 页脚 -->
@@ -77,11 +74,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- 底部连接 -->
-        <p class="vp-home__footer-code">
-          <f-link target="_blank" href="https://beian.miit.gov.cn"> FightingDesign | 浙ICP备2021024540号-2 </f-link>
-        </p>
       </div>
     </div>
   </div>
