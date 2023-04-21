@@ -17,12 +17,12 @@ export default defineConfig({
     nav,
     sidebar,
     socialLinks: [
-      // {
-      //   icon: 'github',
-      //   link: 'https://github.com/FightingDesign/fighting-design'
-      // }
+      {
+        icon: 'github',
+        link: 'https://github.com/aafx11/fast-dataview-ui'
+      }
     ],
-    // logo: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
+    // logo: ''
   },
   markdown: {
     config: (md) => {
