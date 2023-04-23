@@ -106,6 +106,7 @@
   "exclude": [
     "node_modules",
     "**/__tests__",
-    "dist/**"
+    "dist/**",
+    "build/**"
   ]
 }

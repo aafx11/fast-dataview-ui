@@ -3,7 +3,7 @@
     <input class="vp-search__input" v-model="searchText" type="text" placeholder="搜索组件" @input="onInputSearch" @keyup.enter="onEnterSearch" />
     <!-- 搜索结果 -->
     <div v-if="isShow && resultList && resultList.length" class="vp-search__result" @click.stop="hiddenResult">
-      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="`/fast-dataview-ui/${item.url}.html`">
+      <a v-for="(item, index) in resultList" class="vp-search__link" :key="index" :href="item.url">
         {{ item.title }}
       </a>
     </div>
