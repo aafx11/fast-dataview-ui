@@ -12,6 +12,7 @@ import DigitalScrollInstall, { DigitalScroll } from './digitalScroll';
 import ScrollRankInstall, { ScrollRank } from './scrollRank';
 import FlightChartInstall, { FlightChart } from './flightChart';
 import VirtualListInstall, { VirtualList } from './virtualList';
+import LiquidChartInstall, { LiquidChart } from './liquidChart';
 
 export const installs = [
   BorderBox1Install,
@@ -26,7 +27,8 @@ export const installs = [
   DigitalScrollInstall,
   ScrollRankInstall,
   FlightChartInstall,
-  VirtualListInstall
+  VirtualListInstall,
+  LiquidChartInstall
 ];
 
 export {
@@ -42,7 +44,8 @@ export {
   DigitalScroll,
   ScrollRank,
   FlightChart,
-  VirtualList
+  VirtualList,
+  LiquidChart
 };
 
 // 实现一个vue3插件，需要实现一个install方法

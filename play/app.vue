@@ -1,95 +1,48 @@
 <template>
-  <div>
-    <div>123</div>
-  </div>
-  <div style="height: 400px;width: 600px;">
-    <!-- v-slot="slotProps" -->
-    <FVirtualList ref="ccc" :scrollRow="5" :scrollDistance="1" :data="state.data" :scrollInterval="50" 
-      :bufferScale="1" :estimatedItemSize="100">
-      <template #default="{ item }">
-        <div class="table-list" style="width: 1500px;">
-          <div v-for="(column, index) in columns" class="table-list__item"
-            :style="{ 'min-width': `${column.width}px`, 'max-width': `${column.width}px` }">{{ item[column.key] }}</div>
-        </div>
-      </template>
-    </FVirtualList>
-    <!-- <VirtualList v-if="show" :estimatedItemSize="100" :listData="state.data" v-slot="slotProps">
-      <Item :item="slotProps.item" />
-    </VirtualList> -->
-    <!-- {{ slotProps.item }} -->
+  <!-- <div :style="{
+    width: '400px', height: '400px',
+    margin: '100px'
+  }">
+    <FLiquidChart :style="{
+        width: state.width, height: state.height
+      }" :borderWidth="state.borderWidth"></FLiquidChart>
+  </div> -->
+  <div class="wrap">
+    <div>
+
+    </div>
+    <div>
+      <FLiquidChart :style="{ width: state.width, height: state.height }" ref="test" v-bind="state">
+      </FLiquidChart>
+      <div>123</div>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, reactive, nextTick } from 'vue';
-import VirtualList from './comp/VirtualList.vue';
-import Item from './comp/Item.vue';
-import { Column } from '../packages/components/scrollTable/src/types';
-let show = ref(false);
-let state = reactive<{
-  data: any[];
-  bufferScale: number;
-  estimatedItemSize: number;
-}>({
-  data: [],
-  bufferScale: 1,
-  estimatedItemSize: 100
+let state = reactive({
+  width: '100%',
+  height: '100%',
+  borderWidth: 10,
+  currLevel: 40,
+  maxLevel: 100
 });
-
-const ccc = ref<HTMLElement | null>(null);
-
-const generateColumns = (length = 10, prefix = 'column-') => {
-  return Array.from({ length }).map((_, columnIndex) => ({
-    key: `${prefix}${columnIndex}`,
-    value: `Column ${columnIndex}`,
-    width: 150
-  }));
-};
-
-const generateData = (
-  columns: ReturnType<typeof generateColumns>,
-  length = 200,
-  prefix = 'row-'
-) => {
-  return Array.from({ length }).map((_, rowIndex) => {
-    return columns.reduce(
-      (rowData, column, columnIndex) => {
-        rowData[column.key] = `Row ${rowIndex} - Col ${columnIndex}`;
-        return rowData;
-      },
-      {
-        id: `${prefix}${rowIndex}`
-      } as Record<string, unknown>);
-  });
-};
-
-const columns = generateColumns(10);
-state.data = generateData(columns, 200);
-
-// onMounted(() => {
-//   let tempData = [];
-//   for (let i = 0; i < 1000; i++) {
-//     tempData.push({
-//       id: i
-//     });
-//   }
-//   console.log();
-
-//   state.data = tempData;
-// });
+const test = ref();
+setTimeout(() => {
+  state.width = '80%';
+  state.height = '80%';
+  state.borderWidth = 20;
+  // console.log('修改');
+  test.value.resize();
+}, 2000);
 </script>
 <style lang="scss">
-.table-list {
-  display: flex;
-  align-items: center;
+body,
+html {
   width: 100%;
-  border-bottom:1px solid rgb(235,238,245)
-}
-.table-list__item{
-  padding:10px 10px;
-  box-sizing: border-box;
-}
-body {
+  height: 100%;
   margin: 0;
+  // color:transparent;
   overflow: hidden;
 }
 
@@ -106,11 +59,15 @@ body {
   }
 }
 
-.list {
-  display: flex;
+.wrap {
+  display: grid;
+  grid-template-columns: 50fr 50fr 78fr;
+  grid-template-rows: 30fr 70fr;
+  width: 100vw;
+  height: 100vh;
+}
 
-  .list-item {
-    padding: 10px;
-  }
+.f-liquid-chart__top-border {
+  // stroke-dasharray: 100;
 }
 </style>

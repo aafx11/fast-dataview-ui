@@ -1,6 +1,9 @@
 import type { App } from "vue";
 import VirtualList from './src/index.vue';
 
+export type VirtualListInstance = InstanceType<typeof VirtualList>
+
+export * from './src/interface.d'
 
 // 声明为插件
 VirtualList.install = function (app: App): void {

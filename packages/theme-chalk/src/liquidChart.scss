@@ -1,0 +1,25 @@
+@use '../mixins/mixins.scss' as *;
+
+.#{$namespace}-liquid-chart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .3s;
+  box-sizing: border-box;
+
+  // 矩形容器
+  &__rect-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  // 波浪容器
+  &__wave-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
