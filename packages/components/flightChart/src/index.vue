@@ -81,7 +81,7 @@ import { PropType, onMounted } from 'vue';
 import { ref, reactive, computed, getCurrentInstance, watch } from 'vue';
 import { getArray, deepClone, extend, getPointsDistance } from '@fast-dataview-ui/utils/index';
 import useResizeListener from '@fast-dataview-ui/hooks/useResizeListener';
-import { realpath } from 'fs';
+
 
 const props = defineProps({
   bgUrl: { type: String },
