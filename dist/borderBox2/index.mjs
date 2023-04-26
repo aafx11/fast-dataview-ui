@@ -125,7 +125,7 @@ const te = (e, n, t, r) => {
   }, p = () => {
     u && (u.disconnect(), u.takeRecords(), u = null);
   }, m = async () => {
-    await c(!1), s = V(c, 200), f(), typeof t == "function" && t();
+    await c(!1), s = V(c, 300), f(), typeof t == "function" && t();
   };
   return S(() => {
     m();

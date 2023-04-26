@@ -1,5 +1,5 @@
 import type { PropType, ExtractPropTypes } from 'vue';
-import { LiquidChartShape, LiquidChartWaterShape, LiquidChartWaveDirection, LiquidChartLine, LiquidChartWave } from './interface';
+import { LiquidChartShape, LiquidChartWaterShape, LiquidChartLine, LiquidChartWave, LiquidChartText } from './interface';
 export const liquidChartProps = {
   // 当前液位
   currLevel: {
@@ -20,6 +20,11 @@ export const liquidChartProps = {
     type: String as PropType<LiquidChartWaterShape>,
     default: 'wave'
   },
+  // 背景颜色
+  background: {
+    type: String,
+    default: 'transparent'
+  },
   // 边框宽度
   borderWidth: {
     type: Number,
@@ -35,30 +40,10 @@ export const liquidChartProps = {
     type: Boolean,
     default: true
   },
-  // 是否展示中心圆球
+  // 中心圆球半径
   centerCircleRadius: {
     type: Number,
     default: 50
-  },
-  // 波浪尺寸
-  waveScale: {
-    type: Number,
-    default: 15
-  },
-  // 波浪前进方向
-  waveDirection: {
-    type: String as PropType<LiquidChartWaveDirection>,
-    default: 'right'
-  },
-  // 波浪动画时长(毫秒)
-  waveDuration: {
-    type: Number,
-    default: 10 * 1000
-  },
-  // 波浪颜色
-  waveColors: {
-    type: Array as PropType<Array<string>>,
-    default: ['#4579e2', 'red']
   },
   // 横线配置
   lineOption: {
@@ -77,6 +62,16 @@ export const liquidChartProps = {
       waveColor: '#4579e2'
     }]
   },
+  // 文本配置
+  textOption: {
+    type: Object as PropType<LiquidChartText>,
+    default: () => ({
+      show: true,
+      offest: [0, 0],
+      fontSize: 22,
+      color: 'white',
+    })
+  }
 } as const;
 
 export type LiquidChartProps = ExtractPropTypes<typeof liquidChartProps>;

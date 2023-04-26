@@ -1,0 +1,7 @@
+{
+    "name": "liquidChart",
+    "version": "0.0.0",
+    "main": "index.umd.js",
+    "module": "index.mjs",
+    "style": "style.css"
+  }

@@ -132,7 +132,7 @@ const se = (e, i, t, n) => {
   }, h = () => {
     u && (u.disconnect(), u.takeRecords(), u = null);
   }, m = async () => {
-    await a(!1), c = K(a, 200), d(), typeof t == "function" && t();
+    await a(!1), c = K(a, 300), d(), typeof t == "function" && t();
   };
   return N(() => {
     m();

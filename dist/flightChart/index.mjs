@@ -146,7 +146,7 @@ const Te = (e, n, r, o) => {
   }, $ = () => {
     s && (s.disconnect(), s.takeRecords(), s = null);
   }, G = async () => {
-    await y(!1), m = Ce(y, 200), k(), typeof r == "function" && r();
+    await y(!1), m = Ce(y, 300), k(), typeof r == "function" && r();
   };
   return oe(() => {
     G();

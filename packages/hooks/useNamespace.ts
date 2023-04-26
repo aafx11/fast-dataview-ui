@@ -1,4 +1,4 @@
-type UseNamespace = {
+export type UseNamespace = {
   b: () => string;
   e: (el: string) => string;
   m: (mo: string) => string;

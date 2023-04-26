@@ -1,4 +1,4 @@
-@use '../mixins/mixins.scss' as *;
+@use '../mixins/mixins.scss'as *;
 
 .#{$namespace}-liquid-chart {
   position: relative;
@@ -47,11 +47,18 @@
   &__center-circle {
     // fill: linear-gradient(180deg, rgba(109, 165, 255, 0.6) 0%, rgba(109, 165, 255, 0) 60.03%, rgba(109, 165, 255, 0) 100%);
     // fill: rgba(69, 121, 226, 0.5);
-
   }
 
   // 线的文本
   &__line-text {
     text-anchor: middle;
+  }
+
+  // 中心文本
+  &__center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // transform: translate(calc(-50% + 100px), calc(-50% + 100px));
   }
 }
