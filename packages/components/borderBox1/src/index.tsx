@@ -1,4 +1,5 @@
-import { defineComponent, ref, computed, renderSlot, onMounted, inject } from 'vue';
+import type { SetupContext } from "vue";
+import { defineComponent, ref, computed, renderSlot } from 'vue';
 import useResizeListener from '@fast-dataview-ui/hooks/useResizeListener';
 import type { BorderBoxProps } from '@fast-dataview-ui/types/BorderProps';
 import { borderBoxProps } from '@fast-dataview-ui/types/BorderProps';
@@ -6,7 +7,7 @@ import { extend, isNotEmptyArray, toZero } from '@fast-dataview-ui/utils/index';
 export default defineComponent({
   name: 'FBorderBox1',
   props: borderBoxProps,
-  setup(props: BorderBoxProps, { slots }) {
+  setup(props: BorderBoxProps, ctx: SetupContext) {
     const borderBox1 = ref<HTMLElement | null>(null);
 
     const defaultColor = ['rgba(46, 96, 153,0.85)', 'rgba(71, 196, 245,0.85)'];
@@ -19,6 +20,10 @@ export default defineComponent({
     });
 
     const { width, height, initWH } = useResizeListener(borderBox1);
+
+    ctx.expose({
+      resize: initWH,
+    });
 
     return {
       width,

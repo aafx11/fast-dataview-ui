@@ -1,14 +1,14 @@
 import { unref as W, getCurrentScope as A, onScopeDispose as T, watch as B, ref as h, onMounted as N, onUnmounted as S, nextTick as F, defineComponent as H, computed as Q, createVNode as d, renderSlot as L } from "vue";
 function R(e, o) {
-  const r = window.MutationObserver, s = new r(o);
-  return s.observe(e, {
+  const r = window.MutationObserver, l = new r(o);
+  return l.observe(e, {
     attributes: !0,
     // 观察所有监听的节点属性值的变化
     attributeFilter: ["style"],
     // 监听的属性
     attributeOldValue: !0
     // 记录上一次被监听的节点的属性变化 
-  }), s;
+  }), l;
 }
 var b;
 const x = typeof window < "u", D = (e) => typeof e == "string", w = () => {
@@ -18,25 +18,25 @@ function g(e) {
   return typeof e == "function" ? e() : W(e);
 }
 function j(e, o) {
-  function r(...s) {
+  function r(...l) {
     return new Promise((a, u) => {
-      Promise.resolve(e(() => o.apply(this, s), { fn: o, thisArg: this, args: s })).then(a).catch(u);
+      Promise.resolve(e(() => o.apply(this, l), { fn: o, thisArg: this, args: l })).then(a).catch(u);
     });
   }
   return r;
 }
 function z(e, o = {}) {
-  let r, s, a = w;
+  let r, l, a = w;
   const u = (t) => {
     clearTimeout(t), a(), a = w;
   };
   return (t) => {
-    const n = g(e), l = g(o.maxWait);
-    return r && u(r), n <= 0 || l !== void 0 && l <= 0 ? (s && (u(s), s = null), Promise.resolve(t())) : new Promise((i, f) => {
-      a = o.rejectOnCancel ? f : i, l && !s && (s = setTimeout(() => {
-        r && u(r), s = null, i(t());
-      }, l)), r = setTimeout(() => {
-        s && u(s), s = null, i(t());
+    const n = g(e), s = g(o.maxWait);
+    return r && u(r), n <= 0 || s !== void 0 && s <= 0 ? (l && (u(l), l = null), Promise.resolve(t())) : new Promise((i, f) => {
+      a = o.rejectOnCancel ? f : i, s && !l && (l = setTimeout(() => {
+        r && u(r), l = null, i(t());
+      }, s)), r = setTimeout(() => {
+        l && u(l), l = null, i(t());
       }, n);
     });
   };
@@ -57,18 +57,18 @@ function V(e) {
 }
 const K = x ? window : void 0;
 function Z(...e) {
-  let o, r, s, a;
-  if (D(e[0]) || Array.isArray(e[0]) ? ([r, s, a] = e, o = K) : [o, r, s, a] = e, !o)
+  let o, r, l, a;
+  if (D(e[0]) || Array.isArray(e[0]) ? ([r, l, a] = e, o = K) : [o, r, l, a] = e, !o)
     return w;
-  Array.isArray(r) || (r = [r]), Array.isArray(s) || (s = [s]);
+  Array.isArray(r) || (r = [r]), Array.isArray(l) || (l = [l]);
   const u = [], c = () => {
     u.forEach((i) => i()), u.length = 0;
   }, t = (i, f, p, $) => (i.addEventListener(f, p, $), () => i.removeEventListener(f, p, $)), n = B(() => [V(o), g(a)], ([i, f]) => {
-    c(), i && u.push(...r.flatMap((p) => s.map(($) => t(i, p, $, f))));
-  }, { immediate: !0, flush: "post" }), l = () => {
+    c(), i && u.push(...r.flatMap((p) => l.map(($) => t(i, p, $, f))));
+  }, { immediate: !0, flush: "post" }), s = () => {
     n(), c();
   };
-  return U(l), l;
+  return U(s), s;
 }
 const v = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, m = "__vueuse_ssr_handlers__";
 v[m] = v[m] || {};
@@ -113,17 +113,17 @@ const ee = {
 Y({
   linear: M
 }, ee);
-const te = (e, o, r, s) => {
+const te = (e, o, r, l) => {
   const a = h(0), u = h(0), c = h(0), t = h(0);
-  let n, l = null, i = null;
+  let n, s = null, i = null;
   const f = (P = !0) => new Promise((E) => {
     F(() => {
       i = e.value, a.value = e.value ? e.value.clientWidth : 0, u.value = e.value ? e.value.clientHeight : 0, c.value = i ? i.getBoundingClientRect().width : 0, t.value = i ? i.getBoundingClientRect().height : 0, e.value ? (!a.value || !u.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof o == "function" && P && o(), E(!0);
     });
   }), p = () => {
-    l = R(i, n), Z(window, "resize", n);
+    s = R(i, n), Z(window, "resize", n);
   }, $ = () => {
-    l && (l.disconnect(), l.takeRecords(), l = null);
+    s && (s.disconnect(), s.takeRecords(), s = null);
   }, C = async () => {
     await f(!1), n = G(f, 300), p(), typeof r == "function" && r();
   };
@@ -165,22 +165,22 @@ const te = (e, o, r, s) => {
 }, re = Object.assign, oe = (e) => Array.isArray(e) && e.length, I = (e) => e >= 0 ? e : 0, y = /* @__PURE__ */ H({
   name: "FBorderBox1",
   props: ne,
-  setup(e, {
-    slots: o
-  }) {
-    const r = h(null), s = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
-    let a = Q(() => oe(e.color) ? re(s, e.color) : s);
+  setup(e, o) {
+    const r = h(null), l = ["rgba(46, 96, 153,0.85)", "rgba(71, 196, 245,0.85)"];
+    let a = Q(() => oe(e.color) ? re(l, e.color) : l);
     const {
       width: u,
       height: c,
       initWH: t
     } = te(r);
-    return {
+    return o.expose({
+      resize: t
+    }), {
       width: u,
       height: c,
       initWH: t,
       borderBox1: r,
-      defaultColor: s,
+      defaultColor: l,
       realColor: a
     };
   },
@@ -189,25 +189,25 @@ const te = (e, o, r, s) => {
       $slots: e,
       width: o,
       height: r,
-      backgroundColor: s,
+      backgroundColor: l,
       strokeWidth: a,
       realColor: u,
       title: c
     } = this, t = 20;
-    let n = a || 2, l = I(o - n - 2), i = I(r - n - 2);
+    let n = a || 2, s = I(o - n - 2), i = I(r - n - 2);
     return d("div", {
       ref: "borderBox1",
       class: "f-border-box-1"
     }, [d("svg", {
       class: "f-svg-container",
-      width: l,
+      width: s,
       height: i
     }, [d("polygon", {
-      fill: s,
+      fill: l,
       stroke: u[0],
       "stroke-width": n,
       points: `
-            ${t} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${i - t}, ${l - t} ${i},
+            ${t} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${i - t}, ${s - t} ${i},
             ${t} ${i}, ${n} ${i - t}, ${n} ${t}
           `
     }, null), d("polyline", {
@@ -220,7 +220,7 @@ const te = (e, o, r, s) => {
       stroke: u[1],
       "stroke-width": n + 1,
       points: `
-            ${l} ${i - t + 8}, ${l - t + 8 + n} ${i}
+            ${s} ${i - t + 8}, ${s - t + 8 + n} ${i}
           `
     }, null), d("polyline", {
       fill: "none",
@@ -241,19 +241,19 @@ const te = (e, o, r, s) => {
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
-           ${l - t - 15} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${t + 15}
+           ${s - t - 15} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${t + 15}
           `
     }, null), d("polyline", {
       fill: "none",
       stroke: u[1],
       "stroke-width": n + 2,
       points: `
-          ${l - t - 15} ${i}, ${l - t} ${i}, ${l - n} ${i - t}, ${l - n} ${i - t - 15}
+          ${s - t - 15} ${i}, ${s - t} ${i}, ${s - n} ${i - t}, ${s - n} ${i - t - 15}
           `
     }, null), c ? d("polygon", {
       fill: "rgba(33, 173, 238,0.1)",
       points: `
-            ${t} ${n}, ${l - t} ${n}, ${l - n} ${t}, ${l - n} ${t + 15}, ${n} ${t + 15},
+            ${t} ${n}, ${s - t} ${n}, ${s - n} ${t}, ${s - n} ${t + 15}, ${n} ${t + 15},
             ${n} ${t}
           `
     }, null) : null, c ? d("text", {
@@ -270,7 +270,7 @@ const te = (e, o, r, s) => {
 y.install = function(e) {
   e.component(y.name, y);
 };
-const le = {
+const se = {
   title: "border-01 边框",
   name: "border01",
   category: "边框",
@@ -281,5 +281,5 @@ const le = {
 };
 export {
   y as BorderBox1,
-  le as default
+  se as default
 };

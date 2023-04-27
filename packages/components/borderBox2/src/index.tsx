@@ -1,4 +1,5 @@
-import { defineComponent, ref, computed, renderSlot, onMounted, inject } from 'vue';
+import type { SetupContext } from "vue";
+import { defineComponent, ref, computed, renderSlot } from 'vue';
 import useResizeListener from '@fast-dataview-ui/hooks/useResizeListener';
 import type { BorderBoxProps } from '@fast-dataview-ui/types/BorderProps';
 import { borderBoxProps } from '@fast-dataview-ui/types/BorderProps';
@@ -6,7 +7,7 @@ import { extend, isNotEmptyArray, toZero } from '@fast-dataview-ui/utils/index';
 export default defineComponent({
   name: 'FBorderBox2',
   props: borderBoxProps,
-  setup(props: BorderBoxProps, { slots }) {
+  setup(props: BorderBoxProps, ctx: SetupContext) {
     const borderBox2 = ref<HTMLElement | null>(null);
 
     const defaultColor = ['white'];
@@ -20,6 +21,10 @@ export default defineComponent({
 
     const { width, height, initWH } = useResizeListener(borderBox2);
 
+    ctx.expose({
+      resize: initWH,
+    });
+
     return {
       width,
       height,
@@ -30,7 +35,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { $slots, width, height, backgroundColor, strokeWidth, realColor, duration,strokeDasharray } = this;
+    const { $slots, width, height, backgroundColor, strokeWidth, realColor, duration, strokeDasharray } = this;
 
     let borderWidth = strokeWidth || 3;
 
@@ -50,7 +55,7 @@ export default defineComponent({
     return (
       <div ref="borderBox2" class="f-border-box-2">
         <svg class="f-svg-container" width={width} height={height}>
-          <path class="f-container-path" style={{'--duration':`${duration}s`,'--border-stroke-dasharray':strokeDasharray}} stroke={realColor[0]} stroke-width={borderWidth} fill={backgroundColor} d={`M ${x1} ${y1}, L ${x2} ${y2}, L ${x3} ${y3}, L ${x4} ${y4}, Z`}></path>
+          <path class="f-container-path" style={{ '--duration': `${duration}s`, '--border-stroke-dasharray': strokeDasharray }} stroke={realColor[0]} stroke-width={borderWidth} fill={backgroundColor} d={`M ${x1} ${y1}, L ${x2} ${y2}, L ${x3} ${y3}, L ${x4} ${y4}, Z`}></path>
         </svg>
         <div class="f-border-box-content">
           {renderSlot($slots, 'default')}

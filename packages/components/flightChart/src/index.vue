@@ -206,7 +206,11 @@ const onAfterResize = () => {
   getPoints();
   getPaths();
 };
-const { width, height } = useResizeListener(flightChart, onResize, onAfterResize);
+const { width, height, initWH } = useResizeListener(flightChart, onResize, onAfterResize);
+
+defineExpose({
+  resize: initWH,
+});
 
 const getPoints = () => {
   let clonePoints = deepClone(getArray(props.points));

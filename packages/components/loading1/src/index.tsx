@@ -1,5 +1,5 @@
 import type { PropType } from 'vue';
-import { defineComponent, ref, computed, renderSlot, onMounted, inject } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import useResizeListener from '@fast-dataview-ui/hooks/useResizeListener';
 import type { LoadingProps } from '@fast-dataview-ui/types/LoadingProps';
 import { loadingProps } from '@fast-dataview-ui/types/LoadingProps';

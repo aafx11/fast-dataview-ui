@@ -10,10 +10,10 @@ function H(e, n) {
     // 记录上一次被监听的节点的属性变化 
   }), r;
 }
-var x;
-const T = typeof window < "u", R = (e) => typeof e == "string", _ = () => {
+var _;
+const T = typeof window < "u", R = (e) => typeof e == "string", x = () => {
 };
-T && ((x = window == null ? void 0 : window.navigator) != null && x.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+T && ((_ = window == null ? void 0 : window.navigator) != null && _.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
 function g(e) {
   return typeof e == "function" ? e() : k(e);
 }
@@ -26,25 +26,25 @@ function j(e, n) {
   return t;
 }
 function M(e, n = {}) {
-  let t, r, a = _;
-  const i = (l) => {
-    clearTimeout(l), a(), a = _;
+  let t, r, a = x;
+  const i = (u) => {
+    clearTimeout(u), a(), a = x;
   };
-  return (l) => {
-    const s = g(e), u = g(n.maxWait);
-    return t && i(t), s <= 0 || u !== void 0 && u <= 0 ? (r && (i(r), r = null), Promise.resolve(l())) : new Promise((o, c) => {
-      a = n.rejectOnCancel ? c : o, u && !r && (r = setTimeout(() => {
-        t && i(t), r = null, o(l());
-      }, u)), t = setTimeout(() => {
-        r && i(r), r = null, o(l());
+  return (u) => {
+    const s = g(e), l = g(n.maxWait);
+    return t && i(t), s <= 0 || l !== void 0 && l <= 0 ? (r && (i(r), r = null), Promise.resolve(u())) : new Promise((o, c) => {
+      a = n.rejectOnCancel ? c : o, l && !r && (r = setTimeout(() => {
+        t && i(t), r = null, o(u());
+      }, l)), t = setTimeout(() => {
+        r && i(r), r = null, o(u());
       }, s);
     });
   };
 }
-function U(e) {
+function z(e) {
   return e;
 }
-function z(e) {
+function U(e) {
   return A() ? (B(e), !0) : !1;
 }
 function V(e, n = 200, t = {}) {
@@ -59,16 +59,16 @@ const Z = T ? window : void 0;
 function K(...e) {
   let n, t, r, a;
   if (R(e[0]) || Array.isArray(e[0]) ? ([t, r, a] = e, n = Z) : [n, t, r, a] = e, !n)
-    return _;
+    return x;
   Array.isArray(t) || (t = [t]), Array.isArray(r) || (r = [r]);
   const i = [], d = () => {
     i.forEach((o) => o()), i.length = 0;
-  }, l = (o, c, f, p) => (o.addEventListener(c, f, p), () => o.removeEventListener(c, f, p)), s = N(() => [G(n), g(a)], ([o, c]) => {
-    d(), o && i.push(...t.flatMap((f) => r.map((p) => l(o, f, p, c))));
-  }, { immediate: !0, flush: "post" }), u = () => {
+  }, u = (o, c, f, p) => (o.addEventListener(c, f, p), () => o.removeEventListener(c, f, p)), s = N(() => [G(n), g(a)], ([o, c]) => {
+    d(), o && i.push(...t.flatMap((f) => r.map((p) => u(o, f, p, c))));
+  }, { immediate: !0, flush: "post" }), l = () => {
     s(), d();
   };
-  return z(u), u;
+  return U(l), l;
 }
 const I = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, C = "__vueuse_ssr_handlers__";
 I[C] = I[C] || {};
@@ -111,19 +111,19 @@ const ee = {
   easeInOutBack: [0.68, -0.6, 0.32, 1.6]
 };
 Y({
-  linear: U
+  linear: z
 }, ee);
 const te = (e, n, t, r) => {
-  const a = y(0), i = y(0), d = y(0), l = y(0);
-  let s, u = null, o = null;
+  const a = y(0), i = y(0), d = y(0), u = y(0);
+  let s, l = null, o = null;
   const c = (w = !0) => new Promise((O) => {
     L(() => {
-      o = e.value, a.value = e.value ? e.value.clientWidth : 0, i.value = e.value ? e.value.clientHeight : 0, d.value = o ? o.getBoundingClientRect().width : 0, l.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!a.value || !i.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && w && n(), O(!0);
+      o = e.value, a.value = e.value ? e.value.clientWidth : 0, i.value = e.value ? e.value.clientHeight : 0, d.value = o ? o.getBoundingClientRect().width : 0, u.value = o ? o.getBoundingClientRect().height : 0, e.value ? (!a.value || !i.value) && console.warn("Component width or height is 0px") : console.warn("Failed to get dom node"), typeof n == "function" && w && n(), O(!0);
     });
   }), f = () => {
-    u = H(o, s), K(window, "resize", s);
+    l = H(o, s), K(window, "resize", s);
   }, p = () => {
-    u && (u.disconnect(), u.takeRecords(), u = null);
+    l && (l.disconnect(), l.takeRecords(), l = null);
   }, m = async () => {
     await c(!1), s = V(c, 300), f(), typeof t == "function" && t();
   };
@@ -135,7 +135,7 @@ const te = (e, n, t, r) => {
     width: a,
     height: i,
     afterWidth: d,
-    afterHeight: l,
+    afterHeight: u,
     initWH: c
   };
 }, ne = {
@@ -165,20 +165,20 @@ const te = (e, n, t, r) => {
 }, re = Object.assign, oe = (e) => Array.isArray(e) && e.length, h = (e) => e >= 0 ? e : 0, v = /* @__PURE__ */ F({
   name: "FBorderBox2",
   props: ne,
-  setup(e, {
-    slots: n
-  }) {
+  setup(e, n) {
     const t = y(null), r = ["white"];
     let a = Q(() => oe(e.color) ? re(r, e.color) : r);
     const {
       width: i,
       height: d,
-      initWH: l
+      initWH: u
     } = te(t);
-    return {
+    return n.expose({
+      resize: u
+    }), {
       width: i,
       height: d,
-      initWH: l,
+      initWH: u,
       borderBox2: t,
       defaultColor: r,
       realColor: a
@@ -193,9 +193,9 @@ const te = (e, n, t, r) => {
       strokeWidth: a,
       realColor: i,
       duration: d,
-      strokeDasharray: l
+      strokeDasharray: u
     } = this;
-    let s = a || 3, u = h(s), o = h(s), c = h(n - s), f = h(s), p = h(n - s), m = h(t - s), w = h(s), O = h(t - s);
+    let s = a || 3, l = h(s), o = h(s), c = h(n - s), f = h(s), p = h(n - s), m = h(t - s), w = h(s), O = h(t - s);
     return b("div", {
       ref: "borderBox2",
       class: "f-border-box-2"
@@ -207,12 +207,12 @@ const te = (e, n, t, r) => {
       class: "f-container-path",
       style: {
         "--duration": `${d}s`,
-        "--border-stroke-dasharray": l
+        "--border-stroke-dasharray": u
       },
       stroke: i[0],
       "stroke-width": s,
       fill: r,
-      d: `M ${u} ${o}, L ${c} ${f}, L ${p} ${m}, L ${w} ${O}, Z`
+      d: `M ${l} ${o}, L ${c} ${f}, L ${p} ${m}, L ${w} ${O}, Z`
     }, null)]), b("div", {
       class: "f-border-box-content"
     }, [D(e, "default")])]);
