@@ -54,6 +54,11 @@
 | duration         | 动画时长           | number   | -      | 2           |
 | stroke-dasharray | 边框虚线           | string   | -      | 300 300     |
 
+## 方法
+| 方法名 | 类型       | 说明                                     |
+| ------ | ---------- | ---------------------------------------- |
+| resize | () => void | 手动调用 resize 方法使边框获取正确的高宽 |
+
 <style lang="scss" scoped>
 .demo-border02 :deep(.source) {
   background: #212121;

@@ -553,6 +553,12 @@ const onChartClick = (x, y, event) => {
 | width  | 图标的宽度     | number  | -      | 10     |
 | height | 图标的高度     | number  | -      | 10     |
 
+
+## 方法
+| 方法名 | 类型       | 说明                                     |
+| ------ | ---------- | ---------------------------------------- |
+| resize | () => void | 手动调用 resize 方法使图表获取正确的高宽 |
+
 <span id="event"></span>
 
 ## 事件

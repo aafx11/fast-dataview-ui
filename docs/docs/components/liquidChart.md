@@ -155,6 +155,11 @@ let state = reactive({
 | color    | 字体颜色                                                                 | string   | -      | white  |
 | text     | 文本内容,{level}标记会被当前液位代替,{percent}标记会被当前液位百分比代替 | string   | -      | 15     |
 
+## 方法
+| 方法名 | 类型       | 说明                                     |
+| ------ | ---------- | ---------------------------------------- |
+| resize | () => void | 手动调用 resize 方法使边框获取正确的高宽 |
+
 <style lang="scss" scoped>
 .demo-liquidChart :deep(.source) {
   display: flex;

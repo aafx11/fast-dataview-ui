@@ -37,6 +37,11 @@
 | backgroundColor | 边框内容的背景颜色 | string   | -      | transparent                                           |
 | strokeWidth     | 边框宽度           | number   | -      | 2                                                     |
 
+## 方法
+| 方法名 | 类型       | 说明                                     |
+| ------ | ---------- | ---------------------------------------- |
+| resize | () => void | 手动调用 resize 方法使边框获取正确的高宽 |
+
 <style lang="scss" scoped>
 .demo-border01 :deep(.source) {
   background: #212121;
